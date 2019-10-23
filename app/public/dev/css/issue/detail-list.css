@@ -1,0 +1,97 @@
+#content-body .float-right-side {
+     display: none;
+     width: 50%;
+     position: absolute;
+     top: 0;
+     right: 0;
+     background: #fff;
+     box-shadow: -1px 0 8px rgba(0, 0, 0, 0.5), 0 -1px 4px rgba(0, 0, 0, 0.3);
+     padding: 0 20px 20px;
+     overflow: auto;
+     height: 93.5%;
+     animation-name: fade-in;
+     animation-duration: 0.75s;
+     min-height: 860px;
+     z-index: 101;
+ }
+
+.close-float-panel {
+    position: absolute;
+    top: 10px;
+    right: -5px;
+    font-size: 16px;
+    padding: 0 3px;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    #content-body .issuable-actions {
+        float: unset;
+    }
+}
+
+.float-right-side .row {
+    clear: both;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.float-right-side .detail-part .row {
+    margin-bottom: 16px;
+    margin-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.float-right-side .content-block {
+    border-bottom: unset;
+}
+
+.float-right-side .issuable-header {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.float-right-side .issue-detail {
+    margin-top: 15px;
+}
+
+.float-right-side .issue-detail .issue-detail-title{
+    font-size: 14px;
+    line-height: 32px;
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 10px;
+}
+
+.detail-pager {
+    display: none;
+    position: absolute;
+    top: 19px;
+    right: 50px;
+    color: #666;
+}
+
+.issue-list-page .detail-pager {
+    display: block;
+}
+
+.detail-pager span .fa {
+    font-size: 18px;
+}
+
+.detail-pager span.previous,
+.detail-pager span.next {
+    cursor: pointer;
+    padding: 0 6px;
+}
+
+.detail-pager span.previous:hover,
+.detail-pager span.next:hover {
+    color: #222;
+}
+
+.detail-pager span.disabled{
+    color: #bbb !important;
+    cursor: not-allowed;
+}
+

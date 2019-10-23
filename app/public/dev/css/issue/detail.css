@@ -1,0 +1,89 @@
+#content-body .detail-page-description .title{
+    border-bottom:unset;
+    padding:0;
+}
+
+#detail-page-description{
+    margin-bottom:15px;
+}
+
+section.issuable-discussion{
+    /*border-top:1px solid #e5e5e5;*/
+    margin-top:10px;
+}
+
+body.unmask{
+    overflow:hidden;
+    height:971px;
+}
+#issue_fields{
+    margin-top:10px;
+}
+
+/*.qq-gallery .file-link{*/
+    /*display: block;*/
+    /*position: relative;*/
+    /*width: 120px;*/
+    /*height: 120px;*/
+/*}*/
+
+/*.CodeMirror, .CodeMirror-scroll {*/
+    /*min-height: 100px;*/
+    /*max-height: 200px;*/
+/*}*/
+
+.right-sidebar .block.due_date_first {
+    border-bottom: 0;
+    padding: 10px 0;
+}
+
+.right-sidebar .title .edit-link, .right-sidebar .title .edit-link2{
+    font-size: 12px;
+    color: #666;
+}
+
+.right-sidebar .title .edit-link:hover, .right-sidebar .title .edit-link2:hover {
+    color: #1890ff;
+}
+
+.description-view {
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.issue-detail {
+    position: relative;
+}
+
+.detail-pager {
+    position: absolute;
+    top: 8px;
+    right: 25px;
+    color: #666;
+}
+
+.detail-pager a .fa {
+    font-size: 18px;
+}
+
+.detail-pager a.previous,
+.detail-pager a.next {
+    cursor: pointer;
+    color: #666;
+    padding: 0 6px;
+}
+
+.detail-pager a.previous.disabled,
+.detail-pager a.next.disabled {
+    color: #999;
+    cursor: not-allowed;
+}
+
+.detail-pager a:hover {
+    color: #222;
+}
+
+.detail-pager a.disabled{
+    color: #bbb !important;
+    cursor: not-allowed;
+}

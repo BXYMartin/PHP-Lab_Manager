@@ -1,0 +1,283 @@
+.required {
+    color: red;
+}
+
+.margin-t-sm {
+    margin-top: 5px;
+}
+
+.margin-t-md, .margin-t {
+    margin-top: 10px !important;
+}
+
+.margin-t-lg {
+    margin-top: 15px;
+}
+
+.margin-t-xl {
+    margin-top: 20px;
+}
+
+.margin-b-sm {
+    margin-bottom: 5px;
+}
+
+.margin-b-md, .margin-b {
+    margin-bottom: 10px;
+}
+
+.margin-b-lg {
+    margin-bottom: 15px;
+}
+
+.margin-b-xl {
+    margin-bottom: 20px;
+}
+
+.margin-l-sm {
+    margin-left: 5px;
+}
+
+.margin-l-md, .margin-l {
+    margin-left: 10px;
+}
+
+.margin-l-lg {
+    margin-left: 15px;
+}
+
+.margin-l-xl {
+    margin-left: 20px;
+}
+
+.margin-r-sm {
+    margin-right: 5px;
+}
+
+.margin-r-md, .margin-r {
+    margin-right: 10px;
+}
+
+.margin-r-lg {
+    margin-right: 15px;
+}
+
+.margin-r-xl {
+    margin-right: 20px;
+}
+
+.margin-l-0 {
+    margin-left: 0 !important;
+}
+
+.margin-l-160 {
+    margin-left: 160px;
+}
+
+.border-0 {
+    border: none;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    min-width: 1100px;
+    position: relative;
+    padding: 10px;
+}
+
+.navbar-fixed-top .container, .footer-container.container {
+    padding: 0;
+}
+
+.tile_40 {
+    width: 40%;
+}
+
+.tile_60 {
+    width: 60%;
+}
+
+.tile__name {
+    cursor: move;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #FF7373;
+}
+
+.tile__list {
+    margin-top: 10px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+.float-left {
+    float: left !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.float-none {
+    float: none !important;
+}
+
+.g-avatar {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.g-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.g-avatar-sm {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.g-avatar-md {
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+}
+
+.g-avatar-lg {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+}
+
+body.dashboard {
+    background-color: #f0f2f5;
+}
+
+.min-height200 {
+    min-height: 200px;
+}
+
+.min-height300 {
+    min-height: 300px;
+}
+
+
+.min-height400 {
+    min-height: 400px;
+}
+
+
+.min-height500 {
+    min-height: 500px;
+}
+
+.btn-sm-self {
+    padding: 6px 2px;
+}
+
+.panel-form.panel .panel-heading {
+    padding: 5px 16px !important;
+    line-height: 34px;
+}
+
+.panel-form .form-control {
+    border-color: #f0f0f0;
+}
+
+.project-logo {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-bottom: 2px;
+    margin-right: 5px;
+}
+
+.project-logo img {
+    display: block;
+    width: 100%;
+}
+
+.group-title.project-name {
+    margin-right: 10px;
+    font-weight: bold;
+    line-height: 24px;
+}
+
+.toggle-sidebar-button
+{
+    color: #707070;
+    cursor: pointer;
+    transition: width 0.3s;
+    position: fixed;
+    height: 48px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    font-size: 1rem;
+    padding: 16px;
+}
+
+
+[data-notify="container"][class*="alert-pastel-"] {
+    background-color: rgb(255, 255, 238);
+    border-width: 0px;
+    border-left: 15px solid rgb(255, 240, 106);
+    border-radius: 0px;
+    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.3);
+    font-family: 'Old Standard TT', serif;
+    letter-spacing: 1px;
+}
+[data-notify="container"].alert-pastel-info {
+    border-left-color:lightskyblue;
+}
+[data-notify="container"].alert-pastel-danger {
+    border-left-color: rgb(255, 103, 76);
+}
+[data-notify="container"].alert-pastel-success {
+    border-left-color:forestgreen;
+}
+
+[data-notify="container"][class*="alert-pastel-"] > [data-notify="title"] {
+    color: rgb(80, 80, 57);
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+[data-notify="container"][class*="alert-pastel-"] > [data-notify="message"] {
+    font-weight: 400;
+}
+
+.ant-radio-group {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0,0,0,.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    font-feature-settings: "tnum";
+    display: inline-block;
+    line-height: unset;
+}

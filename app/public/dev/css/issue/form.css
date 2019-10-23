@@ -1,0 +1,173 @@
+html, body{
+    height: 100%;
+}
+
+.modal, .modal > .form-horizontal, .modal .modal-dialog, .modal .modal-dialog .modal-content{
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.modal > .form-horizontal, .modal > .modal-dialog{
+    padding: 10px 0;
+}
+
+.modal .modal-dialog {
+    margin: 0 auto;
+}
+
+@media (min-width: 768px){
+    .modal > .form-horizontal .modal > .modal-dialog {
+        padding: 30px 0;
+    }
+}
+
+
+.modal .modal-content, .modal .modal-content.issue-modal-content{
+    width: 100%;
+    display:-webkit-flex;
+    display:flex;
+    -webkit-flex-flow:column;
+    flex-flow:column;
+}
+
+.modal .modal-header {
+    position: relative;
+}
+
+.modal .modal-header .close {
+    display: block;
+    position: absolute;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 32px;
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.modal .modal-header .modal-header-title {
+    max-width:200px;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.modal .modal-header .modal-header-action{
+    float: right;
+}
+
+.modal .modal-header .modal-header-action .dropdown{
+    margin-right: 80px;
+    margin-top: 15px;
+}
+
+.modal .modal-header .modal-header-action .notifications-btn {
+    font-size: 14px;
+    line-height: 32px;
+    color: #8b8f94;
+}
+
+.modal .modal-content .modal-body {
+    flex: 1 auto;
+    overflow: auto;
+    /*overflow-x: hidden;*/
+}
+
+.modal .issue-modal-body .dropdown-menu-toggle {
+    width: 250px;
+    height: 34px;
+}
+
+.form-group .form-group{
+    margin-bottom: 0;
+}
+
+/*.modal .issue-modal-body .filter-item .dropdown-menu-toggle{*/
+    /*width: 300px;*/
+/*}*/
+
+.modal .modal-content .issue-modal-footer {
+    margin: 0;
+}
+
+.modal .tab-pane{
+    margin-top: 20px;
+}
+
+.float-left{
+    float:left;
+}
+
+.modal .qq-gallery .qq-upload-list li{
+    height:150px;
+    margin-bottom:10px;
+}
+
+.modal .qq-gallery.qq-uploader{
+    padding-top:10px;
+    padding-bottom:0;
+}
+
+.modal .qq-gallery .qq-file-info{
+    padding-top:5px;
+}
+
+.modal .qq-gallery .qq-thumbnail-wrapper{
+    max-height: 145px;
+}
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 250px !important;
+}
+
+.modal .bootstrap-select > .dropdown-toggle {
+    height: 34px;
+    overflow: hidden;
+}
+
+.modal .bootstrap-select .bs-caret {
+    position: absolute;
+    height: 34px;
+    right: 8px;
+    top: 8px;
+}
+
+.modal .btn-group.open .dropdown-toggle, .modal .btn-group.open .dropdown-menu-toggle {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.modal .open>.btn-default.dropdown-toggle, .modal .open>.btn-default.dropdown-menu-toggle {
+    background: none;
+}
+
+.modal .form-actions .btn.btn-cancel {
+    float: none;
+    margin-left: 10px;
+}
+
+.padding-20 {
+    padding: 20px;
+}
+
+.margin-b-m {
+    margin-bottom: 15px;
+}
+
+.setting-form {
+    border-bottom: 0 !important;
+}
+
+.setting-form .nav-text{
+    padding: 0;
+    line-height: 35px;
+}
+
+.setting-form .nav-controls {
+    padding: 0;
+}
+
+.setting-form .form-group {
+    margin-bottom: 0;
+}
