@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="PRIME Lab Manager Help">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<title>PRIME Lab Manager Help</title>    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <title>PRIME Lab Manager Help</title>
+    <link rel="stylesheet" href="./history_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./history_files/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./history_files/font_470089_q8g1f7kwli.css">
+    <link rel="stylesheet" href="./history_files/common-84eda.css">
+    <link rel="stylesheet" href="./history_files/solarized-light.css">
+    <link rel="stylesheet" href="./history_files/tocbot.css">
+    <link rel="stylesheet" href="./history_files/doc-dda30.css?v=1.2">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./product_files/index-1.css">
+    <link rel="stylesheet" type="text/css" href="./product_files/index-2.css?v=1.2">
+    <link rel="stylesheet" type="text/css" href="./product_files/featrue.css">
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c27224e9422ad09a7671501443713d99";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+<body class="template-doc">
+
+<link rel="stylesheet" type="text/css" href="./product_files/mobile.css" media="screen and (min-width: 320px) and (max-width:640px)">
+
+<header id="header" class="clearfix home-page-header">
+    <div class="ant-row header-content">
+        <div class="header-logo ant-col-xs-24 ant-col-sm-24 ant-col-md-8 ant-col-lg-5 ant-col-xl-5 ant-col-xxl-4">
+            <a id="logo" href="/">
+                <img alt="logo" src="./product_files/logo.png"><span>P R I M E</span></a>
+        </div>
+
+        <button class="btn btn-toggle">
+            <svg viewBox="64 64 896 896" class="" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>
+            </svg>
+        </button>
+
+        <div class="header-nav-bar ant-col-xs-0 ant-col-sm-0 ant-col-md-16 ant-col-lg-19 ant-col-xl-19 ant-col-xxl-20" id="header-nav-bar">
+            <div id="search-box" style="display: none"><i class="anticon anticon-search"></i>
+           
+            </div>
+
+            <ul class="ant-menu menu-site ant-menu-light ant-menu-root ant-menu-horizontal" id="nav"
+                role="menu">
+
+               <!-- <li class="ant-menu-item " role="menuitem">
+                    <a  href="./index.php"><span>首页</span></a>
+                </li>-->
+                <li class="ant-menu-item  ant-menu-item-selected" role="menuitem">
+                    <a href=""><span>文 档</span></a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</header>
+
+<script src="./about_files/jquery-3.2.1.min.js"></script>
+
+<script>
+    $(function () {
+       
+
+
+        $(".btn.btn-toggle").on("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if ($("#header-nav-bar").is(":visible")) {
+                $("#header-nav-bar").slideUp(300);
+            } else {
+                $("#header-nav-bar").slideDown(300);
+            }
+        });
+    });
+</script>
+<div class="drawer-toggle"><span class="iconfont icon-menu-fold"></span></div>
+<div class="drawer-overlay"></div>
+
+<div class="doc-container container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="menu bd-sidebar drawer">
+            <div class="inner">
+                <div class="filter-container"></div>
+                <ul class="list-group">
+                    <li class="list-group-item ">
+                        <a href="/help/index.html">介 绍</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/guide.html">指 南</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/nouns.html">名 词</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/quick.html">上 手</a></li>
+                    <li class="list-group-item active">
+                        <a href="/help/agile.html">流 程</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/advanced.html">高 级</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/manage.html">管 理</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/develop.html">开 发</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="detail content">
+            <div class="toc-container" style="position: absolute;">
+                <div class="toc">
+
+                </div>
+            </div>
+            <article id="description-view" class="markdown" style="max-width: 1200px;">
+                <p>敏捷开发方法是 以用户的需求进化为核心，采用迭代、循序渐进的方法进行软件开发。<br />
+在敏捷开发中，软件项目在构建初期被切分成多个子项目，各个子项目的成果都经过测试，具备可视、可集成和可运行使用的特征。<br />
+换言之，就是把一个大项目分为多个相互联系，但也可独立运行的小项目，并分别完成，在此过程中软件一直处于可使用状态。 
+<img src="http://pm.masterlab.vip/attachment/image/20190709/1cut-201907092007237534.png" alt="1cut-201907092007237534.png" title="敏捷开发" /><br />
+在PRIME Lab Manager中可以很方便的进行敏捷开发实施和落地。在每个项目中敏捷开发主要是通过待办事项，迭代，看板三个子功能进行的。 </p>
+<h2 id="待办事项">待办事项</h2>
+<p>待办事项是指，在开发过程中拟定产品待办事项清单（ProductBacklog Items），并确定优先顺序。这个清单高屋建瓴地列出为了<br />
+落实产品负责人的愿景而需要完成的所有事项。在产品的整个研发过程中，这个清单一直存在，并有所演变，相当于产品研发的<br />
+“路线图”。无论在任何时间，要想知道一个团队要做的所有事项（按照优先顺序排列），待办事项清单都是唯一具有决定性的<br />
+参考依据。<br />
+在PRIME Lab Manager中，管理待办事项十分简单。
+添加待办事项方式如下：  </p>
+<ul>
+<li>
+<p>在项目的"事项"页面中，点击"创建事项"按钮，弹出事项表单并输入相关内容后，在迭代字段中选中"待办事项"  </p>
+</li>
+<li>
+<p>在项目的"待办事项"页面中，点击"添加待办事项"按钮并输入相关内容即可  </p>
+<p>在"待办事项"页面中可梳理和拖拽事项：  </p>
+<p><img src="http://pm.masterlab.vip/attachment/image/20190709/1cut-201907092007016531.png" alt="1cut-201907092007016531.png" title="待办事项梳理" />  </p>
+<p>还可以将待办事项拖拽到某一迭代中：</p>
+<p><img src="http://pm.masterlab.vip/attachment/image/20190709/1cut-201907092007291028.png" alt="1cut-201907092007291028.png" title="拖拽到迭代中" /></p>
+<p>还可以将待办事项拖拽到已关闭的事项中           </p>
+</li>
+</ul>
+<h2 id="迭代">迭代</h2>
+<p>迭代一般指项目版本的生产过程，是一次冲刺的过程，包括从需求分析到测试完成。<br />
+迭代是重复反馈过程的活动，其目的通常是为了逼近所需目标或结果。<br />
+在PRIME Lab Manager中，迭代是在项目的"迭代"页面进行管理</p>
+<p><img src="http://pm.masterlab.vip/attachment/image/20190709/1cut-201907092007334367.png" alt="1cut-201907092007334367.png" title="迭代页面" /></p>
+<p>要新增一次迭代，点击左侧导航栏的创建迭代按钮，弹出创建迭代框，输入<code>名称</code>、<code>描述</code>、<code>开始时间</code>、<code>结束时间</code> 。</p>
+<p>一个项目中只有一次迭代时进行中，在左侧导航中任选某个迭代，点击"设置进行中"即可更改<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190709/1cut-201907092007245671.png" alt="1cut-201907092007245671.png" title="设置迭代" /></p>
+<h2 id="看板">看板</h2>
+<p>通过看板形式直观的展示某个迭代的各个状态的事项列表（<code>打开、进行中、已完成</code>三个列表） 
+<img src="http://pm.masterlab.vip/attachment/image/20190709/1cut-201907092007048729.png" alt="1cut-201907092007514327.png" title="看板视图" />  </p>
+<p>看板中的事项可以拖拽到另一列表从而调整事项的状态，如下图所示：
+<img src="http://pm.masterlab.vip/attachment/image/20190709/1cut-201907092007514327.png" alt="1cut-201907092007514327.png" title="拖动事项" /></p>
+<h2 id="权重值">权重值</h2>
+<p>每个事项可以设置一个权重值，该权重值可以认为是一件事项的工作量、复杂度、风险性、不确定性的综合值。迭代管理中，默认是按照<br />
+优先级和权重值排序的，通过默认值也可以在统计页面中很直观的查看每个团队成员的贡献度，如下图：<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101307532330.png" alt="10000cut-201907101307532330.png" title="权重值统计" /></p>            </article>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="dark">
+    <div class="ant-row bottom-bar">
+        <div class="ant-col-sm-24 ant-col-lg-4"></div>
+        <div class="ant-col-sm-24 ant-col-lg-20">
+            <p class="footer-copyright"><!-- react-text: 194 -->Copyright © <!-- /react-text --><span>Wangpengroup 2019</span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+
+    window.__meta = {
+        "currentProduct": "g2",
+        "assets": "/assets",
+        "dist": "/assets/dist/3.0.0",
+        "href": "/zh-cn/g2/3.x/tutorial/history.html",
+        "locale": "zh-cn",
+        "version": "3.0.0"
+    };
+</script>
+<script src="./history_files/lodash-4.17.4.min.js"></script>
+<script src="./history_files/jquery-3.2.1.min.js"></script>
+<script src="./history_files/jquery.autocomplete-1.4.3.min.js"></script>
+<script src="./history_files/jquery.visible-1.2.0.min.js"></script>
+<script src="./history_files/popper.min.js"></script>
+<script src="./history_files/bootstrap.min.js"></script>
+<script src="./history_files/lazyload-2.0.0-beta.2.min.js"></script>
+<div id="___tracers" style="display:none">
+
+</div>
+<script src="./history_files/jquery.headroom-0.9.4.min.js"></script>
+<script src="./history_files/clipboard-1.7.1.min.js"></script>
+<script src="./history_files/tocbot.min.js"></script>
+<script src="./history_files/doc-eda67.js"></script>
+<script src="./history_files/common-729ed.js"></script>
+<div class="autocomplete-suggestions"
+     style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
+<div class="autocomplete-suggestions"
+     style="position: absolute; display: none; max-height: 300px; z-index: 9999;">
+
+</div>
+
+<script>
+    $(function () {
+        $('.toc-list li a').each(function (e) {
+            $(this).attr('href','#'+$(this).text());
+        })
+    });
+
+</script>
+
+</body>
+</html>

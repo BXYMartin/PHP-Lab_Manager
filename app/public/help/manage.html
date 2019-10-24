@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="PRIME Lab Manager Help">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<title>PRIME Lab Manager Help</title>    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <title>PRIME Lab Manager Help</title>
+    <link rel="stylesheet" href="./history_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./history_files/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./history_files/font_470089_q8g1f7kwli.css">
+    <link rel="stylesheet" href="./history_files/common-84eda.css">
+    <link rel="stylesheet" href="./history_files/solarized-light.css">
+    <link rel="stylesheet" href="./history_files/tocbot.css">
+    <link rel="stylesheet" href="./history_files/doc-dda30.css?v=1.2">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./product_files/index-1.css">
+    <link rel="stylesheet" type="text/css" href="./product_files/index-2.css?v=1.2">
+    <link rel="stylesheet" type="text/css" href="./product_files/featrue.css">
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c27224e9422ad09a7671501443713d99";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+<body class="template-doc">
+
+<link rel="stylesheet" type="text/css" href="./product_files/mobile.css" media="screen and (min-width: 320px) and (max-width:640px)">
+
+<header id="header" class="clearfix home-page-header">
+    <div class="ant-row header-content">
+        <div class="header-logo ant-col-xs-24 ant-col-sm-24 ant-col-md-8 ant-col-lg-5 ant-col-xl-5 ant-col-xxl-4">
+            <a id="logo" href="/">
+                <img alt="logo" src="./product_files/logo.png"><span>P R I M E</span></a>
+        </div>
+
+        <button class="btn btn-toggle">
+            <svg viewBox="64 64 896 896" class="" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>
+            </svg>
+        </button>
+
+        <div class="header-nav-bar ant-col-xs-0 ant-col-sm-0 ant-col-md-16 ant-col-lg-19 ant-col-xl-19 ant-col-xxl-20" id="header-nav-bar">
+            <div id="search-box" style="display: none"><i class="anticon anticon-search"></i>
+           
+            </div>
+
+            <ul class="ant-menu menu-site ant-menu-light ant-menu-root ant-menu-horizontal" id="nav"
+                role="menu">
+
+               <!-- <li class="ant-menu-item " role="menuitem">
+                    <a  href="./index.php"><span>首页</span></a>
+                </li>-->
+                <li class="ant-menu-item  ant-menu-item-selected" role="menuitem">
+                    <a href=""><span>文 档</span></a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</header>
+
+<script src="./about_files/jquery-3.2.1.min.js"></script>
+
+<script>
+    $(function () {
+       
+
+
+        $(".btn.btn-toggle").on("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if ($("#header-nav-bar").is(":visible")) {
+                $("#header-nav-bar").slideUp(300);
+            } else {
+                $("#header-nav-bar").slideDown(300);
+            }
+        });
+    });
+</script>
+<div class="drawer-toggle"><span class="iconfont icon-menu-fold"></span></div>
+<div class="drawer-overlay"></div>
+
+<div class="doc-container container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="menu bd-sidebar drawer">
+            <div class="inner">
+                <div class="filter-container"></div>
+                <ul class="list-group">
+                    <li class="list-group-item ">
+                        <a href="/help/index.html">介 绍</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/guide.html">指 南</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/nouns.html">名 词</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/quick.html">上 手</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/agile.html">流 程</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/advanced.html">高 级</a>
+                    </li>
+                    <li class="list-group-item active">
+                        <a href="/help/manage.html">管 理</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/develop.html">开 发</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="detail content">
+            <div class="toc-container" style="position: absolute;">
+                <div class="toc">
+
+                </div>
+            </div>
+            <article id="description-view" class="markdown" style="max-width: 1200px;">
+                <p>管理员可以对PRIME Lab Manager进行系统管理，事项设置，以及所有的项目和用户管理  </p>
+<h2 id="全局(系统)管理">全局(系统)管理</h2>
+<p>系统管理包括了`基本配置、时间设置、附件设置、界面设置、安全设置、邮件配置、缓存管理、日志查看等模块</p>
+<h3>基本设置</h3>
+<p>基本设置可以设置<code>页面标题、登录次数、项目名称键值长度</code>，其他设置暂时没用启用。</p>
+<h3>时间设置</h3>
+<p>时间设置可以自定义置<code>日期格式、时间格式、星期格式、完整日期/时间格式</code>。
+格式参考说明：<a href="./help.php?md=date_format" title="时间格式说明">时间格式说明</a>  </p>
+<h3>附件设置</h3>
+<p>附件设置可以设置<code>最大上传附件的大小</code>，其他建议不做修改。<br />
+要真正提高附件的上传大小，除了在这里设置<code>最大上传附件的大小</code>外，还要修改php.ini 的 <code>upload_max_filesize</code> , <code>post_max_size</code> 值</p>
+<h3>界面设置</h3>
+<p>界面设置包括了用户默认设置、公告栏</p>
+<ul>
+<li>
+<p>用户默认设置可以设置<code>默认发送邮件格式、问题导航每页显示的问题数量、页面布局、项目首页</code>等 </p>
+</li>
+<li>
+<p>公告栏可以发布/禁用在首页显示的公告信息`</p>
+</li>
+</ul>
+<h3>邮件设置</h3>
+<ul>
+<li>
+<p>SMTP配置
+配置好邮件设置并开启后，事项的更新将会自动发送邮件通知给相关的团队成员，系统仅支持SMTP。<br />
+发送邮件方式有同步和异步发送，同步是直接使用php进行发送，异步则是交由PRIME Lab Manager_socket进行后台发送，提高性能<br />
+和效率。如果使用非异步发送，那么 可以忽略"PRIME Lab ManagerSocket服务器端口"和"PRIME Lab ManagerSocket服务器地址"设置。配置界面：<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101607507215.png" alt="10000cut-201907101607507215.png" title="邮件设置" />
+要检查邮件是否配置成功，可通过 "发送测试" 按钮进行测试和排查原因  </p>
+</li>
+<li>
+<p>邮件队列提供了已发送的邮件队列状态查看和错误原因  </p>
+</li>
+<li>
+<p>发送邮件，可以给某个项目的所有成员或特定的用户组群发邮件  </p>
+</li>
+</ul>
+<h3>缓存管理</h3>
+<p>当升级新的版本或出现一些数据异常时，可以在 "管理/系统/缓存"页面中，删除redis中的缓存数据。 </p>
+<h3>日志</h3>
+<p>包括了操作日志、sql慢查询`</p>
+<ul>
+<li>操作日志可以查看PRIME Lab Manager中所有用户的操作日志  </li>
+<li>sql慢查询可以查看所有的慢查询日志  </li>
+</ul>
+<h2 id="事项设置">事项设置</h2>
+<p>PRIME Lab Manager可以对事项进行自定义设置，以满足不同公司的个性化需求。可以自定义的事项功能有：
+事项类型，状态，解决结果，工作流和事项表单界面。</p>
+<h3>事项类型及方案</h3>
+<p>当项目创建时所选择的项目类型，决定了其拥有的事项类型。<br />
+系统默认了8种事项类型，如有需要可以添加事项类型。<br />
+系统默认了3中事项类型方案，每个方案绑定这不同的事项类型，同时项目类型和事项类型方案是一对一对应的。
+项目和事项类型及方案的关系是：<br />
+项目--&gt;类型--&gt;事项类型方案--&gt;拥有的事项类型<br />
+例如，项目xxx的类型为"敏捷开发"，而敏捷开发采用的是"敏捷开发事项类型方案","敏捷开发事项类型方案"拥有的类型是：
+<code>Bug、新功能、优化改进、用户故事、技术任务、史诗任务</code>，那么项目xxx就是包含了这些事项类型。</p>
+<h3>优先级</h3>
+<p>优先级是事项的紧急和重要程度的标识，系统默认了5种优先级，如有需要可以添加优先级。<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101607211097.png" alt="10000cut-201907101607211097.png" title="优先级" />  </p>
+<h3>解决结果</h3>
+<p>解决结果是对事项的结果进行定义或评定，一般交由QA或产品经理进行操作。<br />
+系统默认了多种解决结果，如有需要可以新增。<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101607441721.png" alt="10000cut-201907101607441721.png" title="解决结果" /></p>
+<h3>状态、工作流及方案</h3>
+<p>事项有着不同的阶段，通过状态进行标识，系统默认了8种事项状态，如有需要可以添加事项状态。<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101507206995.png" alt="10000cut-201907101507206995.png" title="状态列表" />  </p>
+<p>工作流在PRIME Lab Manager中其实就是状态流，是不同状态下一阶段的设定。可以设定多个工作流。<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101507398915.png" alt="10000cut-201907101507398915.png" title="工作流列表" />  </p>
+<p>点击工作流列表的右侧"编辑"链接，再点"下一步"，进行工作流编辑页面，常用操作有：<br />
+新增跳转操作：按住某一个状态的黄点可以出现一个箭头，以指定下一个要转变的状态<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101507488161.png" alt="10000cut-201907101507488161.png" title="新增跳转" />  </p>
+<p>删除跳转操作：对准要删除的箭头的圆点，按住拖出到空白处即可<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101507471639.png" alt="10000cut-201907101507471639.png" title="删除跳转" /><br />
+工作流方案定义着不同事项类型所采用的工作流。如下显示：<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101507174106.png" alt="10000cut-201907101507174106.png" title="工作流方案" />  </p>
+<h3>自定义事项表单</h3>
+<p>通过<code>字段、事项类型界面方案</code>可以自定义创建/编辑<code>事项</code>时填写的表单。</p>
+<ul>
+<li>
+<p>点击<code>字段</code>菜单，可以看到系统默认提供了<code>标题、描述、状态、优先级、经办人、模块、标签</code>等20个事项表单显示的字段，点击新增字段，如下图所示：
+<img src="http://www.masterlab.vip/docs/images/issue_14.png" alt="" />  </p>
+</li>
+<li>
+<p>创建了字段以后，我们就可以根据事项类型来自定义事项的表单，点击事项类型的<code>创建界面配置</code>或<code>编辑界面配置</code>，定义事项表单要显示的标签页，及增加、编辑、删除事项表单的字段，如下图所示：
+<img src="http://www.masterlab.vip/docs/images/issue_15.png" alt="" /><br />
+<img src="http://www.masterlab.vip/docs/images/issue_23.png" alt="" />  </p>
+</li>
+</ul>
+<h2 id="项目管理">项目管理</h2>
+<p>项目管理 可以<code>新增、编辑、删除项目</code>，只有管理员才能拥有此权限。<br />
+删除项目是一个风险很大的操作，目前还没有做软删除和归档功能。<br />
+所以删除项目需要以管理员用户登录，在"管理/项目"才能删除<br />
+<img src="http://www.masterlab.vip/docs/images/setting_16.png" alt="" />  </p>
+<h2 id="用户管理">用户管理</h2>
+<p><strong>除了administrators，其他用户组只是只是起到分类的作用，administrators 是管理员的用户组，加入该用户表明该用户具备管理员权限，要谨慎操作</strong></p>
+<p>在安装完 PRIME Lab Manager 系统后，系统中只有一个系统管理员帐号；创建完项目后，通常需要在 PRIME Lab Manager 系统中添加其他的用户，在管理界面上点击 用户管理菜单，在用户界面上再点击创建用户就可以添加新用户，如下图所示：
+<img src="http://www.masterlab.vip/docs/images/users_02.png" alt="" />  </p>            </article>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="dark">
+    <div class="ant-row bottom-bar">
+        <div class="ant-col-sm-24 ant-col-lg-4"></div>
+        <div class="ant-col-sm-24 ant-col-lg-20">
+            <p class="footer-copyright"><!-- react-text: 194 -->Copyright © <!-- /react-text --><span>Wangpengroup 2019</span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+
+    window.__meta = {
+        "currentProduct": "g2",
+        "assets": "/assets",
+        "dist": "/assets/dist/3.0.0",
+        "href": "/zh-cn/g2/3.x/tutorial/history.html",
+        "locale": "zh-cn",
+        "version": "3.0.0"
+    };
+</script>
+<script src="./history_files/lodash-4.17.4.min.js"></script>
+<script src="./history_files/jquery-3.2.1.min.js"></script>
+<script src="./history_files/jquery.autocomplete-1.4.3.min.js"></script>
+<script src="./history_files/jquery.visible-1.2.0.min.js"></script>
+<script src="./history_files/popper.min.js"></script>
+<script src="./history_files/bootstrap.min.js"></script>
+<script src="./history_files/lazyload-2.0.0-beta.2.min.js"></script>
+<div id="___tracers" style="display:none">
+
+</div>
+<script src="./history_files/jquery.headroom-0.9.4.min.js"></script>
+<script src="./history_files/clipboard-1.7.1.min.js"></script>
+<script src="./history_files/tocbot.min.js"></script>
+<script src="./history_files/doc-eda67.js"></script>
+<script src="./history_files/common-729ed.js"></script>
+<div class="autocomplete-suggestions"
+     style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
+<div class="autocomplete-suggestions"
+     style="position: absolute; display: none; max-height: 300px; z-index: 9999;">
+
+</div>
+
+<script>
+    $(function () {
+        $('.toc-list li a').each(function (e) {
+            $(this).attr('href','#'+$(this).text());
+        })
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,11 +1,11 @@
 <aside class="main-sidebar">
     <div class="main-logo">
-        <a class="home" title="Masterlab-极致的项目管理工具!" id="logo" href="/dashboard">
+        <a class="home" title="PRIME Lab Manager" id="logo" href="/dashboard">
             <svg class="logo" style="font-size: 32px">
                 <use xlink:href="#logo-svg" />
             </svg>
 
-            <h1>MasterLab</h1>
+            <h1>P R I M E</h1>
         </a>
     </div>
 

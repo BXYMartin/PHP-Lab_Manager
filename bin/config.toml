@@ -19,10 +19,10 @@ single_mode	=	true
 
 [mysql]
     database 	=	"masterlab"
-    host        =   "localhost"
+    host        =   "172.17.0.3"
     port		=	"3306"
     user 		= 	"root"
-    password 	= 	""
+    password 	= 	"wangpeng"
     charset	    =	"utf8mb4_unicode_ci"
     timeout	    =	"10"
     max_open_conns = 2000
@@ -30,9 +30,9 @@ single_mode	=	true
 
 [object]
     data_type 	= "redis"
-    redis_host 	= "127.0.0.1"
+    redis_host 	= "172.17.0.2"
     redis_port 	= "6379"
-    redis_password = ""
+    redis_password = "wangpeng"
 
 [worker]
     to_servers = []

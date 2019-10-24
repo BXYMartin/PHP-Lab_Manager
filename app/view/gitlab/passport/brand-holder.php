@@ -1,6 +1,6 @@
 <div class="col-sm-7 brand-holder pull-left">
     <h1>
-        MasterLab 社区版
+        P R I M E 
     </h1>
     <h3>Open source software to collaborate on code</h3>
     <p>

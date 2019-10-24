@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="PRIME Lab Manager Help">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<title>PRIME Lab Manager Help</title>    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <title>PRIME Lab Manager Help</title>
+    <link rel="stylesheet" href="./history_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./history_files/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./history_files/font_470089_q8g1f7kwli.css">
+    <link rel="stylesheet" href="./history_files/common-84eda.css">
+    <link rel="stylesheet" href="./history_files/solarized-light.css">
+    <link rel="stylesheet" href="./history_files/tocbot.css">
+    <link rel="stylesheet" href="./history_files/doc-dda30.css?v=1.2">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./product_files/index-1.css">
+    <link rel="stylesheet" type="text/css" href="./product_files/index-2.css?v=1.2">
+    <link rel="stylesheet" type="text/css" href="./product_files/featrue.css">
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c27224e9422ad09a7671501443713d99";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+<body class="template-doc">
+
+<link rel="stylesheet" type="text/css" href="./product_files/mobile.css" media="screen and (min-width: 320px) and (max-width:640px)">
+
+<header id="header" class="clearfix home-page-header">
+    <div class="ant-row header-content">
+        <div class="header-logo ant-col-xs-24 ant-col-sm-24 ant-col-md-8 ant-col-lg-5 ant-col-xl-5 ant-col-xxl-4">
+            <a id="logo" href="/">
+                <img alt="logo" src="./product_files/logo.png"><span>P R I M E</span></a>
+        </div>
+
+        <button class="btn btn-toggle">
+            <svg viewBox="64 64 896 896" class="" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>
+            </svg>
+        </button>
+
+        <div class="header-nav-bar ant-col-xs-0 ant-col-sm-0 ant-col-md-16 ant-col-lg-19 ant-col-xl-19 ant-col-xxl-20" id="header-nav-bar">
+            <div id="search-box" style="display: none"><i class="anticon anticon-search"></i>
+           
+            </div>
+
+            <ul class="ant-menu menu-site ant-menu-light ant-menu-root ant-menu-horizontal" id="nav"
+                role="menu">
+
+               <!-- <li class="ant-menu-item " role="menuitem">
+                    <a  href="./index.php"><span>首页</span></a>
+                </li>-->
+                <li class="ant-menu-item  ant-menu-item-selected" role="menuitem">
+                    <a href=""><span>文 档</span></a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</header>
+
+<script src="./about_files/jquery-3.2.1.min.js"></script>
+
+<script>
+    $(function () {
+       
+
+
+        $(".btn.btn-toggle").on("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if ($("#header-nav-bar").is(":visible")) {
+                $("#header-nav-bar").slideUp(300);
+            } else {
+                $("#header-nav-bar").slideDown(300);
+            }
+        });
+    });
+</script>
+<div class="drawer-toggle"><span class="iconfont icon-menu-fold"></span></div>
+<div class="drawer-overlay"></div>
+
+<div class="doc-container container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="menu bd-sidebar drawer">
+            <div class="inner">
+                <div class="filter-container"></div>
+                <ul class="list-group">
+                    <li class="list-group-item ">
+                        <a href="/help/index.html">介 绍</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/guide.html">指 南</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/nouns.html">名 词</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/quick.html">上 手</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/agile.html">流 程</a>
+                    </li>
+                    <li class="list-group-item active">
+                        <a href="/help/advanced.html">高 级</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/manage.html">管 理</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/develop.html">开 发</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="detail content">
+            <div class="toc-container" style="position: absolute;">
+                <div class="toc">
+
+                </div>
+            </div>
+            <article id="description-view" class="markdown" style="max-width: 1200px;">
+                <p>使用一些高级功能，管理事项将更轻松</p>
+<h2 id="PRIME Lab Manager的快捷键">快捷键</h2>
+<p>利用快捷键可以代替鼠标做一些工作，提高效率降低繁琐操作。网页提供了如下丰富的快捷键操作</p>
+<pre><code> Ctrl+Enter 提交表单
+ C 打开创建表单
+ E 编辑鼠标所在的事项
+ Copy 复制鼠标所在事项
+ D 删除所选的事项</code></pre>
+<h2 id="自定义首页面板">自定义首页面板</h2>
+<p>为了能够最快最直观展示不同用户想要看到的信息，我们支持自定义首页面板。<br />
+首先用户可以选择不同的布局类型<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101907207738.png" alt="10000cut-201907101907207738.png" title="布局" /><br />
+选择好布局类型后，用户可以点击"添加小工具" 添加小工具到布局好的区块中，<br />
+默认小工具会放置到最顶部左边的区块中，用户可以拖动不同的位置<br />
+<img src="http://pm.masterlab.vip/attachment/all/20190712/20190712111421_37151.gif" alt="自定义面板" title="自定义面板" />   </p>
+<h2 id="自定义筛选器">自定义筛选器</h2>
+<p>事项列表的筛选事项条件比较多样复杂，用户可以将某一特定筛选条件保存起来，这样以后直接点击即可。<br />
+添加自定义筛选事项操作如下：<br />
+<img src="http://pm.masterlab.vip/attachment/all/20190712/20190712111543_19243.gif" alt="自定义筛选器" title="自定义筛选器" /><br />
+可在用户"个人设置/ 自定义过滤器"页面，要删除添加过的筛选器  </p>
+<h2 id="自定义事项描述模板">自定义事项描述模板</h2>
+<p>进行事项描述时，可以针对不同的事项类型而定义不同的模板，这样有助于提高录入事项的完整性和规范性。<br />
+维护事项描述模板在 "管理/事项/事项描述模板"页面<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190712/10000cut-201907121007272477.png" alt="10000cut-201907121007272477.png" title="截图-10000cut-201907121007272477.png" /><br />
+![10000cut-201907121107501099.png]((<a href="http://pm.masterlab.vip/attachment/image/20190712/10000cut-201907121107501099.png">http://pm.masterlab.vip/attachment/image/20190712/10000cut-201907121107501099.png</a> "截图-10000cut-201907121107501099.png")  </p>
+<h2 id="切换视图">切换视图</h2>
+<p>项目的事项列表有：表格，左右和响应式三种视图展示方式，适应于不同的场景和用户习惯。切换视图的操作在事项列表的右上角<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101807181070.png" alt="10000cut-201907101807181070.png" title="视图选择" /><br />
+默认是表格视图，在该视图模式下，点击事项标题会跳转到事项详情页面
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101807498106.png" alt="10000cut-201907101807498106.png" title="表格视图" /><br />
+左右视图方式，在该视图模式下，点击事项标题不会跳转到事项详情页面，而是在右侧浮动事项的详情，很便捷的查看事项内容<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101807188107.png" alt="10000cut-201907101807188107.png" title="左右视图" /><br />
+响应式视图是简洁的事项列表展示方式，同时要兼容于移动端的页面<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101807072431.png" alt="10000cut-201907101807072431.png" title="响应式视图" /></p>
+<h2 id="自定义表格显示列">自定义表格显示列</h2>
+<p>在表格和左右视图展示方式下，可以自定义显示表格的列。在事项列表的右上角点击"更多/设置显示列"<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101907152332.png" alt="10000cut-201907101907152332.png" title="自定义显示列" /></p>
+<h2 id="导入导出事项">导入导出事项</h2>
+<p>PRIME Lab Manager支持导入Excel数据到项目中，以批量快速的添加事项，导入操作：<br />
+在事项列表的右上角点击"更多/导入Excel数据"，根据弹出界面的提示和要求即可<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101907524624.png" alt="10000cut-201907101907524624.png" title="导入Excel数据" /><br />
+我们还支持导出事项为Excel格式，可以选择筛选数据内容和字段<br />
+在事项列表的右上角点击"更多/导出Excel数据"，设置导出的内容<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190710/10000cut-201907101907144412.png" alt="10000cut-201907101907144412.png" title="导出Excel数据" />  </p>
+<h2 id="截图粘贴">截图粘贴</h2>
+<p>在编辑事项描述时，如果要插入一个截图的图片，需要繁琐的操作，现在支持直接 ctrl + v 上传截图并插入相应的markdown标记<br />
+<img src="http://pm.masterlab.vip/attachment/all/20190712/20190712103402_27032.gif" alt="粘贴截图" title="粘贴截图" />  </p>
+<h2 id="移动端上传附件">移动端上传附件</h2>
+<p>在新增或编辑事项时，附件上传可以通过移动端进行上传，如下图<br />
+<img src="http://pm.masterlab.vip/attachment/image/20190711/1cut-201907110007558389.png" alt="1cut-201907110007558389.png" title="移动端进行上传" />  </p>
+<h2 id="视频文件播放">视频文件播放</h2>
+<p>如果事项附件上传的是视频文件：mp4 flv 的可以直接点击在线播放<br />
+<img src="http://pm.masterlab.vip/attachment/all/20190712/20190712104448_27884.gif" alt="播放附件视频文件" title="播放附件视频文件" />  </p>            </article>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="dark">
+    <div class="ant-row bottom-bar">
+        <div class="ant-col-sm-24 ant-col-lg-4"></div>
+        <div class="ant-col-sm-24 ant-col-lg-20">
+            <p class="footer-copyright"><!-- react-text: 194 -->Copyright © <!-- /react-text --><span>Wangpengroup 2019</span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+
+    window.__meta = {
+        "currentProduct": "g2",
+        "assets": "/assets",
+        "dist": "/assets/dist/3.0.0",
+        "href": "/zh-cn/g2/3.x/tutorial/history.html",
+        "locale": "zh-cn",
+        "version": "3.0.0"
+    };
+</script>
+<script src="./history_files/lodash-4.17.4.min.js"></script>
+<script src="./history_files/jquery-3.2.1.min.js"></script>
+<script src="./history_files/jquery.autocomplete-1.4.3.min.js"></script>
+<script src="./history_files/jquery.visible-1.2.0.min.js"></script>
+<script src="./history_files/popper.min.js"></script>
+<script src="./history_files/bootstrap.min.js"></script>
+<script src="./history_files/lazyload-2.0.0-beta.2.min.js"></script>
+<div id="___tracers" style="display:none">
+
+</div>
+<script src="./history_files/jquery.headroom-0.9.4.min.js"></script>
+<script src="./history_files/clipboard-1.7.1.min.js"></script>
+<script src="./history_files/tocbot.min.js"></script>
+<script src="./history_files/doc-eda67.js"></script>
+<script src="./history_files/common-729ed.js"></script>
+<div class="autocomplete-suggestions"
+     style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
+<div class="autocomplete-suggestions"
+     style="position: absolute; display: none; max-height: 300px; z-index: 9999;">
+
+</div>
+
+<script>
+    $(function () {
+        $('.toc-list li a').each(function (e) {
+            $(this).attr('href','#'+$(this).text());
+        })
+    });
+
+</script>
+
+</body>
+</html>

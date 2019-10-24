@@ -2,13 +2,13 @@
 
 <aside class="main-sidebar">
     <div class="main-logo">
-        <a class="home" title="Masterlab-极致的项目管理工具!" id="logo" href="/dashboard">
+        <a class="home" title="PRIME Lab Manager" id="logo" href="/dashboard">
         <!--    <svg class="logo" style="font-size: 32px">
                 <use xlink:href="#logo-svg" />
             </svg> -->
             <span class="logo"><img src="<?= ROOT_URL ?>gitlab/images/logo.png" alt=""></span>
 
-            <h1>MasterLab</h1>
+            <h1>P R I M E</h1>
         </a>
     </div>
 
@@ -44,13 +44,13 @@
         ?>
         <li class="menu-item <? if($top_menu_active=='system') echo 'menu-open';?>">
             <a href="/admin/system">
-                <i class="fa fa-wrench"></i> <span>管 理</span>
+                <i class="fa fa-wrench"></i> <span>管理</span>
             </a>
         </li>
         <?php } ?>
 
         <li class="menu-item <? if($top_menu_active=='help') echo 'menu-open';?>">
-            <a href="http://www.masterlab.vip/help.php" target="_blank">
+            <a href="/help">
                 <i class="fa fa-question-circle"></i> <span>帮助</span>
             </a>
         </li>

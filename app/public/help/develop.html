@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="PRIME Lab Manager Help">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<title>PRIME Lab Manager Help</title>    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <title>PRIME Lab Manager Help</title>
+    <link rel="stylesheet" href="./history_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./history_files/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./history_files/font_470089_q8g1f7kwli.css">
+    <link rel="stylesheet" href="./history_files/common-84eda.css">
+    <link rel="stylesheet" href="./history_files/solarized-light.css">
+    <link rel="stylesheet" href="./history_files/tocbot.css">
+    <link rel="stylesheet" href="./history_files/doc-dda30.css?v=1.2">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./product_files/index-1.css">
+    <link rel="stylesheet" type="text/css" href="./product_files/index-2.css?v=1.2">
+    <link rel="stylesheet" type="text/css" href="./product_files/featrue.css">
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c27224e9422ad09a7671501443713d99";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+<body class="template-doc">
+
+<link rel="stylesheet" type="text/css" href="./product_files/mobile.css" media="screen and (min-width: 320px) and (max-width:640px)">
+
+<header id="header" class="clearfix home-page-header">
+    <div class="ant-row header-content">
+        <div class="header-logo ant-col-xs-24 ant-col-sm-24 ant-col-md-8 ant-col-lg-5 ant-col-xl-5 ant-col-xxl-4">
+            <a id="logo" href="/">
+                <img alt="logo" src="./product_files/logo.png"><span>P R I M E</span></a>
+        </div>
+
+        <button class="btn btn-toggle">
+            <svg viewBox="64 64 896 896" class="" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>
+            </svg>
+        </button>
+
+        <div class="header-nav-bar ant-col-xs-0 ant-col-sm-0 ant-col-md-16 ant-col-lg-19 ant-col-xl-19 ant-col-xxl-20" id="header-nav-bar">
+            <div id="search-box" style="display: none"><i class="anticon anticon-search"></i>
+           
+            </div>
+
+            <ul class="ant-menu menu-site ant-menu-light ant-menu-root ant-menu-horizontal" id="nav"
+                role="menu">
+
+               <!-- <li class="ant-menu-item " role="menuitem">
+                    <a  href="./index.php"><span>首页</span></a>
+                </li>-->
+                <li class="ant-menu-item  ant-menu-item-selected" role="menuitem">
+                    <a href=""><span>文 档</span></a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</header>
+
+<script src="./about_files/jquery-3.2.1.min.js"></script>
+
+<script>
+    $(function () {
+       
+
+
+        $(".btn.btn-toggle").on("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if ($("#header-nav-bar").is(":visible")) {
+                $("#header-nav-bar").slideUp(300);
+            } else {
+                $("#header-nav-bar").slideDown(300);
+            }
+        });
+    });
+</script>
+<div class="drawer-toggle"><span class="iconfont icon-menu-fold"></span></div>
+<div class="drawer-overlay"></div>
+
+<div class="doc-container container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="menu bd-sidebar drawer">
+            <div class="inner">
+                <div class="filter-container"></div>
+                <ul class="list-group">
+                    <li class="list-group-item ">
+                        <a href="/help/index.html">介 绍</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/guide.html">指 南</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/nouns.html">名 词</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/quick.html">上 手</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/agile.html">流 程</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/advanced.html">高 级</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/manage.html">管 理</a>
+                    </li>
+                    <li class="list-group-item active">
+                        <a href="/help/develop.html">开 发</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="detail content">
+            <div class="toc-container" style="position: absolute;">
+                <div class="toc">
+
+                </div>
+            </div>
+            <article id="description-view" class="markdown" style="max-width: 1200px;">
+                <h1>开发指南</h1>
+<h2 id="开发框架">开发框架</h2>
+<blockquote>
+<p>本网站使用Hornet-framework框架进行开发的，Hornet-framework是一个高性能,轻量级,易于上手,功能完备的PHP LMVC 开发框架。 
+LMVC分别是 Logic逻辑 Model模型 View视图 Ctrl控制器，与传统的MVC框架比多一层Logic层，目的是解决在复杂的应用系统时，
+逻辑代码混杂于Model或Ctrl之间的问题。</p>
+</blockquote>
+<h2 id="要求">要求</h2>
+<p>当前主要使用 PHP 和 JQuery 以及Mysql技术进行开发,为提高PHP的执行性能性能，开发使用PHP7.0以上的版本，依赖类库使用Composer进行组织，
+数据库使用Mysql5.7及以上版本以支持中文全文索引,为减少数据库查询使用Redis作为数据缓存。</p>
+<pre><code>git v2.1 +
+php v7.1 +
+phpunit v7.0+
+composer v1.6.0 +
+Mysql v5.7 +
+Redis v3.0 +</code></pre>
+<h2 id="配置开发环境">配置开发环境</h2>
+<p>通过git获取源代码</p>
+<pre><code>mkdir /c/www/
+cd /c/www/
+git clone git@github.com:gopeak/hornet-framework.git
+git clone git@github.com:gopeak/masterlab.git
+cd masterlab
+git checkout -b dev
+git pull origin dev
+composer update
+</code></pre>
+
+<h2 id="PRIME Lab Manager的目录结构说明">目录结构说明</h2>
+<pre><code>
+hornet-framework        开发框架
+masterlab
+|--  vendor             为composer的第三方类库
+|--  lib                为非vendor的第三方类库
+|--  app 为项目实现代码
+      |--   app/classes  为逻辑实现类
+      |--   app/config   为配置文件目录，有部署 开发不同的配置可切换
+      |--   app/ctrl     控制器目录，用于编写流程控制
+      |--   app/function 为函数存放目录
+      |--   app/model    为模型类，主要用于数据库 缓存 IO 等交互
+      |--   app/public   为网站访问到目录，入口文件在此，可存放静态文件
+      |--   app/api      为api接口的控制器类
+      |--   app/storage  为存储目录,可存放临时文件 上传文件 大数据等
+      |--   app/test     测试相关目录,使用PHPUNIT进行单元测试和自动化测试
+      |--   app/view     视图层
+      |--   app/server   异步，队列,定时执行的服务代码</code></pre>
+<h2 id="插件开发">插件开发</h2>
+<p>目前尚未支持插件功能，因为如果要进行二次开发，只能在当前的代码直接修改</p>
+<h2 id="PHP代码说明">PHP代码说明</h2>
+<ul>
+<li>PHP代码遵循psr2标准，使用驼峰命名规范</li>
+<li>更多的开发说明，请参考 Hornet-framework 的开发指南 <a href="https://github.com/gopeak/hornet-framework/wiki">https://github.com/gopeak/hornet-framework/wiki</a></li>
+<li>项目中大部分使用了前后端分离，以ajax异步调用的方式获取和显示数据。</li>
+<li>部分页面的内容仍然使用php代码直接输出和控制前端的html js, php.ini需要开启 short_open_tag </li>
+<li>app/config 有不同状态的配置，开发时从deploy中复制一份为 development ,然后再 .env 文件中修改为 development 即可</li>
+<li>每当修复某个bug或新加一些功能后，要编写对应的测试代码，以保障质量，测试代码位于 app/test ,如何运行参见 readme.txt 文件</li>
+<li>配置文件中的 app.cfg.php 为主配置文件，可以开启或关闭 缓存，调试等选项</li>
+</ul>
+<h2 id="前端说明">前端说明</h2>
+<p>使用Jquery 作为基础的类库，前端数据获取主要通过ajax调用的方式获取，获取数据后通过handlebars模板引擎进行视图呈现。后期规划使用Vue的单页模式进行开发。
+事项导航搜索模块的UI和交互等使用了Gitlab源码。</p>            </article>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="dark">
+    <div class="ant-row bottom-bar">
+        <div class="ant-col-sm-24 ant-col-lg-4"></div>
+        <div class="ant-col-sm-24 ant-col-lg-20">
+            <p class="footer-copyright"><!-- react-text: 194 -->Copyright © <!-- /react-text --><span>Wangpengroup 2019</span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+
+    window.__meta = {
+        "currentProduct": "g2",
+        "assets": "/assets",
+        "dist": "/assets/dist/3.0.0",
+        "href": "/zh-cn/g2/3.x/tutorial/history.html",
+        "locale": "zh-cn",
+        "version": "3.0.0"
+    };
+</script>
+<script src="./history_files/lodash-4.17.4.min.js"></script>
+<script src="./history_files/jquery-3.2.1.min.js"></script>
+<script src="./history_files/jquery.autocomplete-1.4.3.min.js"></script>
+<script src="./history_files/jquery.visible-1.2.0.min.js"></script>
+<script src="./history_files/popper.min.js"></script>
+<script src="./history_files/bootstrap.min.js"></script>
+<script src="./history_files/lazyload-2.0.0-beta.2.min.js"></script>
+<div id="___tracers" style="display:none">
+
+</div>
+<script src="./history_files/jquery.headroom-0.9.4.min.js"></script>
+<script src="./history_files/clipboard-1.7.1.min.js"></script>
+<script src="./history_files/tocbot.min.js"></script>
+<script src="./history_files/doc-eda67.js"></script>
+<script src="./history_files/common-729ed.js"></script>
+<div class="autocomplete-suggestions"
+     style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
+<div class="autocomplete-suggestions"
+     style="position: absolute; display: none; max-height: 300px; z-index: 9999;">
+
+</div>
+
+<script>
+    $(function () {
+        $('.toc-list li a').each(function (e) {
+            $(this).attr('href','#'+$(this).text());
+        })
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 <div class="col-sm-7 brand-holder pull-left">
     <h1>
-        MasterLab 社区版
+        P R I M E
     </h1>
    <!-- <h4>基于敏捷开发和全生命周期的项目管理工具</h4>-->
     <p>

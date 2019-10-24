@@ -40,10 +40,8 @@
                 <hr>
                 <div class="extra-help">
                     <ul>
-                        <li><a href="http://www.masterlab.vip" target="_blank">Masterlab官网</a></li>
-                        <li><a href="http://www.masterlab.vip/help.php?md=install" target="_blank">Masterlab安装及使用</a></li>
-                        <li><a href="http://www.masterlab.vip/about.php" target="_blank">关于我们</a></li>
-<!--                        <li class="comment-content"><a href="https://github.com/gopeak/masterlab/wiki/%E5%85%B3%E4%BA%8EMasterlab" target="_blank"><i class="fa fa-link"></i> 关于 Masterlab</a></li>-->
+                        <li><a href="/help" target="_blank">PRIME Lab Manager安装及使用</a></li>
+<!--                        <li class="comment-content"><a href="https://github.com/gopeak/masterlab/wiki/%E5%85%B3%E4%BA%8EPRIME Lab Manager" target="_blank"><i class="fa fa-link"></i> 关于 PRIME Lab Manager</a></li>-->
 <!--                        <li class="history-detail"><a href="https://github.com/gopeak/masterlab/wiki/%E5%85%B3%E4%BA%8E%E7%A0%94%E5%8F%91%E5%9B%A2%E9%98%9F" target="_blank"><i class="fa fa-link"></i> 关于研发团队</a></li>-->
                     </ul>
                 </div>
@@ -62,10 +60,10 @@
     <div class="card hide" id="detail_content"><!--详细内容-->
         <div class="detail">
             <h4>快速开始</h4>
-            <p>在浏览器输入Masterlab网址</p>
+            <p>在浏览器输入PRIME Lab Manager网址</p>
             <div class="fragment">
                 <h3>登录和注册</h3>
-                <p>打开 Masterlab 的登录界面,输入用户名、密码即可登录 Masterlab 系统，如下图所示： </p>
+                <p>打开 PRIME Lab Manager 的登录界面,输入用户名、密码即可登录 PRIME Lab Manager 系统，如下图所示： </p>
             </div>
             <div class="img-content"><!--2px白边-->
                 <a href="<?=ROOT_URL?>doc/images/login_01_thumb.png" target="_blank">
@@ -91,7 +89,7 @@
             </div>
             <div class="fragment">
                 <h3>创建项目</h3>
-                <p>在Masterlab首页上点击创建项目，在创建项目页面填写项目的详细信息。其中项目key是用来做路由导航使用，必须唯一且必须为字母(如android、ios等)；如下图所示： </p>
+                <p>在PRIME Lab Manager首页上点击创建项目，在创建项目页面填写项目的详细信息。其中项目key是用来做路由导航使用，必须唯一且必须为字母(如android、ios等)；如下图所示： </p>
             </div>
             <div class="img-content"><!--2px白边-->
                 <a href="<?=ROOT_URL?>doc/images/proj_01.png" target="_blank">
@@ -135,7 +133,7 @@
             </div>
             <div class="fragment">
                 <h3>数据和图表分析</h3>
-                <p>Masterlab提供了丰富的图表和统计功能 </p>
+                <p>PRIME Lab Manager提供了丰富的图表和统计功能 </p>
             </div>
             <div class="img-content"><!--2px白边-->
                 <a href="<?=ROOT_URL?>doc/images/chart_01.png" target="_blank">
@@ -152,7 +150,7 @@
     </div>
     <div class="card hide" id="detail_content_shortkey"><!--详细内容-->
         <div class="detail">
-            <h4>Masterlab快捷键</h4>
+            <h4>PRIME Lab Manager快捷键</h4>
             <p class="second-title">
                 <span class="small-title">M : </span>打开导航菜单
             </p>
@@ -179,17 +177,17 @@
                     <span class="small-title">参考链接：</span>
                 </p>
                 <ul>
-                    <li><a href="http://www.masterlab.vip/help.php" target="_blank">Masterlab 使用指南</a></li>
+                    <li><a href="http://www.masterlab.vip/help.php" target="_blank">PRIME Lab Manager 使用指南</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="card hide" id="detail_content_qa"><!--详细内容-->
         <div class="detail">
-            <h4>Masterlab常见问题</h4>
+            <h4>PRIME Lab Manager常见问题</h4>
             <div class="fragment">
-                <h3>如何快速的上手Masterlab？</h3>
-                <p>1.首先以管理员身份登录Masterlab</p>
+                <h3>如何快速的上手PRIME Lab Manager？</h3>
+                <p>1.首先以管理员身份登录PRIME Lab Manager</p>
                 <p>2.接着在系统中创建用户账号</p>
                 <p>3.如果您的开发团队项目不多，可创建直接在defalut组织下创建项目</p>
                 <p>4.在项目中再创建事项(bug 任务 优化改进型等)并分配给用户</p>
@@ -211,15 +209,15 @@
             </div>
             <div class="fragment">
                 <h3>什么是工作流？</h3>
-                <p>工作流是按照一定的规则和过程执行一个事项，在Masterlab中体现在事项在生命周期内不同状态之间的变化。 每个状态以矩形框表示。  每个工作流跳转由箭头指引方向。你可以在 "系统"中添加自己的自定义工作流，详见<a target="_blank" href="http://www.masterlab.vip/help.php?md=explain_word">《使用指南》</a>。</p>
+                <p>工作流是按照一定的规则和过程执行一个事项，在PRIME Lab Manager中体现在事项在生命周期内不同状态之间的变化。 每个状态以矩形框表示。  每个工作流跳转由箭头指引方向。你可以在 "系统"中添加自己的自定义工作流，详见<a target="_blank" href="http://www.masterlab.vip/help.php?md=explain_word">《使用指南》</a>。</p>
             </div>
             <div class="fragment">
                 <h3>发现严重bug或修改怎么办？</h3>
                 <p>您可以到 <a target="_blank" href="https://github.com/gopeak/masterlab/issues/new">GitHub</a> 提交您发现的bug或建议，我们将会尽快处理和反馈。</p>
             </div>
             <div class="fragment">
-                <h3>Masterlab可以商业化吗？</h3>
-                <p>你可以免费使用Masterlab社区版无需任何费用,您也可以对Masterlab社区版进行二次开发，但不得用于商业化，如需商业化或商业合作请联系QQ群<a target="_blank" href="https://jq.qq.com/?_wv=1027&k=51oDG9Z">314155057</a> 管理员进行授权。</p>
+                <h3>PRIME Lab Manager可以商业化吗？</h3>
+                <p>你可以免费使用PRIME Lab Manager社区版无需任何费用,您也可以对PRIME Lab Manager社区版进行二次开发，但不得用于商业化，如需商业化或商业合作请联系QQ群<a target="_blank" href="https://jq.qq.com/?_wv=1027&k=51oDG9Z">314155057</a> 管理员进行授权。</p>
                 <p>其他问题还可以加入我们的QQ群进行咨询:  <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=51oDG9Z">314155057</a> </p>
             </div>
         </div>

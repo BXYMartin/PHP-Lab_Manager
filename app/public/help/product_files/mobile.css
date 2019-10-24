@@ -1,0 +1,194 @@
+#header {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background: #fff;
+  -webkit-box-shadow: 0 2px 8px #f0f1f2 !important;
+  box-shadow: 0 2px 8px #f0f1f2 !important;
+  position: relative;
+  z-index: 99999999;
+}
+
+body {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.btn.btn-toggle {
+  display: block;
+  position: absolute;
+  right: 3%;
+  top: 15px;
+  padding-top: 8px;
+  cursor: pointer;
+  background: #fff;
+  border: none !important;
+  outline: none !important;
+}
+
+.header-content {
+  position: relative;
+}
+
+.header-logo {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logo #logo {
+  padding-left: 0;
+}
+
+.header-nav-bar {
+  position: absolute;
+  top: 100%;
+  z-index: 999;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+#nav.ant-menu-horizontal > .ant-menu-item-selected {
+  border: none;
+  background-color: #e6f7ff;
+}
+
+.home-s1, .home-s2, .home-s3, .home-s4 {
+  padding: 0 6%;
+}
+
+.home-s1 .banner-text-wrapper .github-btn {
+  display: block;
+  width: 63px;
+  margin: 12px auto;
+}
+
+.home-s1 .banner-text-wrapper .github-btn .gh-btn {
+
+}
+
+.home-s1 .banner-wrapper .banner-text-wrapper {
+  width: 100%;
+  top: 32px;
+  margin: 0 auto;
+  min-width: 100px;
+}
+
+.home-page.page1 {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 40px auto;
+}
+
+.home-s2 h3{
+  padding-top: 45px;
+}
+
+.page1-box-wrapper li {
+  margin-bottom: 36px;
+}
+
+.page1-box-wrapper li p {
+  width: 100% !important;
+}
+
+.page1-box-wrapper {
+  margin-bottom: 0;
+}
+
+.page1-box-wrapper li .page1-box {
+  width: 80%;
+}
+
+.banner-wrapper::before {
+  top: 40px;
+  right: 0;
+  width: 100%;
+}
+
+.home-s1 .banner-text-wrapper h2 {
+  font-size: 50px;
+}
+
+.page1 {
+  height: auto;
+}
+
+.home-s2 .ant-col-12 {
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.home-s2 .ant-col-12 .des{
+  text-align: center;
+}
+
+.page1-box-wrapper {
+  display: block !important;
+}
+
+.page1-box-wrapper li {
+  width: 100%;
+}
+
+.home-s2 h3, .home-s3 h3, .home-s4 h3 {
+  margin-bottom: 36px;
+}
+
+.home-s2 img {
+  margin-right: 0;
+}
+
+.point-list {
+  margin-bottom: 0;
+}
+
+.page1-line.title-line-wrapper {
+  margin-bottom: 30px;
+}
+
+
+.features {
+  padding: 30px 0 !important;
+}
+
+.page1-bg {
+  font-size: 180px;
+  -webkit-transform: translate(0px, 940px);
+  -ms-transform: translate(0px, 940px);
+  transform: translate(0px, 940px);
+  overflow: hidden;
+}
+
+.features .card {
+  max-width: 80%;
+}
+
+.markdown h1 {
+  text-align: center;
+}
+
+.home-s2 .des div {
+  font-size: 18px;
+}
+
+.intro h1 {
+  text-align: center;
+}
+
+footer {
+  height: auto;
+}
+
+footer .bottom-bar {
+  padding: 16px 2%;
+}
+
+.footer-link, .footer-copyright {
+  display: block;
+  margin: 0;
+  text-align: center;
+}

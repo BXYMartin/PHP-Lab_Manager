@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="PRIME Lab Manager Help">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<title>PRIME Lab Manager Help</title>    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <title>PRIME Lab Manager Help</title>
+    <link rel="stylesheet" href="./history_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./history_files/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./history_files/font_470089_q8g1f7kwli.css">
+    <link rel="stylesheet" href="./history_files/common-84eda.css">
+    <link rel="stylesheet" href="./history_files/solarized-light.css">
+    <link rel="stylesheet" href="./history_files/tocbot.css">
+    <link rel="stylesheet" href="./history_files/doc-dda30.css?v=1.2">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./product_files/index-1.css">
+    <link rel="stylesheet" type="text/css" href="./product_files/index-2.css?v=1.2">
+    <link rel="stylesheet" type="text/css" href="./product_files/featrue.css">
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c27224e9422ad09a7671501443713d99";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+<body class="template-doc">
+
+<link rel="stylesheet" type="text/css" href="./product_files/mobile.css" media="screen and (min-width: 320px) and (max-width:640px)">
+
+<header id="header" class="clearfix home-page-header">
+    <div class="ant-row header-content">
+        <div class="header-logo ant-col-xs-24 ant-col-sm-24 ant-col-md-8 ant-col-lg-5 ant-col-xl-5 ant-col-xxl-4">
+            <a id="logo" href="/">
+                <img alt="logo" src="./product_files/logo.png"><span>P R I M E</span></a>
+        </div>
+
+        <button class="btn btn-toggle">
+            <svg viewBox="64 64 896 896" class="" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>
+            </svg>
+        </button>
+
+        <div class="header-nav-bar ant-col-xs-0 ant-col-sm-0 ant-col-md-16 ant-col-lg-19 ant-col-xl-19 ant-col-xxl-20" id="header-nav-bar">
+            <div id="search-box" style="display: none"><i class="anticon anticon-search"></i>
+           
+            </div>
+
+            <ul class="ant-menu menu-site ant-menu-light ant-menu-root ant-menu-horizontal" id="nav"
+                role="menu">
+
+               <!-- <li class="ant-menu-item " role="menuitem">
+                    <a  href="./index.php"><span>首页</span></a>
+                </li>-->
+                <li class="ant-menu-item  ant-menu-item-selected" role="menuitem">
+                    <a href=""><span>文 档</span></a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</header>
+
+<script src="./about_files/jquery-3.2.1.min.js"></script>
+
+<script>
+    $(function () {
+       
+
+
+        $(".btn.btn-toggle").on("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if ($("#header-nav-bar").is(":visible")) {
+                $("#header-nav-bar").slideUp(300);
+            } else {
+                $("#header-nav-bar").slideDown(300);
+            }
+        });
+    });
+</script>
+<div class="drawer-toggle"><span class="iconfont icon-menu-fold"></span></div>
+<div class="drawer-overlay"></div>
+
+<div class="doc-container container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="menu bd-sidebar drawer">
+            <div class="inner">
+                <div class="filter-container"></div>
+                <ul class="list-group">
+                    <li class="list-group-item ">
+                        <a href="/help/index.html">介 绍</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/guide.html">指 南</a></li>
+                    <li class="list-group-item active">
+                        <a href="/help/nouns.html">名 词</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/quick.html">上 手</a></li>
+                    <li class="list-group-item ">
+                        <a href="/help/agile.html">流 程</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/advanced.html">高 级</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/manage.html">管 理</a>
+                    </li>
+                    <li class="list-group-item ">
+                        <a href="/help/develop.html">开 发</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="detail content">
+            <div class="toc-container" style="position: absolute;">
+                <div class="toc">
+
+                </div>
+            </div>
+            <article id="description-view" class="markdown" style="max-width: 1200px;">
+                <h2 id="组织">组织</h2>
+<p><code>组织</code>是指依据既定的目标，对成员的活动进行合理的分工和合作,对组织所拥有的资源进行合理配置和使用以及正确处理人们相互关系的活动。在PRIME Lab Manager中组织可以是:</p>
+<ul>
+<li>公司</li>
+<li>一个部门</li>
+<li>一个事业部或多个项目构成的产品<blockquote>
+<p>例如 <code>产品A</code>由<code>服务器端子项目</code>，<code>Web前端子项目</code>，<code>Android端子项目</code>，<code>iOS子项目</code>组成，那么你可以建立一个组织<code>产品A</code>，然后在该组织下创建这些子项目，以便于管理。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="项目">项目</h2>
+<p><code>项目</code>是指一系列独特的、复杂的并相互关联的活动，这些活动有着一个明确的目标或目的，必须在特定的时间、预算、资源限定内，依据规范完成，是事项的集合。</p>
+<p>PRIME Lab Manager中项目可以是:</p>
+<ul>
+<li>一个软件研发项目</li>
+<li>一项市场推广活动</li>
+<li>一个技术服务/帮助台系统</li>
+<li>一个需求管理系统</li>
+<li>一个网站需求调查系统</li>
+<li>一个问题跟踪系统</li>
+</ul>
+<blockquote>
+<p>项目关联以下信息：</p>
+<pre><code>1. 项目类型
+2. 摘要、描述
+3. 项目中创建的事项
+4. 待办事项
+5. 迭代
+6. 统计
+7. 图表
+8. 设置</code></pre>
+</blockquote>
+<h3>项目类型</h3>
+<p>PRIME Lab Manager系统缺省提供的项目类型如下：</p>
+<pre><code>  |--   敏捷开发：搜集用户故事、规划迭代、进度管理、团队协作、用例管理、缺陷追踪、评审回顾、总结沉淀
+  |--   软件开发：跟踪开发任务和bug。   
+  |--   任务管理：快速整理和分派简单任务给你或你的团队。  </code></pre>
+<blockquote>
+<p>项目类型关联事项类型方案，事项类型方案包括多个事项类型（如<code>敏捷开发类型</code>的项目A使用的是<code>敏捷开发事项方案</code>，则A项目包括<code>Bug、新功能、优化改进、用户故事、技术任务、史诗任务、任务、子任务</code>等事项类型）</p>
+</blockquote>
+<h2 id="项目角色">项目角色</h2>
+<blockquote>
+<p>PRIME Lab Manager 作为一个项目管理和团队协作管理系统，可以被企业管理人员，项目管理人员，产品经理，开发人员，分析人员，测试人员和其他人员所广泛使用。</p>
+<ul>
+<li><code>Administrators</code>：项目管理者
+可以针对登记进 PRIME Lab Manager系统中问题，进行评估，分配缺陷；还可以通过 PRIME Lab Manager系统的统计报告了解项目进展情况以及团队的工作量、工作效率等信息。</li>
+<li><code>Developers（开发人员）</code>
+在 PRIME Lab Manager 系统中查看分配给自己的问题，及时进行处理，填写处理状态并提交</li>
+<li><code>QA（测试人员）</code>
+根据测试情况，在 PRIME Lab Manager 系统中及时快速的记录问题并对开发人员处理后的问题进行验证和跟踪。</li>
+<li><code>Users（普通用户）</code>
+表示项目中的普通用户。</li>
+<li><code>PO（产品经理）</code>
+Product Owner（产品负责人）是一个非常重要的角色，产品负责人是管理产品待办事项列表、确保团队工作价值的唯一责任人。他负责维护产品待办事项列表，确保每个成员明晰列表内容、明确哪些条目具有最高优先级，从而制定迭代的事项内容。</li>
+</ul>
+</blockquote>
+<h2 id="工作流">工作流</h2>
+<h3>工作流</h3>
+<blockquote>
+<p><code>工作流（WorkFlow）</code>就是工作流程的计算模型，即将工作流程中的工作如何前后组织在一起的逻辑和规则在计算机中以恰当的模型进行表示并对其实施计算。工作流要解决的主要问题是：为实现某个业务目标，在多个参与者之间，利用计算机，按某种预定规则自动传递</p>
+</blockquote>
+<blockquote>
+<p>PRIME Lab Manager提供了<code>图形化</code>、<code>可拖拽</code>的工作流定制功能，用户可以通过鼠标拖拽设计工作流流程节点，在中体现在事项在生命周期内不同状态之间的变化。每个状态以矩形框表示。每个工作流跳转由箭头指引方向。如下图所示</p>
+</blockquote>
+<p><img src="http://pm.masterlab.vip/doc/images/workflow_01.png" alt="" /></p>
+<h3>工作流关联项目</h3>
+<blockquote>
+<p>设计好工作流以后，我们需要将工作流加入到一个具体的工作流方案中去，通过工作流方案和项目绑定，这样一个工作流才能在项目中运转起来。系统已经默认了项目类型对应的工作流方案，当然我们可以在项目设置中更改工作流方案。</p>
+</blockquote>
+<h2 id="事项">事项</h2>
+<blockquote>
+<p><code>事项</code>可以是软件的缺陷，一个项目的具体任务，一个需要解决的技术难题或者是需要审批的报销单据等。</p>
+</blockquote>
+<blockquote>
+<p>事项关联以下信息：</p>
+<pre><code>1. 事项类型
+2. 摘要、描述
+3. 事项优先级
+4. 事项状态
+5. 事项的解决结果
+6. 事项的经办人
+7. 更多关联如模块、标签、开始时间、截止时间等</code></pre>
+</blockquote>
+<h3>事项类型</h3>
+<p>PRIME Lab Manager 缺省提供的事项类型如下：</p>
+<pre><code>  |--   Bug：测试过程、维护过程发现影响系统运行的缺陷
+  |--   新功能：对系统提出的新功能   
+  |--   优化改进：对现有系统功能的改进   
+  |--   用户故事：从用户的角度来描述用户渴望得到的功能。一个好的用户故事包括三个要素：1. 角色；2. 活动　3. 商业价值 
+  |--   技术任务：技术性的任务,如架构设计,数据库选型
+  |--   史诗任务：大型的或大量的工作，包含许多用户故事
+  |--   任务：需要做的工作
+  |--   子任务：任务的子任务</code></pre>
+<h3>事项类型方案</h3>
+<p>PRIME Lab Manager 缺省提供的事项类型方案如下：</p>
+<pre><code>  |--   默认事项方案：项目类型为『项目管理』
+  |--   敏捷开发事项方案：项目类型为『敏捷开发』
+  |--   瀑布模型的事项方案：项目类型为『软件开发』（该项目类型暂时未开放）
+  |--   流程管理事项方案：项目类型为『流程管理』（该项目类型暂时未开放）
+  |--   任务管理事项解决方案：项目类型为『任务管理』</code></pre>
+<h3>事项优先级</h3>
+<p>优先级来表示问题的严重级别。缺省的优先级为'紧急'，'重要'，'高'，'中'，'低'5个级别：</p>
+<pre><code>  |--   紧急：阻塞开发或测试的工作进度，或影响系统无法运行的错误
+  |--   重要：系统崩溃，丢失数据或内存溢出等严重错误、或者必需完成的任务   
+  |--   高：主要的功能无效、新增功能建议   
+  |--   中：功能部分无效或对现有系统的改进 
+  |--   低：拼写错误，文本未对齐等不影响功能和流程的问题</code></pre>
+<h3>事项状态</h3>
+<blockquote>
+<p>每个事项有一个状态，用来表明问题所处的阶段，问题通过开始于 open 状态，然后开始处理/Progress，再到解决/Resolved，然后被关闭/Closed。根据情况的不同，您可以根据项目来定制问题状态以及工作流。PRIME Lab Manager 系统提供的缺省状态如下：</p>
+</blockquote>
+<pre><code>  |--  open（打开）：表示事项被提交等待有人处理。
+  |--  in_progress（进行中）：表示事项在处理当中，尚未完成。
+  |--  reopen（重新打开）：事项重新被打开,重新进行解决。
+  |--  resolved（已解决）：事项已经已经被开发人员处理完。
+  |--  closed（已关闭）：问题处理结果确认后，置于关闭状态。
+  |--  done（完成）：事项已经已经被开发人员处理完，并且被产品或测试人员确认
+  |--  in_review（回顾）：该事项正在回顾或检查中
+  |--  delay（延迟处理）：延迟处理</code></pre>
+<h3>事项的解决结果</h3>
+<blockquote>
+<p>一个问题可以用多种方式解决，系统管理员可以在 PRIME Lab Manager 系统中定制解决结果。PRIME Lab Manager系统默认的解决结果如下：</p>
+</blockquote>
+<pre><code>  |--  Fixed（已修复） ：问题已经解决。
+  |--  not_fix（不能修复） ：事项未解决。
+  |--  require_duplicate（ 需要重现） ：事项需要有重现步骤。
+  |--  not_fix（不能修复） ：事项未解决。
+  |--  not_complete（ 信息不完整） ：事项信息描述不完整。
+  |--  not_reproduce（不能重现）：事项不能重现。
+  |--  done（完成）：事项已经解决并确认了。
+  |--  issue_not_exists（ 问题不存在） ：事项不存在。
+  |--  delay（延迟处理） ：事项将推迟处理。</code></pre>
+<h3>事项的权重</h3>
+<blockquote>
+<p>权重是指事项的重要程度，不同于事项的优先级，权重值由用户输入数值定义，数值越大，权重越高。</p>
+</blockquote>            </article>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="dark">
+    <div class="ant-row bottom-bar">
+        <div class="ant-col-sm-24 ant-col-lg-4"></div>
+        <div class="ant-col-sm-24 ant-col-lg-20">
+            <p class="footer-copyright"><!-- react-text: 194 -->Copyright © <!-- /react-text --><span>Wangpengroup 2019</span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+
+    window.__meta = {
+        "currentProduct": "g2",
+        "assets": "/assets",
+        "dist": "/assets/dist/3.0.0",
+        "href": "/zh-cn/g2/3.x/tutorial/history.html",
+        "locale": "zh-cn",
+        "version": "3.0.0"
+    };
+</script>
+<script src="./history_files/lodash-4.17.4.min.js"></script>
+<script src="./history_files/jquery-3.2.1.min.js"></script>
+<script src="./history_files/jquery.autocomplete-1.4.3.min.js"></script>
+<script src="./history_files/jquery.visible-1.2.0.min.js"></script>
+<script src="./history_files/popper.min.js"></script>
+<script src="./history_files/bootstrap.min.js"></script>
+<script src="./history_files/lazyload-2.0.0-beta.2.min.js"></script>
+<div id="___tracers" style="display:none">
+
+</div>
+<script src="./history_files/jquery.headroom-0.9.4.min.js"></script>
+<script src="./history_files/clipboard-1.7.1.min.js"></script>
+<script src="./history_files/tocbot.min.js"></script>
+<script src="./history_files/doc-eda67.js"></script>
+<script src="./history_files/common-729ed.js"></script>
+<div class="autocomplete-suggestions"
+     style="position: absolute; display: none; max-height: 300px; z-index: 9999;"></div>
+<div class="autocomplete-suggestions"
+     style="position: absolute; display: none; max-height: 300px; z-index: 9999;">
+
+</div>
+
+<script>
+    $(function () {
+        $('.toc-list li a').each(function (e) {
+            $(this).attr('href','#'+$(this).text());
+        })
+    });
+
+</script>
+
+</body>
+</html>
