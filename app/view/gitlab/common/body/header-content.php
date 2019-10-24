@@ -104,7 +104,7 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <ul>
                                 <li>
-                                    <a  target="_blank" href="http://www.masterlab.vip/help.php">帮 助</a>
+                                    <a  target="_blank" href="/help">帮 助</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
@@ -114,14 +114,6 @@
                                        data-toggle="modal"
                                        href="#modal-about">关 于
                                     </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" class="text-nowrap" href="https://github.com/gopeak/masterlab">点 赞
-                                    </a>
-                                </li>
-
-                                <li class="js-canary-link">
-                                    <a  target="_blank" href="http://www.masterlab.vip/donate.php" >捐 助</a>
                                 </li>
                             </ul>
                         </div>
@@ -189,7 +181,7 @@
                 <table width="468" border="0">
                     <tr>
                         <th width="39" height="31" scope="col">&nbsp;</th>
-                        <th width="419" align="left" scope="col"><h2>Masterlab社区版</h2></th>
+                        <th width="419" align="left" scope="col"><h2>基于 Masterlab 社区版改进</h2></th>
                     </tr>
                     <tr>
                         <th height="25" scope="row">&nbsp;</th>
@@ -204,24 +196,20 @@
                         <td align="left"><hr /></td>
                     </tr>
                     <tr>
-                        <th scope="row">&nbsp;</th>
-                        <td align="left">官方网站:<a href="http://www.masterlab.vip/">http://www.masterlab.vip/</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">&nbsp;</th>
-                        <td align="left"><span>QQ群：314155057</span></td>
-                    </tr>
-                    <tr>
                         <th height="22" scope="row">&nbsp;</th>
                         <td align="left"><hr /></td>
                     </tr>
                     <tr>
                         <th scope="row">&nbsp;</th>
-                        <td align="left"><span>感谢以下开发人员的贡献:</span></td>
+                        <td align="left"><span>项目开发人员</span></td>
                     </tr>
                     <tr>
                         <th scope="row">&nbsp;</th>
-                        <td align="left">sven 晒不黑 mo jelly  </td>
+                        <td align="left">张越</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&nbsp;</th>
+                        <td align="left">白心宇</td>
                     </tr>
                     <tr>
                         <th scope="row">&nbsp;</th>
