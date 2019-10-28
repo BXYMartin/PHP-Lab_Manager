@@ -4,7 +4,7 @@
 error_reporting(E_ERROR);
 
 // URL手动设置, 结尾必须带上/
-define('ROOT_URL', 'http://127.0.0.1:8888/');
+define('ROOT_URL', 'http://10.134.136.249/');
 
 // 附件URL
 define('ATTACHMENT_URL', ROOT_URL . 'attachment/');
