@@ -1087,7 +1087,8 @@ class Main extends BaseUserCtrl
     private function updateFileAttachment($issueId, $params)
     {
         $this->transformJson($issueId, $params, ['attachment', 'attachment_plane_pickup'
-            , 'attachment_plane_dropoff', 'abstract', 'poster', 'invitation']);
+            , 'attachment_plane_dropoff', 'abstract', 'poster', 'invitation'
+            , 'payday']);
         
     }
 
