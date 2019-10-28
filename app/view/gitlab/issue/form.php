@@ -334,8 +334,7 @@
                     <div class="form-group">
                         <label class="control-label" for="issue_type">事项类型:</label>
                         <div class="col-sm-10">
-                            <select id="edit_issue_types_select" name="params[issue_type]" class="selectpicker"
-                                     >
+                            <select id="edit_issue_types_select" name="params[issue_type]" class="selectpicker">
 
                             </select>
                         </div>

@@ -2051,6 +2051,7 @@
                         } else {
                             _cur_form_project_id = "";
                         }
+                        IssueMain.prototype.onChangeCreateProjectSelected(_cur_project_id, null);
                     });
 
                     $('#btn-update').bind('click', function () {
@@ -2096,10 +2097,8 @@
                         var sortby = $('#btn_sort_by').data('sortby');
                         searchObj['sort_field'] = field;
                         searchObj['sort_by'] = sortby;
-                        console.log(searchObj);
 
                         url = root_url + urls.pathname.substr(1) + '?' + parseParam(searchObj);
-                        console.log(url);
                         window.location.href = url;
                     });
 
@@ -2122,10 +2121,8 @@
 
                         searchObj['sort_field'] = field;
                         searchObj['sort_by'] = sortby;
-                        console.log(searchObj);
 
                         url = root_url + urls.pathname.substr(1) + '?' + parseParam(searchObj);
-                        console.log(url);
                         window.location.href = url;
                     });
 
@@ -2143,10 +2140,8 @@
                         var sortby = $(this).data('sortby');
                         searchObj['sort_field'] = field;
                         searchObj['sort_by'] = sortby;
-                        console.log(searchObj);
 
                         url = root_url + urls.pathname.substr(1) + '?' + parseParam(searchObj);
-                        console.log(url);
                         window.location.href = url;
                     });
 
@@ -2396,7 +2391,6 @@
                         singleFileUploads: true,
                         done: function (e, uploadObj) {
                             var resp = uploadObj.result;
-                            console.log(resp)
                             if (resp.ret == '200') {
                                 notify_success(resp.msg);
                             } else {
@@ -2406,13 +2400,10 @@
                         },
                         fail: function (e, uploadObj) {
                             var resp = uploadObj.result;
-                            //alert(resp.msg);
-                            console.log(resp)
                             notify_error(resp.msg, resp.data);
                             $('#import_excel_result').html(resp.data);
                         },
                         progressall: function (e, data) {
-                            //console.log(data)
                             var progress = parseInt(data.loaded / data.total * 100, 10);
                             $('#import_excel_progress .progress-bar').css(
                                 'width',

@@ -70,7 +70,7 @@ class IssueTypeLogic
             return self::FLOW_ISSUE_TYPE_SCHEME_ID;
         }
 
-        if ($type == ProjectLogic::PROJECT_TYPE_FLOW_MANAGE) {
+        if ($type == ProjectLogic::PROJECT_TYPE_TASK_MANAGE) {
             return self::TASK_ISSUE_TYPE_SCHEME_ID;
         }
 

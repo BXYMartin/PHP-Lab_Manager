@@ -50,7 +50,7 @@ var IssueDetail = (function () {
     IssueDetail.prototype.initEditFineUploader = function (issue) {
 
         // 文件
-        //window._fineUploader.addInitialFiles(issue.edit_attachment_data);
+        window._fineUploader.addInitialFiles(issue.edit_attachment_data);
 
     }
 
@@ -65,6 +65,7 @@ var IssueDetail = (function () {
             url: root_url + "issue/detail/get/" + id,
             data: {},
             success: function (resp) {
+                console.log(resp);
                 auth_check(resp);
                 var _self = self;
                 _fields = resp.data.fields;
@@ -101,6 +102,7 @@ var IssueDetail = (function () {
 
                 IssueDetail.prototype.fetchTimeline(id);
 
+                console.log(resp.data.issue['attachment']);
                 if (_fineUploader) {
                     _fineUploader.addInitialFiles(resp.data.issue['attachment']);
                 }

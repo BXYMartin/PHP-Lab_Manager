@@ -60,9 +60,17 @@ class Projects extends BaseUserCtrl
                     $outProjectTypeList[ProjectLogic::PROJECT_TYPE_SCRUM] =
                         array_combine($dataKey, [$value, ProjectLogic::$typeAll[ProjectLogic::PROJECT_TYPE_SCRUM]]);
                     break;
+                case 'PROJECT_MANAGE':
+                    $outProjectTypeList[ProjectLogic::PROJECT_TYPE_PROJECT_MANAGE] =
+                        array_combine($dataKey, [$value, ProjectLogic::$typeAll[ProjectLogic::PROJECT_TYPE_PROJECT_MANAGE]]);
+                    break;
                 case 'SOFTWARE_DEV':
                     $outProjectTypeList[ProjectLogic::PROJECT_TYPE_SOFTWARE_DEV] =
                         array_combine($dataKey, [$value, ProjectLogic::$typeAll[ProjectLogic::PROJECT_TYPE_SOFTWARE_DEV]]);
+                    break;
+                case 'FLOW_MANAGE':
+                    $outProjectTypeList[ProjectLogic::PROJECT_TYPE_FLOW_MANAGE] =
+                        array_combine($dataKey, [$value, ProjectLogic::$typeAll[ProjectLogic::PROJECT_TYPE_FLOW_MANAGE]]);
                     break;
                 case 'TASK_MANAGE':
                     $outProjectTypeList[ProjectLogic::PROJECT_TYPE_TASK_MANAGE] =

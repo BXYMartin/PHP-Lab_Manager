@@ -1057,6 +1057,27 @@ class Main extends BaseUserCtrl
         return $info;
     }
 
+    private function transformJson($issueId, $params, $names) {
+        $null = True;
+        $model = new IssueFileAttachmentModel();
+        foreach ($names as $name) {
+            if (isset($params[$name])) {
+                $attachments = json_decode($params[$name], true);
+
+                if (!empty($attachments)) {
+                    $null = False;
+                    foreach ($attachments as $file) {
+                        $uuid = $file['uuid'];
+                        $model->update(['issue_id' => $issueId], ['uuid' => $uuid]);
+                    }
+                }
+            }
+        }
+        if ($null) {
+            $model->delete(['issue_id' => $issueId]);
+        }
+    }
+
     /**
      * 更新事项的附件
      * @param $issueId
@@ -1065,18 +1086,9 @@ class Main extends BaseUserCtrl
      */
     private function updateFileAttachment($issueId, $params)
     {
-        if (isset($params['attachment'])) {
-            $model = new IssueFileAttachmentModel();
-            $attachments = json_decode($params['attachment'], true);
-            if (empty($attachments)) {
-                $model->delete(['issue_id' => $issueId]);
-            } else {
-                foreach ($attachments as $file) {
-                    $uuid = $file['uuid'];
-                    $model->update(['issue_id' => $issueId], ['uuid' => $uuid]);
-                }
-            }
-        }
+        $this->transformJson($issueId, $params, ['attachment', 'attachment_plane_pickup'
+            , 'attachment_plane_dropoff', 'abstract', 'poster', 'invitation']);
+        
     }
 
     /**

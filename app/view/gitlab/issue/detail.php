@@ -1309,7 +1309,6 @@
             });
 
             $("#modal-create-issue").on('show.bs.modal', function (e) {
-
                 $('#master_issue_id').val(_issue_id);
                 if (_cur_project_id != '') {
                     var issue_types = [];

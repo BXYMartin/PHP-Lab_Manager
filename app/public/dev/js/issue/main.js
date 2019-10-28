@@ -1111,7 +1111,6 @@ var IssueMain = (function () {
         var form_value_objs = $('#create_issue').serializeObject();
         var method = 'post';
         var post_data = $('#create_issue').serialize();
-
         $.ajax({
             type: method,
             dataType: "json",
@@ -1175,6 +1174,7 @@ var IssueMain = (function () {
         var form_value_objs = $('#edit_issue').serializeObject();
         var method = 'post';
         var post_data = $('#edit_issue').serialize();
+
 
         $.ajax({
             type: method,

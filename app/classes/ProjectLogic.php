@@ -42,11 +42,11 @@ class ProjectLogic
     ];
 
     static public $typeAll = [
-        self::PROJECT_TYPE_SCRUM => '敏捷开发',//'Scrum software development',
-        //self::PROJECT_TYPE_KANBAN => '看板开发',//'Kanban software development',
+        // self::PROJECT_TYPE_SCRUM => '敏捷开发',//'Scrum software development',
+        // self::PROJECT_TYPE_KANBAN => '看板开发',//'Kanban software development',
         self::PROJECT_TYPE_SOFTWARE_DEV => '软件开发',//'Basic software development',
-        //self::PROJECT_TYPE_PROJECT_MANAGE => '项目管理',
-        //self::PROJECT_TYPE_FLOW_MANAGE => '流程管理',
+        self::PROJECT_TYPE_PROJECT_MANAGE => '项目管理',
+        self::PROJECT_TYPE_FLOW_MANAGE => '来访管理',
         self::PROJECT_TYPE_TASK_MANAGE => '任务管理',
     ];
 
@@ -121,9 +121,9 @@ class ProjectLogic
             self::PROJECT_TYPE_SCRUM => 'fa fa-caret-right',
             self::PROJECT_TYPE_KANBAN => 'fa fa-bitbucket',
             self::PROJECT_TYPE_SOFTWARE_DEV => 'fa fa-caret-right',
-            self::PROJECT_TYPE_PROJECT_MANAGE => 'fa fa-google',
+            self::PROJECT_TYPE_PROJECT_MANAGE => 'fa fa-bookmark',
             self::PROJECT_TYPE_FLOW_MANAGE => 'fa fa-gitlab',
-            self::PROJECT_TYPE_TASK_MANAGE => 'fa fa-caret-right',
+            self::PROJECT_TYPE_TASK_MANAGE => 'fa fa-check-circle-o',
         );
         $typeDescription = array(
             self::PROJECT_TYPE_SCRUM => '搜集用户故事、规划迭代、进度管理、团队协作、用例管理、缺陷追踪、评审回顾、总结沉淀',

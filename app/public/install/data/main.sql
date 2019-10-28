@@ -704,10 +704,14 @@ INSERT INTO `issue_type` (`id`, `sequence`, `name`, `_key`, `catalog`, `descript
 (2, '2', '新功能', 'new_feature', 'Standard', '对系统提出的新功能', 'fa-plus', NULL, 1, 2),
 (3, '3', '任务', 'task', 'Standard', '需要完成的任务', 'fa-tasks', NULL, 1, 0),
 (4, '4', '优化改进', 'improve', 'Standard', '对现有系统功能的改进', 'fa-arrow-circle-o-up', NULL, 1, 5),
-(5, '0', '子任务', 'child_task', 'Standard', '', 'fa-subscript', NULL, 1, 5),
-(6, '2', '用户故事', 'user_story', 'Scrum', '从用户的角度来描述用户渴望得到的功能。一个好的用户故事包括三个要素：1. 角色；2. 活动　3. 商业价值', 'fa-users', NULL, 1, 2),
-(7, '3', '技术任务', 'tech_task', 'Scrum', '技术性的任务,如架构设计,数据库选型', 'fa-cogs', NULL, 1, 2),
-(8, '5', '史诗任务', 'epic', 'Scrum', '大型的或大量的工作，包含许多用户故事', 'fa-address-book-o', NULL, 1, 0);
+(5, '0', '子任务', 'child_task', 'Custom', '', 'fa-subscript', NULL, 1, 5),
+(6, '2', '用户故事', 'user_story', 'Custom', '从用户的角度来描述用户渴望得到的功能。一个好的用户故事包括三个要素：1. 角色；2. 活动　3. 商业价值', 'fa-users', NULL, 1, 2),
+(7, '3', '技术任务', 'tech_task', 'Custom', '技术性的任务,如架构设计,数据库选型', 'fa-cogs', NULL, 1, 2),
+(8, '5', '史诗任务', 'epic', 'Custom', '大型的或大量的工作，包含许多用户故事', 'fa-address-book-o', NULL, 1, 0);
+(9, '6', '会议接机', 'airport_pickup', 'Custom', '到机场接来访教授去预定酒店', 'fa-chevron-circle-up', NULL, 0, 3),
+(10, '7', '会议送机', 'airport_dropoff', 'Custom', '从唯识酒店或其他预定酒店送来访教授到机场', 'fa-automobile', NULL, 0, 4),
+(11, '8', '会议海报', 'symposium_poster', 'Custom', '为讲座制作海报', 'fa-map', NULL, 0, 6),
+(12, '9', '会议邀请函', 'symposium_Invitation', 'Custom', '准备会议所需的邀请函', 'fa-envelope-o', NULL, 0, 5);
 
 -- --------------------------------------------------------
 
