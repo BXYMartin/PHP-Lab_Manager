@@ -2047,11 +2047,11 @@
                             for (key in _issueConfig.issue_types) {
                                 issue_types.push(_issueConfig.issue_types[key]);
                             }
-                            IssueMain.prototype.initCreateIssueType(issue_types, true);
+                            //IssueMain.prototype.initCreateIssueType(issue_types, true);
+                            IssueMain.prototype.onChangeCreateProjectSelected(_cur_project_id, null);
                         } else {
                             _cur_form_project_id = "";
                         }
-                        IssueMain.prototype.onChangeCreateProjectSelected(_cur_project_id, null);
                     });
 
                     $('#btn-update').bind('click', function () {
