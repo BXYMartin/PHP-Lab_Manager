@@ -232,7 +232,6 @@
             }
             var scheme_ids_arr = type_ids.split(',');
             scheme_ids_arr.forEach(function(type_id) {
-                console.log(type_id);
                 var type_name = '';
                 var type_font_icon = '';
                 for(var skey in issue_types ){
@@ -255,7 +254,6 @@
             }
             var project_ids_arr = project_ids.split(',');
             project_ids_arr.forEach(function(project_id) {
-                console.log(project_id);
                 var project_name = '';
                 for(var skey in projects ){
                     if(projects[skey].id==project_id){

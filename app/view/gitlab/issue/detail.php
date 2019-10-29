@@ -345,6 +345,7 @@
                                 </div>
                             </div>
 
+                        <?php if (!empty($name)) { ?>
                             <div class="row">
                                 <div class="form-group col-lg-6 ">
                                     <label class="control-label col-sm-2" for="issue_milestone_id">影响版本:</label>
@@ -363,27 +364,35 @@
                                     </div>
                                 </div>
                             </div>
+                        <?php } ?>
                             <div class="row">
+                        <?php if (!empty($issue->sprint_info->name)) { ?>
                                 <div class="form-group col-lg-6 ">
                                     <label class="control-label col-sm-2" for="issue_milestone_id">迭代:</label>
                                     <div class="col-sm-10">
                                         <span>{{issue.sprint_info.name}}</span>
                                     </div>
                                 </div>
+                        <?php } ?>
+                        <?php if (!empty($issue->environment)) { ?>
                                 <div class="form-group col-lg-6">
                                     <label class="control-label col-sm-2" for="issue_label_ids">运行环境:</label>
                                     <div class="col-sm-10">
                                         {{issue.environment}}
                                     </div>
                                 </div>
+                        <?php } ?>
                             </div>
                             <div class="row">
+                        <?php if (!empty($issue->module_name)) { ?>
                                 <div class="form-group col-lg-6 ">
                                     <label class="control-label col-sm-2" for="issue_milestone_id">模块:</label>
                                     <div class="col-sm-10">
                                         <span>{{issue.module_name}}</span>
                                     </div>
                                 </div>
+                        <?php } ?>
+                        <?php if (!empty($issue->labels_names)) { ?>
                                 <div class="form-group col-lg-6">
                                     <label class="control-label col-sm-2" for="issue_label_ids">标签:</label>
                                     <div class="col-sm-10">
@@ -397,6 +406,7 @@
                                         {{/issue.labels_names}}
                                     </div>
                                 </div>
+                        <?php } ?>
                             </div>
                         </script>
 
