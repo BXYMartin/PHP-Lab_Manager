@@ -1044,9 +1044,12 @@
             <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
                 <span class="qq-upload-drop-area-text-selector"></span>
             </div>
-            <div class="qq-upload-button-selector qq-upload-button">
-                <div>浏览</div>
-            </div>
+            <button class="qq-upload-button-selector qq-upload-button">
+                <div>添加文件</div>
+            </button>
+            <button class="qq-download-button-selector qq-download-button" onclick="downloadAll();">
+                <div>全部下载</div>
+            </button>
             <span class="qq-drop-processing-selector qq-drop-processing">
             <span>拖拽文件完成...</span>
             <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
@@ -1078,9 +1081,8 @@
                         </div>
                         <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
                         <span class="qq-upload-size-selector qq-upload-size"></span>
-
-                        <button type="button" class="qq-btn qq-upload-download-selector qq-upload-download">
-                            <span class="qq-btn fa fa-download" aria-label="Delete"></span>
+                        <button type="button" onclick="download(this);" class="qq-upload-download-selector qq-btn qq-upload-download-selector qq-upload-download">
+                            <span class="qq-btn fa fa-download" aria-label="Download"></span>
                         </button>
                         <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">
                             <span class="qq-btn qq-delete-icon" aria-label="Delete"></span>
@@ -1257,7 +1259,6 @@
                     allowedExtensions: ['mp3','aac','wma','avi','rm','rmvb','flv','mpg','mov','mkv','mp4','jpeg', 'jpg', 'gif', 'png', '7z', 'zip', 'rar', 'bmp', 'csv', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pdf', 'xlt', 'xltx', 'txt'],
                 }
             });
-
             keyMaster.addKeys([
                 {
                     key: 'ctrl+enter',
@@ -1417,6 +1418,34 @@
                 }
             });
         });
+
+        function downloadAll() {
+            var all = document.getElementsByClassName('qq-upload-download-selector');
+            if (all == null || all.length <= 0) {
+                alert("没有可供下载的文件！");
+                return;
+            }
+            for (var i = 0; i < all.length; i++) {
+                download(all[i]);
+            }
+        }
+
+        function download(obj) {
+            var file = obj.parentNode;
+            var url = file.previousElementSibling.previousElementSibling.previousElementSibling.children[0].getAttribute('data-src');
+            if (url == null) {
+                alert("文件正在被占用，请稍后重试。");
+                return;
+            }
+            var eleLink = document.createElement('a');
+            var name = url.split('/');
+            eleLink.download = _fineUploader.getName(_fineUploader.getId(obj));
+            eleLink.style.display = 'none';
+            eleLink.href = url;
+            document.body.appendChild(eleLink);
+            eleLink.click();
+            document.body.removeChild(eleLink);
+        }
     </script>
 </body>
 </html>

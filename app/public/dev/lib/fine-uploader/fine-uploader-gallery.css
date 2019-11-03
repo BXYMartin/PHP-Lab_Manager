@@ -16,10 +16,12 @@
 
 /* Upload Button
 ------------------------------------------ */
+.qq-gallery .qq-download-button,
 .qq-gallery .qq-upload-button {
     display: inline;
     width: 105px;
     padding: 7px 10px;
+    margin-right: 10px;
     float: left;
     text-align: center;
     background: #00ABC7;
@@ -31,13 +33,19 @@
     0 1px 0 rgba(0, 0, 0, 0.36),
     0 -2px 12px rgba(0, 0, 0, 0.08) inset
 }
+.qq-gallery .qq-download-button-hover,
 .qq-gallery .qq-upload-button-hover {
     background: #33B6CC;
 }
+.qq-gallery .qq-download-button-focus,
 .qq-gallery .qq-upload-button-focus {
     outline: 1px dotted #000000;
 }
 
+.qq-gallery .qq-download-button {
+    background-color: #C80000;
+    border: 1px solid #C80000;
+}
 
 /* Drop Zone
 ------------------------------------------ */
@@ -123,6 +131,14 @@
     /* to ensure consistent size of tiles - may need to change if qq-max-size attr on preview img changes */
     width: 200px;
     min-height: 195px;
+}
+
+.qq-upload-download-selector {
+    width: 16px;
+    height: 16px;
+    margin: 0 0 0 4px !important;
+    font-size: 16px !important;
+    background: none;
 }
 
 .qq-gallery .qq-upload-spinner,
