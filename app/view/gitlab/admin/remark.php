@@ -105,14 +105,14 @@
                     {{username}}
                 </strong>
             </td>
-            <td>
+            <td data-value="{{project}}">
                 {{project}}
             </td>
-            <td>
+            <td data-value="{{issue}}">
                 {{issue}}
             </td>
             {{#issues}}
-            <td>
+            <td data-value="{{count}}">
                 {{count}}
             </td>
             {{/issues}}
