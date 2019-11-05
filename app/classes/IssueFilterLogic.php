@@ -404,6 +404,34 @@ class IssueFilterLogic
         return [$rows, $count];
     }
 
+
+    /**
+     * @param int $userId
+     * @param int $page
+     * @param int $pageSize
+     * @return array
+     * @throws \Exception
+     */
+    public static function getsByResolveAssignee($userId = 0, $page = 1, $pageSize = 10)
+    {
+        $conditions = [];
+        if (!empty($userId)) {
+            $conditions['assignee'] = $userId;
+        }
+        $start = $pageSize * ($page - 1);
+        $appendSql = " 1 AND " . self::getDoneSql() . "  Order by id desc  limit $start, " . $pageSize;
+
+        $model = new IssueModel();
+        $fields = 'id,issue_num,project_id,reporter,assignee,issue_type,summary,priority,resolve,
+            status,created,updated,sprint,master_id,start_date,due_date';
+        $rows = $model->getRows($fields, $conditions, $appendSql);
+        foreach ($rows as &$row) {
+            self::formatIssue($row);
+        }
+        $count = $model->getOne('count(*) as cc', $conditions);
+        return [$rows, $count];
+    }
+
     /**
      * @param int $userId
      * @param int $page

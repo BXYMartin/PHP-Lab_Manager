@@ -1,3 +1,109 @@
+function fetchRemarkList(url, tpl_id, render_id, month, page)
+{
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        async: true,
+        url: url,
+        data: "month="+month+"&page="+page,
+        success: function(resp) {
+            auth_check(resp);
+            if(resp.data.users.length){
+                var source = $('#' + tpl_id).html();
+                var template = Handlebars.compile(source);
+                var result = template(resp.data);
+                $('#' + render_id).html(result);
+
+                var options = {
+                    currentPage: resp.data.page,
+                    totalPages: resp.data.pages,
+                    onPageClicked: function(e,originalEvent,type,month,page){
+                        console.log("Page item clicked, type: "+type+" month: "+month+" page: "+page);
+                        fetchList('/admin/remark/filterData', tpl_id, render_id, month, page);
+                    }
+                };
+
+                //取消分页
+                //$('#ampagination-bootstrap').bootstrapPaginator(options);
+
+            } else {
+                var emptyHtml = defineStatusHtml({
+                    message : '暂无数据',
+                    type: 'error',
+                    handleHtml: ''
+                });
+                $('#'+render_id).append($('<tr><td colspan="6" id="' + render_id + '_wrap"></td></tr>'));
+                $('#'+render_id + '_wrap').append(emptyHtml.html);
+            }
+        },
+        error: function(res) {
+            notify_error("请求数据错误" + res);
+        }
+    });
+}
+
+function fetchDateList(url, tpl_id, render_id, month)
+{
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        async: true,
+        url: url,
+        data: "month="+month,
+        success: function(resp) {
+            auth_check(resp);
+            if(resp.data){
+                var source = $('#' + tpl_id).html();
+                var template = Handlebars.compile(source);
+                var result = template(resp.data);
+                $('#' + render_id).html(result);
+
+            } else {
+                var emptyHtml = defineStatusHtml({
+                    message : '暂无数据',
+                    type: 'error',
+                    handleHtml: ''
+                });
+                $('#'+render_id).append($('<tr><td colspan="6" id="' + render_id + '_wrap"></td></tr>'));
+                $('#'+render_id + '_wrap').append(emptyHtml.html);
+            }
+        },
+        error: function(res) {
+            notify_error("请求数据错误" + res);
+        }
+    });
+}
+
+function fetchHeaderList(url, tpl_id, render_id)
+{
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        async: true,
+        url: url,
+        data: "",
+        success: function(resp) {
+            auth_check(resp);
+            if(resp.data.issues.length){
+                var source = $('#' + tpl_id).html();
+                var template = Handlebars.compile(source);
+                var result = template(resp.data);
+                $('#' + render_id).html(result);
+            } else {
+                var emptyHtml = defineStatusHtml({
+                    message : '暂无数据',
+                    type: 'error',
+                    handleHtml: ''
+                });
+                $('#'+render_id).append($('<tr><td colspan="6" id="' + render_id + '_wrap"></td></tr>'));
+                $('#'+render_id + '_wrap').append(emptyHtml.html);
+            }
+        },
+        error: function(res) {
+            notify_error("请求数据错误" + res);
+        }
+    });
+}
 
 function fetchList(url, tpl_id, render_id, page)
 {
