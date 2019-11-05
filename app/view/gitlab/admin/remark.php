@@ -41,7 +41,7 @@
                               <option value="-2">两个月前</option>
                               <option value="-3">三个月前</option>
                             </select>
-                            绩效结算 
+                            绩效结算
                             </h4>
                         </li>
                     </ul>
@@ -50,7 +50,7 @@
                             <i class="fa fa-rss"></i>
                         </a-->
                         <div class="project-item-select-holder">
-                            <a class="btn btn-new" onclick="tablesToExcel(['viewTable'], ['PRIME Lab Manager Remarks'], '项目绩效统计表.xls', 'Excel')">
+                            <a class="btn btn-new" id="download" onclick="tablesToExcel(['viewTable'], ['PRIME Lab Manager Remarks'], 'Excel')">
                                 <i class="fa fa-cloud-download"></i>
                                 导出表格
                             </a>
@@ -148,11 +148,21 @@
             , tmplCellXML = '<Cell{attributeStyleID}{attributeFormula}><Data ss:Type="{nameType}">{data}</Data></Cell>'
             , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
             , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) };
-        return function(tables, wsnames, wbname, appname) {
+        return function(tables, wsnames, appname) {
             var ctx = "";
             var workbookXML = "";
             var worksheetsXML = "";
             var rowsXML = "";
+            
+            var obj = document.getElementById("month");
+            var offset = parseInt(obj.options[obj.selectedIndex].value);
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1 + offset;
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            var wbname = year + "-" + month + " 绩效考核表.xls"; 
             for (var i = 0; i < tables.length; i++) {
                 if (!tables[i].nodeType) tables[i] = document.getElementById(tables[i]);
                 for (var j = 0; j < tables[i].rows.length; j++) {
