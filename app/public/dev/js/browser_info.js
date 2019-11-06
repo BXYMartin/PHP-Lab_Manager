@@ -3,7 +3,8 @@ window.onload = function () {
     var brName = getExploreName();
     console.log('浏览器信息：'+ brName)
     if (brName === 'IE' || brName === 'Edge' || brName === 'IE>=11' || brName === 'Unkonwn'|| brName === 'Safari') {
-        $('body').prepend(alertHtml)
+        $('.page-content-body').prepend(alertHtml);
+        //$('body').prepend(alertHtml)
     }
 }
 
