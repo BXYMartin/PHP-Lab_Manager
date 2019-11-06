@@ -11,10 +11,6 @@
     min-height: 100vh;
 }
 
-.has-sidebar .content {
-    padding: 20px;
-}
-
 .has-sidebar .container-limited {
     width: 100%;
     max-width: 100% !important;

@@ -34,15 +34,18 @@
                 <div class="top-area">
                     <ul class="nav-links user-state-filters" style="float:left">
                         <li class="active" data-value="">
-                            <h4 style="margin-left: 12px;">
-                            <select id="month" onchange="update();">
-                              <option value="0">本月</option>
-                              <option value="-1">上个月</option>
+                            <a id="state-opened"  title="绩效结算" >
+                            <span>
+                            <select id="month" style="border: none; background-color: #fff;" onchange="update();">
+                              <option value="0">当前月份</option>
+                              <option value="-1">一个月前</option>
                               <option value="-2">两个月前</option>
                               <option value="-3">三个月前</option>
                             </select>
-                            绩效结算
-                            </h4>
+                            的绩效结算
+                            </span>
+
+                            </a>
                         </li>
                     </ul>
                     <div class="nav-controls" style="right: ">

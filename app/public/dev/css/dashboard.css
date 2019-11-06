@@ -171,7 +171,7 @@ header .header-content {
 }
 
 .user-profile-extra .extra-item {
-    padding: 0 32px;
+    padding: 0 16px;
     position: relative;
     display: inline-block;
 }
@@ -304,10 +304,10 @@ header .header-content {
 
 .project-item .project-item-body {
     color: rgba(0,0,0,.45);
-    height: 44px;
     line-height: 22px;
     overflow: hidden;
-    margin: 8px 0;
+    margin: 0 0 10px 0;
+    float: right;
 }
 
 .project-item .project-item-footer {

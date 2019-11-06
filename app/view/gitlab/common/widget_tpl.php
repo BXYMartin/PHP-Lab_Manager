@@ -95,7 +95,7 @@
 <script id="my_projects_tpl" type="text/html">
     {{#projects}}
     <li class="event-block project-item col-md-4">
-        <div class="project-item-title">
+        <div class="project-item-title" style="float: left;">
             {{#if avatar_exist}}
             <span class="g-avatar g-avatar-md project-item-pic">
                 <img src="{{avatar}}">
@@ -114,6 +114,8 @@
         <div class="project-item-body">
             {{user_html create_uid }}
         </div>
+
+        <div class="clearfix"></div>
 
         <div class="project-item-footer">
             <span class="footer-text">{{type_name}}</span>

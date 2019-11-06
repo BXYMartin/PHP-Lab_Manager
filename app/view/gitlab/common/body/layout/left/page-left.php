@@ -74,6 +74,18 @@
 		$("#sidebar-control").css("width", "210px");
 	}
 
+    $(window).on('resize', function() {
+        if ($(window).width() <= 991 && !isMin) {
+            $("#sidebar-control").click();
+        }
+    });
+
+    $(document).on("ready", function() {
+        if ($(window).width() <= 991 && !isMin) {
+            $("#sidebar-control").click();
+        }
+    });
+
     $(function () {
         $(document).on("click", ".max-sidebar .sidebar-menu .menu-item a", function () {
             $(this).siblings(".sub-menu").slideToggle("normal","swing");
