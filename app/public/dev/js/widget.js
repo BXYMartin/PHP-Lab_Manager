@@ -206,7 +206,7 @@ var Widgets = (function () {
                         message : '数据为空'
                     })
                 }
-                
+
             },
             error: function (res) {
                 notify_error("请求数据错误" + res);
@@ -538,6 +538,9 @@ var Widgets = (function () {
                 var sprint_end_date = resp.data.activeSprint.end_date;
                 $('#'+_key+'_wrap').countdown(sprint_end_date, function (event) {
                     $(this).html(event.strftime('%w 周 %d 天 %H:%M:%S'));
+                    if ($(this).html() == "00 周 00 天 00:00:00") {
+                        $(this).html("暂无迭代数据");
+                    }
                 });
             },
             error: function (res) {

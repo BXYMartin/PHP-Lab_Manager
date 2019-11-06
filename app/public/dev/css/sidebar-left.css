@@ -4,6 +4,15 @@
     flex: auto;
     background: #f0f2f5;
     min-height: 0;
+    transition: margin-left 0.3s;
+}
+
+.min-sidebar .page-layout{
+    margin-left: 50px;
+}
+
+.max-sidebar .page-layout{
+    margin-left: 210px;
 }
 
 .page-content-body {
@@ -64,7 +73,7 @@
     width: 210px;
     min-height: 100vh;
     border: 1px solid #ddd;
-    position: relative;
+    position: fixed;
     z-index: 999;
     background: #fafafa;
     transition: all 0.3s;

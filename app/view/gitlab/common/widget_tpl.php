@@ -567,7 +567,7 @@
 
 <!--迭代倒计时-->
 <script id="sprint_countdown-body_tpl" type="text/html">
-    <div id="sprint_countdown_wrap" style="font-size: 48px;">
+    <div id="sprint_countdown_wrap" style="font-size: 20px;">
     </div>
 </script>
 <script id="sprint_countdown_tpl" type="text/html">
