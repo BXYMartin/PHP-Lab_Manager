@@ -20,7 +20,7 @@
 
 <div id="helper_panel" class="helper-panel hide">
     <div class="close-helper">
-        <span class="text">close</span>
+        <span class="text">关闭</span>
         <span><i class="fa fa-times"></i></span>
     </div>
     <div class="bg-linear"></div>
