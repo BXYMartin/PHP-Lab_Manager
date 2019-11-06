@@ -390,7 +390,7 @@ class Passport extends BaseCtrl
         list($flag, $insertId) = $emailVerifyCodeModel->add($user['uid'], $email, $username, $verifyCode);
         if ($flag && APP_STATUS != 'travis') {
             $args = [];
-            $args['{{site_name}}'] = 'Masterlab';
+            $args['{{site_name}}'] = 'PRIME Lab';
             $args['{{name}}'] = $user['display_name'];
             $args['{{display_name}}'] = $user['display_name'];
             $args['{{email}}'] = $email;
@@ -399,7 +399,7 @@ class Passport extends BaseCtrl
             $body = str_replace(array_keys($args), array_values($args), $mailConfig['tpl']['active_email']);
             // echo $body;die;
             $systemLogic = new SystemLogic();
-            list($ret, $errMsg) = $systemLogic->mail($email, 'Masterlab激活用户通知', $body);
+            list($ret, $errMsg) = $systemLogic->mail($email, 'PRIME Lab 激活用户通知', $body);
             //var_dump($ret, $errMsg);
             if (!$ret) {
                 return [false, 'send_email_failed:' . $errMsg];

@@ -270,8 +270,8 @@ class User extends BaseAdminCtrl
         if ($ret == UserModel::REG_RETURN_CODE_OK) {
             if (isset($params['notify_email']) && $params['notify_email'] == '1') {
                 $sysLogic = new SystemLogic();
-                $content = "管理用户为您创建了Masterlab账号。<br>用户名：{$username}<br>密码：{$password}<br><br>请访问 " . ROOT_URL . " 进行登录<br>";
-                $sysLogic->mail([$email], "Masterlab创建账号通知", $content);
+                $content = "管理用户为您创建了PRIME Lab账号。<br>用户名：{$username}<br>密码：{$password}<br><br>请访问 " . ROOT_URL . " 进行登录<br>";
+                $sysLogic->mail([$email], "PRIME Lab创建账号通知", $content);
             }
             $this->ajaxSuccess('提示', '操作成功');
         } else {

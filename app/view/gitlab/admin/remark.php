@@ -119,7 +119,7 @@
                 {{count}}
             </td>
             {{/issues}}
-        </tr>
+            </tr>
     {{/users}}
 
 </script>

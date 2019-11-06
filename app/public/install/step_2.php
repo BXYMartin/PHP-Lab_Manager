@@ -55,7 +55,7 @@
         <div class="text-nav">
             <h1>Step.2</h1>
             <h2>Redis和异步服务器配置</h2>
-            <h5 style="color: red">使用Redis和异步服务将极大提高Masterlab的性能</h5>
+            <h5 style="color: red">使用Redis和异步服务将极大提高PRIME Lab的性能</h5>
         </div>
         <div class="procedure-nav">
             <div class="schedule-ico"><span class="a"></span><span class="b"></span><span class="c"></span><span

@@ -118,7 +118,7 @@
                                             <div class="form-group">
                                                 <label for="inputEmail3" class="col-sm-2 control-label">标题</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text"  class="form-control" name="params[title]" id="id_title" value="Test Message From Masterlab">
+                                                    <input type="text"  class="form-control" name="params[title]" id="id_title" value="Test Message From PRIME Lab">
                                                 </div>
                                             </div>
 
@@ -141,8 +141,8 @@
                                             <div class="form-group">
                                                 <label for="inputEmail3" class="col-sm-2 control-label">内容</label>
                                                 <div class="col-sm-10">
-                                            <textarea name="params[content]" id="test_content" rows="5" class="form-control" rows="3" >This is a test message from Masterlab.
-Server: Masterlab邮件
+                                            <textarea name="params[content]" id="test_content" rows="5" class="form-control" rows="3" >This is a test message from PRIME Lab.
+Server: PRIME Lab 邮件
 SMTP Port: 25
 Description:
 From:

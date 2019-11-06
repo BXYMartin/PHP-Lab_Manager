@@ -166,7 +166,8 @@ class SystemLogic
             $mail->Password = trimStr($config['mail_password']);
             $mail->Timeout = isset($config['timeout']) ? $config['timeout'] : 20;
             $mail->From = trimStr($config['send_mailer']);
-            $mail->FromName = isset($others['from_name']) ? $others['from_name'] : 'Masterlab';
+            $mail->FromName = isset($others['from_name']) ? $others['from_name'] : 'PRIME Lab
+';
             if (in_array($mail->Port, [465, 994])) {
                 $mail->SMTPSecure = 'ssl';
             } elseif (in_array($mail->Port, [587])) {
@@ -242,7 +243,7 @@ class SystemLogic
         $sendArr['user'] = trimStr($config['mail_account']);
         $sendArr['password'] = trimStr($config['mail_password']);
         $sendArr['from'] = trimStr($config['send_mailer']);
-        $sendArr['from_name'] = isset($others['from_name']) ? $others['from_name'] : 'Masterlab';
+        $sendArr['from_name'] = isset($others['from_name']) ? $others['from_name'] : 'PRIME Lab';
         $sendArr['to'] = $recipients;
         $sendArr['cc'] = $replyTo;
         $sendArr['bcc'] = isset($others['bcc']) ? $others['bcc'] : [];

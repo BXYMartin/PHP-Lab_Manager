@@ -57,7 +57,7 @@ function excelData(array $rowsData, array $tableHeader, $fileName = 'output.xls'
     }
 
     $str .= "</table></body></html>";
-    $str .= "<span>Creator: Masterlab</span>";
+    $str .= "<span>Creator: PRIME Lab</span>";
     header("Content-Type: application/vnd.ms-excel; name='excel'");
     header("Content-type: application/octet-stream");
     header("Content-Disposition: attachment; filename=" . date("Y-m-d") . "-" . $fileName);
