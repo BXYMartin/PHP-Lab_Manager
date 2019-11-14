@@ -103,19 +103,19 @@
 <script type="text/html" id="remark_tpl">
     {{#users}}
         <tr class="commit">
-            <td data-value="{{username}}">
+            <td data-style="String" data-value="{{display_name}}">
                 <strong>
                     {{display_name}}
                 </strong>
             </td>
-            <td data-value="{{project}}">
+            <td data-style="Number" data-value="{{project}}">
                 {{project}}
             </td>
-            <td data-value="{{issue}}">
+            <td data-style="Number" data-value="{{issue}}">
                 {{issue}}
             </td>
             {{#issues}}
-            <td data-value="{{count}}">
+            <td data-style="Number" data-value="{{count}}">
                 {{count}}
             </td>
             {{/issues}}
