@@ -105,7 +105,7 @@
         <tr class="commit">
             <td data-value="{{username}}">
                 <strong>
-                    {{username}}
+                    {{display_name}}
                 </strong>
             </td>
             <td data-value="{{project}}">
@@ -127,6 +127,7 @@
 <script>
     function update() {
         document.getElementById("render_id").style.visibility = "hidden";
+        document.getElementById("date_id").style.visibility = "hidden";
         var obj = document.getElementById("month");
         var index = obj.selectedIndex;
         var value = parseInt(obj.options[index].value);
@@ -134,6 +135,7 @@
         fetchHeaderList('/admin/remark/filterHeaderData', 'header_tpl', 'header_id');
         fetchDateList('/admin/remark/filterDateData', 'date_tpl', 'date_id', value, 1);
         document.getElementById("render_id").style.visibility = "visible";
+        document.getElementById("date_id").style.visibility = "visible";
     }
 
     update();
