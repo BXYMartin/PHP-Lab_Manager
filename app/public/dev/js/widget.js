@@ -521,6 +521,31 @@ var Widgets = (function () {
         });
     }
 
+    Widgets.prototype.fetchCalender = function (user_widget) {
+        // url,  list_tpl_id, list_render_id
+        var params = user_widget.parameter;
+        var _key = user_widget._key;
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            async: true,
+            url: root_url+'widget/fetchCalender',
+            data: params,
+            success: function (resp) {
+                auth_check(resp);
+                console.log(resp);
+                var sprint_end_date = resp.data.activeSprint.end_date;
+                $('#'+_key+'_wrap').countdown(sprint_end_date, function (event) {
+                    $(this).html(event.strftime('%w 周 %d 天 %H:%M:%S'));
+                });
+            },
+            error: function (res) {
+                notify_error("请求数据错误" + res);
+            }
+        });
+    }
+
     Widgets.prototype.fetchSprintCountdown = function (user_widget) {
         // url,  list_tpl_id, list_render_id
         var params = user_widget.parameter;

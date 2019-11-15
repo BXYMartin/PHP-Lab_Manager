@@ -598,6 +598,120 @@
 <script id="sprint_pie_tpl" type="text/html">
 </script>
 
+<!--日历-->
+<script id="calender-body_tpl" type="text/html">
+<!--主要样式-->
+<link rel="stylesheet" type="text/css" href="<?= ROOT_URL ?>/dev/css/reset.css">
+<link rel="stylesheet" type="text/css" href="<?= ROOT_URL ?>/dev/css/simple-calendar.css">
+<link rel="stylesheet" href="<?= ROOT_URL ?>/dev/css/calendar.css" />
+<div class="inner">
+	<div id='calendar' class="sc-calendar">
+		<div class="sc-header">
+			<div class="sc-title">
+				<div class="year"><span class="sc-select-year" name=""></span> 年</div>
+				<div class="month">
+                <div class="arrow sc-mleft" style="background: url(<?= ROOT_URL ?>/dev/img/calender/arrowLeftCircle.png) center top no-repeat; background-size: 100% 100%; width: 0.4rem; height: 0.4rem;"></div>
+					<div class="monthdiv">
+						<span class="sc-select-month" name=""></span>
+					</div>
+                    <div class="arrow sc-mright" style="background: url(<?= ROOT_URL?>/dev/img/calender/arrowRightCircle.png) center top no-repeat; background-size: 100% 100%; width: 0.4rem; height: 0.4rem;"></div>
+				</div>
+			</div>
+			<div class="sc-week"></div> 
+		</div>
+		<div class="sc-body">
+			<div class="sc-days"></div>
+		</div>
+	</div>
+	<div class="announcement">
+		<ul class="matter">
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript" src="<?= ROOT_URL ?>/dev/lib/jquery.min.js" />
+<script type="text/javascript" src="<?= ROOT_URL ?>/dev/lib/simple-calendar.js" />
+<script type="text/javascript" src="<?= ROOT_URL ?>/dev/lib/hammer-2.0.8-min.js" />
+<script type="text/javascript">
+	var myCalendar = new SimpleCalendar('#calendar');
+	$(function(){
+		var monthCH = $('.sc-select-month').text();
+		$(".sc-mleft").click(function(){
+			myCalendar.subMonth();
+		   var year = $('.sc-select-year').text();
+		   var monthCH = $('.sc-select-month').text();
+		   var month = SimpleCalendar.prototype.languageData.months_CH.indexOf(monthCH)+1;
+	   })
+		$(".sc-mright").click(function(){
+			myCalendar.addMonth();
+			var year = $('.sc-select-year').text();
+			var monthCH = $('.sc-select-month').text();
+			var month = SimpleCalendar.prototype.languageData.months_CH.indexOf(monthCH)+1;
+		})
+	});
+	
+	//滑动切换
+	var myElement = document.getElementById('calendar');
+　　  			var hammer = new Hammer(myElement);
+	hammer.on("swipeleft", function (ev) {
+		myCalendar.addMonth();
+	});
+	hammer.on("swiperight", function (ev) {
+		myCalendar.subMonth();
+	});
+	
+	//添加标记
+	var mark = {
+        '2019-11-15':[
+            {title:'Test'}
+        ],
+		'2018-2-1':[
+			{title:'通知通知事件',startTime:'2018-2-2 8:00:00',endTime:'2018-2-2 11:30:00'},
+			{title:'校历通知通知事件校历通知通知事件校历通知通知事件校历通知通知事件校历通知通知事件校历通知通知事件',startTime:'2018-2-2 18:00:00',endTime:'2018-2-2 19:30:00'}],
+		'2018-1-10':[{title:'3dadddddd',startTime:'2018-2-30 6:00:00',endTime:'2018-2-30 11:30:00'}],
+		'2018-1-15':[{title:'assss',startTime:'2018-2-15 12:00:00',endTime:'2018-2-15 14:30:00'}]
+	};
+	myCalendar._defaultOptions.mark=mark;
+	myCalendar.update();
+	
+	//显示当天的活动在初始化mark之后
+	//初始化今天的活动
+	announceList($('.sc-today'));
+	//有标记的日期点击事件
+	$('#calendar').on("click", '.sc-selected', function() {
+		announceList($(this));
+	});
+	
+	//显示选择日期当天的活动
+	function announceList(v){
+		console.log(v)
+		if(v.children().hasClass('sc-mark-show')){
+			var year = $('.sc-select-year').text();
+			var monthCH = $('.sc-select-month').text();
+			var day = v.children()[1].innerText;
+			var month = SimpleCalendar.prototype.languageData.months_CH.indexOf(monthCH)+1;
+			var date = year + '-' + month + '-' + day;
+			var content = mark[date];
+			var matterHtml='';
+			for(var i=0;i<content.length;i++){
+				matterHtml +='<li class="announceItem"><div><div class="fl announceImg">'
+                    +'<img class=" " src="<?= ROOT_URL ?>/dev/img/calender/content.png"></div>'
+					+'<p class="announceContent">'+content[i].title+'</p>'
+					+'</div><div class="announceTime">'+content[i].startTime+' - '+content[i].endTime+'</div></li>';
+			}
+			$('.matter').html(matterHtml);
+		}else{
+			var matterHtml=''
+			matterHtml +='<li class="announceItem"><div><p class="announceContent">当前日期暂无活动</p></div></li>';
+			$('.matter').html(matterHtml);
+		}
+	}
+</script>
+</script>
+
+<script id="calender_tpl" type="text/html">
+</script>
+
 
 <!--迭代已解决与未解决-->
 <script id="sprint_abs-body_tpl" type="text/html">
