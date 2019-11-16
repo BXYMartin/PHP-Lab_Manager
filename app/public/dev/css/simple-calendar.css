@@ -21,14 +21,14 @@ body{
     border-radius: 20px;
 	background:#4e9fee;
 	width: 100%;
-	height: 1.55rem;
+	height: 1.2rem;
 }
 
 .sc-title {
-	height: 1rem;
+	height: 0.6rem;
 	border-bottom: 0;
 	color: white;
-	padding: 0.3rem 0.4rem;
+	padding: 0.2rem 0.4rem;
 }
 .year {
 	float: left;
@@ -79,7 +79,7 @@ body{
 
 
 .sc-body {
-	height: 5.9rem;
+	height: 6.6rem;
 	clear: both;
 }
 
@@ -109,11 +109,13 @@ body{
 }
 
 .sc-item {
-	width: 13.5%;
+    transition: border 0.2s ease-in;
+    width: 13.5%;
 	height: 1.25rem;
 	float: left;
 	color: #565555;
-	background-color: #ffffff;
+	background-color: #fafafa;
+    border-radius: 20px;
 	box-sizing: border-box;
 	margin: 0.39%;
     border: 2px solid transparent;
@@ -121,15 +123,15 @@ body{
 }
 
 .sc-item .day {
-	font-size: 16px;
+	font-size: 20px;
 	color: #333333;
 	font-weight: normal;
 	line-height: 0.45rem;
 }
 .sc-item .lunar-day {
-	font-size: 9px;
+	font-size: 12px;
 	line-height: 0.24rem;
-	color: #b2b2b2;
+	color: #a2a2a2;
 	font-weight: normal;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -151,8 +153,8 @@ body{
 .mark{
 	/*background: url(../img/blueBg.png) center center no-repeat;
 	background-size: 0.88rem 0.88rem;*/
-	height: 0.16rem;
-	font-size: 24px;
+	height: 0.18rem;
+	font-size: 30px;
 	color: rgba(241, 43, 43, 1);
     text-align: left;
 }
@@ -185,27 +187,42 @@ body{
 	color: #C1C0C0 !important;
 }
 
-.sc-active-day{
-    border: 2px solid #CCC;
-    border-radius: 50%;
-}
-
-.sc-selected{
-    border: 2px solid #4E9FFF;
-    border-radius: 50%;
-}
 
 .sc-today {
-    background-color: #4E9FEE;
-    border-radius: 50%;
+    background-color: #5EAFEE;
+    border-radius: 20px;
 }
 
 .sc-today .day {
 	color: white !important;
 }
-.sc-today .lunar-day{
+.sc-today .lunar-day {
 	color: white;
 }
+
+.sc-selected .sc-mark-show {
+    color: white;
+}
+
+.sc-selected .day {
+    color: white;
+}
+
+.sc-selected .lunar-day {
+    color: white;
+}
+
+.sc-active-day{
+    border: 2px solid #CCC;
+    border-radius: 20px;
+}
+
+.sc-selected{
+    border: 2px solid #4E9FFF;
+    background-color: #4E9FFF;
+    border-radius: 20px;
+}
+
 .sc-festival .lunar-day {
 	color: #E00808;
 }

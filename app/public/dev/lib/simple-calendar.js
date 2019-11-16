@@ -303,7 +303,7 @@ var SimpleCalendar = function() {
 				week.innerHTML = week.innerHTML + ' <div class="sc-week-item"></div>';
 			}
 			for(var i = 0; i < 42; i++) {
-				days.innerHTML = days.innerHTML + '<div class="sc-item"><p class="mark sc-mark-hide">📎</p><div class="day"></div><div class="lunar-day"></div></div>';
+				days.innerHTML = days.innerHTML + '<div class="sc-item"><p class="mark sc-mark-hide">•</p><div class="day"></div><div class="lunar-day"></div></div>';
 			}
 			//添加下拉框数据
 			this.updateSelect(this.tyear, this.tmonth);
