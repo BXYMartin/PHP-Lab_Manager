@@ -24,7 +24,8 @@ body{
 	font-size: 14px;
 	line-height: 25px;
 	color: #111;
-	margin-left: 0.2rem;
+	margin-left: 0.1rem;
+    font-weight: 700;
 }
 .announceTime{
 	font-size: 10px;

@@ -18,6 +18,7 @@ use main\app\classes\ActivityLogic;
 use main\app\classes\WidgetLogic;
 use main\app\model\agile\SprintModel;
 use main\app\model\project\ProjectModel;
+use main\app\model\issue\IssueTypeModel;
 use main\app\model\user\UserSettingModel;
 use main\app\model\user\UserWidgetModel;
 use main\app\model\WidgetModel;
@@ -641,13 +642,31 @@ class Widget extends BaseUserCtrl
         $page = 1;
         $pageSize = 99999;
         list($items, $total) = IssueFilterLogic::getsByUnResolveAssignee($curUserId, $page, $pageSize);
-
+        $issueType = new IssueTypeModel();                                                                                       
+        $allIssue = $issueType->getAllItem();
+        $map = array();
+        foreach ($allIssue as $item) {
+            $map[$item['id']] = $item['name'];
+        }
         $data = array();
         foreach ($items as $item) {
             $date = str_replace("-0", "-", $item['start_date']);
-            $data[$date] = array([ 'title' => $item['summary'], 
-                'startTime' => date("Y-m-d H:i:s", $item['created']), 
-                'endTime' => date("Y-m-d H:i:s") ]);
+            if (isset($data[$date])) {
+                array_push($data[$date], 
+                    [ 'title' => $map[$item['issue_type']] . ": " . $item['summary'], 
+                    'startTime' => date("Y-m-d H:i:s", $item['created']), 
+                    'endTime' => date("Y-m-d H:i:s"),
+                    'num' => $item['issue_num']
+                    ]
+                );
+            }
+            else {
+                $data[$date] = array([ 'title' => $map[$item['issue_type']] . ": " . $item['summary'], 
+                    'startTime' => date("Y-m-d H:i:s", $item['created']), 
+                    'endTime' => date("Y-m-d H:i:s"),
+                    'num' => $item['issue_num'] 
+                ]);
+            }
         } 
         $this->ajaxSuccess('ok', $data);
     }

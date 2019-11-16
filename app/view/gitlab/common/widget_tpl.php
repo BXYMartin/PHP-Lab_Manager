@@ -700,7 +700,8 @@
                     for(var i=0;i<content.length;i++){
                         matterHtml +='<li class="announceItem"><div><div class="fl announceImg">'
                             +'<img class=" " src="<?= ROOT_URL ?>/dev/img/calender/content.png"></div>'
-                            +'<p class="announceContent">'+content[i].title+'</p>'
+                            +'<a class="announceContent" href="<?= ROOT_URL ?>/issue/detail/index/' + content[i].num 
+                            + '">'+content[i].title+'</a>'
                             +'</div><div class="announceTime">'+content[i].startTime+' - '+content[i].endTime+'</div></li>';
                     }
                     $('.matter').html(matterHtml);
