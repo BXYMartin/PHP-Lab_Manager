@@ -1058,23 +1058,18 @@ class Main extends BaseUserCtrl
     }
 
     private function transformJson($issueId, $params, $names) {
-        $null = True;
         $model = new IssueFileAttachmentModel();
         foreach ($names as $name) {
             if (isset($params[$name])) {
                 $attachments = json_decode($params[$name], true);
 
                 if (!empty($attachments)) {
-                    $null = False;
                     foreach ($attachments as $file) {
                         $uuid = $file['uuid'];
                         $model->update(['issue_id' => $issueId], ['uuid' => $uuid]);
                     }
                 }
             }
-        }
-        if ($null) {
-            $model->delete(['issue_id' => $issueId]);
         }
     }
 

@@ -1294,7 +1294,7 @@ var IssueMain = (function () {
         new LabelsSelect();
         new MilestoneSelect();
         IssueForm.prototype.bindNavTabClick();
-        var deleteFileEnabled = true;
+        var deleteFileEnabled = false;
         if (is_edit) {
             deleteFileEnabled = true;
         }

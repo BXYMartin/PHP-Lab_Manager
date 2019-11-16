@@ -619,6 +619,9 @@
             case 'fetchSprintStat':
                 $widgetsAjax.fetchSprintStat(user_widget);
                 break;
+            case 'fetchCalender':
+                $widgetsAjax.fetchCalender(user_widget);
+                break;
             case 'fetchSprintCountdown':
                 $widgetsAjax.fetchSprintCountdown(user_widget);
                 break;

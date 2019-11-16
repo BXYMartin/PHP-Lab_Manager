@@ -233,7 +233,7 @@ body.dashboard {
     justify-content: center;
     border: 0;
     border-top: 1px solid #e5e5e5;
-    font-size: 1rem;
+    font-size: 15px !important;
     padding: 16px;
 }
 

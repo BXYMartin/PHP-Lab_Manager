@@ -18,6 +18,7 @@ body{
 }
 
 .sc-header {
+    border-radius: 20px;
 	background:#4e9fee;
 	width: 100%;
 	height: 1.55rem;
@@ -109,12 +110,13 @@ body{
 
 .sc-item {
 	width: 13.5%;
-	height: 1.1rem;
+	height: 1.25rem;
 	float: left;
 	color: #565555;
 	background-color: #ffffff;
 	box-sizing: border-box;
 	margin: 0.39%;
+    border: 2px solid transparent;
 	
 }
 
@@ -184,7 +186,7 @@ body{
 }
 
 .sc-active-day{
-    border: 2px solid #aaa;
+    border: 2px solid #CCC;
     border-radius: 50%;
 }
 

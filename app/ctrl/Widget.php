@@ -630,6 +630,28 @@ class Widget extends BaseUserCtrl
         return $this->fetchSprintStat();
     }
 
+
+    /**
+     * 获取日历
+     * @throws \Exception
+     */
+    public function fetchCalender()
+    {
+        $curUserId = UserAuth::getId();
+        $page = 1;
+        $pageSize = 99999;
+        list($items, $total) = IssueFilterLogic::getsByUnResolveAssignee($curUserId, $page, $pageSize);
+
+        $data = array();
+        foreach ($items as $item) {
+            $date = str_replace("-0", "-", $item['start_date']);
+            $data[$date] = array([ 'title' => $item['summary'], 
+                'startTime' => date("Y-m-d H:i:s", $item['created']), 
+                'endTime' => date("Y-m-d H:i:s") ]);
+        } 
+        $this->ajaxSuccess('ok', $data);
+    }
+
     /**
      * 获取活跃迭代的燃尽图
      * @throws \Exception
