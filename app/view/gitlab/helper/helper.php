@@ -37,7 +37,6 @@
                         <li class="more-detail" id="qa"><i class="fa fa-file"></i> 常见问题</a></li>
                     </ul>
                 </div>
-                <hr>
                 <div class="extra-help">
                     <ul>
                         <li><a href="/help" target="_blank">PRIME Lab Manager安装及使用</a></li>
