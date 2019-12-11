@@ -320,6 +320,7 @@
 
 #helper_panel .extra-help ul{
     border:unset;
+    padding: 20px 0;
 }
 
 #helper_panel hr{

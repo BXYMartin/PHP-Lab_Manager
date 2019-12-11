@@ -588,58 +588,70 @@ class Main extends Base
         $maxLengthProjectKey = $settingLogic->maxLengthProjectKey();
 
         if (!isset($params['name'])) {
-            $err['project_name'] = 'name域不存在';
+            $err['项目名称'] = 'name域不存在';
         }
         if (isset($params['name']) && empty(trimStr($params['name']))) {
-            $err['project_name'] = '名称不能为空';
+            $err['项目名称'] = '名称不能为空';
         }
         if (isset($params['name']) && strlen($params['name']) > $maxLengthProjectName) {
-            $err['project_name'] = '名称长度太长,长度应该小于' . $maxLengthProjectName;
+            $err['项目名称'] = '名称长度太长,长度应该小于' . $maxLengthProjectName;
         }
         if (isset($params['name']) && $projectModel->checkNameExist($params['name'])) {
-            $err['project_name'] = '项目名称已经被使用了,请更换一个吧';
+            $err['项目名称'] = '项目名称已经被使用了,请更换一个吧';
         }
 
         if (!isset($params['org_id'])) {
             //$err['org_id'] = '请选择一个组织';
             $params['org_id'] = 1; // 临时使用id为1的默认组织
         } elseif (isset($params['org_id']) && empty(trimStr($params['org_id']))) {
-            $err['org_id'] = '组织不能为空';
+            $err['组织'] = '组织不能为空';
         }
 
         if (!isset($params['key'])) {
-            $err['project_key'][] = 'KEY域不存在';
+            $err['项目Key'][] = 'KEY域不存在';
         }
         if (isset($params['key']) && empty(trimStr($params['key']))) {
-            $err['project_key'][] = '关键字不能为空';
+            $err['项目Key'][] = '关键字不能为空';
         }
         if (isset($params['key']) && strlen($params['key']) > $maxLengthProjectKey) {
-            $err['project_key'][] = '关键字长度太长,长度应该小于' . $maxLengthProjectKey;
+            $err['项目Key'][] = '关键字长度太长,长度应该小于' . $maxLengthProjectKey;
         }
         if (isset($params['key']) && $projectModel->checkKeyExist($params['key'])) {
-            $err['project_key'][] = '项目关键字已经被使用了,请更换一个吧';
+            $err['项目Key'][] = '项目关键字已经被使用了,请更换一个吧';
         }
         if (isset($params['key']) && !preg_match("/^[a-zA-Z]+$/", $params['key'])) {
-            $err['project_key'][] = '项目关键字必须全部为英文字母,不能包含空格和特殊字符';
+            $err['项目Key'][] = '项目关键字必须全部为英文字母,不能包含空格和特殊字符';
         }
 
         $userModel = new UserModel();
         if (!isset($params['lead'])) {
-            $err['project_lead'] = '请选择项目负责人.';
+            $err['项目负责人'] = '请选择项目负责人';
         } elseif (isset($params['lead']) && intval($params['lead']) <= 0) {
-            $err['project_lead'] = '请选择项目负责人';
+            $err['项目负责人'] = '请选择项目负责人';
         } elseif (empty($userModel->getByUid($params['lead']))) {
-            $err['project_lead'] = '项目负责人错误';
+            $err['项目负责人'] = '项目负责人错误';
         }
 
         if (!isset($params['type'])) {
-            $err['type'] = '请选择项目类型';
+            $err['项目类型'] = '请选择项目类型';
         } elseif (isset($params['type']) && empty(trimStr($params['type']))) {
-            $err['type'] = '项目类型不能为空';
+            $err['项目类型'] = '项目类型不能为空';
         }
 
         if (!empty($err)) {
-            $this->ajaxFailed('错误错误', $err, BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
+            $txt = "出现错误:";
+            foreach ($err as $key => $value) {
+
+                $txt = $txt . "<br>- " . $key;
+                if (is_array($value)) {
+                    foreach ($value as $item)
+                        $txt = $txt . "<br> · " . $item;
+                }
+                else {
+                    $txt = $txt . "<br> · " . $value;
+                }
+            }
+            $this->ajaxFailed($txt, $err, BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
         }
 
         //$params['key'] = mb_strtoupper(trimStr($params['key']));
@@ -712,7 +724,7 @@ class Main extends Base
                 $activityInfo['title'] = $info['name'];
                 $activityModel->insertItem($currentUid, $ret['data']['project_id'], $activityInfo);
 
-                $this->ajaxSuccess('success', $final);
+                $this->ajaxSuccess('项目创建成功', $final);
             } else {
                 $projectModel->db->rollBack();
                 $this->ajaxFailed('fail', '项目角色添加失败：' . $roleInfo);
