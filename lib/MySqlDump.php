@@ -91,7 +91,7 @@ class MySqlDump
         $this->pdo->exec($lockTableSQL);
 
         $db = $this->pdo->query('SELECT DATABASE()')->fetch();
-        fwrite($handle, '-- Created at ' . date('Y.m.d H:i') . " using MasterLab MySQL Dump Utility\n"
+        fwrite($handle, '-- Created at ' . date('Y.m.d H:i') . " using PRIME Lab MySQL Dump Utility\n"
             . (isset($_SERVER['HTTP_HOST']) ? "-- Host: $_SERVER[HTTP_HOST]\n" : '')
             . '-- MySQL Server: ' . \PDO::ATTR_SERVER_INFO . "\n"
             . '-- Database: ' . $db[0] . "\n"

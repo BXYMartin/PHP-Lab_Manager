@@ -701,6 +701,7 @@ CREATE TABLE `issue_type` (
   `custom_icon_url` varchar(128) DEFAULT NULL,
   `is_system` tinyint(1) UNSIGNED DEFAULT '0',
   `form_desc_tpl_id` int(11) UNSIGNED DEFAULT '0' COMMENT '创建事项时,描述字段对应的模板id'
+  `is_collect_issue` tinyint(1) unsigned DEFAULT '1',
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
