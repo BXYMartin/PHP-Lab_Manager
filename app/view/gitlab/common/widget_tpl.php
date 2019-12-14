@@ -617,6 +617,7 @@
                     <div class="arrow sc-mright" style="background: url(<?= ROOT_URL?>/dev/img/calender/arrowRightCircle.png) center top no-repeat; background-size: 100% 100%; width: 0.4rem; height: 0.4rem;"></div>
 				</div>
 			</div>
+            <div class="clearfix"></div>
 			<div class="sc-week"></div> 
 		</div>
 		<div class="sc-body">

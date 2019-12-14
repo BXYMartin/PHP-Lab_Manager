@@ -1312,12 +1312,8 @@
             $("#btn-create_subtask").bind("click", function () {
                 $('#master_issue_id').val(_issue_id);
                 if (_cur_project_id != '') {
-                    var issue_types = [];
                     _cur_form_project_id = _cur_project_id;
-                    for (key in _issueConfig.issue_types) {
-                        issue_types.push(_issueConfig.issue_types[key]);
-                    }
-                    IssueMain.prototype.initCreateIssueType(issue_types, true);
+                    IssueMain.prototype.onChangeCreateProjectSelected(_cur_project_id, 0);
                 } else {
                     _cur_form_project_id = "";
                 }
@@ -1432,7 +1428,11 @@
 
         function download(obj) {
             var file = obj.parentNode;
-            var url = file.previousElementSibling.previousElementSibling.previousElementSibling.children[0].getAttribute('data-src');
+            var value = file.previousElementSibling.previousElementSibling.previousElementSibling.children[0];
+            var url = value.getAttribute('href');
+            if (url == "javascript:;") {
+                url = value.getAttribute('data-src');
+            }
             if (url == null) {
                 alert("文件正在被占用，请稍后重试。");
                 return;

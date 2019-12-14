@@ -33,7 +33,7 @@ body{
 .year {
 	float: left;
 	position: relative;
-	font-size: 18px;
+	font-size: 25px;
 }
 
 .month {
@@ -111,7 +111,7 @@ body{
 .sc-item {
     transition: border 0.2s ease-in;
     width: 13.5%;
-	height: 1.25rem;
+	height: 1.1rem;
 	float: left;
 	color: #565555;
 	background-color: #fafafa;
@@ -245,4 +245,74 @@ body{
 	font-size: 15px;
 	line-height: 0.8rem;
 	border-radius: 0.08rem;
+}
+@media (max-width: 954px) {
+    .monthdiv {
+        top: -8px;
+        min-width: 0.9rem;
+    }
+    .month .arrow {
+        width: 0.3rem !important;
+        height: 0.3rem !important;
+    }
+    .sc-item .day {
+        font-size: 10px;
+        line-height: 0.34rem;
+    }
+    .sc-body {
+        height: unset !important;
+    }
+    .sc-header {
+        height: 1.1rem;
+    }
+    .sc-calender {
+        height: 6.3rem;
+    }
+    .mark {
+        font-size: 2px;
+    }
+    .year {
+        font-size: 18px;
+    }
+    .sc-item .lunar-day {
+        font-size: 8px;
+        transform: scale(0.5);
+    }
+    .sc-header, .sc-today, .sc-item {
+        border-radius: 10px;
+    }
+    .sc-item {
+        height: 0.8rem;
+    }
+}
+@media (max-width: 512px) {
+    .monthdiv {
+        top: -4px;
+    }
+    .sc-item .day {
+        font-size: 10px;
+        line-height: 0.34rem;
+    }
+    .mark {
+        font-size: 2px;
+    }
+    .year {
+        font-size: 16px;
+    }
+    .sc-item .lunar-day {
+        font-size: 8px;
+        transform: scale(0.5);
+    }
+    .sc-header, .sc-today, .sc-item {
+        border-radius: 10px;
+    }
+    .sc-item {
+        height: 1rem;
+    }
+}
+@media (max-width: 375px) {
+
+    .monthdiv {
+        font-size: 10px;
+    }
 }
