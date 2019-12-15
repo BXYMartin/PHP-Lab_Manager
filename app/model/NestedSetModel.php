@@ -368,9 +368,11 @@ class NestedSetModel {
             $recursive_element = $element;
             $this->treeze($subsection, $element['sid']);
             $recursive_element[$childrenKey] = $subsection;
-            $branch[] = $recursive_element;
+            $branch[$element['number']] = $recursive_element;
         }
     }
+    ksort($branch);
+    $branch = array_values($branch);
 }
 
 

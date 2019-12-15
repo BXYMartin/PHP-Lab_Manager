@@ -53,6 +53,7 @@ CREATE TABLE `standard_main` (
   `sid` int(11) NOT NULL AUTO_INCREMENT,
   `standard_name` varchar(128) NOT NULL,
   `description` varchar(128) NOT NULL,
+  `number` varchar(20) DEFAULT NULL,
   `left` int(11) NOT NULL,
   `right` int(11) NOT NULL,
   `parent_id` int(11) DEFAULT NULL,

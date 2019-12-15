@@ -99,6 +99,14 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label" for="id_number">序号:<span class="required"> *</span></label>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="params[number]" id="id_number"  value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label" for="id_description">描述:</label>
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -141,6 +149,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label" for="id_number">序号:<span class="required"> *</span></label>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="params[number]" id="more_number"  value="" />
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label class="control-label" for="id_description">描述:</label>
                         <div class="col-sm-6">
@@ -187,6 +204,15 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="control-label" for="id_number">序号:<span class="required"> *</span></label>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="params[number]" id="edit_number"  value="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label" for="id_description">描述:</label>
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -216,7 +242,7 @@
                 <h4 class="panel-title" style="float: left">
                     <a data-toggle="collapse" data-parent="#accordion"
                        href="#section_{{sid}}">
-                            {{standard_name}}
+                            {{number}}. {{standard_name}}
                     </a>
                 </h4>
 
@@ -232,6 +258,7 @@
             </div>
             <div id="section_{{sid}}" class="panel-collapse collapse in">
                 <div class="panel-body">
+                    <p>{{description}}</p>
                     
                     <div class="panel-group" id="accordion_{{sid}}">
                     {{#section}}
@@ -240,7 +267,7 @@
                                 <h4 class="panel-title" style="float: left">
                                     <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
                                        href="#header_{{sid}}">
-                                            {{standard_name}}
+                                            {{number}}. {{standard_name}}
                                     </a>
                                 </h4>
 
@@ -257,6 +284,7 @@
                             <div id="header_{{sid}}" class="panel-collapse collapse">
                                 <div class="panel-body">
 
+                                    <p>{{description}}</p>
                                     <div class="panel-group" id="accordion_{{sid}}">
                                     {{#section}}
                                         <div class="panel panel-default">
@@ -264,21 +292,26 @@
                                                 <h4 class="panel-title" style="float: left">
                                                     <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
                                                        href="#detail_{{sid}}">
-                                                            {{standard_name}}
+                                                            {{number}}. {{standard_name}}
 
                                                     </a>
                                                 </h4>
-                                            <div class="controls member-controls " style="float: right">
-                                                <a class="group_for_more btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">添加 </a>
-                                                <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
-                                                <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
-                                                    <i class="fa fa-trash"></i>
-                                                    <span class="sr-only">Remove</span>
-                                                </a>
-                                            </div>
+                                                <div class="controls member-controls " style="float: right">
+                                                    <a class="group_for_more btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">添加 </a>
+                                                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
+                                                    <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
+                                                        <i class="fa fa-trash"></i>
+                                                        <span class="sr-only">Remove</span>
+                                                    </a>
+                                                </div>
                                             <div class="clearfix"></div>
-                                        </div>
+                                         </div>
 
+                                            <div id="detail_{{sid}}" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    {{description}}
+                                                </div>
+                                            </div>
                                         </div>
                                     {{/section}}
                                     </div>

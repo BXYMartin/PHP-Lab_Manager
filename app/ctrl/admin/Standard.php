@@ -152,6 +152,9 @@ class Standard extends BaseAdminCtrl
             $errorMsg['name'] = '名称不能为空';
         }
 
+        if (isset($params['number']) && empty($params['number'])) {
+            $errorMsg['number'] = '序号不能为空';
+        }
         if (!empty($errorMsg)) {
             $this->ajaxFailed('参数错误', $errorMsg, BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
         }
@@ -167,6 +170,7 @@ class Standard extends BaseAdminCtrl
             $info['description'] = "No Description...";
         }
 
+        $info['number'] = $params['number'];
         $model = new StandardModel();
         $group = $model->getBySid($id);
         //var_dump($group);
@@ -237,6 +241,10 @@ class Standard extends BaseAdminCtrl
         if (empty($params["sid"])) {
             $this->ajaxFailed('参数错误', '添加位置不能为空');
         }
+
+        if (empty($params["number"])) {
+            $this->ajaxFailed('参数错误', '添加序号不能为空');
+        }
         if (empty($params["name"])) {
             $this->ajaxFailed('参数错误', '添加信息不能为空');
         }
@@ -246,7 +254,7 @@ class Standard extends BaseAdminCtrl
         $sid = (int)$params["sid"];
 
         $model = new StandardModel();
-        $ret = $model->addLine($sid, $params["name"], $params["description"], $params["standard"]);
+        $ret = $model->addLine($sid, $params["name"], $params["description"], $params["number"], $params["standard"]);
         $this->ajaxSuccess('操作成功');
     }
 

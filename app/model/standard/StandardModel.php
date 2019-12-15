@@ -128,7 +128,7 @@ class StandardModel extends DbModel
      */
     public function getBySid($sid)
     {
-        $fields = 'sid, standard_name, description';
+        $fields = 'sid, standard_name, description, number';
         $where = array('sid' => $sid);
         $finally = $this->getRow($fields, $where);
         return $finally;
@@ -151,7 +151,7 @@ class StandardModel extends DbModel
         $sid = $this->getByName($name)['sid'];
         $source = [];
         $this->nestedSet->treeze($source, $sid);
-        return $source;
+        return array_values($source);
     }
 
     /**
@@ -169,12 +169,13 @@ class StandardModel extends DbModel
     }
 
 
-    public function addLine($sid, $name, $description, $parent)
+    public function addLine($sid, $name, $description, $number, $parent)
     {
         $info = [];
         $treeId = $this->getByName($parent)['tree_id'];
         $info['standard_name'] = $name;
         $info['description'] = $description;
+        $info['number'] = $number;
         $ret = $this->nestedSet->createChild($sid, $info, $treeId);
         return [$ret, '操作成功'];
     }

@@ -170,11 +170,13 @@ var Standard = (function() {
             data: { id:id} ,
             success: function (resp) {
 
+                console.log(resp);
                 auth_check(resp);
                 $("#modal-group_edit").modal();
                 $("#edit_id").val(resp.data.sid);
                 $("#edit_name").val(resp.data.standard_name);
                 $("#edit_description").val(resp.data.description);
+                $("#edit_number").val(resp.data.number);
             },
             error: function (res) {
                 notify_error("请求数据错误" + res);
