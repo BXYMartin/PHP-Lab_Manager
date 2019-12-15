@@ -50,10 +50,15 @@ INSERT INTO `agile_board` (`id`, `name`, `project_id`, `type`, `is_filter_backlo
 --
 
 CREATE TABLE `standard_main` (
-   `sid` int(11) UNSIGNED NOT NULL,
-   `standard_name` varchar(128) NOT NULL,
-   `description` varchar(128) NOT NULL
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `sid` int(11) NOT NULL AUTO_INCREMENT,
+  `standard_name` varchar(128) NOT NULL,
+  `description` varchar(128) NOT NULL,
+  `left` int(11) NOT NULL,
+  `right` int(11) NOT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `tree_id` int(11) NOT NULL,
+  PRIMARY KEY (`sid`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
 
 --
 -- 表的结构 `agile_board_column`

@@ -1372,6 +1372,8 @@
 
             <script type="text/html" id="list_tpl">
                 {{#issues}}
+
+                {{#if_eq master_id '0' }}
                 <tr class="tree-item" data-id="{{id}}">
 
                     <td class="width_6">
@@ -1623,6 +1625,7 @@
                 </tr>
                 {{/if_eq}}
 
+                {{/if_eq}}
                 {{/issues}}
 
             </script>
