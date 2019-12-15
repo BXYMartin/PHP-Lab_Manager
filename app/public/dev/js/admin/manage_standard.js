@@ -7,12 +7,6 @@ var Standard = (function() {
     function Standard(  options  ) {
         _options = options;
 
-        $("#btn-group_more").click(function(){
-            Standard.prototype.addWith();
-        });
-
-
-
         $("#btn-group_add").click(function(){
             Standard.prototype.add();
         });
@@ -70,18 +64,12 @@ var Standard = (function() {
             url: _options.filter_url,
             data: {'standard': _options.standard} ,
             success: function (resp) {
-                console.log(resp);
                 auth_check(resp);
-                console.log(resp.data.section);
-                if(resp.data.section != undefined && Object.keys(resp.data.section).length){
+                if(resp.data.available_standards != undefined && resp.data.available_standards.length){
                     var source = $('#'+_options.list_tpl_id).html();
                     var template = Handlebars.compile(source);
                     var result = template(resp.data);
                     $('#' + _options.list_render_id).html(result);
-
-                    $(".group_for_more").click(function(){
-                        Standard.prototype.more( $(this).attr("data-value") );
-                    });
 
                     $(".group_for_edit").click(function(){
                         Standard.prototype.edit( $(this).attr("data-value") );
@@ -111,13 +99,9 @@ var Standard = (function() {
                     $('#list_render_id_wrap').append(emptyHtml.html)
                 }
 
-                var source = $('#'+_options.position_tpl_id).html();
-                var template = Handlebars.compile(source);
-                var result = template(resp.data);
-                $('#' + _options.position_render_id).html(result);
+
             },
             error: function (res) {
-                console.log(res);
                 notify_error("请求数据错误" + res);
             }
         });
@@ -154,11 +138,6 @@ var Standard = (function() {
         $('#filter_page_view').html( $('#filter_page_view').attr("data-title-origin") );
     }
 
-    Standard.prototype.more = function( id ) {
-        $("#modal-group_more").modal();
-        $("#more_id").val(id);
-    }
-
     Standard.prototype.edit = function(id ) {
 
         var method = 'get';
@@ -182,33 +161,11 @@ var Standard = (function() {
         });
     }
 
-    Standard.prototype.addWith = function(  ) {
-            var method = 'post';
-            var params = $('#form_more').serialize();
-            $.ajax({
-                type: method,
-                dataType: "json",
-                async: true,
-                url: _options.add_url,
-                data: params ,
-                success: function (resp) {
-                    auth_check(resp);
-                    notify_success( resp.msg );
-                    if( resp.ret == 200 ){
-                        window.location.reload();
-                    }
-                },
-                error: function (res) {
-                    notify_error("请求数据错误" + res);
-                    console.log(res);
-                }
-            });
-        }
-
     Standard.prototype.add = function(  ) {
 
         var method = 'post';
         var params = $('#form_add').serialize();
+        alert(params);
         $.ajax({
             type: method,
             dataType: "json",

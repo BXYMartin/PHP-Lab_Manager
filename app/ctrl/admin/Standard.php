@@ -26,9 +26,11 @@ class Standard extends BaseAdminCtrl
         $data['nav_links_active'] = 'standard';
         $data['available_standards'] = $this->fetchAllStandards();
         if (self::$standard == null) 
-            self::$standard = $data['available_standards'][0];
+            self::$standard = $data['available_standards'][0]['standard_name'];
         $data['left_nav_active'] = self::$standard;
         $data['sub_nav_active'] = 'modify';
+        $data['section'] = $this->fetchThisStandard(self::$standard);
+        $data['edit_data'] = $this->fetchThisStandardFlat(self::$standard);
         $this->render('gitlab/admin/standards.php', $data);
     }
 
@@ -41,6 +43,18 @@ class Standard extends BaseAdminCtrl
         $data['available_standards'] = array_values($this->fetchAllStandards());
         $this->render('gitlab/admin/manage_standards.php', $data);
     }
+
+    public function fetchThisStandardFlat($name)
+    {
+        $standardModel = new StandardModel();
+        return $standardModel->flat($name);
+    } 
+
+    public function fetchThisStandard($name)
+    {
+        $standardModel = new StandardModel();
+        return $standardModel->show($name);
+    } 
 
     public function fetchAllStandards()
     {
@@ -59,26 +73,13 @@ class Standard extends BaseAdminCtrl
      * @param array $params
      * @throws \Exception
      */
-    public function filter($params = [])
+    public function filter($standard)
     {
-        $page_size = intval($params['page_size']);
-        if (!in_array($page_size, self::$pageSizes)) {
-            $page_size = self::$pageSizes[0];
-        }
-        $name = trimStr($params['name']);
-        $page = max(1, (int)$params['page']);
-
-        $userLogic = new UserLogic();
-        //  select g.* ,count(u.id) as cc from
-        // main_group g left join user_group u on g.id=u.group_id
-        //  group by u.group_id;
-        list($rows, $total) = $userLogic->groupFilter($name, $page, $page_size);
-
-        $data['groups'] = $rows;
-        $data['total'] = (int)$total;
-        $data['pages'] = max(1, ceil($total / $page_size));
-        $data['page_size'] = (int)$page_size;
-        $data['page'] = (int)$page;
+        $data = [];
+        $data['available_standards'] = $this->fetchAllStandards();
+        $data['edit_data'] = $this->fetchThisStandardFlat($standard);
+        $data['standard'] = $standard;
+        $data['section'] = $this->fetchThisStandard($standard);
         $this->ajaxSuccess('', $data);
     }
 
@@ -167,7 +168,7 @@ class Standard extends BaseAdminCtrl
         }
 
         $model = new StandardModel();
-        $group = $model->getByName($info['standard_name']);
+        $group = $model->getBySid($id);
         //var_dump($group);
         if (isset($group['sid']) && ($group['sid'] != $id)) {
             $this->ajaxFailed('name_exists', [], 600);
@@ -180,6 +181,28 @@ class Standard extends BaseAdminCtrl
             $this->ajaxFailed('服务器错误,请重试', $ret, 500);
         }
     }
+
+
+    /**
+     * @param $id
+     * @throws \Exception
+     */
+    public function deleteLine($id)
+    {
+        if (!isset($id)) {
+            $this->ajaxFailed('参数错误', 'id不能为空');
+        }
+        $id = (int)$id;
+        $model = new StandardModel();
+        $ret = $model->deleteNode($id);
+        if (!$ret[0]) {
+            $this->ajaxFailed('服务器错误', '删除失败');
+        } else {
+            $this->ajaxSuccess('操作成功');
+        }
+    }
+
+
 
     /**
      * @param $id
@@ -205,50 +228,26 @@ class Standard extends BaseAdminCtrl
      * @param null $user_ids
      * @throws \Exception
      */
-    public function addUser($group_id = null, $user_ids = null)
+    public function addLine($params = [])
     {
-        if (empty($group_id)) {
-            $this->ajaxFailed('参数错误', '用户组不能为空');
+        if (empty($params)) {
+            $this->ajaxFailed('参数错误', '参数不能为空');
         }
 
-        if (empty($user_ids)) {
-            $this->ajaxFailed('参数错误', '用户id不能为空');
+        if (empty($params["sid"])) {
+            $this->ajaxFailed('参数错误', '添加位置不能为空');
         }
-        if (is_string($user_ids)) {
-            $user_ids = explode(',', $user_ids);
+        if (empty($params["name"])) {
+            $this->ajaxFailed('参数错误', '添加信息不能为空');
         }
-        $group_id = (int)$group_id;
+        if (!isset($params["description"])) {
+            $params["description"] = 'Blank';
+        }
+        $sid = (int)$params["sid"];
 
-        $userModel = new UserGroupModel();
-        foreach ($user_ids as $uid) {
-            $userModel->add($uid, $group_id);
-        }
+        $model = new StandardModel();
+        $ret = $model->addLine($sid, $params["name"], $params["description"], $params["standard"]);
         $this->ajaxSuccess('操作成功');
-    }
-
-    /**
-     * @param null $group_id
-     * @param null $uid
-     * @throws \Exception
-     */
-    public function removeUser($group_id = null, $uid = null)
-    {
-        if (empty($uid)) {
-            $this->ajaxFailed('参数错误', '用户id不能为空');
-        }
-        if (empty($group_id)) {
-            $this->ajaxFailed('参数错误', '用户组id不能为空');
-        }
-
-        $userModel = new UserGroupModel();
-        $group_id = (int)$group_id;
-        $uid = (int)$uid;
-        $ret = $userModel->deleteByGroupIdUid($group_id, $uid);
-        if (!$ret) {
-            $this->ajaxFailed('服务器错误', '删除失败');
-        } else {
-            $this->ajaxSuccess('操作成功');
-        }
     }
 
     public function updateIndex($standard)

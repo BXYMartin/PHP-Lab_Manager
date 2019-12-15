@@ -4,6 +4,7 @@ namespace main\app\model\standard;
 
 use main\app\classes\UserAuth;
 use main\app\model\DbModel;
+use main\app\model\NestedSetModel;
 
 
 /**
@@ -21,7 +22,7 @@ class StandardModel extends DbModel
 
     public $primaryKey = 'sid';
 
-
+    public $nestedSet;
     const  DATA_KEY = 'standard/';
 
     const  REG_RETURN_CODE_OK = 1;
@@ -68,7 +69,6 @@ class StandardModel extends DbModel
     ];
 
     public $sid = '';
-
     /**
      * 用于实现单例模式
      * @var self
@@ -102,13 +102,12 @@ class StandardModel extends DbModel
     {
         parent::__construct($persistent);
         $this->sid = $sid;
+        $this->nestedSet = new NestedSetModel($this->realConnect()->pdo);
     }
 
     public function getAll($primaryKey = true)
     {
-        $table = $this->getTable();
-        $fields = " sid, {$table}.*";
-        return $this->getRows($fields, [], null, 'sid', 'desc', null, $primaryKey);
+        return $this->nestedSet->getRoots();
     }
 
     /**
@@ -143,6 +142,17 @@ class StandardModel extends DbModel
         return $stand;
     }
 
+    public function flat($name) {
+        $sid = $this->getByName($name);
+        return $sid;
+    }
+
+    public function show($name) {
+        $sid = $this->getByName($name)['sid'];
+        $source = [];
+        $this->nestedSet->treeze($source, $sid);
+        return $source;
+    }
 
     /**
      * 添加用户
@@ -154,9 +164,21 @@ class StandardModel extends DbModel
         $info = [];
         $info['standard_name'] = $name;
         $info['description'] = $description;
-        $ret = $this->insert($info);
-        return $ret;
+        $ret = $this->nestedSet->createRoot($info);
+        return [$ret, '操作成功'];
     }
+
+
+    public function addLine($sid, $name, $description, $parent)
+    {
+        $info = [];
+        $treeId = $this->getByName($parent)['tree_id'];
+        $info['standard_name'] = $name;
+        $info['description'] = $description;
+        $ret = $this->nestedSet->createChild($sid, $info, $treeId);
+        return [$ret, '操作成功'];
+    }
+
 
     /**
      * 更新用户的信息
@@ -188,11 +210,20 @@ class StandardModel extends DbModel
             return [false, __CLASS__ . __METHOD__ . '参数$sid不能为空'];
         }
         // $key = self::DATA_KEY . 'uid/' . $uid;
-        $where = ['sid' => $sid];
-        $ret = $this->delete($where);
+        $ret = $this->nestedSet->deleteTree($sid);
         return [$ret];
     }
 
+
+    public function deleteNode($sid)
+    {
+        if (!isset($sid)) {
+            return [false, __CLASS__ . __METHOD__ . '参数$sid不能为空'];
+        }
+        // $key = self::DATA_KEY . 'uid/' . $uid;
+        $ret = $this->nestedSet->deleteNodeAndChildren($sid);
+        return [True];
+    }
 
 
     /**
