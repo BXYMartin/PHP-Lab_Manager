@@ -22,7 +22,7 @@ single_mode	=	true
     host        =   "172.17.0.3"
     port		=	"3306"
     user 		= 	"root"
-    password 	= 	"wangpeng"
+    password 	= 	"19980316"
     charset	    =	"utf8mb4_unicode_ci"
     timeout	    =	"10"
     max_open_conns = 2000
@@ -32,7 +32,7 @@ single_mode	=	true
     data_type 	= "redis"
     redis_host 	= "172.17.0.2"
     redis_port 	= "6379"
-    redis_password = "wangpeng"
+    redis_password = ""
 
 [worker]
     to_servers = []

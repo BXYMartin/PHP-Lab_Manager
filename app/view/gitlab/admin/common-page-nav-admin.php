@@ -21,6 +21,10 @@
                     <a title="绩效考核" href="<?=ROOT_URL?>admin/remark"><i class="fa fa-archive"></i> <span>绩效考核</span>
                     </a>
                 </li>
+                <li class="<? if($nav_links_active=='standard') echo 'active';?>">
+                    <a title="标准规范" href="<?=ROOT_URL?>admin/standard"><i class="fa fa-file"></i> <span>标准规范</span>
+                    </a>
+                </li>
                 <li class="<? if($nav_links_active=='user') echo 'active';?>">
                     <a title="用户管理" href="<?=ROOT_URL?>admin/user"><i class="fa fa-user"></i> <span>用户管理</span>
                     </a>

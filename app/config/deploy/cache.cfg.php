@@ -8,7 +8,7 @@ $_config = array (
       array (
         0 => '172.17.0.2',
         1 => '6379',
-        2 => 'wangpeng',
+        2 => '',
       ),
     ),
     'session' => 
@@ -17,7 +17,7 @@ $_config = array (
       array (
         0 => '172.17.0.2',
         1 => '6379',
-        2 => 'wangpeng',
+        2 => '',
       ),
     ),
     'auth' => '',
