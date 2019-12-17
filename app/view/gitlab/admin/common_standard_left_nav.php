@@ -15,7 +15,8 @@ if( !isset($sub_nav_active) ){
         <div class="admin-menu-links">
             <div class="admin_left_header aui-nav-heading  <? if($sub_nav_active=='setting') echo 'active';?>"><strong>标准管理</strong></div>
             <ul class="aui-nav" resolved="">
-                <li class="<? if($sub_nav_active=='setting') echo 'active';?>"><a href="<?=ROOT_URL?>admin/standard/pageEditStandards">增删标准</a>
+                <li class="<? if($left_nav_active=='edit') echo 'active';?>"><a href="<?=ROOT_URL?>admin/standard/pageEditStandards">增删标准</a>
+                <li class="<? if($left_nav_active=='link') echo 'active';?>"><a href="<?=ROOT_URL?>admin/standard/pageEditLinks">添加关联</a>
                 </li>
             </ul>
             <div class="admin_left_header aui-nav-heading  <? if($sub_nav_active=='modify') echo 'active';?>"><strong>标准修订</strong></div>

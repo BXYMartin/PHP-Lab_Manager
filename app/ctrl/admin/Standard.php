@@ -5,10 +5,8 @@ namespace main\app\ctrl\admin;
 use main\app\classes\UserLogic;
 use main\app\ctrl\BaseCtrl;
 use main\app\ctrl\BaseAdminCtrl;
-use main\app\model\user\UserGroupModel;
-use main\app\model\user\UserModel;
-use main\app\model\user\GroupModel;
 use main\app\model\standard\StandardModel;
+use main\app\model\standard\StandardLinkModel;
 
 /**
  * 标准管理
@@ -24,7 +22,7 @@ class Standard extends BaseAdminCtrl
         $data = [];
         $data['title'] = 'Users';
         $data['nav_links_active'] = 'standard';
-        $data['available_standards'] = $this->fetchAllStandards();
+        $data['available_standards'] = $this->fetchAllRoots();
         if (self::$standard == null) 
             self::$standard = $data['available_standards'][0]['standard_name'];
         $data['left_nav_active'] = self::$standard;
@@ -34,14 +32,31 @@ class Standard extends BaseAdminCtrl
         $this->render('gitlab/admin/standards.php', $data);
     }
 
+    public function pageEditLinks()
+    {
+        $data = [];
+        $data['title'] = 'Users';
+        $data['nav_links_active'] = 'standard';
+        $data['sub_nav_active'] = 'setting';
+        $data['left_nav_active'] = 'link';
+        $data['available_standards'] = array_values($this->fetchAllRoots());
+        $this->render('gitlab/admin/manage_standard_links.php', $data);
+    }
     public function pageEditStandards()
     {
         $data = [];
         $data['title'] = 'Users';
         $data['nav_links_active'] = 'standard';
         $data['sub_nav_active'] = 'setting';
-        $data['available_standards'] = array_values($this->fetchAllStandards());
+        $data['left_nav_active'] = 'edit';
+        $data['available_standards'] = array_values($this->fetchAllRoots());
         $this->render('gitlab/admin/manage_standards.php', $data);
+    }
+
+    public function fetchAllLinks()
+    {
+        $standardLinkModel = new StandardLinkModel();
+        return $standardLinkModel->getAll();
     }
 
     public function fetchThisStandardFlat($name)
@@ -56,17 +71,81 @@ class Standard extends BaseAdminCtrl
         return $standardModel->show($name);
     } 
 
-    public function fetchAllStandards()
+    public function fetchAllRoots()
     {
         $standardModel = new StandardModel();
         $all = $standardModel->getAll();
         return $all;
     }
 
+    public function fetchAllStandards()
+    {
+        $standardModel = new StandardModel();
+        $all = $standardModel->show();
+        return $all;
+    }
+
     public function fetchStandards()
     {
-        $data['available_standards'] = $this->fetchAllStandards();
+        $data['available_standards'] = $this->fetchAllRoots();
         $this->ajaxSuccess('', $data);
+    }
+
+    /**
+     * @param array $params
+     * @throws \Exception
+     */
+    public function filterLink()
+    {
+        $data = [];
+        $data['edit_data'] = $this->fetchAllStandards();
+        $links = $this->fetchAllLinks();
+        foreach ($links as &$link) {
+            $model = new StandardModel();
+            $father_parent = $model->getBySid((int) $link['father_sid']);
+            $link['father'] = $father_parent;
+            while($father_parent['parent_id'] != "0") {
+                $father_parent = $model->getBySid((int) $father_parent['parent_id']);
+            }
+            $link['father']['standard'] = $father_parent['standard_name'];
+            $child_parent = $model->getBySid((int) $link['child_sid']);
+            $link['child'] = $child_parent;
+            while($child_parent['parent_id'] != "0") {
+                $child_parent = $model->getBySid((int) $child_parent['parent_id']);
+            }
+            $link['child']['standard'] = $child_parent['standard_name'];
+        }
+        $data['available_links'] = array_values($links);
+        $this->ajaxSuccess('', $data);
+    }
+
+    public function addLink($params = [])
+    {
+        if (empty($params)) {
+            $this->ajaxFailed('错误', '没有提交表单数据');
+        }
+
+        if (!isset($params['father_sid']) || !isset($params['child_sid'])) {
+            $this->ajaxFailed('参数错误', '选择条目为空', BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
+        }
+
+        if (!isset($params['description'])) {
+            $params['description'] = "No Description...";
+        }
+
+        $model = new StandardLinkModel();
+        $history = $model->getByDetail($params['father_sid'], $params['child_sid']);
+        if ($history != false) {
+            $this->ajaxFailed('该条目已经存在', '该条目已经存在', BaseCtrl::AJAX_FAILED_TYPE_TIP);
+        }
+
+        list($ret, $msg) = $model->add($params['father_sid'], $params['child_sid'], $params['description']);
+        if ($ret) {
+            $this->ajaxSuccess('操作成功');
+        } else {
+            $this->ajaxFailed('服务器错误', '插入数据失败,详情:' . $msg);
+        }
+
     }
 
     /**
@@ -76,7 +155,7 @@ class Standard extends BaseAdminCtrl
     public function filter($standard)
     {
         $data = [];
-        $data['available_standards'] = $this->fetchAllStandards();
+        $data['available_standards'] = $this->fetchAllRoots();
         $data['edit_data'] = $this->fetchThisStandardFlat($standard);
         $data['standard'] = $standard;
         $data['section'] = $this->fetchThisStandard($standard);
@@ -186,6 +265,24 @@ class Standard extends BaseAdminCtrl
         }
     }
 
+    /**
+     * @param $id
+     * @throws \Exception
+     */
+    public function deleteLink($id)
+    {
+        if (!isset($id)) {
+            $this->ajaxFailed('参数错误', 'id不能为空');
+        }
+        $id = (int)$id;
+        $model = new StandardLinkModel();
+        $ret = $model->deleteById($id);
+        if (!$ret) {
+            $this->ajaxFailed('服务器错误', '删除失败');
+        } else {
+            $this->ajaxSuccess('操作成功');
+        }
+    }
 
     /**
      * @param $id
@@ -255,7 +352,10 @@ class Standard extends BaseAdminCtrl
 
         $model = new StandardModel();
         $ret = $model->addLine($sid, $params["name"], $params["description"], $params["number"], $params["standard"]);
-        $this->ajaxSuccess('操作成功');
+        if ($ret[0])
+            $this->ajaxSuccess('操作成功');
+        else
+            $this->ajaxFailed($ret[1], $ret[1]);
     }
 
     public function updateIndex($standard)

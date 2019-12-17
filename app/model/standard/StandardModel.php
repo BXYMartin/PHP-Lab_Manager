@@ -128,10 +128,20 @@ class StandardModel extends DbModel
      */
     public function getBySid($sid)
     {
-        $fields = 'sid, standard_name, description, number';
+        $fields = 'sid, parent_id, standard_name, description, number';
         $where = array('sid' => $sid);
         $finally = $this->getRow($fields, $where);
         return $finally;
+    }
+
+    public function exist($parent_id, $name, $number)
+    {
+        $fields = "*, {$this->primaryKey}";
+        $where = ['standard_name' => trim($name), 'parent_id' => $parent_id, 'number' => $number];
+        $stand = $this->getRow($fields, $where);
+        if ($stand)
+            return true;
+        return false;
     }
 
     public function getByName($name)
@@ -147,11 +157,24 @@ class StandardModel extends DbModel
         return $sid;
     }
 
-    public function show($name) {
-        $sid = $this->getByName($name)['sid'];
-        $source = [];
-        $this->nestedSet->treeze($source, $sid);
-        return array_values($source);
+    public function show($name = null) {
+        if ($name == null) {
+            $roots = $this->nestedSet->getRoots();
+            $result = [];
+            foreach ($roots as $root) {
+                $source = [];
+                $this->nestedSet->treeze($source, $root['sid']);
+                $root['section'] = $source;
+                $result[] = $root;
+            }
+            return array_values($result);
+        }
+        else {
+            $sid = $this->getByName($name)['sid'];
+            $source = [];
+            $this->nestedSet->treeze($source, $sid);
+            return array_values($source);
+        }
     }
 
     /**
@@ -173,6 +196,8 @@ class StandardModel extends DbModel
     {
         $info = [];
         $treeId = $this->getByName($parent)['tree_id'];
+        if ($this->exist($sid, $name, $number))
+            return [false, '操作失败，条目已存在'];
         $info['standard_name'] = $name;
         $info['description'] = $description;
         $info['number'] = $number;
@@ -224,27 +249,5 @@ class StandardModel extends DbModel
         // $key = self::DATA_KEY . 'uid/' . $uid;
         $ret = $this->nestedSet->deleteNodeAndChildren($sid);
         return [True];
-    }
-
-
-    /**
-     * 更新一个用户的信息
-     * @param $updateInfo
-     * @return array
-     * @throws \Exception
-     */
-    public function updateUser($updateInfo)
-    {
-        if (empty($updateInfo)) {
-            return [false, 'update info is empty'];
-        }
-        if (!is_array($updateInfo)) {
-            return [false, 'update info is not array'];
-        }
-        $uid = $this->uid;
-        // $key = self::DATA_KEY . 'uid/' . $uid;
-        $where = ['uid' => $uid];//"  where `uid`='$uid'";
-        $ret = $this->update($updateInfo, $where);
-        return $ret;
     }
 }
