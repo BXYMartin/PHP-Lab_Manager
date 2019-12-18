@@ -366,7 +366,6 @@
 <script type="text/html" id="standard_tpl">
     <div class="issuable-form-select-holder">
 
-    <link rel="stylesheet" href="<?= ROOT_URL ?>dev/lib/bootstrap-3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= ROOT_URL ?>dev/lib/bootstrap-multiselect/css/bootstrap-multiselect.css">
     <script type="text/javascript" src="<?= ROOT_URL ?>dev/lib/bootstrap-multiselect/js/bootstrap-multiselect.js" />
         <span class="multiselect-native-select">
@@ -376,9 +375,7 @@
                 {{#section}}
                     <option value="{{sid}}" {{#if section}}disabled{{/if}}>{{number}}. {{standard_name}}</option>
                     {{#section}}
-                    <option class="{{../../standard_name}}_{{../number}}" value="{{sid}}">
-                        <pre> {{number}}. {{standard_name}}</pre>
-                    </option>
+                    <option class="{{../../standard_name}}_{{../number}} indent" value="{{sid}}"><pre> {{number}}. {{standard_name}}</pre></option>
                     {{/section}}
                 {{/section}}
                 </optgroup>
@@ -394,7 +391,7 @@
             enableCollapsibleOptGroups: true,
             enableFiltering: true,
             numberDisplayed: 2,
-            buttonWidth: '200px',
+            buttonWidth: '100%',
             includeSelectAllOption: true,
             onSelectAll: function() {
                 if (confirm("Do you want to remove dependency entries?")) {

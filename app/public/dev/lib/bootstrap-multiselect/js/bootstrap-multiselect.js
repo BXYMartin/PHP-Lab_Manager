@@ -441,8 +441,8 @@
             templates: {
                 button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span class="multiselect-selected-text"></span> <b class="caret"></b></button>',
                 ul: '<ul class="multiselect-container dropdown-menu"></ul>',
-                filter: '<li class="multiselect-item multiselect-filter"><div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span><input class="form-control multiselect-search" type="text" /></div></li>',
-                filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default multiselect-clear-filter" type="button"><i class="glyphicon glyphicon-remove-circle"></i></button></span>',
+                filter: '<li class="multiselect-item multiselect-filter"><div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span><input class="form-control multiselect-search" type="text" /></div></li>',
+                filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default multiselect-clear-filter" type="button"><i class="fa fa-times-circle-o"></i></button></span>',
                 li: '<li><a tabindex="0"><label></label></a></li>',
                 divider: '<li class="multiselect-item divider"></li>',
                 liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>',
@@ -739,7 +739,7 @@
                     }
 
                     var index = $items.index($items.filter(':focus'));
-                    
+
                     // Navigation up.
                     if (event.keyCode === 38 && index > 0) {
                         index--;
@@ -847,7 +847,7 @@
                 }, this));
 
                 $("li.multiselect-all", this.$ul).css('background', '#f3f3f3').css('border-bottom', '1px solid #eaeaea');
-                $("li.multiselect-all > a > label.checkbox", this.$ul).css('padding', '3px 20px 3px 35px');
+                $("li.multiselect-all > a > label.checkbox", this.$ul).css('padding', '3px 3px 3px 13px');
                 $("li.multiselect-group > a > input", this.$ul).css('margin', '4px 0px 5px -20px');
             }
         },
@@ -895,6 +895,7 @@
                 $checkbox.attr('name', name);
             }
 
+            $label.prepend('<label></label>');
             $label.prepend($checkbox);
 
             var selected = $element.prop('selected') || false;
@@ -958,10 +959,11 @@
             }
 
             if (this.options.enableCollapsibleOptGroups && this.options.multiple) {
-                $('a', $li).append('<span class="caret-container"><b class="caret"></b></span>');
+                $('a', $li).append('<span class="fa fa-caret-down caret-container"></span>');
             }
 
             if (this.options.enableClickableOptGroups && this.options.multiple) {
+                $('a label', $li).prepend('<label></label>');
                 $('a label', $li).prepend('<input type="checkbox" value="' + value + '"/>');
             }
 
@@ -1036,9 +1038,11 @@
                 }
 
                 if (this.options.selectAllName) {
+                    $('label', $li).prepend('<label></label>');
                     $('label', $li).prepend('<input type="checkbox" name="' + this.options.selectAllName + '" />');
                 }
                 else {
+                    $('label', $li).prepend('<label></label>');
                     $('label', $li).prepend('<input type="checkbox" />');
                 }
 
