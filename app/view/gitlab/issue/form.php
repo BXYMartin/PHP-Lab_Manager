@@ -363,6 +363,76 @@
     </form>
 </div>
 
+<script type="text/html" id="standard_tpl">
+    <div class="issuable-form-select-holder">
+
+    <link rel="stylesheet" href="<?= ROOT_URL ?>dev/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= ROOT_URL ?>dev/lib/bootstrap-multiselect/css/bootstrap-multiselect.css">
+    <script type="text/javascript" src="<?= ROOT_URL ?>dev/lib/bootstrap-multiselect/js/bootstrap-multiselect.js" />
+        <span class="multiselect-native-select">
+            <select id="standard_select" name="standard_select[]" multiple="multiple">
+            {{#standard}}
+            <optgroup label="{{standard_name}}" value="{{sid}}">
+                {{#section}}
+                    <option value="{{sid}}" {{#if section}}disabled{{/if}}>{{number}}. {{standard_name}}</option>
+                    {{#section}}
+                    <option class="{{../../standard_name}}_{{../number}}" value="{{sid}}">
+                        <pre> {{number}}. {{standard_name}}</pre>
+                    </option>
+                    {{/section}}
+                {{/section}}
+                </optgroup>
+            {{/standard}}
+            </select>
+        </span>
+    </div>
+    <script type="text/javascript">
+    
+    $(document).ready(function() {
+        $('#standard_select').multiselect({
+            enableClickableOptGroups: true,
+            enableCollapsibleOptGroups: true,
+            enableFiltering: true,
+            numberDisplayed: 2,
+            buttonWidth: '200px',
+            includeSelectAllOption: true,
+            onSelectAll: function() {
+                if (confirm("Do you want to remove dependency entries?")) {
+                    $('#standard_select option').each(function () {
+                        {{#link}}
+                        if ($(this).val() == "{{father_sid}}") {
+                            $('#standard_select').multiselect('deselect', "{{child_sid}}");
+                        }
+                        if ($(this).val() == "{{child_sid}}" && $('#standard_select option:selected[value={{father_sid}}]').length >= 1) {
+                            $('#standard_select').multiselect('deselect', "{{child_sid}}");
+                        }
+                        {{/link}}
+                    });
+                    
+                }
+            },
+            onChange: function(option, checked) {
+                console.log(option);
+                for (var i = 0; i < option.length; i++) {
+                    option_i = option[i];
+                    {{#link}}
+                    if (option_i.value == "{{father_sid}}" && checked) {
+                        $('#standard_select').multiselect('deselect', "{{child_sid}}");
+                    }
+                    if (option_i.value == "{{child_sid}}" && checked && $('#standard_select option:selected[value={{father_sid}}]').length >= 1) {
+                        if (!confirm("You are overiding rule {{father.standard}} {{father.number}}.{{father.standard_name}} -> {{child.standard}} {{child.number}}.{{child.standard_name}}, continue?"))
+                        {
+                            $('#standard_select').multiselect('deselect', "{{child_sid}}");
+                        }
+                    }
+                    {{/link}}
+                }
+            },
+        });
+    });
+    <{{!}}/script>
+</script>
+
 <script type="text/html" id="user_tpl">
     <div class="issuable-form-select-holder">
         <input type="hidden" value="{{default_value}}" name="{{field_name}}" id="{{id}}"/>

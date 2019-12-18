@@ -40,6 +40,10 @@ var IssueForm = (function () {
     }
 
     IssueForm.prototype.makeCreateHtml = function (configs, fields, tab_id, allow_add_status, issue) {
+        console.log("---");
+        console.log(configs);
+        console.log(fields);
+        console.log("---");
         _allow_add_status = allow_add_status;
         var html = '';
         for (var i = 0; i < configs.length; i++) {
@@ -177,6 +181,7 @@ var IssueForm = (function () {
 
         var html = '';
 
+        console.log(field);
         switch (field.type) {
             case "TEXT":
                 html += IssueForm.prototype.makeFieldText(config, field, ui_type);
@@ -240,6 +245,9 @@ var IssueForm = (function () {
                 break;
             case "DATE":
                 html += IssueForm.prototype.makeFieldDate(config, field, ui_type);
+                break;
+            case "STANDARD":
+                html += IssueForm.prototype.makeFieldStandard(config, field, ui_type);
                 break;
             default:
                 html += IssueForm.prototype.makeFieldText(config, field, ui_type);
@@ -745,6 +753,51 @@ var IssueForm = (function () {
         return IssueForm.prototype.wrapField(config, field, html);
     }
 
+    IssueForm.prototype.makeFieldStandard = function (config, field, ui_type) {
+        var display_name = field.title;
+        var name = field.name;
+        var required = config.required;
+        var type = config.type;
+        var field_name = 'params[' + name + ']';
+        var default_value = field.default_value
+        var required_html = '';
+        if (required) {
+            required_html = '<span class="required"> *</span>';
+        }
+        var html = '';
+        var standard = IssueForm.prototype.getStandard();
+        var standard_title = display_name;
+        if (default_value == null || default_value == 'null') {
+            default_value = '';
+        }
+        var project_id = '';
+        if (is_empty(_cur_form_project_id)) {
+            _cur_form_project_id = _cur_project_id;
+        }
+        project_id = _cur_form_project_id;
+
+        console.log("Standard:");
+        console.log(standard);
+        var data = {
+            project_id: project_id,
+            project_key: _cur_project_key,
+            display_name: display_name,
+            standard_title: standard_title,
+            standard: standard.edit_data,
+            link: standard.available_links,
+            default_value: default_value,
+            field_name: field_name,
+            name: field.name,
+            id: ui_type + "_issue_" + name
+        };
+
+        var source = $('#standard_tpl').html();
+
+        var template = Handlebars.compile(source);
+        html = template(data);
+
+        return IssueForm.prototype.wrapField(config, field, html);
+    }
 
     IssueForm.prototype.makeFieldModule = function (config, field, ui_type) {
         var display_name = field.title;
@@ -947,6 +1000,31 @@ var IssueForm = (function () {
             }
         }
         return field;
+    }
+
+
+    IssueForm.prototype.getStandard = function () {
+        standards = null;
+        console.log(root_url);
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            async: false,
+            url: root_url + "admin/standard/filterLink",
+            data: null,
+            success: function (resp) {
+                console.log("Resp:");
+                console.log(resp);
+                auth_check(resp);
+                console.log(resp.data.edit_data);
+                standards = resp.data;
+            },
+            error: function (res) {
+                console.log(res);
+                notify_error("请求数据错误" + res);
+            }
+        });
+        return standards;
     }
 
     IssueForm.prototype.getModule = function (modules, module_id) {

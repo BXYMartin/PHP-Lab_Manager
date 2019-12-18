@@ -1,6 +1,14 @@
 $(function () {
 
     if ("undefined" != typeof Handlebars.registerHelper) {
+        Handlebars.registerHelper('if_not', function (v1, opts) {
+            if (!v1)
+                return opts.fn(this);
+            else
+                return opts.inverse(this);
+        });
+
+
         Handlebars.registerHelper('if_eq', function (v1, v2, opts) {
             if (v1 == v2)
                 return opts.fn(this);
@@ -408,7 +416,7 @@ $(function () {
             return '';
         }
         html += '·创建于<span  datetime="'+created+'" data-toggle="tooltip" data-placement="top" title="' + created_full + '">' + created_text + '</span>';
-		
+
         return new Handlebars.SafeString(html);
     });
 
