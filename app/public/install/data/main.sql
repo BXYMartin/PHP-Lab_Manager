@@ -61,6 +61,21 @@ CREATE TABLE `standard_main` (
   PRIMARY KEY (`sid`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
 
+
+--
+-- 表的结构 `standard_link_main`
+--
+CREATE TABLE `standard_link_main` (
+  `sid` int(11) NOT NULL AUTO_INCREMENT,
+  `father_sid` int(11) NOT NULL,
+  `child_sid` int(11) NOT NULL,
+  `description` varchar(128) NOT NULL,
+  PRIMARY KEY (`sid`),
+  FOREIGN KEY (`father_sid`) REFERENCES `standard_main` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`child_sid`) REFERENCES `standard_main` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 --
 -- 表的结构 `agile_board_column`
 --
