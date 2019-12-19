@@ -1110,6 +1110,7 @@ var IssueMain = (function () {
         var form_value_objs = $('#create_issue').serializeObject();
         var method = 'post';
         var post_data = $('#create_issue').serialize();
+        console.log(post_data);
         $.ajax({
             type: method,
             dataType: "json",

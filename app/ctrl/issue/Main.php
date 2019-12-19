@@ -42,6 +42,7 @@ use main\app\model\issue\IssueUiTabModel;
 use main\app\model\issue\IssueRecycleModel;
 use main\app\model\field\FieldTypeModel;
 use main\app\model\field\FieldModel;
+use main\app\model\standard\StandardModel;
 use main\app\model\user\UserModel;
 use main\app\model\SettingModel;
 use main\app\model\user\UserSettingModel;
@@ -789,7 +790,7 @@ class Main extends BaseUserCtrl
      * @throws \Exception
      * @throws \Exception
      */
-    public function add($params = [])
+    public function add($params = [], $terminate = True)
     {
         $uid = $this->getCurrentUid();
         //检测当前用户角色权限
@@ -830,6 +831,7 @@ class Main extends BaseUserCtrl
         if (!empty($err)) {
             $this->ajaxFailed('表单验证失败', $err, BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
         }
+
 
         $info = [];
         $info['summary'] = $params['summary'];
@@ -939,8 +941,31 @@ class Main extends BaseUserCtrl
         $notifyLogic = new NotifyLogic();
         $notifyLogic->send(NotifyLogic::NOTIFY_FLAG_ISSUE_CREATE, $projectId, $issueId);
 
+        if (isset($params['standard_select']) && count($params['standard_select']) > 0) {
+            $sids = $params['standard_select'];
+            foreach ($sids as $sid) {
+                $sub_params = array();
+                $sub_params['master_issue_id'] = $issueId;
+                $sub_params['issue_type'] = $params['issue_type'];
+                $sub_params['project_id'] = $params['project_id'];
+                $model = new StandardModel();
+                $standard = $model->getBySid($sid);
+                $sub_params['summary'] = $standard['number'].".".$standard['standard_name'];
+                $parent = $standard;
+                while($parent['parent_id'] != "0") {
+                    $parent = $model->getBySid((int) $parent['parent_id']);
+                    $sub_params['summary'] = $parent['standard_name']." -> ".$sub_params['summary'];
+                    if ($parent['parent_id'] != "0")
+                        $sub_params['summary'] = $parent['number'].".".$sub_params['summary'];
+                }
+                $sub_params['description'] = $standard['description'];
+                $this->add($sub_params, False);
+            }
+            $this->ajaxSuccess('任务和所有子规则添加成功', $issueId);
+        }
 
-        $this->ajaxSuccess('添加成功', $issueId);
+        if ($terminate)
+            $this->ajaxSuccess('添加成功', $issueId);
     }
 
     /**

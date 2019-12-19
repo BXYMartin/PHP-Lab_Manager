@@ -369,7 +369,7 @@
     <link rel="stylesheet" href="<?= ROOT_URL ?>dev/lib/bootstrap-multiselect/css/bootstrap-multiselect.css">
     <script type="text/javascript" src="<?= ROOT_URL ?>dev/lib/bootstrap-multiselect/js/bootstrap-multiselect.js" />
         <span class="multiselect-native-select">
-            <select id="standard_select" name="standard_select[]" multiple="multiple">
+            <select id="standard_select" name="params[standard_select][]" multiple="multiple">
             {{#standard}}
             <optgroup label="{{standard_name}}" value="{{sid}}">
                 {{#section}}
