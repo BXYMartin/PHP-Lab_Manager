@@ -221,7 +221,7 @@ class IssueLogic
     public function getChildIssue($issueId)
     {
         $model = new IssueModel();
-        $field = 'id, issue_num, assignee,summary';
+        $field = 'id, standard_id, issue_num, assignee,summary';
         $conditions['master_id'] = $issueId;
         $rows = $model->getRows($field, $conditions);
         foreach ($rows as &$row) {

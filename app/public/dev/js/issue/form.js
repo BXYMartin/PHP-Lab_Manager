@@ -791,6 +791,12 @@ var IssueForm = (function () {
             id: ui_type + "_issue_" + name
         };
 
+        if (ui_type == 'edit') {
+            data['create'] = false;
+        }
+        else {
+            data['create'] = true;
+        }
         var source = $('#standard_tpl').html();
 
         var template = Handlebars.compile(source);

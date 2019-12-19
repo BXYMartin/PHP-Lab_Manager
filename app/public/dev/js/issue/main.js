@@ -1110,7 +1110,6 @@ var IssueMain = (function () {
         var form_value_objs = $('#create_issue').serializeObject();
         var method = 'post';
         var post_data = $('#create_issue').serialize();
-        console.log(post_data);
         $.ajax({
             type: method,
             dataType: "json",
@@ -1415,6 +1414,7 @@ var IssueMain = (function () {
                 _tabs = resp.data.tabs;
                 _field_types = _issueConfig.issue_types;
                 _edit_issue = resp.data.issue;
+                _edit_child_issue = resp.data.child_issue;
                 _cur_form_project_id = _edit_issue.project_id;
 
                 IssueForm.prototype.makeProjectField(_edit_issue, function () {
@@ -1427,7 +1427,6 @@ var IssueMain = (function () {
                     }else{
                         $('#edit_issue_type').val(updatedIssueTypeId);
                     }
-
                     $('#a_edit_default_tab').parent().siblings("li").remove();
 
                     //notify_success(resp.data.configs);
@@ -1451,6 +1450,15 @@ var IssueMain = (function () {
                         $('#edit_tabs').show();
                     } else {
                         $('#edit_tabs').hide();
+                    }
+
+                    console.log('-------');
+                    console.log(_edit_child_issue);
+                    console.log('-------');
+                    for (var i = 0; i < _edit_child_issue.length; i++) {
+                    console.log($('.option_issue_' + _edit_child_issue[i]['standard_id']));
+                        $('.option_issue_' + _edit_child_issue[i]['standard_id']).addClass('contained');
+                        $('.option_issue_' + _edit_child_issue[i]['standard_id']).addClass('disabled');
                     }
 
                     $('#modal-edit-issue').modal();

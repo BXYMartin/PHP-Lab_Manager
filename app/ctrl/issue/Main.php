@@ -781,6 +781,7 @@ class Main extends BaseUserCtrl
 
         IssueFilterLogic::formatIssue($issue);
         $data['issue'] = $issue;
+        $data['child_issue'] = $this->getSubIssues($issueId);
         $this->ajaxSuccess('success', $data);
     }
 
@@ -840,6 +841,9 @@ class Main extends BaseUserCtrl
         $info['created'] = time();
         $info['updated'] = time();
 
+        if (isset($params['standard_id']) && $params['project_id'] != null) {
+            $info['standard_id'] = $params['standard_id'];
+        }
         // 所属项目
         $projectId = (int)$params['project_id'];
         if (!empty($_REQUEST['project_id'])) {
@@ -959,6 +963,7 @@ class Main extends BaseUserCtrl
                         $sub_params['summary'] = $parent['number'].".".$sub_params['summary'];
                 }
                 $sub_params['description'] = $standard['description'];
+                $sub_params['standard_id'] = $sid;
                 $this->add($sub_params, False);
             }
             $this->ajaxSuccess('任务和所有子规则添加成功', $issueId);
@@ -1320,7 +1325,40 @@ class Main extends BaseUserCtrl
         $notifyLogic = new NotifyLogic();
         $notifyLogic->send($notifyFlag, $issue['project_id'], $issueId);
 
-        $this->ajaxSuccess('success');
+        if (isset($params['standard_select']) && count($params['standard_select']) > 0) {
+            $sids = $params['standard_select'];
+            foreach ($sids as $sid) {
+                $exist = False;
+                foreach ($this->getSubIssues($issueId) as $sub_issue) {
+                    if ($sid == $sub_issue['standard_id']) {
+                        $exist = True;
+                        break;
+                    }
+                }
+                if (!$exist) {
+                    $sub_params = array();
+                    $sub_params['master_issue_id'] = $issueId;
+                    $sub_params['issue_type'] = $params['issue_type'];
+                    $sub_params['project_id'] = $params['project_id'];
+                    $model = new StandardModel();
+                    $standard = $model->getBySid($sid);
+                    $sub_params['summary'] = $standard['number'].".".$standard['standard_name'];
+                    $parent = $standard;
+                    while($parent['parent_id'] != "0") {
+                        $parent = $model->getBySid((int) $parent['parent_id']);
+                        $sub_params['summary'] = $parent['standard_name']." -> ".$sub_params['summary'];
+                        if ($parent['parent_id'] != "0")
+                            $sub_params['summary'] = $parent['number'].".".$sub_params['summary'];
+                    }
+                    $sub_params['description'] = $standard['description'];
+                    $sub_params['standard_id'] = $sid;
+                    $this->add($sub_params, False);
+
+                }
+            }
+            $this->ajaxSuccess('任务和所有子规则修改成功', $issueId);
+        }
+        $this->ajaxSuccess('修改成功');
     }
 
 
@@ -1501,6 +1539,19 @@ class Main extends BaseUserCtrl
         $activityModel->insertItem($currentUid, $issue['project_id'], $activityInfo);
 
         $this->ajaxSuccess('success');
+    }
+
+    /**
+     * 获取子任务事项
+     * @throws \Exception
+     */
+    public function getSubIssues($issueId)
+    {
+        if (empty($issueId)) {
+            return array();
+        }
+        $issueLogic = new IssueLogic();
+        return $issueLogic->getChildIssue($issueId);
     }
 
     /**

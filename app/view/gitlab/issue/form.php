@@ -373,9 +373,9 @@
             {{#standard}}
             <optgroup label="{{standard_name}}" value="{{sid}}">
                 {{#section}}
-                    <option value="{{sid}}" {{#if section}}disabled{{/if}}>{{number}}. {{standard_name}}</option>
+                    <option class="option_issue_{{sid}}" value="{{sid}}" {{#if section}}disabled{{/if}}>{{number}}. {{standard_name}}</option>
                     {{#section}}
-                    <option class="{{../../standard_name}}_{{../number}} indent" value="{{sid}}"><pre> {{number}}. {{standard_name}}</pre></option>
+                    <option class="option_issue_{{sid}} indent" value="{{sid}}"><pre> {{number}}. {{standard_name}}</pre></option>
                     {{/section}}
                 {{/section}}
                 </optgroup>
@@ -392,7 +392,9 @@
             enableFiltering: true,
             numberDisplayed: 2,
             buttonWidth: '100%',
+    {{#if create}}
             includeSelectAllOption: true,
+    {{/if}}
             onSelectAll: function() {
                 if (confirm("Do you want to remove dependency entries?")) {
                     $('#standard_select option').each(function () {

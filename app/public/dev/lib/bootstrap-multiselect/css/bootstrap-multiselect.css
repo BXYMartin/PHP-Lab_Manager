@@ -71,3 +71,7 @@ input[type=checkbox]:checked:disabled + label:before {
 .indent > a > label {
     margin-left: 0.4em !important;
 }
+.contained {
+    background-color: #00ff6688;
+    pointer-events: none;
+}
