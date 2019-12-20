@@ -12,7 +12,7 @@
 
     <script src="<?=ROOT_URL?>dev/lib/bootstrap-paginator/src/bootstrap-paginator.js?v=<?= $_version ?>"  type="text/javascript"></script>
 
-    <script src="<?=ROOT_URL?>dev/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="<?=ROOT_URL?>dev/lib/bootstrap-3.3.7/js/collapse.js"></script>
 
 </head>
 

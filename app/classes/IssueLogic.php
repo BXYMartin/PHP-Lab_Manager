@@ -21,6 +21,7 @@ use main\app\model\issue\IssueModel;
 use main\app\model\issue\IssuePriorityModel;
 use main\app\model\issue\IssueResolveModel;
 use main\app\model\project\ProjectModel;
+use main\app\model\standard\StandardModel;
 use main\app\model\TimelineModel;
 use main\app\model\user\UserIssueDisplayFieldsModel;
 use \PhpOffice\PhpSpreadsheet\IOFactory;
@@ -224,10 +225,49 @@ class IssueLogic
         $field = 'id, standard_id, issue_num, assignee,summary';
         $conditions['master_id'] = $issueId;
         $rows = $model->getRows($field, $conditions);
+        $standardModel = new StandardModel();
+        $all = $standardModel->show();
         foreach ($rows as &$row) {
-            $row['show_title'] = mb_substr(ucfirst($row['summary']), 0, 20, 'utf-8');
+            foreach ($all as &$process) {
+                $has_process = false;
+                foreach ($process['section'] as &$section) {
+                    $has_section = false;
+                    foreach ($section['section'] as &$rule) {
+                        $has_detail = false;
+                        foreach ($rule['section'] as &$detail) {
+                            if ($detail['sid'] == $row['standard_id'])
+                            {
+                                $has_detail = true;
+                                $detail['issue_id'] = $row['id'];
+                                $detail['have'] = 1;
+                            }
+                        }
+                        if ($has_detail || $rule['sid'] == $row['standard_id'])
+                        {
+                            $has_section = true;
+                            $rule['have'] = 1;
+                        }
+                        if ($rule['sid'] == $row['standard_id'])
+                            $section['issue_id'] = $row['id'];
+
+                    }
+                    if ($has_section || $section['sid'] == $row['standard_id']) {
+                        $has_process = true;
+                        $section['have'] = 1;
+                    }
+                    if ($section['sid'] == $row['standard_id'])
+                        $section['issue_id'] = $row['id'];
+
+                }
+                if ($has_process || $process['sid'] == $row['standard_id']) {
+                    $process['have'] = 1;
+                }
+                if ($process['sid'] == $row['standard_id'])
+                    $process['issue_id'] = $row['id'];
+            }
+            $row['show_title'] = $row['summary'];
         }
-        return $rows;
+        return [$rows, $all];
     }
 
 

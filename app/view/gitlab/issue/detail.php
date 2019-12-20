@@ -4,6 +4,7 @@
 
     <? require_once VIEW_PATH . 'gitlab/common/header/include.php'; ?>
 
+    <script src="<?=ROOT_URL?>dev/lib/bootstrap-3.3.7/js/collapse.js"></script>
     <script src="<?= ROOT_URL ?>gitlab/assets/webpack/common_vue.bundle.js"></script>
     <script src="<?= ROOT_URL ?>gitlab/assets/webpack/issuable.bundle.js"></script>
 
@@ -308,6 +309,35 @@
                                 </small>
                             </script>
                         </div>
+
+
+
+
+
+                        <div id="detail-page-description" class="content-block detail-page-description"
+                             style="margin-left: 15px">
+                            <div class="issue-title-data hidden" data-endpoint="#"
+                                 data-initial-title="父任务"></div>
+                                <div id="parent_block" class="block project-reference hide">
+                                    <label>父任务:</label>
+                                    <div id="parent_issue_div" class="cross-project-reference hide-collapsed">
+
+                                    </div>
+                                </div>
+
+                                <div class="block project-reference">
+                                    <label>子任务:</label>
+                                    <div class="description js-task-list-container is-task-list-enabled">
+                                        <div id="child_issues_div" class="cross-project-reference hide-collapsed">
+
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+
+
+
+
 
                         <script type="text/html" id="issue_fields_tpl">
                             <div class="row">
@@ -765,32 +795,6 @@
                                     </div>
                                 </div>
 
-                                <div id="parent_block" class="block project-reference hide">
-                                    <div class="sidebar-collapsed-icon">
-                                        <i aria-hidden="true" title="该事项的父任务" class="fa fa-hashtag"></i>
-                                        <span></span>
-                                    </div>
-                                    <div class="title hide-collapsed">
-                                        <span class="bold">父任务</span>
-                                    </div>
-                                    <div id="parent_issue_div" class="cross-project-reference hide-collapsed">
-
-                                    </div>
-                                </div>
-
-                                <div class="block project-reference">
-                                    <div class="sidebar-collapsed-icon">
-                                        <i aria-hidden="true" title="该事项的子任务" class="fa fa-tasks"></i>
-                                        <span></span>
-                                    </div>
-                                    <div class="title hide-collapsed">
-                                        <span class="bold">子任务</span>
-                                    </div>
-                                    <div id="child_issues_div" class="cross-project-reference hide-collapsed">
-
-                                    </div>
-                                </div>
-
                                 <div id="custom_field_values_block" class="block project-reference hide">
                                     <div class="sidebar-collapsed-icon">
                                         <i aria-hidden="true" title="自定义字段" class="fa fa-info"></i>
@@ -969,14 +973,159 @@
     <script type="text/html" id="parent_issue_tpl">
         <span>
         <a href="/issue/detail/index/{{id}}" target="_blank">#{{id}} {{show_title}}</a>
-    </span>
+    </span><br>
     </script>
 
     <script type="text/html" id="child_issues_tpl">
-        {{#child_issues}}
-        <span><a href="/issue/detail/index/{{id}}" target="_blank">#{{id}} {{show_title}}</a>
-    </span>
-        {{/child_issues}}
+    <div class="panel-group" id="accordion">
+    {{#section}}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#section_{{sid}}">
+                            {{standard_name}}
+                    </a>
+                </h4>
+                {{#if issue_id}}
+                <h4 class="panel-title" style="float: left;padding-left: 10px;">
+                    <a href="/issue/detail/index/{{issue_id}}" target="_blank">
+                        >> 前往事项
+                    </a>
+                <h4>
+                {{/if}}
+                <div class="controls member-controls " style="float: right">
+                    <a class="group_for_more btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">添加 </a>
+                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
+                    <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
+                        <i class="fa fa-trash"></i>
+                        <span class="sr-only">Remove</span>
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div id="section_{{sid}}" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p>{{description}}</p>
+                    
+                    <div class="panel-group" id="accordion_{{sid}}">
+                    {{#section}}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
+                                    <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
+                                       href="#header_{{sid}}">
+                                            {{number}}. {{standard_name}}
+                                    </a>
+                                {{#if issue_id}}
+                                    <a href="/issue/detail/index/{{issue_id}}" target="_blank">
+                                        >> 前往事项
+                                    </a>
+                                {{/if}}
+                                </h4>
+
+                                <div class="controls member-controls " style="float: right">
+                                    <a class="group_for_more btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">添加 </a>
+                                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
+                                    <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
+                                        <i class="fa fa-trash"></i>
+                                        <span class="sr-only">Remove</span>
+                                    </a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="header_{{sid}}" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                    <p>{{description}}</p>
+                                    <div class="panel-group" id="accordion_{{sid}}">
+                                    {{#section}}
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
+                                                    <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
+                                                       href="#detail_{{sid}}">
+                                                            {{number}}. {{standard_name}}
+
+                                                    </a>
+                                                    {{#if issue_id}}
+                                                        <a href="/issue/detail/index/{{issue_id}}" target="_blank">
+                                                            >> 前往事项
+                                                        </a>
+                                                    {{/if}}
+                                                </h4>
+
+                                                <div class="controls member-controls " style="float: right">
+                                                    <a class="group_for_more btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">添加 </a>
+                                                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
+                                                    <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
+                                                        <i class="fa fa-trash"></i>
+                                                        <span class="sr-only">Remove</span>
+                                                    </a>
+                                                </div>
+                                            <div class="clearfix"></div>
+                                         </div>
+
+                                            <div id="detail_{{sid}}" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>{{description}}</p>
+
+                                                    <div class="panel-group" id="rule_{{sid}}">
+                                                    {{#section}}
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
+                                                                    <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
+                                                                       href="#rule_{{sid}}">
+                                                                            {{number}}. {{standard_name}}
+
+                                                                    </a>
+                                                                    {{#if issue_id}}
+                                                                        <a href="/issue/detail/index/{{issue_id}}" target="_blank">
+                                                                            >> 前往事项
+                                                                        </a>
+                                                                    {{/if}}
+                                                                </h4>
+
+                                                                <div class="controls member-controls " style="float: right">
+                                                                    <a class="group_for_more btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">添加 </a>
+                                                                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
+                                                                    <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
+                                                                        <i class="fa fa-trash"></i>
+                                                                        <span class="sr-only">Remove</span>
+                                                                    </a>
+                                                                </div>
+                                                            <div class="clearfix"></div>
+                                                         </div>
+
+                                                            <div id="rule_{{sid}}" class="panel-collapse collapse">
+                                                                <div class="panel-body">
+                                                                    {{description}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {{/section}}
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/section}}
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    {{/section}}
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    {{/section}}
+    </div>
     </script>
 
     <script type="text/html" id="custom_field_values_tpl">
