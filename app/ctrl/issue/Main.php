@@ -183,6 +183,37 @@ class Main extends BaseUserCtrl
         $this->ajaxSuccess('ok', $data);
     }
 
+
+    /**
+     * 以patch方式更新事项内容
+     * @throws \Exception
+     */
+    public function patchAssignee($issueId, $userName)
+    {
+        if (empty($issueId)) {
+            $this->ajaxFailed('参数错误', '事项id不能为空');
+        }
+        if (empty($userName)) {
+            $this->ajaxFailed('参数错误', '用户名不能为空');
+        }
+        $issueModel = new IssueModel();
+        $issue = $issueModel->getById($issueId);
+
+        $userModel = new UserModel();
+        $assignee = $userModel->getByUsername($userName);
+        UserLogic::formatAvatarUser($assignee);
+        $updateInfo = [];
+        $updateInfo['assignee'] = $assignee['uid'];
+        $data = $issueModel->updateById($issueId, $updateInfo);
+        $data['uid'] = $assignee['uid'];
+        // email
+        $notifyLogic = new NotifyLogic();
+        $notifyLogic->send(NotifyLogic::NOTIFY_FLAG_ISSUE_ASSIGN, $issue['project_id'], $issueId);
+
+        $this->ajaxSuccess('ok', $data);
+    }
+
+
     /**
      * 以patch方式更新事项内容
      * @throws \Exception

@@ -1000,8 +1000,8 @@
                     {{/if}}
                 </h4>
                 {{#if id}}
-                <div class="controls member-controls " style="float: right">
-                    <a class="group_for_assignee btn btn-transparent " href="#" data-value="{{id}}">{{user_html assignee}} </a>
+                <div class="controls member-controls " style="float: right;display: -webkit-inline-box;">
+
                     <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
                     <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
                 </div>
@@ -1029,8 +1029,41 @@
                                 </h4>
 
                                 {{#if id}}
-                                <div class="controls member-controls " style="float: right">
-                                    <a class="group_for_assignee btn btn-transparent " href="#" data-value="{{id}}">{{user_html assignee}} </a>
+                                <div class="controls member-controls " style="float: right;display: -webkit-inline-box;">
+                                    <div class="issuable-form-select-holder">
+                                        <div class="dropdown ">
+                                            <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
+                                                <div class="dropdown-title">
+                                                    <span>选择经办人</span>
+                                                    <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
+                                                        <i class="fa fa-times dropdown-menu-close-icon"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="dropdown-input">
+                                                    <input type="search" id="" class="dropdown-input-field" placeholder="Search assignee"
+                                                           autocomplete="off"/>
+                                                    <i class="fa fa-search dropdown-input-search"></i>
+                                                    <i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i>
+                                                </div>
+                                                <div class="dropdown-content "></div>
+                                                <div class="dropdown-loading">
+                                                    <i class="fa fa-spinner fa-spin"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="group_for_assignee btn btn-transparent js-user-search js-issuable-form-dropdown js-assignee-search"
+                                                    type="button" data-first-user="sven"
+                                                    data-null-user="true"
+                                                    data-current-user="true"
+                                                    data-project-id="{{project_id}}"
+                                                    data-selected="null"
+                                                    data-field-name="params[{{name}}]"
+                                                    data-default-label="{{display_name}}"
+                                                    data-selected="{{default_value}}"
+                                                    data-toggle="dropdown"
+                                                    ><span class="dropdown-toggle-text" data-value="{{id}}">{{user_html assignee}}</span> </a>
+
                                     <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
                                     <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
                                 </div>
@@ -1059,7 +1092,7 @@
                                                 </h4>
 
                                                 {{#if id}}
-                                                <div class="controls member-controls " style="float: right">
+                                                <div class="controls member-controls " style="float: right;display: -webkit-inline-box;">
                                                     <a class="group_for_assignee btn btn-transparent " href="#" data-value="{{id}}">{{user_html assignee}} </a>
                                                     <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
                                                     <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
@@ -1090,7 +1123,7 @@
                                                                 </h4>
 
                                                                 {{#if id}}
-                                                                <div class="controls member-controls " style="float: right">
+                                                                <div class="controls member-controls " style="float: right;display: -webkit-inline-box;">
                                                                     <a class="group_for_assignee btn btn-transparent " href="#" data-value="{{id}}">{{user_html assignee}} </a>
                                                                     <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
                                                                     <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
@@ -1128,6 +1161,7 @@
     {{/section}}
     </div>
     </script>
+
 
     <script type="text/html" id="custom_field_values_tpl">
         {{#custom_field_values}}
@@ -1564,6 +1598,46 @@
                 }
             });
         });
+
+        window.onload = function() {
+            new UsersSelect();
+            $('.dropdown-toggle-text').bind('DOMNodeInserted',function(e) {
+                console.log('DOMNodeInserted');
+                console.log($(e.target).html());//change
+                console.log($(e.target).attr('data-value'));//change
+                post_data = {'issueId': $(e.target).attr('data-value'),
+                                'userName': $(e.target).html()};
+                $.ajax({
+                    type: 'POST',
+                    dataType: "json",
+                    async: true,
+                    url: root_url+"issue/main/patchAssignee",
+                    data: post_data,
+                    success: function (resp) {
+                        console.log(resp);
+                        auth_check(resp);
+                        if (resp.ret == '200') {
+                            var user = getValueByKey(_issueConfig.users, resp.data.uid);
+                            console.log(user);
+                            if (user != null) {
+                                $(e.target).replaceWith('<span class="list-item-name"><a href="/user/profile/' + user.uid + '">' +
+                                '<img width="26px" height="26px" class=" float-none" style="border-radius: 50%;"   data-toggle="tooltip" data-placement="top"  title="' + user.username + ' ' + user.display_name + '" src="' + user.avatar + '" />' +
+                                '</a></span>');
+                            }
+                            notify_success('保存成功');
+                        } else {
+                            notify_error('保存失败,错误信息:'+resp.msg);
+                        }
+
+                    },
+                    error: function (res) {
+                        console.log(res);
+                        notify_error("请求数据错误" + res);
+                    }
+                });
+
+            });
+        }
 
         function downloadAll() {
             var all = document.getElementsByClassName('qq-upload-download-selector');
