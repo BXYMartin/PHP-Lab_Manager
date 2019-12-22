@@ -364,7 +364,7 @@
 </div>
 
 <script type="text/html" id="standard_tpl">
-    <div class="issuable-form-select-holder">
+    <div class="issuable-form-select-holder" style="vertical-align: top;">
 
     <link rel="stylesheet" href="<?= ROOT_URL ?>dev/lib/bootstrap-multiselect/css/bootstrap-multiselect.css">
     <script type="text/javascript" src="<?= ROOT_URL ?>dev/lib/bootstrap-multiselect/js/bootstrap-multiselect.js" />
@@ -378,10 +378,14 @@
                     <option class="option_issue_{{sid}} indent" value="{{sid}}"><pre> {{number}}. {{standard_name}}</pre></option>
                     {{/section}}
                 {{/section}}
-                </optgroup>
+            </optgroup>
             {{/standard}}
             </select>
         </span>
+    </div>
+    <div class="issuable-form-select-holder" style="position: absolute;text-align: right;vertical-align: top;">
+    <h4>Coverage Check</h4>
+    <span id="coverage">None Selected</span>
     </div>
     <script type="text/javascript">
     
@@ -409,6 +413,7 @@
                     });
                     
                 }
+                $('#coverage').html('All Selected, All Coveraged.');
             },
             onChange: function(option, checked) {
                 console.log(option);
@@ -426,6 +431,52 @@
                     }
                     {{/link}}
                 }
+                // Update Converage Check
+                var option = $('#standard_select option');
+                var standards = {};
+                option.each(function(){
+                    var optGroup = $(this).closest('optgroup').attr('label');
+                    console.log(optGroup);
+                    if (standards[optGroup] == undefined)
+                        standards[optGroup] = [];
+                    console.log(standards);
+                    if ($(this).attr('disabled') == undefined)
+                        standards[optGroup].push($(this).val());
+                });
+                for (var standard in standards) {
+                    var i = standards[standard].length;
+                    var original = i;
+                    while (i--) {
+                    var remove = false;
+                    if ($('#standard_select option:selected[value=' + standards[standard][i] + ']').length >= 1) {
+                        remove = true;
+                    }
+                    {{#link}}
+                    if (standards[standard][i] == "{{child_sid}}" && $('#standard_select option:selected[value={{father_sid}}]').length >= 1) {
+                        original--;
+                        remove = true;
+                    }
+                    {{/link}}
+                    if (remove)
+                        standards[standard].splice(i, 1);
+                    }
+                    if (standards[standard].length == original) {
+                        standards[standard] = '<strong style="color: #00ff00">' + standard + ' - Not Selected</strong>';
+                    }
+                    else {
+                        temp = '<strong style="color: #ff0000">' + standard + " - Missing Entries:</strong>";
+                        for (var i = 0; i < standards[standard].length; i++) {
+                            temp += "<br> " + $('#standard_select option[value=' + standards[standard][i] + ']').html();
+                        }
+                        standards[standard] = temp;
+                    }
+                }
+                    console.log(standards);
+                output = "";
+                for (var name in standards) {
+                    output += standards[name] + "<br>";
+                }
+                $('#coverage').html(output);
             },
         });
     });
