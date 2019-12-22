@@ -1001,6 +1001,40 @@
                 </h4>
                 {{#if id}}
                 <div class="controls member-controls " style="float: right;display: -webkit-inline-box;">
+                    <div class="issuable-form-select-holder">
+                        <div class="dropdown ">
+                            <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
+                                <div class="dropdown-title">
+                                    <span>选择经办人</span>
+                                    <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
+                                        <i class="fa fa-times dropdown-menu-close-icon"></i>
+                                    </button>
+                                </div>
+                                <div class="dropdown-input">
+                                    <input type="search" id="" class="dropdown-input-field" placeholder="Search assignee"
+                                           autocomplete="off"/>
+                                    <i class="fa fa-search dropdown-input-search"></i>
+                                    <i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i>
+                                </div>
+                                <div class="dropdown-content "></div>
+                                <div class="dropdown-loading">
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="group_for_assignee btn btn-transparent js-user-search js-issuable-form-dropdown js-assignee-search"
+                                    type="button" data-first-user="sven"
+                                    data-null-user="true"
+                                    data-current-user="true"
+                                    data-project-id="{{project_id}}"
+                                    data-selected="null"
+                                    data-field-name="params[{{name}}]"
+                                    data-default-label="{{display_name}}"
+                                    data-selected="{{default_value}}"
+                                    data-toggle="dropdown"
+                                    ><span class="dropdown-toggle-text" data-value="{{id}}">{{user_html assignee}}</span> </a>
+
 
                     <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
                     <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
@@ -1093,7 +1127,40 @@
 
                                                 {{#if id}}
                                                 <div class="controls member-controls " style="float: right;display: -webkit-inline-box;">
-                                                    <a class="group_for_assignee btn btn-transparent " href="#" data-value="{{id}}">{{user_html assignee}} </a>
+                                                    <div class="issuable-form-select-holder">
+                                                        <div class="dropdown ">
+                                                            <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
+                                                                <div class="dropdown-title">
+                                                                    <span>选择经办人</span>
+                                                                    <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
+                                                                        <i class="fa fa-times dropdown-menu-close-icon"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="dropdown-input">
+                                                                    <input type="search" id="" class="dropdown-input-field" placeholder="Search assignee"
+                                                                           autocomplete="off"/>
+                                                                    <i class="fa fa-search dropdown-input-search"></i>
+                                                                    <i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i>
+                                                                </div>
+                                                                <div class="dropdown-content "></div>
+                                                                <div class="dropdown-loading">
+                                                                    <i class="fa fa-spinner fa-spin"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a class="group_for_assignee btn btn-transparent js-user-search js-issuable-form-dropdown js-assignee-search"
+                                                                    type="button" data-first-user="sven"
+                                                                    data-null-user="true"
+                                                                    data-current-user="true"
+                                                                    data-project-id="{{project_id}}"
+                                                                    data-selected="null"
+                                                                    data-field-name="params[{{name}}]"
+                                                                    data-default-label="{{display_name}}"
+                                                                    data-selected="{{default_value}}"
+                                                                    data-toggle="dropdown"
+                                                                    ><span class="dropdown-toggle-text" data-value="{{id}}">{{user_html assignee}}</span> </a>
+
                                                     <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
                                                     <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
                                                 </div>
@@ -1124,7 +1191,39 @@
 
                                                                 {{#if id}}
                                                                 <div class="controls member-controls " style="float: right;display: -webkit-inline-box;">
-                                                                    <a class="group_for_assignee btn btn-transparent " href="#" data-value="{{id}}">{{user_html assignee}} </a>
+                                                                    <div class="issuable-form-select-holder">
+                                                                        <div class="dropdown ">
+                                                                            <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
+                                                                                <div class="dropdown-title">
+                                                                                    <span>选择经办人</span>
+                                                                                    <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
+                                                                                        <i class="fa fa-times dropdown-menu-close-icon"></i>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="dropdown-input">
+                                                                                    <input type="search" id="" class="dropdown-input-field" placeholder="Search assignee"
+                                                                                           autocomplete="off"/>
+                                                                                    <i class="fa fa-search dropdown-input-search"></i>
+                                                                                    <i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i>
+                                                                                </div>
+                                                                                <div class="dropdown-content "></div>
+                                                                                <div class="dropdown-loading">
+                                                                                    <i class="fa fa-spinner fa-spin"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a class="group_for_assignee btn btn-transparent js-user-search js-issuable-form-dropdown js-assignee-search"
+                                                                                    type="button" data-first-user="sven"
+                                                                                    data-null-user="true"
+                                                                                    data-current-user="true"
+                                                                                    data-project-id="{{project_id}}"
+                                                                                    data-selected="null"
+                                                                                    data-field-name="params[{{name}}]"
+                                                                                    data-default-label="{{display_name}}"
+                                                                                    data-selected="{{default_value}}"
+                                                                                    data-toggle="dropdown"
+                                                                                    ><span class="dropdown-toggle-text" data-value="{{id}}">{{user_html assignee}}</span> </a>
                                                                     <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
                                                                     <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
                                                                 </div>
