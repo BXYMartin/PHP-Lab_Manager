@@ -214,6 +214,13 @@ class IssueLogic
         return $rows;
     }
 
+    public function copyAttribute($src, &$dst) 
+    {
+        foreach ($src as $key => $value) {
+            $dst[$key] = $value;
+        }
+    }
+
     /**
      * 获取某一事项的子任务
      * @param $issueId
@@ -222,12 +229,13 @@ class IssueLogic
     public function getChildIssue($issueId)
     {
         $model = new IssueModel();
-        $field = 'id, standard_id, issue_num, assignee,summary';
+        $field = 'id, standard_id, issue_num, assignee, summary, status';
         $conditions['master_id'] = $issueId;
         $rows = $model->getRows($field, $conditions);
         $standardModel = new StandardModel();
         $all = $standardModel->show();
-        foreach ($rows as &$row) {
+        foreach ($rows as $key => &$row) {
+            $in_task = false;
             foreach ($all as &$process) {
                 $has_process = false;
                 foreach ($process['section'] as &$section) {
@@ -238,35 +246,53 @@ class IssueLogic
                             if ($detail['sid'] == $row['standard_id'])
                             {
                                 $has_detail = true;
-                                $detail['issue_id'] = $row['id'];
+                                $this->copyAttribute($row, $detail);
                                 $detail['have'] = 1;
                             }
                         }
+                        unset($detail);
                         if ($has_detail || $rule['sid'] == $row['standard_id'])
                         {
                             $has_section = true;
                             $rule['have'] = 1;
                         }
                         if ($rule['sid'] == $row['standard_id'])
-                            $section['issue_id'] = $row['id'];
-
+                            $this->copyAttribute($row, $rule);
                     }
+                    unset($rule);
                     if ($has_section || $section['sid'] == $row['standard_id']) {
                         $has_process = true;
                         $section['have'] = 1;
                     }
                     if ($section['sid'] == $row['standard_id'])
-                        $section['issue_id'] = $row['id'];
+                        $this->copyAttribute($row, $section);
 
                 }
+                unset($section);
                 if ($has_process || $process['sid'] == $row['standard_id']) {
                     $process['have'] = 1;
+                    $in_task = true;
                 }
                 if ($process['sid'] == $row['standard_id'])
-                    $process['issue_id'] = $row['id'];
+                    $this->copyAttribute($row, $process);
             }
-            $row['show_title'] = $row['summary'];
+            unset($process);
+            if ($in_task)
+            {
+                unset($rows[$key]);
+            }
+            else {
+                $row['show_title'] = $row['summary'];
+            }
         }
+        $is_task = false;
+        foreach ($all as $process) {
+            if ($process['have'] != 0) {
+                $is_task = true;
+            }
+        }
+        if (!$is_task)
+            $all = array();
         return [$rows, $all];
     }
 

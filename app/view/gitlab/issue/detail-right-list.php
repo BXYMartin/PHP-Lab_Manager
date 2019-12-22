@@ -335,6 +335,146 @@
                 <a href="/issue/detail/index/{{id}}" target="_blank">#{{id}} {{show_title}}</a>
             </li>
             {{/child_issues}}
+    <div class="panel-group" id="accordion">
+    {{#section}}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#section_{{sid}}">
+                            {{standard_name}}
+                    </a>
+                    {{#if id}}
+                    <a href="/issue/detail/index/{{id}}" target="_blank">
+                        >> 前往事项
+                    </a>
+                    {{/if}}
+                </h4>
+                {{#if id}}
+                <div class="controls member-controls " style="float: right">
+                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
+                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
+                </div>
+                {{/if}}
+                <div class="clearfix"></div>
+            </div>
+            <div id="section_{{sid}}" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p>{{description}}</p>
+                    
+                    <div class="panel-group" id="accordion_{{sid}}">
+                    {{#section}}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
+                                    <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
+                                       href="#header_{{sid}}">
+                                            {{number}}. {{standard_name}}
+                                    </a>
+                                {{#if id}}
+                                    <a href="/issue/detail/index/{{id}}" target="_blank">
+                                        >> 前往事项
+                                    </a>
+                                {{/if}}
+                                </h4>
+
+                                {{#if id}}
+                                <div class="controls member-controls " style="float: right">
+                                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
+                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
+                                </div>
+                                {{/if}}
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="header_{{sid}}" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                    <p>{{description}}</p>
+                                    <div class="panel-group" id="accordion_{{sid}}">
+                                    {{#section}}
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
+                                                    <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
+                                                       href="#detail_{{sid}}">
+                                                            {{number}}. {{standard_name}}
+
+                                                    </a>
+                                                    {{#if id}}
+                                                        <a href="/issue/detail/index/{{id}}" target="_blank">
+                                                            >> 前往事项
+                                                        </a>
+                                                    {{/if}}
+                                                </h4>
+
+                                                {{#if id}}
+                                                <div class="controls member-controls " style="float: right">
+                                                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
+                                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
+                                                </div>
+                                                {{/if}}
+                                            <div class="clearfix"></div>
+                                         </div>
+
+                                            <div id="detail_{{sid}}" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p>{{description}}</p>
+
+                                                    <div class="panel-group" id="rule_{{sid}}">
+                                                    {{#section}}
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
+                                                                    <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
+                                                                       href="#rule_{{sid}}">
+                                                                            {{number}}. {{standard_name}}
+
+                                                                    </a>
+                                                                    {{#if id}}
+                                                                        <a href="/issue/detail/index/{{id}}" target="_blank">
+                                                                            >> 前往事项
+                                                                        </a>
+                                                                    {{/if}}
+                                                                </h4>
+
+                                                                {{#if id}}
+                                                                <div class="controls member-controls " style="float: right">
+                                                                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
+                                                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
+                                                                </div>
+                                                                {{/if}}
+                                                            <div class="clearfix"></div>
+                                                         </div>
+
+                                                            <div id="rule_{{sid}}" class="panel-collapse collapse">
+                                                                <div class="panel-body">
+                                                                    {{description}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {{/section}}
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/section}}
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    {{/section}}
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    {{/section}}
+    </div>
+
         </script>
     </div>
 

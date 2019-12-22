@@ -1579,7 +1579,7 @@ class Main extends BaseUserCtrl
             $this->ajaxFailed('参数错误', '事项id不能为空');
         }
         $issueLogic = new IssueLogic();
-        $data['children'] = $issueLogic->getChildIssue($issueId);
+        [$data['children'], $data['section']] = $issueLogic->getChildIssue($issueId);
 
         $this->ajaxSuccess('ok', $data);
     }

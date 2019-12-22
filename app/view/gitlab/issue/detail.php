@@ -977,6 +977,11 @@
     </script>
 
     <script type="text/html" id="child_issues_tpl">
+    {{#child_issues}}
+    <li>
+        <a href="/issue/detail/index/{{id}}" target="_blank">#{{id}} {{show_title}}</a>
+    </li>
+    {{/child_issues}}
     <div class="panel-group" id="accordion">
     {{#section}}
         <div class="panel panel-default">
@@ -986,22 +991,18 @@
                        href="#section_{{sid}}">
                             {{standard_name}}
                     </a>
-                </h4>
-                {{#if issue_id}}
-                <h4 class="panel-title" style="float: left;padding-left: 10px;">
-                    <a href="/issue/detail/index/{{issue_id}}" target="_blank">
+                    {{#if id}}
+                    <a href="/issue/detail/index/{{id}}" target="_blank">
                         >> 前往事项
                     </a>
-                <h4>
-                {{/if}}
+                    {{/if}}
+                </h4>
+                {{#if id}}
                 <div class="controls member-controls " style="float: right">
-                    <a class="group_for_more btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">添加 </a>
-                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
-                    <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
-                        <i class="fa fa-trash"></i>
-                        <span class="sr-only">Remove</span>
-                    </a>
+                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
+                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
                 </div>
+                {{/if}}
                 <div class="clearfix"></div>
             </div>
             <div id="section_{{sid}}" class="panel-collapse collapse in">
@@ -1017,21 +1018,19 @@
                                        href="#header_{{sid}}">
                                             {{number}}. {{standard_name}}
                                     </a>
-                                {{#if issue_id}}
-                                    <a href="/issue/detail/index/{{issue_id}}" target="_blank">
+                                {{#if id}}
+                                    <a href="/issue/detail/index/{{id}}" target="_blank">
                                         >> 前往事项
                                     </a>
                                 {{/if}}
                                 </h4>
 
+                                {{#if id}}
                                 <div class="controls member-controls " style="float: right">
-                                    <a class="group_for_more btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">添加 </a>
-                                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
-                                    <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
-                                        <i class="fa fa-trash"></i>
-                                        <span class="sr-only">Remove</span>
-                                    </a>
+                                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
+                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
                                 </div>
+                                {{/if}}
                                 <div class="clearfix"></div>
                             </div>
                             <div id="header_{{sid}}" class="panel-collapse collapse">
@@ -1048,21 +1047,19 @@
                                                             {{number}}. {{standard_name}}
 
                                                     </a>
-                                                    {{#if issue_id}}
-                                                        <a href="/issue/detail/index/{{issue_id}}" target="_blank">
+                                                    {{#if id}}
+                                                        <a href="/issue/detail/index/{{id}}" target="_blank">
                                                             >> 前往事项
                                                         </a>
                                                     {{/if}}
                                                 </h4>
 
+                                                {{#if id}}
                                                 <div class="controls member-controls " style="float: right">
-                                                    <a class="group_for_more btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">添加 </a>
-                                                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
-                                                    <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
-                                                        <i class="fa fa-trash"></i>
-                                                        <span class="sr-only">Remove</span>
-                                                    </a>
+                                                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
+                                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
                                                 </div>
+                                                {{/if}}
                                             <div class="clearfix"></div>
                                          </div>
 
@@ -1080,21 +1077,19 @@
                                                                             {{number}}. {{standard_name}}
 
                                                                     </a>
-                                                                    {{#if issue_id}}
-                                                                        <a href="/issue/detail/index/{{issue_id}}" target="_blank">
+                                                                    {{#if id}}
+                                                                        <a href="/issue/detail/index/{{id}}" target="_blank">
                                                                             >> 前往事项
                                                                         </a>
                                                                     {{/if}}
                                                                 </h4>
 
+                                                                {{#if id}}
                                                                 <div class="controls member-controls " style="float: right">
-                                                                    <a class="group_for_more btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">添加 </a>
-                                                                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
-                                                                    <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
-                                                                        <i class="fa fa-trash"></i>
-                                                                        <span class="sr-only">Remove</span>
-                                                                    </a>
+                                                                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
+                                                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
                                                                 </div>
+                                                                {{/if}}
                                                             <div class="clearfix"></div>
                                                          </div>
 
