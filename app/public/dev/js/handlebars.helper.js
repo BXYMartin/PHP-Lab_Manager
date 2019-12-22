@@ -154,7 +154,7 @@ $(function () {
         var user = getValueByKey(_issueConfig.users, uid);
         //console.log(users);
         if (user == null) {
-            return '';
+            return '未分配';
         }
         html += '<span class="list-item-name"><a href="/user/profile/' + user.uid + '">' +
             '<img width="26px" height="26px" class=" float-none" style="border-radius: 50%;"   data-toggle="tooltip" data-placement="top"  title="' + user.username + ' ' + user.display_name + '" src="' + user.avatar + '" />' +
@@ -262,6 +262,7 @@ $(function () {
 
     Handlebars.registerHelper('status_html', function (status_id) {
         var html = '';
+        console.log(_issueConfig.issue_status);
         if ( is_empty(status_id) ) {
             return '';
         }
@@ -273,6 +274,19 @@ $(function () {
         return new Handlebars.SafeString(html);
     });
 
+    Handlebars.registerHelper('resolve_color', function (resolve_id) {
+        var html = '';
+        if ( is_empty(resolve_id) ) {
+            return '';
+        }
+        var resolve = getValueByKey(_issueConfig.issue_resolve, resolve_id);
+        if (resolve == null) {
+            html = '#fafafa';
+            return new Handlebars.SafeString(html);
+        }
+        html += resolve.color+"22";
+        return new Handlebars.SafeString(html);
+    });
 
     Handlebars.registerHelper('resolve_html', function (resolve_id) {
         var html = '';

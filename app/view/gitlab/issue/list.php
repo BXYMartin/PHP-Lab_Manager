@@ -3,6 +3,7 @@
 <head prefix="og: http://ogp.me/ns#">
     <? require_once VIEW_PATH . 'gitlab/common/header/include.php'; ?>
 
+    <script src="<?=ROOT_URL?>dev/lib/bootstrap-3.3.7/js/collapse.js"></script>
     <script src="<?= ROOT_URL ?>gitlab/assets/webpack/filtered_search.bundle.js"></script>
 
     <script src="<?= ROOT_URL ?>dev/lib/moment.js"></script>
@@ -1869,10 +1870,10 @@
     <div class="panel-group" id="accordion">
     {{#section}}
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading" {{#if have}}style="background-color: {{resolve_color resolve}}"{{/if}}>
                 <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
                     <a data-toggle="collapse" data-parent="#accordion"
-                       href="#section_{{sid}}">
+                       href="#m_{{../marker}}_section_{{sid}}">
                             {{standard_name}}
                     </a>
                     {{#if id}}
@@ -1883,23 +1884,24 @@
                 </h4>
                 {{#if id}}
                 <div class="controls member-controls " style="float: right">
-                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
-                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
+                    <a class="group_for_assignee btn btn-transparent " href="#" data-value="{{id}}">{{user_html assignee}} </a>
+                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
+                    <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
                 </div>
                 {{/if}}
                 <div class="clearfix"></div>
             </div>
-            <div id="section_{{sid}}" class="panel-collapse collapse in">
+            <div id="m_{{../marker}}_section_{{sid}}" class="panel-collapse collapse in">
                 <div class="panel-body">
                     <p>{{description}}</p>
                     
                     <div class="panel-group" id="accordion_{{sid}}">
                     {{#section}}
                         <div class="panel panel-default">
-                            <div class="panel-heading">
+                            <div class="panel-heading" {{#if have}}style="background-color: {{resolve_color resolve}}"{{/if}}>
                                 <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
                                     <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
-                                       href="#header_{{sid}}">
+                                       href="#m_{{../../marker}}_header_{{sid}}">
                                             {{number}}. {{standard_name}}
                                     </a>
                                 {{#if id}}
@@ -1911,23 +1913,24 @@
 
                                 {{#if id}}
                                 <div class="controls member-controls " style="float: right">
-                                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
-                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
+                                    <a class="group_for_assignee btn btn-transparent " href="#" data-value="{{id}}">{{user_html assignee}} </a>
+                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
+                                    <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
                                 </div>
                                 {{/if}}
                                 <div class="clearfix"></div>
                             </div>
-                            <div id="header_{{sid}}" class="panel-collapse collapse">
+                            <div id="m_{{../../marker}}_header_{{sid}}" class="panel-collapse collapse">
                                 <div class="panel-body">
 
                                     <p>{{description}}</p>
                                     <div class="panel-group" id="accordion_{{sid}}">
                                     {{#section}}
                                         <div class="panel panel-default">
-                                            <div class="panel-heading">
+                                            <div class="panel-heading" {{#if have}}style="background-color: {{resolve_color resolve}}"{{/if}}>
                                                 <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
                                                     <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
-                                                       href="#detail_{{sid}}">
+                                                       href="#m_{{../../../marker}}_detail_{{sid}}">
                                                             {{number}}. {{standard_name}}
 
                                                     </a>
@@ -1940,24 +1943,25 @@
 
                                                 {{#if id}}
                                                 <div class="controls member-controls " style="float: right">
-                                                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
-                                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
+                                                    <a class="group_for_assignee btn btn-transparent " href="#" data-value="{{id}}">{{user_html assignee}} </a>
+                                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
+                                                    <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
                                                 </div>
                                                 {{/if}}
                                             <div class="clearfix"></div>
                                          </div>
 
-                                            <div id="detail_{{sid}}" class="panel-collapse collapse">
+                                            <div id="m_{{../../../marker}}_detail_{{sid}}" class="panel-collapse collapse">
                                                 <div class="panel-body">
                                                     <p>{{description}}</p>
 
                                                     <div class="panel-group" id="rule_{{sid}}">
                                                     {{#section}}
                                                         <div class="panel panel-default">
-                                                            <div class="panel-heading">
+                                                            <div class="panel-heading" {{#if have}}style="background-color: {{resolve_color resolve}}"{{/if}}>
                                                                 <h4 class="panel-title" style="{{#if_not have}}color:#888;{{/if_not}}float: left">
                                                                     <a data-toggle="collapse" data-parent="#accordion_{{parent_id}}"
-                                                                       href="#rule_{{sid}}">
+                                                                       href="#m_{{../../../../marker}}_rule_{{sid}}">
                                                                             {{number}}. {{standard_name}}
 
                                                                     </a>
@@ -1970,14 +1974,15 @@
 
                                                                 {{#if id}}
                                                                 <div class="controls member-controls " style="float: right">
-                                                                    <a class="group_for_assign btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{status}} </a>
-                                                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">{{assignee}} </a>
+                                                                    <a class="group_for_assignee btn btn-transparent " href="#" data-value="{{id}}">{{user_html assignee}} </a>
+                                                                    <a class="group_for_status btn btn-transparent " href="#" data-value="{{id}}">{{status_html status}} </a>
+                                                                    <a class="group_for_resolve btn btn-transparent " href="#" data-value="{{id}}">{{resolve_html resolve}} </a>
                                                                 </div>
                                                                 {{/if}}
                                                             <div class="clearfix"></div>
                                                          </div>
 
-                                                            <div id="rule_{{sid}}" class="panel-collapse collapse">
+                                                            <div id="m_{{../../../../marker}}_rule_{{sid}}" class="panel-collapse collapse">
                                                                 <div class="panel-body">
                                                                     {{description}}
                                                                 </div>
@@ -2005,7 +2010,6 @@
         </div>
     {{/section}}
     </div>
-
             </script>
 
             <script type="text/html" id="wrap_field">

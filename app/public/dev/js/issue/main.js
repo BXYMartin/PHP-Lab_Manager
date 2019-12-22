@@ -635,6 +635,7 @@ var IssueMain = (function () {
                     notify_error('获取子任务失败:' + resp.msg);
                     return;
                 }
+                console.log(resp);
                 var source = $('#main_children_list_tpl').html();
                 var template = Handlebars.compile(source);
                 var result = template(resp.data);

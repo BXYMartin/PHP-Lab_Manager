@@ -185,7 +185,7 @@ var IssueDetail = (function () {
                 // 子任务
                 source = $('#child_issues_tpl').html();
                 template = Handlebars.compile(source);
-            console.log(_edit_issue);
+                console.log(_edit_issue);
                 result = template(_edit_issue);
                 $('#child_issues_div').html(result);
 

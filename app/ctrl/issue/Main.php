@@ -1581,6 +1581,7 @@ class Main extends BaseUserCtrl
         $issueLogic = new IssueLogic();
         [$data['children'], $data['section']] = $issueLogic->getChildIssue($issueId);
 
+        $data['marker'] = $issueId;
         $this->ajaxSuccess('ok', $data);
     }
 

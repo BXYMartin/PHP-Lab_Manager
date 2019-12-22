@@ -87,3 +87,12 @@ body.unmask{
     color: #bbb !important;
     cursor: not-allowed;
 }
+.group_for_assignee {
+    min-width: 60px;
+}
+.group_for_status {
+    min-width: 70px;
+}
+.group_for_resolve {
+    min-width: 100px;
+}

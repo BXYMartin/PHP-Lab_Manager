@@ -229,7 +229,7 @@ class IssueLogic
     public function getChildIssue($issueId)
     {
         $model = new IssueModel();
-        $field = 'id, standard_id, issue_num, assignee, summary, status';
+        $field = 'id, standard_id, resolve, issue_num, assignee, summary, status';
         $conditions['master_id'] = $issueId;
         $rows = $model->getRows($field, $conditions);
         $standardModel = new StandardModel();
@@ -255,6 +255,7 @@ class IssueLogic
                         {
                             $has_section = true;
                             $rule['have'] = 1;
+                            $rule['resolve'] = (string) max((int) $rule['resolve'], (int) $row['resolve']);
                         }
                         if ($rule['sid'] == $row['standard_id'])
                             $this->copyAttribute($row, $rule);
@@ -263,6 +264,7 @@ class IssueLogic
                     if ($has_section || $section['sid'] == $row['standard_id']) {
                         $has_process = true;
                         $section['have'] = 1;
+                        $section['resolve'] = (string) max((int) $section['resolve'], (int) $row['resolve']);
                     }
                     if ($section['sid'] == $row['standard_id'])
                         $this->copyAttribute($row, $section);
@@ -272,6 +274,7 @@ class IssueLogic
                 if ($has_process || $process['sid'] == $row['standard_id']) {
                     $process['have'] = 1;
                     $in_task = true;
+                    $process['resolve'] = (string) max((int) $process['resolve'], (int) $row['resolve']);
                 }
                 if ($process['sid'] == $row['standard_id'])
                     $this->copyAttribute($row, $process);
