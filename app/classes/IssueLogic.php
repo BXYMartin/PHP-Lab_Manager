@@ -289,9 +289,12 @@ class IssueLogic
             }
         }
         $is_task = false;
-        foreach ($all as $process) {
+        foreach ($all as $key => $process) {
             if ($process['have'] != 0) {
                 $is_task = true;
+            }
+            else {
+                unset($all[$key]);
             }
         }
         if (!$is_task)
