@@ -299,7 +299,7 @@ class IssueLogic
         }
         if (!$is_task)
             $all = array();
-        return [$rows, $all];
+        return [$rows, array_values($all)];
     }
 
 
