@@ -461,10 +461,10 @@
                         standards[standard].splice(i, 1);
                     }
                     if (standards[standard].length == original) {
-                        standards[standard] = '<strong style="color: #00ff00">' + standard + ' - Not Selected</strong>';
+                        standards[standard] = '<strong style="color: #090">' + standard + ' - Not Selected</strong>';
                     }
                     else {
-                        temp = '<strong style="color: #ff0000">' + standard + " - Missing Entries:</strong>";
+                        temp = '<strong style="color: #b00">' + standard + " - Missing Entries:</strong>";
                         for (var i = 0; i < standards[standard].length; i++) {
                             temp += "<br> " + $('#standard_select option[value=' + standards[standard][i] + ']').html();
                         }
