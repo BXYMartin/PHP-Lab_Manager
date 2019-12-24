@@ -324,7 +324,7 @@
 
                                     </div>
                                 </div>
-
+                                <?php if($issue['master_id'] == 0) { ?>
                                 <div class="block project-reference">
                                     <label>子任务:</label>
                                     <div class="description js-task-list-container is-task-list-enabled">
@@ -333,6 +333,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php } ?>
                         </div>
 
 
@@ -971,9 +972,11 @@
         </div>
     </script>
     <script type="text/html" id="parent_issue_tpl">
-        <span>
-        <a href="/issue/detail/index/{{id}}" target="_blank">#{{id}} {{show_title}}</a>
-    </span><br>
+    {{user_html assignee}}
+    <span>
+        <a href="/issue/detail/index/{{id}}" target="_blank">{{summary}}</a>
+    </span>
+    <br>
     </script>
 
     <script type="text/html" id="child_issues_tpl">

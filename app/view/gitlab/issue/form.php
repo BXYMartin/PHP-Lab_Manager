@@ -399,6 +399,9 @@
     {{#if create}}
             includeSelectAllOption: true,
     {{/if}}
+            onDeselectAll: function() {
+                $('#coverage').html('None Selected');
+            },
             onSelectAll: function() {
                 if (confirm("Do you want to remove dependency entries?")) {
                     $('#standard_select option').each(function () {

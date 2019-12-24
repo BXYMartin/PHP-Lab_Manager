@@ -326,6 +326,8 @@ class Detail extends BaseUserCtrl
         if (!empty($issue['master_id'])) {
             $masterInfo = $issueModel->getById($issue['master_id']);
             if (!empty($masterInfo)) {
+                foreach ($masterInfo as $key => $value)
+                    $masterInfo[$key] = $value;
                 $masterInfo['show_title'] = mb_substr(ucfirst($masterInfo['summary']), 0, 20, 'utf-8');
                 $issue['master_info'] = $masterInfo;
             }
