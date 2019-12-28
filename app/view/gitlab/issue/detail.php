@@ -21,6 +21,13 @@
         window.preview_markdown_path = "/issue/main/preview_markdown";
     </script>
 
+    <!-- docx exporter js -->
+    <script src="<?= ROOT_URL ?>dev/lib/docx/docxtemplater.js"></script>
+    <script src="<?= ROOT_URL ?>dev/lib/docx/pizzip.js"></script>
+    <script src="<?= ROOT_URL ?>dev/lib/docx/FileSaver.js"></script>
+    <script src="<?= ROOT_URL ?>dev/lib/docx/pizzip-utils.js"></script>
+
+    <link href="<?= ROOT_URL ?>dev/lib/skillbar/an-skill-bar.css" rel="stylesheet">
     <script src="<?= ROOT_URL ?>dev/lib/bootstrap-select/js/bootstrap-select.js" type="text/javascript"
             charset="utf-8"></script>
     <link href="<?= ROOT_URL ?>dev/lib/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
@@ -666,7 +673,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="dropdown-input">
-                                                    <input type="search" id="" class="dropdown-input-field"
+                                                    <input type="search" id="assign_user" class="dropdown-input-field"
                                                            placeholder="Search users" autocomplete="off"/>
                                                     <i class="fa fa-search dropdown-input-search"></i>
                                                     <i role="button"
@@ -721,7 +728,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="dropdown-input">
-                                                    <input type="search" id="" class="dropdown-input-field"
+                                                    <input type="search" id="assign_milestone" class="dropdown-input-field"
                                                            placeholder="Search milestones" autocomplete="off"/>
                                                     <i class="fa fa-search dropdown-input-search"></i>
                                                     <i role="button"
@@ -986,6 +993,23 @@
     </li>
     {{/child_issues}}
 
+    {{#if section}}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>Audit Status:</p>
+            <div class="skillbar">
+              <span class="percent">75%</span>
+              <div class="filled" style="width:75%"></div>
+              <div class="filled" style="width:80%"></div>
+              <div class="filled" style="width:90%"></div>
+            </div>
+            <p>Options:</p>
+            {{#section}}
+            <a class="btn btn-new" style="margin-bottom: 5px;" href="javascript:void(0);" onclick="generate(this);return false;" _target="{{standard_name}}">Export {{standard_name}} Report (.docx)</a>
+            {{/section}}
+        </div>
+    </div>
+    {{/if}}
 
     <div class="panel-group" id="accordion">
     {{#section}}
@@ -1014,7 +1038,7 @@
                                     </button>
                                 </div>
                                 <div class="dropdown-input">
-                                    <input type="search" id="" class="dropdown-input-field" placeholder="Search assignee"
+                                    <input type="search" id="user_{{id}}" class="dropdown-input-field" placeholder="Search assignee"
                                            autocomplete="off"/>
                                     <i class="fa fa-search dropdown-input-search"></i>
                                     <i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i>
@@ -1077,7 +1101,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="dropdown-input">
-                                                    <input type="search" id="" class="dropdown-input-field" placeholder="Search assignee"
+                                                    <input type="search" id="user_{{id}}" class="dropdown-input-field" placeholder="Search assignee"
                                                            autocomplete="off"/>
                                                     <i class="fa fa-search dropdown-input-search"></i>
                                                     <i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i>
@@ -1140,7 +1164,7 @@
                                                                     </button>
                                                                 </div>
                                                                 <div class="dropdown-input">
-                                                                    <input type="search" id="" class="dropdown-input-field" placeholder="Search assignee"
+                                                                    <input type="search" id="user_{{id}}" class="dropdown-input-field" placeholder="Search assignee"
                                                                            autocomplete="off"/>
                                                                     <i class="fa fa-search dropdown-input-search"></i>
                                                                     <i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i>
@@ -1204,7 +1228,7 @@
                                                                                     </button>
                                                                                 </div>
                                                                                 <div class="dropdown-input">
-                                                                                    <input type="search" id="" class="dropdown-input-field" placeholder="Search assignee"
+                                                                                    <input type="search" id="user_{{id}}" class="dropdown-input-field" placeholder="Search assignee"
                                                                                            autocomplete="off"/>
                                                                                     <i class="fa fa-search dropdown-input-search"></i>
                                                                                     <i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i>
@@ -1772,6 +1796,50 @@
             eleLink.click();
             document.body.removeChild(eleLink);
         }
+    </script>
+    <script>
+    function loadFile(url,callback){
+        PizZipUtils.getBinaryContent(url,callback);
+    }
+    function generate(self) {
+        console.log(self.getAttribute("_target"));
+        loadFile("<?= ROOT_URL ?>template/" + self.getAttribute("_target") + " Combined Notes for Report - TEMPLATE.docx",function(error,content){
+            if (error) { throw error };
+            var zip = new PizZip(content);
+            var doc=new window.docxtemplater().loadZip(zip)
+            doc.setData({
+                company_name: 'Canon',
+            });
+            try {
+                // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
+                doc.render()
+            }
+            catch (error) {
+                // The error thrown here contains additional information when logged with JSON.stringify (it contains a properties object).
+                var e = {
+                    message: error.message,
+                    name: error.name,
+                    stack: error.stack,
+                    properties: error.properties,
+                }
+                console.log(JSON.stringify({error: e}));
+                if (error.properties && error.properties.errors instanceof Array) {
+                    const errorMessages = error.properties.errors.map(function (error) {
+                        return error.properties.explanation;
+                    }).join("\n");
+                    console.log('errorMessages', errorMessages);
+                    // errorMessages is a humanly readable message looking like this :
+                    // 'The tag beginning with "foobar" is unopened'
+                }
+                throw error;
+            }
+            var out=doc.getZip().generate({
+                type:"blob",
+                mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            }) //Output the document using Data-URI
+            saveAs(out, self.getAttribute("_target") + " Audit Report.docx")
+        })
+    }
     </script>
 </body>
 </html>
