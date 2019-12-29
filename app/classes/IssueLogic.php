@@ -221,6 +221,15 @@ class IssueLogic
         }
     }
 
+    public function copySummary($src, &$dst) {
+        if (!isset($dst[(int) $src['resolve']]))
+            $dst[(int) $src['resolve']] = 0;
+        $dst[(int) $src['resolve']] ++;
+        if (!isset($dst[-1]))
+            $dst[-1] = 0;
+        $dst[-1] ++;
+    }
+
     /**
      * 获取某一事项的子任务
      * @param $issueId
@@ -231,6 +240,7 @@ class IssueLogic
         $model = new IssueModel();
         $field = 'id, standard_id, resolve, issue_num, assignee, summary, status';
         $conditions['master_id'] = $issueId;
+        $summary = [];
         $rows = $model->getRows($field, $conditions);
         $standardModel = new StandardModel();
         $all = $standardModel->show();
@@ -247,6 +257,7 @@ class IssueLogic
                             {
                                 $has_detail = true;
                                 $this->copyAttribute($row, $detail);
+                                $this->copySummary($detail, $summary);
                                 $detail['have'] = 1;
                             }
                         }
@@ -257,8 +268,10 @@ class IssueLogic
                             $rule['have'] = 1;
                             $rule['resolve'] = (string) max((int) $rule['resolve'], (int) $row['resolve']);
                         }
-                        if ($rule['sid'] == $row['standard_id'])
+                        if ($rule['sid'] == $row['standard_id']) {
                             $this->copyAttribute($row, $rule);
+                            $this->copySummary($rule, $summary);
+                        }
                     }
                     unset($rule);
                     if ($has_section || $section['sid'] == $row['standard_id']) {
@@ -266,9 +279,10 @@ class IssueLogic
                         $section['have'] = 1;
                         $section['resolve'] = (string) max((int) $section['resolve'], (int) $row['resolve']);
                     }
-                    if ($section['sid'] == $row['standard_id'])
+                    if ($section['sid'] == $row['standard_id']) {
                         $this->copyAttribute($row, $section);
-
+                        $this->copySummary($section, $summary);
+                    }
                 }
                 unset($section);
                 if ($has_process || $process['sid'] == $row['standard_id']) {
@@ -276,8 +290,10 @@ class IssueLogic
                     $in_task = true;
                     $process['resolve'] = (string) max((int) $process['resolve'], (int) $row['resolve']);
                 }
-                if ($process['sid'] == $row['standard_id'])
+                if ($process['sid'] == $row['standard_id']) {
                     $this->copyAttribute($row, $process);
+                    $this->copySummary($process, $summary);
+                }
             }
             unset($process);
             if ($in_task)
@@ -297,9 +313,27 @@ class IssueLogic
                 unset($all[$key]);
             }
         }
-        if (!$is_task)
+        $reformat = [];
+        $reformat['detail'] = []; 
+        if (!$is_task) {
             $all = array();
-        return [$rows, array_values($all)];
+            $reformat = array();
+        }
+        else {
+            ksort($summary);
+            $pivot = 0;
+            foreach ($summary as $key => $value) {
+                if ($key > 0) {
+                    $pivot += $value;
+                    $item = array('resolve' => (string) $key, 'count' => 100 * $pivot/$summary[-1], 'index' => $summary[-1] - $pivot);
+                    $reformat['detail'][] = $item;
+                }
+            }
+            $reformat['overall'] = 100 * ($summary[-1] - $summary[0])/$summary[-1];
+            $reformat['overall'] = $reformat['overall']."%";
+            $reformat['detail'] = array_values($reformat['detail']);
+        }
+        return [$rows, array_values($all), $reformat];
     }
 
 

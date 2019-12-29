@@ -993,15 +993,15 @@
     </li>
     {{/child_issues}}
 
-    {{#if section}}
+    {{#if statistics}}
     <div class="panel panel-default">
         <div class="panel-body">
             <p>Audit Status:</p>
             <div class="skillbar">
-              <span class="percent">75%</span>
-              <div class="filled" style="width:75%"></div>
-              <div class="filled" style="width:80%"></div>
-              <div class="filled" style="width:90%"></div>
+              <span class="percent">{{statistics.overall}}</span>
+                {{#statistics.detail}}
+                  <div class="filled" style="width:{{count}}%;background-color:{{resolve_progress_color resolve}};z-index:{{index}}"></div>
+                {{/statistics.detail}}
             </div>
             <p>Options:</p>
             {{#section}}

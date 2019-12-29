@@ -355,7 +355,7 @@ class Detail extends BaseUserCtrl
         $issue['custom_field_values'] = $issueLogic->getCustomFieldValue($issueId);
 
         // 子任务
-        [$issue['child_issues'], $issue['section']] = $issueLogic->getChildIssue($issueId);
+        [$issue['child_issues'], $issue['section'], $issue['statistics']] = $issueLogic->getChildIssue($issueId);
         $issue['marker'] = $issueId;
         //IssueFilterLogic::formatIssue($issue);
         $data['issue'] = $issue;

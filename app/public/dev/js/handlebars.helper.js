@@ -274,6 +274,20 @@ $(function () {
         return new Handlebars.SafeString(html);
     });
 
+    Handlebars.registerHelper('resolve_progress_color', function (resolve_id) {
+        var html = '';
+        if ( is_empty(resolve_id) ) {
+            return '';
+        }
+        var resolve = getValueByKey(_issueConfig.issue_resolve, resolve_id);
+        if (resolve == null) {
+            html = '#fafafa';
+            return new Handlebars.SafeString(html);
+        }
+        html += resolve.color;
+        return new Handlebars.SafeString(html);
+    });
+
     Handlebars.registerHelper('resolve_color', function (resolve_id) {
         var html = '';
         if ( is_empty(resolve_id) ) {
