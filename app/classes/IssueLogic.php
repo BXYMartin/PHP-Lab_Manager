@@ -329,8 +329,9 @@ class IssueLogic
                     $reformat['detail'][] = $item;
                 }
             }
-            $reformat['overall'] = 100 * ($summary[-1] - $summary[0])/$summary[-1];
+            $reformat['overall'] = (int) (100 * ($summary[-1] - $summary[0])/$summary[-1]);
             $reformat['overall'] = $reformat['overall']."%";
+            $reformat['disabled'] = $summary[0] != 0;
             $reformat['detail'] = array_values($reformat['detail']);
         }
         return [$rows, array_values($all), $reformat];

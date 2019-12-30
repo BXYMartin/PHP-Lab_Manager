@@ -1005,7 +1005,7 @@
             </div>
             <p>Options:</p>
             {{#section}}
-            <a class="btn btn-new" style="margin-bottom: 5px;" href="javascript:void(0);" onclick="generate(this);return false;" _target="{{standard_name}}">Export {{standard_name}} Report (.docx)</a>
+            <a class="btn btn-new" {{#if ../statistics.disabled}}disabled{{/if}} style="margin-bottom: 5px;" href="javascript:void(0);" onclick="generate(this);return false;" _target="{{standard_name}}">Export {{standard_name}} Report (.docx)</a>
             {{/section}}
         </div>
     </div>
@@ -1725,7 +1725,7 @@
             });
         });
 
-        window.onload = function() {
+        function initUser() {
             new UsersSelect();
             $('.dropdown-toggle-text').bind('DOMNodeInserted',function(e) {
                 console.log('DOMNodeInserted');
@@ -1796,8 +1796,6 @@
             eleLink.click();
             document.body.removeChild(eleLink);
         }
-    </script>
-    <script>
     function loadFile(url,callback){
         PizZipUtils.getBinaryContent(url,callback);
     }
