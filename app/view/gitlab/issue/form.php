@@ -373,9 +373,9 @@
             {{#standard}}
             <optgroup label="{{standard_name}}" value="{{sid}}">
                 {{#section}}
-                    <option class="option_issue_{{sid}}" value="{{sid}}" {{#if section}}disabled{{/if}}>{{number}}. {{standard_name}}</option>
+                    <option class="option_issue_{{sid}} {{#if have}}contained{{/if}}" value="{{sid}}" {{#if section}}disabled{{/if}}>{{number}}. {{standard_name}}</option>
                     {{#section}}
-                    <option class="option_issue_{{sid}} indent" value="{{sid}}"><pre> {{number}}. {{standard_name}}</pre></option>
+                    <option class="option_issue_{{sid}} indent {{#if have}}contained{{/if}}" value="{{sid}}"><pre> {{number}}. {{standard_name}}</pre></option>
                     {{/section}}
                 {{/section}}
             </optgroup>
@@ -383,7 +383,7 @@
             </select>
         </span>
     </div>
-    <div class="issuable-form-select-holder" style="position: absolute;text-align: right;vertical-align: top;">
+    <div class="issuable-form-select-holder coverage-box">
     <h4>Coverage Check</h4>
     <span id="coverage">None Selected</span>
     </div>

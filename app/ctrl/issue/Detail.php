@@ -21,6 +21,10 @@ use main\app\model\issue\IssueFileAttachmentModel;
 use main\app\model\issue\IssueResolveModel;
 use main\app\model\issue\IssuePriorityModel;
 use main\app\model\issue\IssueFollowModel;
+use main\app\model\issue\IssueStandardDocModel;
+use main\app\model\issue\IssueStandardDescModel;
+use main\app\model\issue\IssueStandardPersonModel;
+use main\app\model\issue\IssueStandardRecordModel;
 use main\app\model\project\ProjectModel;
 use main\app\model\project\ProjectVersionModel;
 use main\app\model\project\ProjectModuleModel;
@@ -199,6 +203,7 @@ class Detail extends BaseUserCtrl
         }
         $issueTypeId = (int)$issue['issue_type'];
         $projectId = (int)$issue['project_id'];
+        $standardId = $issue['standard_id'];
         $model = new ProjectModel();
         $data['project'] = $model->getById($projectId);
 
@@ -359,6 +364,24 @@ class Detail extends BaseUserCtrl
         $issue['marker'] = $issueId;
         //IssueFilterLogic::formatIssue($issue);
         $data['issue'] = $issue;
+
+        if (!empty($standardId)) {
+            $standard = [];
+            // 获取标准详细描述
+            $standardDesc = new IssueStandardDescModel();
+            $standard['description'] = $standardDesc->getByIssueId($issueId);
+            // 获取采访对象
+            $standardPerson = new IssueStandardPersonModel();
+            $standard['person'] = $standardPerson->getByIssueId($issueId);
+            // 获取审阅文件
+            $standardDoc = new IssueStandardDocModel();
+            $standard['document'] = $standardDoc->getByIssueId($issueId);
+            // 获取审阅记录
+            $standardRecord = new IssueStandardRecordModel();
+            $standard['record'] = $standardRecord->getByIssueId($issueId);
+
+            $data['standard'] = $standard;
+        }
 
         //下一个 上一个事项
         $data['next_issue_id'] = 0;

@@ -318,7 +318,14 @@
                         </div>
 
 
-
+                        <div id="detail-page-description" class="content-block detail-page-description"
+                             style="margin-left: 15px">
+                            <div id="standard_block" class="block project-reference hide">
+                                    <label>标准审计:</label>
+                                    <div id="standard_issues_div" class="cross-project-reference hide-collapsed">
+                                    </div>
+                            </div>
+                        </div>
 
 
                         <div id="detail-page-description" class="content-block detail-page-description"
@@ -1288,6 +1295,48 @@
     </div>
     </script>
 
+
+    <script type="text/html" id="standard_issue_tpl">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-6">
+                <label>Confirmation/Verification Details:</label>
+                <p>{{description.auditor_desc}}</p>
+            </div> 
+            <div class="col-md-6">
+                <label>Published Details:</label>
+                <p>{{description.publish_desc}}</p>
+            </div> 
+
+            <div class="col-md-12">
+                <small style="float:right" class="edited-text"><span>Details</span></small>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{#person}}
+            <div class="col-md-6">
+                <div class="col-md-6">
+                    <label>{{name}}</label>
+                </div>
+                <div class="col-md-6 edited-text">
+                    <p>{{position}}</p>
+                </div>
+                <div class="col-md-12">
+                    <label>Description:</label>
+                    <p>{{description}}</p>
+                </div>
+            </div> 
+            {{/person}}
+            <div class="col-md-12">
+                <small style="float:right" class="edited-text"><span>Interviewed Persons</span></small>
+            </div> 
+        </div>
+    </div>
+ 
+    </script>
 
     <script type="text/html" id="custom_field_values_tpl">
         {{#custom_field_values}}

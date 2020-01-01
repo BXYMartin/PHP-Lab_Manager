@@ -73,6 +73,7 @@ var IssueDetail = (function () {
                 _tabs = resp.data.tabs;
                 _field_types = _issueConfig.issue_types;
                 _edit_issue = resp.data.issue;
+                _edit_standard = resp.data.standard;
 
                 IssueDetail.prototype.initEditFineUploader(_edit_issue);
                 var issue_title_selector = $('#issue_title');
@@ -180,6 +181,11 @@ var IssueDetail = (function () {
                     result = template(_edit_issue.master_info);
                     $('#parent_issue_div').html(result);
                     $('#parent_block').removeClass('hide');
+                    source = $('#standard_issue_tpl').html();
+                    template = Handlebars.compile(source);
+                    result = template(_edit_standard);
+                    $('#standard_issues_div').html(result);
+                    $('#standard_block').removeClass('hide');
                 }
 
                 // 子任务
@@ -225,6 +231,7 @@ var IssueDetail = (function () {
                 initUser();
             },
             error: function (res) {
+                console.log(res);
                 notify_error("请求数据错误" + res);
             }
         });
