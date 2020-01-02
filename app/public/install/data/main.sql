@@ -478,6 +478,52 @@ CREATE TABLE `issue_filter` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `issue_standard_*`
+--
+
+CREATE TABLE `issue_standard_desc` (
+	`sid` int(11) NOT NULL AUTO_INCREMENT,
+	`issue_id` int(11) unsigned NOT NULL,
+	`auditor_desc` varchar(128) DEFAULT NULL,
+	`publish_desc` varchar(128) DEFAULT NULL,
+	PRIMARY KEY (`sid`),
+	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+CREATE TABLE `issue_standard_person` (
+	`sid` int(11) NOT NULL AUTO_INCREMENT,
+	`issue_id` int(11) unsigned NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`position` varchar(128) DEFAULT NULL,
+	`description` varchar(128) DEFAULT NULL,
+	PRIMARY KEY (`sid`),
+	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+CREATE TABLE `issue_standard_doc` (
+	`sid` int(11) NOT NULL AUTO_INCREMENT,
+	`issue_id` int(11) unsigned NOT NULL,
+	`status` varchar(128) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`rev` varchar(128) DEFAULT NULL,
+	`description` varchar(128) DEFAULT NULL,
+	PRIMARY KEY (`sid`),
+	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+CREATE TABLE `issue_standard_record` (
+	`sid` int(11) NOT NULL AUTO_INCREMENT,
+	`issue_id` int(11) unsigned NOT NULL,
+	`status` varchar(128) NOT NULL,
+	`type` varchar(128) DEFAULT NULL,
+	`description` varchar(128) DEFAULT NULL,
+	PRIMARY KEY (`sid`),
+	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `issue_fix_version`
 --
 
