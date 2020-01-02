@@ -288,6 +288,48 @@
     </form>
 </div>
 
+<div class="modal" id="modal-edit-standard-details">
+    <form class="form-horizontal issue-form common-note-form js-quick-submit js-requires-input gfm-form"
+          id="edit_issue_detail"
+          action="<?= ROOT_URL ?>issue/main/updateDetails"
+          accept-charset="UTF-8"
+          method="post">
+        <div class="modal-dialog issue-modal-dialog">
+            <div class="modal-content issue-modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-edit-issue-detail_title" class="modal-header-title">Edit Audit Details </h3>
+                    <a class="close" data-dismiss="modal" href="#">×</a>
+                </div>
+                <div class="modal-body issue-modal-body">
+                    <input name="utf8" type="hidden" value="✓">
+                    <input type="hidden" name="form_type" id="form_type" value="update"/> 
+                    <input type="hidden" name="issue_id" id="edit_standard_detail_issue_id" value=""/>
+                    <input type="hidden" name="params[sid]" id="edit_standard_detail_id" value=""/>
+                    <div class="form-group">
+                        <div class="col-sm-12">Confirmation/Verification Details:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[auditor_desc]" id="edit_standard_detail_auditor_desc" value=""></div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-12">Published Details:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[publish_desc]" id="edit_standard_detail_publish_desc" value=""></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer issue-modal-footer footer-block row-content-block">
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <span class="append-right-10">
+                        <input type="button" name="commit" id="btn-update-detail" value="保存"
+                                                         class="btn btn-save"></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
 <div class="modal" id="modal-edit-issue">
     <form class="form-horizontal issue-form common-note-form js-quick-submit js-requires-input gfm-form"
           id="edit_issue"

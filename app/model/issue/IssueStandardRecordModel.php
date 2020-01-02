@@ -42,7 +42,7 @@ class IssueStandardRecordModel extends CacheModel
     public function getByIssueId($issue_id)
     {
         $conditions['issue_id'] = $issue_id;
-        $row = $this->getRow('*', $conditions);
+        $row = $this->getRows('*', $conditions);
         return $row;
     }
 

@@ -320,10 +320,13 @@
 
                         <div id="detail-page-description" class="content-block detail-page-description"
                              style="margin-left: 15px">
-                            <div id="standard_block" class="block project-reference hide">
-                                    <label>标准审计:</label>
-                                    <div id="standard_issues_div" class="cross-project-reference hide-collapsed">
-                                    </div>
+                            <div class="issue-title-data hidden" data-endpoint="#"
+                                 data-initial-title="标准审计"></div>
+                                <div id="standard_block" class="block project-reference hide">
+                                        <label>标准审计:</label>
+                                        <div id="standard_issues_div" class="cross-project-reference hide-collapsed">
+                                        </div>
+                                </div>
                             </div>
                         </div>
 
@@ -1297,45 +1300,263 @@
 
 
     <script type="text/html" id="standard_issue_tpl">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-6">
-                <label>Confirmation/Verification Details:</label>
-                <p>{{description.auditor_desc}}</p>
-            </div> 
-            <div class="col-md-6">
-                <label>Published Details:</label>
-                <p>{{description.publish_desc}}</p>
-            </div> 
 
-            <div class="col-md-12">
-                <small style="float:right" class="edited-text"><span>Details</span></small>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="float: left">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#standard_details">Details</a>
+                </h4>
+                {{#if_not description}}
+                <div class="controls member-controls" style="float: right;display: -webkit-inline-box;">
+                    <a class="group_for_standard_add btn btn-transparent " href="javascript:void(0);" onclick="editDetails(this);return false;">Add </a>
+                </div>
+                {{/if_not}}
+                <div class="clearfix"></div>
+            </div>
+            <div id="standard_details" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class="col-md-6" style="
+                            border: 5px solid white;
+                            color: white;
+                            border-radius: 16px;
+                            padding-top: 12px;
+                            padding-bottom: 5px;
+                            background: linear-gradient(160deg, #a200ff 20%,#cf3700 80%);
+                        ">
+                            <label>Confirmation/Verification Details:</label>
+                            <div class="col-md-10">
+                            <p>{{description.auditor_desc}}</p>
+                            </div>
+                            <div class="col-md-2" style="
+                                color: white;
+                                height: 100%;
+                                float: right;
+                            ">
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;" href="javascript:void(0);" _target="{{description.sid}}" onclick="editDetails(this);  return false;"><i class="fa fa-pencil-square-o"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div> 
+                        <div class="col-md-6" style="
+                            border: 5px solid white;
+                            color: white;
+                            border-radius: 16px;
+                            padding-top: 12px;
+                            padding-bottom: 5px;
+                            background: linear-gradient(160deg, #a200ff 20%,#cf3700 80%);
+                        ">
+                            <label>Published Details:</label>
+                            <div class="col-md-10">
+                            <p>{{description.publish_desc}}</p>
+                            </div>
+                            <div class="col-md-2" style="
+                                color: white;
+                                height: 100%;
+                                float: right;
+                            ">
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;" href="javascript:void(0);" onclick="editDetails(this);  return false;" _target="{{description.sid}}"><i class="fa fa-pencil-square-o"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+ 
+                        </div> 
+                        <div class="col-md-12">
+                            <small style="float:right" class="edited-text"><span>Details</span></small>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                    
+
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="float: left">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#standard_persons">Interviewed Persons</a>
+ 
+                </h4>
+                <div class="controls member-controls" style="float: right;display: -webkit-inline-box;">
+                    <a class="group_for_standard_add btn btn-transparent " href="#">Add </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div id="standard_persons" class="panel-collapse collapse in">
+                <div class="panel-body">
+                        {{#person}}
+                        <div class="col-md-6" style="
+                            border: 5px solid white;
+                            color: white;
+                            border-radius: 16px;
+                            padding-top: 16px;
+                            padding-bottom: 10px;
+                            background: linear-gradient(160deg, #0078ff 20%,#002abb 80%);;
+                            ">
+                            <div class="col-md-12">
+                                <label>★ {{name}}</label>
+                                <p style="
+                                    float: right;
+                                    border: 2px solid white;
+                                    padding: 0 4px;
+                                    border-radius: 4px;
+                                    background-image: linear-gradient(160deg, #b100ff 10%,#00b3ff 80%);
+                                ">{{position}}</p>
+                            </div>
+                            <div class="col-md-10">
+                                <label>Description:</label>
+                                <p>{{description}}</p>
+                            </div>
+                            <div class="col-md-2" style="
+                                color: white;
+                                height: 100%;
+                                float: right;
+                            ">
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-trash-o"></i></a>
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-pencil-square-o"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        {{/person}}
+                        <div class="col-md-12">
+                        <small style="float:right;" class="edited-text"><span>Interviewed Persons</span></small>
+                        </div> 
+             
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="panel panel-default">
-        <div class="panel-body">
-            {{#person}}
-            <div class="col-md-6">
-                <div class="col-md-6">
-                    <label>{{name}}</label>
+    
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="float: left">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#standard_docs">Reviewed Key (Driving) Documents</a>
+ 
+                </h4>
+                <div class="controls member-controls" style="float: right;display: -webkit-inline-box;">
+                    <a class="group_for_standard_add btn btn-transparent " href="#">Add </a>
                 </div>
-                <div class="col-md-6 edited-text">
-                    <p>{{position}}</p>
+                <div class="clearfix"></div>
+            </div>
+            <div id="standard_docs" class="panel-collapse collapse in">
+                <div class="panel-body">
+                        {{#document}}
+                        <div class="col-md-6" style="
+                            border: 5px solid white;
+                            color: white;
+                            border-radius: 16px;
+                            padding-top: 16px;
+                            padding-bottom: 10px;
+                            background: linear-gradient(160deg, #ffce00 20%,#ff8b00 80%);
+                            ">
+                            <div class="col-md-12">
+                                <label>🧾 {{name}}</label>
+                                <p style="
+                                    float: right;
+                                    border: 2px solid white;
+                                    padding: 0 4px;
+                                    border-radius: 4px;
+                                    background-image: linear-gradient(160deg, #ddbc00 10%,#ff8b00 80%); 
+                                ">{{rev}}</p>
+                                <p style="
+                                    float: right;
+                                    border: 2px solid white;
+                                    padding: 0 4px;
+                                    margin: 0 4px;
+                                    border-radius: 4px;
+                                    background-image: linear-gradient(160deg, #ddbc00 10%,#ff8b00 80%); 
+                                ">{{status}}</p>
+                            </div>
+                            <div class="col-md-10">
+                                <label>Description:</label>
+                                <p>{{description}}</p>
+                            </div>
+                            <div class="col-md-2" style="
+                                color: white;
+                                height: 100%;
+                                float: right;
+                            ">
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-trash-o"></i></a>
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-pencil-square-o"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        {{/document}}
+                        <div class="col-md-12">
+                        <small style="float:right;" class="edited-text"><span>Reviewed Documents</span></small>
+                        </div> 
+             
+                    </div>
                 </div>
-                <div class="col-md-12">
-                    <label>Description:</label>
-                    <p>{{description}}</p>
-                </div>
-            </div> 
-            {{/person}}
-            <div class="col-md-12">
-                <small style="float:right" class="edited-text"><span>Interviewed Persons</span></small>
-            </div> 
+            </div>
         </div>
     </div>
+
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="float: left">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#standard_records">Reviewed Records</a>
  
+                </h4>
+                <div class="controls member-controls" style="float: right;display: -webkit-inline-box;">
+                    <a class="group_for_standard_add btn btn-transparent " href="#">Add </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div id="standard_records" class="panel-collapse collapse in">
+                <div class="panel-body">
+                        {{#record}}
+                        <div class="col-md-6" style="
+                            border: 5px solid white;
+                            color: white;
+                            border-radius: 16px;
+                            padding-top: 16px;
+                            padding-bottom: 10px;
+                            background: linear-gradient(160deg, #ff0064 20%,#ca00ff 80%); 
+                            ">
+                            <div class="col-md-12">
+                                <label>📂 {{type}}</label>
+                                <p style="
+                                    float: right;
+                                    border: 2px solid white;
+                                    padding: 0 4px;
+                                    border-radius: 4px;
+                                    background-image: linear-gradient(160deg, #ff0064 10%,#ca00ff 80%); 
+                                ">{{status}}</p>
+                            </div>
+                            <div class="col-md-10">
+                                <label>Description:</label>
+                                <p>{{description}}</p>
+                            </div>
+                            <div class="col-md-2" style="
+                                color: white;
+                                height: 100%;
+                                float: right;
+                            ">
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-trash-o"></i></a>
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-pencil-square-o"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        {{/record}}
+                        <div class="col-md-12">
+                        <small style="float:right;" class="edited-text"><span>Reviewed Records</span></small>
+                        </div> 
+             
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     </script>
 
     <script type="text/html" id="custom_field_values_tpl">
@@ -1635,6 +1856,10 @@
                 IssueMain.prototype.update();
             });
 
+            $('#btn-update-detail').bind('click', function () {
+                IssueMain.prototype.updateDetails();
+            });
+
             $('#btn-edit').bind('click', function () {
                 IssueMain.prototype.fetchEditUiConfig(_issue_id, 'update');
             });
@@ -1886,6 +2111,21 @@
             }) //Output the document using Data-URI
             saveAs(out, self.getAttribute("_target") + " Audit Report.docx")
         })
+    }
+    function editDetails(self) {
+        console.log(self.getAttribute("_target"));
+        $('#edit_standard_detail_id').attr('value', self.getAttribute("_target"));
+        $('#edit_standard_detail_issue_id').attr('value', _issue_id);
+        $('#modal-edit-standard-details').modal();
+    }
+    function editPersons(self) {
+        $('#modal-edit-standard-persons').modal();
+    }
+    function editDocs(self) {
+        $('#modal-edit-standard-docs').modal();
+    }
+    function editRecords(self) {
+        $('#modal-edit-standard-records').modal();
     }
     </script>
 </body>

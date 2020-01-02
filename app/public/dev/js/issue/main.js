@@ -1205,6 +1205,53 @@ var IssueMain = (function () {
     }
 
 
+    IssueMain.prototype.updateDetails = function () {
+        // 置灰提交按钮
+        var submitBtn = $("#btn-update-detail");
+        submitBtn.addClass('disabled');
+
+        for (k in _simplemde) {
+            if (typeof(_simplemde[k]) == 'object') {
+                $('#' + k).val(_simplemde[k].value());
+            }
+        }
+
+        var form_value_objs = $('#edit_issue_detail').serializeObject();
+        var method = 'post';
+        var post_data = $('#edit_issue_detail').serialize();
+
+
+        $.ajax({
+            type: method,
+            dataType: "json",
+            async: true,
+            url: root_url+"issue/main/updateDetails",
+            data: post_data,
+            success: function (resp) {
+                auth_check(resp);
+            console.log(resp);
+                if(!form_check(resp)){
+                    submitBtn.removeClass('disabled');
+                    return;
+                }
+                if (resp.ret == '200') {
+                    notify_success('保存成功');
+                    window.location.reload();
+                } else {
+                    notify_error('保存失败,错误信息:'+resp.msg);
+                    submitBtn.removeClass('disabled');
+                }
+
+            },
+            error: function (res) {
+            console.log(res);
+                notify_error("请求数据错误" + res);
+                submitBtn.removeClass('disabled');
+            }
+        });
+    }
+
+
     IssueMain.prototype.initForm = function () {
         //_simplemde = {};
         for (k in _simplemde) {
