@@ -68,7 +68,8 @@ class IssueStandardDescModel extends DbModel
 
     public function deleteItemById($id)
     {
-        return $this->deleteById($id);
+        $where = ['sid' => $id];
+        return $this->delete($where);
     }
 
 }

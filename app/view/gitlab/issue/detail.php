@@ -1327,7 +1327,7 @@
                         ">
                             <label>Confirmation/Verification Details:</label>
                             <div class="col-md-10">
-                            <p>{{description.auditor_desc}}</p>
+                            <p id="auditor_desc">{{description.auditor_desc}}</p>
                             </div>
                             <div class="col-md-2" style="
                                 color: white;
@@ -1348,7 +1348,7 @@
                         ">
                             <label>Published Details:</label>
                             <div class="col-md-10">
-                            <p>{{description.publish_desc}}</p>
+                            <p id="publish_desc">{{description.publish_desc}}</p>
                             </div>
                             <div class="col-md-2" style="
                                 color: white;
@@ -1376,10 +1376,9 @@
                 <h4 class="panel-title" style="float: left">
                     <a data-toggle="collapse" data-parent="#accordion"
                        href="#standard_persons">Interviewed Persons</a>
- 
                 </h4>
                 <div class="controls member-controls" style="float: right;display: -webkit-inline-box;">
-                    <a class="group_for_standard_add btn btn-transparent " href="#">Add </a>
+                    <a class="group_for_standard_add btn btn-transparent " href="javascript:void(0);" onclick="editPersons(this); return false;">Add </a>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -1395,26 +1394,26 @@
                             background: linear-gradient(160deg, #0078ff 20%,#002abb 80%);;
                             ">
                             <div class="col-md-12">
-                                <label>★ {{name}}</label>
+                                ★ <label id="person_name_{{sid}}">{{name}}</label>
                                 <p style="
                                     float: right;
                                     border: 2px solid white;
                                     padding: 0 4px;
                                     border-radius: 4px;
                                     background-image: linear-gradient(160deg, #b100ff 10%,#00b3ff 80%);
-                                ">{{position}}</p>
+                                " id="person_pos_{{sid}}">{{position}}</p>
                             </div>
                             <div class="col-md-10">
                                 <label>Description:</label>
-                                <p>{{description}}</p>
+                                <p id="person_desc_{{sid}}">{{description}}</p>
                             </div>
                             <div class="col-md-2" style="
                                 color: white;
                                 height: 100%;
                                 float: right;
                             ">
-                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-trash-o"></i></a>
-                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-pencil-square-o"></i></a>
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;" href="javascript:void(0);" _target="{{sid}}" onclick="deletePersons(this);return false;"><i class="fa fa-trash-o"></i></a>
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;" href="javascript:void(0);"    onclick="editPersons(this);  return false;" _target="{{sid}}"><i class="fa fa-pencil-square-o"></i></a>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -1436,10 +1435,9 @@
                 <h4 class="panel-title" style="float: left">
                     <a data-toggle="collapse" data-parent="#accordion"
                        href="#standard_docs">Reviewed Key (Driving) Documents</a>
- 
                 </h4>
                 <div class="controls member-controls" style="float: right;display: -webkit-inline-box;">
-                    <a class="group_for_standard_add btn btn-transparent " href="#">Add </a>
+                    <a class="group_for_standard_add btn btn-transparent " href="javascript:void(0);"     onclick="editDocs(this);  return false;">Add </a>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -1455,14 +1453,14 @@
                             background: linear-gradient(160deg, #ffce00 20%,#ff8b00 80%);
                             ">
                             <div class="col-md-12">
-                                <label>🧾 {{name}}</label>
+                                🧾 <label id="doc_name_{{sid}}">{{name}}</label>
                                 <p style="
                                     float: right;
                                     border: 2px solid white;
                                     padding: 0 4px;
                                     border-radius: 4px;
                                     background-image: linear-gradient(160deg, #ddbc00 10%,#ff8b00 80%); 
-                                ">{{rev}}</p>
+                                " id="doc_rev_{{sid}}">{{rev}}</p>
                                 <p style="
                                     float: right;
                                     border: 2px solid white;
@@ -1470,19 +1468,19 @@
                                     margin: 0 4px;
                                     border-radius: 4px;
                                     background-image: linear-gradient(160deg, #ddbc00 10%,#ff8b00 80%); 
-                                ">{{status}}</p>
+                                " id="doc_status_{{sid}}">{{status}}</p>
                             </div>
                             <div class="col-md-10">
                                 <label>Description:</label>
-                                <p>{{description}}</p>
+                                <p id="doc_desc_{{sid}}">{{description}}</p>
                             </div>
                             <div class="col-md-2" style="
                                 color: white;
                                 height: 100%;
                                 float: right;
                             ">
-                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-trash-o"></i></a>
-                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-pencil-square-o"></i></a>
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;" href="javascript:void(0);" _target="{{sid}}" onclick="deleteDocs(this);return false;"><i class="fa fa-trash-o"></i></a>
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;" href="javascript:void(0);"     onclick="editDocs(this);  return false;" _target="{{sid}}"><i class="fa fa-pencil-square-o"></i></a>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -1506,7 +1504,7 @@
  
                 </h4>
                 <div class="controls member-controls" style="float: right;display: -webkit-inline-box;">
-                    <a class="group_for_standard_add btn btn-transparent " href="#">Add </a>
+                    <a class="group_for_standard_add btn btn-transparent " href="javascript:void(0);"     onclick="editRecords(this);  return false;">Add </a>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -1522,26 +1520,26 @@
                             background: linear-gradient(160deg, #ff0064 20%,#ca00ff 80%); 
                             ">
                             <div class="col-md-12">
-                                <label>📂 {{type}}</label>
+                                📂 <label id="record_type_{{sid}}">{{type}}</label>
                                 <p style="
                                     float: right;
                                     border: 2px solid white;
                                     padding: 0 4px;
                                     border-radius: 4px;
                                     background-image: linear-gradient(160deg, #ff0064 10%,#ca00ff 80%); 
-                                ">{{status}}</p>
+                                " id="record_status_{{sid}}">{{status}}</p>
                             </div>
                             <div class="col-md-10">
                                 <label>Description:</label>
-                                <p>{{description}}</p>
+                                <p id="record_desc_{{sid}}">{{description}}</p>
                             </div>
                             <div class="col-md-2" style="
                                 color: white;
                                 height: 100%;
                                 float: right;
                             ">
-                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-trash-o"></i></a>
-                                <a style="font-size: 16px;padding: 2px;float: right;color: white;"><i class="fa fa-pencil-square-o"></i></a>
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;" href="javascript:void(0);" _target="{{sid}}" onclick="deleteRecords(this);return false;"><i class="fa fa-trash-o"></i></a>
+                                <a style="font-size: 16px;padding: 2px;float: right;color: white;" href="javascript:void(0);"     onclick="editRecords(this);  return false;" _target="{{sid}}"><i class="fa fa-pencil-square-o"></i></a>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -1860,6 +1858,18 @@
                 IssueMain.prototype.updateDetails();
             });
 
+            $('#btn-update-person').bind('click', function () {
+                IssueMain.prototype.updatePersons();
+            });
+
+            $('#btn-update-doc').bind('click', function () {
+                IssueMain.prototype.updateDocs();
+            });
+
+            $('#btn-update-record').bind('click', function () {
+                IssueMain.prototype.updateRecords();
+            });
+
             $('#btn-edit').bind('click', function () {
                 IssueMain.prototype.fetchEditUiConfig(_issue_id, 'update');
             });
@@ -2116,15 +2126,54 @@
         console.log(self.getAttribute("_target"));
         $('#edit_standard_detail_id').attr('value', self.getAttribute("_target"));
         $('#edit_standard_detail_issue_id').attr('value', _issue_id);
+        $('#edit_standard_detail_auditor_desc').val($('#auditor_desc').text());
+        $('#edit_standard_detail_publish_desc').val($('#publish_desc').text());
         $('#modal-edit-standard-details').modal();
     }
+    function deletePersons(self) {
+        if (confirm("Deleting this person, continue?")) {
+            var _sid = self.getAttribute("_target");
+            IssueMain.prototype.deletePersons(_sid);
+        }
+    }
     function editPersons(self) {
+        var _sid = self.getAttribute("_target");
+        $('#edit_standard_person_id').attr('value', _sid);
+        $('#edit_standard_person_issue_id').attr('value', _issue_id);
+        $('#edit_standard_person_desc').val($('#person_desc_' + _sid).text());
+        $('#edit_standard_person_name').val($('#person_name_' + _sid).text());
+        $('#edit_standard_person_pos').val($('#person_pos_' + _sid).text());
         $('#modal-edit-standard-persons').modal();
     }
+    function deleteDocs(self) {
+        if (confirm("Deleting this doc, continue?")) {
+            var _sid = self.getAttribute("_target");
+            IssueMain.prototype.deleteDocs(_sid);       
+        }
+    }
     function editDocs(self) {
+        var _sid = self.getAttribute("_target");
+        $('#edit_standard_doc_id').attr('value', _sid);
+        $('#edit_standard_doc_issue_id').attr('value', _issue_id);
+        $('#edit_standard_doc_desc').val($('#doc_desc_' + _sid).text());
+        $('#edit_standard_doc_name').val($('#doc_name_' + _sid).text());
+        $('#edit_standard_doc_rev').val($('#doc_rev_' + _sid).text());
+        $('#edit_standard_doc_status').val($('#doc_status_' + _sid).text());
         $('#modal-edit-standard-docs').modal();
     }
+    function deleteRecords(self) {
+        if (confirm("Deleting this record, continue?")) {
+            var _sid = self.getAttribute("_target");
+            IssueMain.prototype.deleteRecords(_sid);
+        }
+    }
     function editRecords(self) {
+        var _sid = self.getAttribute("_target");
+        $('#edit_standard_record_id').attr('value', _sid);
+        $('#edit_standard_record_issue_id').attr('value', _issue_id);
+        $('#edit_standard_record_desc').val($('#record_desc_' + _sid).text());
+        $('#edit_standard_record_type').val($('#record_type_' + _sid).text());
+        $('#edit_standard_record_status').val($('#record_status_' + _sid).text());
         $('#modal-edit-standard-records').modal();
     }
     </script>

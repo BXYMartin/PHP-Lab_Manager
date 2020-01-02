@@ -40,6 +40,10 @@ use main\app\model\issue\IssueStatusModel;
 use main\app\model\issue\IssueUiModel;
 use main\app\model\issue\IssueUiTabModel;
 use main\app\model\issue\IssueRecycleModel;
+use main\app\model\issue\IssueStandardDocModel;
+use main\app\model\issue\IssueStandardDescModel;
+use main\app\model\issue\IssueStandardPersonModel;
+use main\app\model\issue\IssueStandardRecordModel;
 use main\app\model\field\FieldTypeModel;
 use main\app\model\field\FieldModel;
 use main\app\model\standard\StandardModel;
@@ -1003,6 +1007,190 @@ class Main extends BaseUserCtrl
         if ($terminate)
             $this->ajaxSuccess('添加成功', $issueId);
     }
+
+    public function updateDetails($params = [])
+    {
+        $info = [];
+
+        // 标题
+        if (isset($params['auditor_desc'])) {
+            $info['auditor_desc'] = $params['auditor_desc'];
+        }
+
+        if (isset($params['publish_desc'])) {
+            $info['publish_desc'] = $params['publish_desc'];
+        }
+
+        $standardDesc = new IssueStandardDescModel();
+        $sid = (int) $params['sid'];
+        if (!empty($sid)) {
+            $ret = $standardDesc->updateItemById($sid, $info);
+        }
+        else {
+            if (isset($_REQUEST['issue_id'])) {
+                $issueId = (int)$_REQUEST['issue_id'];
+            }
+            if (empty($issueId)) {
+                $this->ajaxFailed('参数错误', '事项id不能为空');
+            }
+            $info['issue_id'] = $issueId;
+            $ret = $standardDesc->addItem($info);
+        }
+        $this->ajaxSuccess('添加成功', $ret);
+    }
+
+    public function updatePersons($params = [])
+    {
+        $info = [];
+
+        // 标题
+        if (isset($params['name'])) {
+            $info['name'] = $params['name'];
+        }
+
+        if (isset($params['position'])) {
+            $info['position'] = $params['position'];
+        }
+
+        if (isset($params['description'])) {
+            $info['description'] = $params['description'];
+        }
+        $standardPerson = new IssueStandardPersonModel();
+        $sid = (int) $params['sid'];
+        if (!empty($sid)) {
+            $ret = $standardPerson->updateItemById($sid, $info);
+        }
+        else {
+            if (isset($_REQUEST['issue_id'])) {
+                $issueId = (int)$_REQUEST['issue_id'];
+            }
+            if (empty($issueId)) {
+                $this->ajaxFailed('参数错误', '事项id不能为空');
+            }
+            $info['issue_id'] = $issueId;
+            $ret = $standardPerson->addItem($info);
+        }
+        $this->ajaxSuccess('添加成功', $ret);
+    }
+
+
+    public function deletePersons($params = [])
+    {
+        $standardPerson = new IssueStandardPersonModel();
+        if (isset($_REQUEST['issue_id'])) {
+            $issueId = (int)$_REQUEST['issue_id'];
+        }
+        if (empty($issueId)) {
+            $this->ajaxFailed('参数错误', '事项id不能为空');
+        }
+        $ret = $standardPerson->deleteItemById($issueId);
+        $this->ajaxSuccess('删除成功', $ret);
+    }
+
+
+    public function updateDocs($params = [])
+    {
+        $info = [];
+
+        // 标题
+        if (isset($params['status'])) {
+            $info['status'] = $params['status'];
+        }
+
+        if (isset($params['name'])) {
+            $info['name'] = $params['name'];
+        }
+
+        if (isset($params['rev'])) {
+            $info['rev'] = $params['rev'];
+        }
+
+        if (isset($params['description'])) {
+            $info['description'] = $params['description'];
+        }
+        $standardDoc = new IssueStandardDocModel();
+        $sid = (int) $params['sid'];
+        if (!empty($sid)) {
+            $ret = $standardDoc->updateItemById($sid, $info);
+        }
+        else {
+            if (isset($_REQUEST['issue_id'])) {
+                $issueId = (int)$_REQUEST['issue_id'];
+            }
+            if (empty($issueId)) {
+                $this->ajaxFailed('参数错误', '事项id不能为空');
+            }
+            $info['issue_id'] = $issueId;
+            $ret = $standardDoc->addItem($info);
+        }
+        $this->ajaxSuccess('添加成功', $ret);
+    }
+
+
+    public function deleteDocs($params = [])
+    {
+        $standardDoc = new IssueStandardDocModel();
+        if (isset($_REQUEST['issue_id'])) {
+            $issueId = (int)$_REQUEST['issue_id'];
+        }
+        if (empty($issueId)) {
+            $this->ajaxFailed('参数错误', '事项id不能为空');
+        }
+        $ret = $standardDoc->deleteItemById($issueId);
+        $this->ajaxSuccess('删除成功', $ret);
+    }
+
+
+    public function updateRecords($params = [])
+    {
+        $info = [];
+
+        // 标题
+        if (isset($params['status'])) {
+            $info['status'] = $params['status'];
+        }
+
+        if (isset($params['type'])) {
+            $info['type'] = $params['type'];
+        }
+
+        if (isset($params['description'])) {
+            $info['description'] = $params['description'];
+        }
+        $standardRecord = new IssueStandardRecordModel();
+        $sid = (int) $params['sid'];
+        if (!empty($sid)) {
+            $ret = $standardRecord->updateItemById($sid, $info);
+        }
+        else {
+            if (isset($_REQUEST['issue_id'])) {
+                $issueId = (int)$_REQUEST['issue_id'];
+            }
+            if (empty($issueId)) {
+                $this->ajaxFailed('参数错误', '事项id不能为空');
+            }
+            $info['issue_id'] = $issueId;
+            $ret = $standardRecord->addItem($info);
+        }
+        $this->ajaxSuccess('添加成功', $ret);
+    }
+
+
+
+    public function deleteRecords($params = [])
+    {
+        $standardRecord = new IssueStandardRecordModel();
+        if (isset($_REQUEST['issue_id'])) {
+            $issueId = (int)$_REQUEST['issue_id'];
+        }
+        if (empty($issueId)) {
+            $this->ajaxFailed('参数错误', '事项id不能为空');
+        }
+        $ret = $standardRecord->deleteItemById($issueId);
+        $this->ajaxSuccess('删除成功', $ret);
+    }
+
+
 
     /**
      * 取新增或编辑时提交上来的事项内容

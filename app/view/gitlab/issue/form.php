@@ -288,6 +288,150 @@
     </form>
 </div>
 
+<div class="modal" id="modal-edit-standard-records">
+    <form class="form-horizontal issue-form common-note-form js-quick-submit js-requires-input gfm-form"
+          id="edit_issue_record"
+          action="<?= ROOT_URL ?>issue/main/updateRecords"
+          accept-charset="UTF-8"
+          method="post">
+        <div class="modal-dialog issue-modal-dialog">
+            <div class="modal-content issue-modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-edit-issue-detail_title" class="modal-header-title">Edit Audit Details </h3>
+                    <a class="close" data-dismiss="modal" href="#">×</a>
+                </div>
+                <div class="modal-body issue-modal-body">
+                    <input name="utf8" type="hidden" value="✓">
+                    <input type="hidden" name="issue_id" id="edit_standard_record_issue_id" value=""/>
+                    <input type="hidden" name="params[sid]" id="edit_standard_record_id" value=""/>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-12">Type:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[type]" id="edit_standard_record_type" value=""></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">Status:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[status]" id="edit_standard_record_status" value=""></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">Description:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[description]" id="edit_standard_record_desc" value=""></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer issue-modal-footer footer-block row-content-block">
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <span class="append-right-10">
+                        <input type="button" name="commit" id="btn-update-record" value="保存"
+                                                         class="btn btn-save"></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="modal" id="modal-edit-standard-docs">
+    <form class="form-horizontal issue-form common-note-form js-quick-submit js-requires-input gfm-form"
+          id="edit_issue_doc"
+          action="<?= ROOT_URL ?>issue/main/updateDocs"
+          accept-charset="UTF-8"
+          method="post">
+        <div class="modal-dialog issue-modal-dialog">
+            <div class="modal-content issue-modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-edit-issue-detail_title" class="modal-header-title">Edit Audit Details </h3>
+                    <a class="close" data-dismiss="modal" href="#">×</a>
+                </div>
+                <div class="modal-body issue-modal-body">
+                    <input name="utf8" type="hidden" value="✓">
+                    <input type="hidden" name="issue_id" id="edit_standard_doc_issue_id" value=""/>
+                    <input type="hidden" name="params[sid]" id="edit_standard_doc_id" value=""/>
+                    <div class="form-group">
+                        <div class="col-sm-12">Name:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[name]" id="edit_standard_doc_name" value=""></div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-12">Rev:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[rev]" id="edit_standard_doc_rev" value=""></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">Status:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[status]" id="edit_standard_doc_status" value=""></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">Description:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[description]" id="edit_standard_doc_desc" value=""></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer issue-modal-footer footer-block row-content-block">
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <span class="append-right-10">
+                        <input type="button" name="commit" id="btn-update-doc" value="保存"
+                                                         class="btn btn-save"></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="modal" id="modal-edit-standard-persons">
+    <form class="form-horizontal issue-form common-note-form js-quick-submit js-requires-input gfm-form"
+          id="edit_issue_person"
+          action="<?= ROOT_URL ?>issue/main/updatePersons"
+          accept-charset="UTF-8"
+          method="post">
+        <div class="modal-dialog issue-modal-dialog">
+            <div class="modal-content issue-modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-edit-issue-detail_title" class="modal-header-title">Edit Audit Details </h3>
+                    <a class="close" data-dismiss="modal" href="#">×</a>
+                </div>
+                <div class="modal-body issue-modal-body">
+                    <input name="utf8" type="hidden" value="✓">
+                    <input type="hidden" name="issue_id" id="edit_standard_person_issue_id" value=""/>
+                    <input type="hidden" name="params[sid]" id="edit_standard_person_id" value=""/>
+                    <div class="form-group">
+                        <div class="col-sm-12">Name:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[name]" id="edit_standard_person_name" value=""></div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-12">Position:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[position]" id="edit_standard_person_pos" value=""></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">Description:</div>
+                        <div class="col-sm-12"><input type="text" class="form-control" name="params[description]" id="edit_standard_person_desc" value=""></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer issue-modal-footer footer-block row-content-block">
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <span class="append-right-10">
+                        <input type="button" name="commit" id="btn-update-person" value="保存"
+                                                         class="btn btn-save"></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
 <div class="modal" id="modal-edit-standard-details">
     <form class="form-horizontal issue-form common-note-form js-quick-submit js-requires-input gfm-form"
           id="edit_issue_detail"
@@ -302,7 +446,6 @@
                 </div>
                 <div class="modal-body issue-modal-body">
                     <input name="utf8" type="hidden" value="✓">
-                    <input type="hidden" name="form_type" id="form_type" value="update"/> 
                     <input type="hidden" name="issue_id" id="edit_standard_detail_issue_id" value=""/>
                     <input type="hidden" name="params[sid]" id="edit_standard_detail_id" value=""/>
                     <div class="form-group">

@@ -1252,6 +1252,226 @@ var IssueMain = (function () {
     }
 
 
+    IssueMain.prototype.updateDocs = function () {
+        // 置灰提交按钮
+        var submitBtn = $("#btn-update-doc");
+        submitBtn.addClass('disabled');
+
+        for (k in _simplemde) {
+            if (typeof(_simplemde[k]) == 'object') {
+                $('#' + k).val(_simplemde[k].value());
+            }
+        }
+
+        var form_value_objs = $('#edit_issue_doc').serializeObject();
+        var method = 'post';
+        var post_data = $('#edit_issue_doc').serialize();
+        console.log(post_data);
+
+
+        $.ajax({
+            type: method,
+            dataType: "json",
+            async: true,
+            url: root_url+"issue/main/updateDocs",
+            data: post_data,
+            success: function (resp) {
+                auth_check(resp);
+            console.log(resp);
+                if(!form_check(resp)){
+                    submitBtn.removeClass('disabled');
+                    return;
+                }
+                if (resp.ret == '200') {
+                    notify_success('保存成功');
+                    window.location.reload();
+                } else {
+                    notify_error('保存失败,错误信息:'+resp.msg);
+                    submitBtn.removeClass('disabled');
+                }
+
+            },
+            error: function (res) {
+            console.log(res);
+                notify_error("请求数据错误" + res);
+                submitBtn.removeClass('disabled');
+            }
+        });
+    }
+
+
+    IssueMain.prototype.updateRecords = function () {
+        // 置灰提交按钮
+        var submitBtn = $("#btn-update-record");
+        submitBtn.addClass('disabled');
+
+        for (k in _simplemde) {
+            if (typeof(_simplemde[k]) == 'object') {
+                $('#' + k).val(_simplemde[k].value());
+            }
+        }
+
+        var form_value_objs = $('#edit_issue_record').serializeObject();
+        var method = 'post';
+        var post_data = $('#edit_issue_record').serialize();
+
+
+        $.ajax({
+            type: method,
+            dataType: "json",
+            async: true,
+            url: root_url+"issue/main/updateRecords",
+            data: post_data,
+            success: function (resp) {
+                auth_check(resp);
+            console.log(resp);
+                if(!form_check(resp)){
+                    submitBtn.removeClass('disabled');
+                    return;
+                }
+                if (resp.ret == '200') {
+                    notify_success('保存成功');
+                    window.location.reload();
+                } else {
+                    notify_error('保存失败,错误信息:'+resp.msg);
+                    submitBtn.removeClass('disabled');
+                }
+
+            },
+            error: function (res) {
+            console.log(res);
+                notify_error("请求数据错误" + res);
+                submitBtn.removeClass('disabled');
+            }
+        });
+    }
+
+
+
+    IssueMain.prototype.updatePersons = function () {
+        // 置灰提交按钮
+        var submitBtn = $("#btn-update-person");
+        submitBtn.addClass('disabled');
+
+        for (k in _simplemde) {
+            if (typeof(_simplemde[k]) == 'object') {
+                $('#' + k).val(_simplemde[k].value());
+            }
+        }
+
+        var form_value_objs = $('#edit_issue_person').serializeObject();
+        var method = 'post';
+        var post_data = $('#edit_issue_person').serialize();
+
+
+        $.ajax({
+            type: method,
+            dataType: "json",
+            async: true,
+            url: root_url+"issue/main/updatePersons",
+            data: post_data,
+            success: function (resp) {
+                auth_check(resp);
+            console.log(resp);
+                if(!form_check(resp)){
+                    submitBtn.removeClass('disabled');
+                    return;
+                }
+                if (resp.ret == '200') {
+                    notify_success('保存成功');
+                    window.location.reload();
+                } else {
+                    notify_error('保存失败,错误信息:'+resp.msg);
+                    submitBtn.removeClass('disabled');
+                }
+
+            },
+            error: function (res) {
+            console.log(res);
+                notify_error("请求数据错误" + res);
+                submitBtn.removeClass('disabled');
+            }
+        });
+    }
+
+
+    IssueMain.prototype.deletePersons = function (issue_id) {
+        $.ajax({
+            type: 'POST',
+            dataType: "json",
+            async: true,
+            url: root_url+"issue/main/deletePersons",
+            data: {issue_id:issue_id},
+            success: function (resp) {
+                auth_check(resp);
+            console.log(resp);
+                if (resp.ret == '200') {
+                    notify_success('删除成功');
+                    window.location.reload();
+                } else {
+                    notify_error('保存失败,错误信息:'+resp.msg);
+                }
+
+            },
+            error: function (res) {
+                console.log(res);
+                notify_error("请求数据错误" + res);
+            }
+        });
+    }
+
+
+    IssueMain.prototype.deleteDocs = function (issue_id) {
+        $.ajax({
+            type: 'POST',
+            dataType: "json",
+            async: true,
+            url: root_url+"issue/main/deleteDocs",
+            data: {issue_id:issue_id},
+            success: function (resp) {
+                auth_check(resp);
+            console.log(resp);
+                if (resp.ret == '200') {
+                    notify_success('删除成功');
+                    window.location.reload();
+                } else {
+                    notify_error('保存失败,错误信息:'+resp.msg);
+                }
+
+            },
+            error: function (res) {
+                console.log(res);
+                notify_error("请求数据错误" + res);
+            }
+        });
+    }
+
+
+    IssueMain.prototype.deleteRecords = function (issue_id) {
+        $.ajax({
+            type: 'POST',
+            dataType: "json",
+            async: true,
+            url: root_url+"issue/main/deleteRecords",
+            data: {issue_id:issue_id},
+            success: function (resp) {
+                auth_check(resp);
+            console.log(resp);
+                if (resp.ret == '200') {
+                    notify_success('删除成功');
+                    window.location.reload();
+                } else {
+                    notify_error('保存失败,错误信息:'+resp.msg);
+                }
+
+            },
+            error: function (res) {
+                console.log(res);
+                notify_error("请求数据错误" + res);
+            }
+        });
+    }
+
     IssueMain.prototype.initForm = function () {
         //_simplemde = {};
         for (k in _simplemde) {

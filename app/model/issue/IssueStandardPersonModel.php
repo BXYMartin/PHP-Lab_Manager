@@ -2,13 +2,13 @@
 
 namespace main\app\model\issue;
 
-use main\app\model\CacheModel;
+use main\app\model\DbModel;
 
 /**
  *  描述模板模型
  *
  */
-class IssueStandardPersonModel extends CacheModel
+class IssueStandardPersonModel extends DbModel
 {
     public $prefix = 'issue_';
 
@@ -18,6 +18,7 @@ class IssueStandardPersonModel extends CacheModel
 
     public $fields = '*';
 
+    public $primaryKey = 'sid';
     /**
      * 用于实现单例模式
      * @var self
@@ -58,14 +59,16 @@ class IssueStandardPersonModel extends CacheModel
         return $this->insert($info);
     }
 
-    public function updateById($id, $info)
+    public function updateItemById($id, $info)
     {
-        return $this->updateById($id, $info);
+        $where = ['sid' => $id];
+        return $this->update($info, $where);
     }
 
-    public function deleteById($id)
+    public function deleteItemById($id)
     {
-        return $this->deleteById($id);
+        $where = ['sid' => $id];
+        return $this->delete($where);
     }
 
 }
