@@ -25,7 +25,7 @@
                                     if (isset($project_id) && $project_id) {
                                         ?>
                                         <div class="location-badge">
-                                            当前项目
+                                            Current Company
                                         </div>
                                         <?php
                                     }
@@ -76,21 +76,21 @@
                     </li>
 
                     <li>
-                        <a title="新增项目" aria-label="New project" data-toggle="tooltip" data-placement="bottom"
+                        <a title="New Projects" aria-label="New Projects" data-toggle="tooltip" data-placement="bottom"
                            data-container="body" href="<?=ROOT_URL?>project/main/_new" class="key-new-project">
                             <i class="fa fa-plus fa-fw"></i>
                         </a>
                     </li>
 
                     <li>
-                        <a title="分配给我的问题" aria-label="分配给我的问题" data-toggle="tooltip" data-placement="bottom"
+                        <a title="Tasks Assigned To Me" aria-label="Tasks Assigned To Me" data-toggle="tooltip" data-placement="bottom"
                            data-container="body" href="<?=ROOT_URL?>issue/main?sys_filter=assignee_mine">
                             <i class="fa fa-hashtag fa-fw"></i><!--  <span class="badge issues-count"> <?=$assignee_count?> </span> -->
                         </a>
                     </li>
 
                     <li>
-                        <a title="开启的问题" aria-label="Open issue" class="shortcuts-todos" data-toggle="tooltip"
+                        <a title="Open Problems" aria-label="Open Problems" class="shortcuts-todos" data-toggle="tooltip"
                            data-placement="bottom"
                            data-container="body" href="<?=ROOT_URL?>issue/main?sys_filter=open">
                             <i class="fa fa-check-circle fa-fw"></i> <span class="badge hidden todos-count">  </span>
@@ -104,15 +104,15 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <ul>
                                 <li>
-                                    <a  target="_blank" href="/help">帮 助</a>
+                                    <a  target="_blank" href="/help">Help</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a title="关于"
-                                       aria-label="关于masterlab"
+                                    <a title="About"
+                                       aria-label="About Audit Manager"
                                        data-target="#modal-about"
                                        data-toggle="modal"
-                                       href="#modal-about">关 于
+                                       href="#modal-about">About
                                     </a>
                                 </li>
                             </ul>
@@ -126,11 +126,11 @@
                         <div class="dropdown-menu-nav dropdown-menu-align-right">
                             <ul>
                                 <li><a class="profile-link" aria-label="Profile" data-user="sven"
-                                       href="<?= ROOT_URL ?>user/profile">个人资料</a></li>
-                                <li><a aria-label="Settings" href="<?= ROOT_URL ?>user/profile_edit">个人设置</a></li>
+                                       href="<?= ROOT_URL ?>user/profile">Personal Profile</a></li>
+                                <li><a aria-label="Settings" href="<?= ROOT_URL ?>user/profile_edit">Personal Settings</a></li>
                                 <li class="divider"></li>
                                 <li><a class="sign-out-link" aria-label="Sign out" rel="nofollow"
-                                       href="<?= ROOT_URL ?>passport/logout">注  销</a></li>
+                                       href="<?= ROOT_URL ?>passport/logout">Log Out</a></li>
                             </ul>
                         </div>
                     </li>
@@ -149,7 +149,7 @@
                         </button>
                     </div>
                     <div class="dropdown-input">
-                        <input type="search" id="project_search" class="dropdown-input-field" placeholder="搜索你的项目"
+                        <input type="search" id="project_search" class="dropdown-input-field" placeholder="Search Your Projects"
                                autocomplete="off"/>
                         <i class="fa fa-search dropdown-input-search"></i>
                         <i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i>
@@ -173,7 +173,7 @@
         <div class="modal-content modal-middle">
             <div class="modal-header">
                 <a class="close js-key-modal-close1" data-dismiss="modal" href="#">×</a>
-                <h3 class="modal-header-title">关于</h3>
+                <h3 class="modal-header-title">About</h3>
             </div>
 
             <div class="modal-body overflow-x-hidden">
@@ -181,15 +181,15 @@
                 <table width="468" border="0">
                     <tr>
                         <th width="39" height="31" scope="col">&nbsp;</th>
-                        <th width="419" align="left" scope="col"><h2>基于 Masterlab 社区版改进</h2></th>
+                        <th width="419" align="left" scope="col"><h2>Audit Manager</h2></th>
                     </tr>
                     <tr>
                         <th height="25" scope="row">&nbsp;</th>
-                        <td align="left">项目管理更简单，更轻松!</td>
+                        <td align="left">Easier Audit Plan Management!</td>
                     </tr>
                     <tr>
                         <th scope="row">&nbsp;</th>
-                        <td align="left">当前版本:<?=MASTERLAB_VERSION?> <a href="https://github.com/gopeak/masterlab/releases">版本说明</a></td>
+                        <td align="left">Current Version:<?=MASTERLAB_VERSION?> <a href="https://github.com/gopeak/masterlab/releases">Version Details</a></td>
                     </tr>
                     <tr>
                         <th scope="row">&nbsp;</th>
@@ -201,7 +201,7 @@
                     </tr>
                     <tr>
                         <th scope="row">&nbsp;</th>
-                        <td align="left"><span>项目开发人员</span></td>
+                        <td align="left"><span>Project Developer</span></td>
                     </tr>
                     <tr>
                         <th scope="row">&nbsp;</th>
@@ -219,7 +219,7 @@
             </div>
 
             <div class="modal-footer form-actions">
-                <a class="btn btn-cancel" data-dismiss="modal" href="#">关 闭</a>
+                <a class="btn btn-cancel" data-dismiss="modal" href="#">Close</a>
             </div>
         </div>
     </div>

@@ -201,10 +201,10 @@
                                         <i class="fa fa-angle-double-left"></i>
                                     </a>
                                     <div class="issuable-meta">
-                                        <strong class="identifier">事项
+                                        <strong class="identifier">Audit
                                             <a href="<?= ROOT_URL ?>issue/detail/index/{{issue.id}}"
-                                               id="a_issue_key">#{{issue.pkey}}{{issue.id}}</a></strong>
-                                        由
+                                               id="a_issue_key">{{issue.pkey}}/{{issue.summary}}</a></strong>
+                                        Created By
                                         <strong>
                                             <a class="author_link  hidden-xs" href="<?=ROOT_URL?>user/profile/{{issue.creator_info.uid}}">
                                                 <img id="creator_avatar" width="24" class="avatar avatar-inline s24 " alt=""
@@ -214,7 +214,7 @@
                                             <a class="author_link  hidden-sm hidden-md hidden-lg" href="<?=ROOT_URL?>user/profile/{{issue.creator_info.uid}}">
                                                 <span class="author">@{{issue.creator_info.username}}</span></a>
                                         </strong>
-                                        于
+                                        
                                         <time class="js-time"
                                               datetime="{{issue.created}}"
                                               data-toggle="tooltip"
@@ -222,23 +222,23 @@
                                               data-container="body"
                                               data-original-title="{{issue.created_text}}">
                                         </time>
-                                        创建
+                                        
                                     </div>
                                 </script>
                             </div>
                             <div class="issuable-actions" id="issue-actions">
                                 <div class="btn-group" role="group" aria-label="...">
                                     <button id="btn-edit" type="button" class="btn btn-default js-key-edit"><i class="fa fa-edit"></i>
-                                        编辑
+                                        Edit
                                     </button>
                                     <button id="btn-copy" type="button" class="btn btn-default"><i class="fa fa-copy"></i>
-                                        复制
+                                        Duplicate
                                     </button>
                                     <!--<button id="btn-attachment" type="button" class="btn btn-default"><i class="fa fa-file-image-o"></i> 附件</button>-->
                                     <div class="btn-group" role="group">
                                         <button type="button" class="btn btn-default dropdown-toggle"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            状态
+                                            Status
                                             <i class="fa fa-caret-down"></i>
                                         </button>
                                         <ul class="dropdown-menu" id="allow_update_status">
@@ -247,13 +247,13 @@
                                     <div class="btn-group" role="group">
                                         <button type="button" class="btn btn-default dropdown-toggle"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            更多
+                                            More
                                             <i class="fa fa-caret-down"></i>
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><a id="btn-watch" data-followed="" href="#">关注</a></li>
+                                            <li><a id="btn-watch" data-followed="" href="#">Follow</a></li>
                                             <li><a id="btn-create_subtask"  class="js-key-create"
-                                                   data-target="#modal-create-issue" data-toggle="modal"   href="#modal-create-issue">创建子任务</a>
+                                                   data-target="#modal-create-issue" data-toggle="modal"   href="#modal-create-issue">Create Subtask</a>
                                                </li>
                                             <!--<li><a id="btn-convert_subtask" href="#">转化为子任务</a></li>-->
                                         </ul>
@@ -264,7 +264,7 @@
                                     <div class="btn-group" role="group">
                                         <button type="button" class="btn btn-default dropdown-toggle"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            解决结果
+                                            Evaluation
                                             <i class="fa fa-caret-down"></i>
                                         </button>
                                         <ul class="dropdown-menu" id="allow_update_resolves">
@@ -273,12 +273,12 @@
                                     <div class="btn-group" role="group">
                                         <button type="button" class="btn btn-default dropdown-toggle"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            管理
+                                            Manage
                                             <i class="fa fa-caret-down"></i>
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><a id="btn-close" href="#">关闭</a></li>
-                                            <li><a id="btn-delete" href="#">删除</a></li>
+                                            <li><a id="btn-close" href="#">Close</a></li>
+                                            <li><a id="btn-delete" href="#">Delete</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -297,7 +297,7 @@
                             <div class="issue-title-data hidden" data-endpoint="#"
                                  data-initial-title="{{issue.summary}}"></div>
                             <script type="text/html" id="detail-page-description_tpl">
-                                <label>描述:</label>
+                                <label>Description:</label>
                                 <div class="description js-task-list-container is-task-list-enabled">
                                     <div id="description-view" class="description-view">
 
@@ -305,7 +305,7 @@
                                     <textarea class="hidden js-task-list-field">{{{issue.description}}}</textarea>
                                 </div>
 
-                                <small class="edited-text"><span>最后修改于 </span>
+                                <small class="edited-text"><span>Last Modified On </span>
                                     <time class="js-time"
                                           datetime="{{issue.created}}"
                                           data-toggle="tooltip"
@@ -321,9 +321,9 @@
                         <div id="detail-page-description" class="content-block detail-page-description"
                              style="margin-left: 15px">
                             <div class="issue-title-data hidden" data-endpoint="#"
-                                 data-initial-title="标准审计"></div>
+                                 data-initial-title="Audit Content"></div>
                                 <div id="standard_block" class="block project-reference hide">
-                                        <label>标准审计:</label>
+                                        <label>Audit Content:</label>
                                         <div id="standard_issues_div" class="cross-project-reference hide-collapsed">
                                         </div>
                                 </div>
@@ -334,16 +334,16 @@
                         <div id="detail-page-description" class="content-block detail-page-description"
                              style="margin-left: 15px">
                             <div class="issue-title-data hidden" data-endpoint="#"
-                                 data-initial-title="父任务"></div>
+                                 data-initial-title="Audit Plan"></div>
                                 <div id="parent_block" class="block project-reference hide">
-                                    <label>父任务:</label>
+                                    <label>Back To Audit Plan:</label>
                                     <div id="parent_issue_div" class="cross-project-reference hide-collapsed">
 
                                     </div>
                                 </div>
                                 <?php if($issue['master_id'] == 0) { ?>
                                 <div class="block project-reference">
-                                    <label>子任务:</label>
+                                    <label>Audit Plan:</label>
                                     <div class="description js-task-list-container is-task-list-enabled">
                                         <div id="child_issues_div" class="cross-project-reference hide-collapsed">
 
@@ -361,7 +361,7 @@
                             <div class="row">
                                 <div class=" form-group col-lg-6">
                                     <div class="form-group issue-assignee">
-                                        <label class="control-label col-sm-2">类型:</label>
+                                        <label class="control-label col-sm-2">Type:</label>
                                         <div class=" col-sm-10">
                                             <span><i class="fa {{issue.issue_type_info.font_awesome}}"></i> {{issue.issue_type_info.name}}</span>
                                         </div>
@@ -370,7 +370,7 @@
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <div class="form-group">
-                                        <label class="control-label col-sm-2">解决结果:</label>
+                                        <label class="control-label col-sm-2">Evaluation:</label>
                                         <div class="col-sm-10">
                                             <span style=" color: {{issue.resolve_info.color}}">{{issue.resolve_info.name}}</span>
                                         </div>
@@ -380,13 +380,13 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-lg-6 ">
-                                    <label class="control-label col-sm-2">状态:</label>
+                                    <label class="control-label col-sm-2">Status:</label>
                                     <div class="col-sm-10">
                                         <span class="label label-{{issue.status_info.color}} prepend-left-5">{{issue.status_info.name}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <label class="control-label col-sm-2" for="issue_label_ids">优先级:</label>
+                                    <label class="control-label col-sm-2" for="issue_label_ids">Priority:</label>
                                     <div class="col-sm-10">
                                         <span class="label " style="color:{{issue.priority_info.status_color}}">{{issue.priority_info.name}}</span>
                                     </div>
@@ -396,7 +396,7 @@
                         <?php if (!empty($name)) { ?>
                             <div class="row">
                                 <div class="form-group col-lg-6 ">
-                                    <label class="control-label col-sm-2" for="issue_milestone_id">影响版本:</label>
+                                    <label class="control-label col-sm-2" for="issue_milestone_id">Effect Version:</label>
                                     <div class="col-sm-10">
                                         {{#issue.effect_version_names}}
                                         <span>{{name}}</span>&nbsp;
@@ -404,7 +404,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <label class="control-label col-sm-2" for="issue_label_ids">解决版本:</label>
+                                    <label class="control-label col-sm-2" for="issue_label_ids">Fixed Version:</label>
                                     <div class="col-sm-10">
                                         {{#issue.fix_version_names}}
                                         <span>{{name}}</span>&nbsp;
@@ -416,7 +416,7 @@
                             <div class="row">
                         <?php if (!empty($issue->sprint_info->name)) { ?>
                                 <div class="form-group col-lg-6 ">
-                                    <label class="control-label col-sm-2" for="issue_milestone_id">迭代:</label>
+                                    <label class="control-label col-sm-2" for="issue_milestone_id">Sprint:</label>
                                     <div class="col-sm-10">
                                         <span>{{issue.sprint_info.name}}</span>
                                     </div>
@@ -424,7 +424,7 @@
                         <?php } ?>
                         <?php if (!empty($issue->environment)) { ?>
                                 <div class="form-group col-lg-6">
-                                    <label class="control-label col-sm-2" for="issue_label_ids">运行环境:</label>
+                                    <label class="control-label col-sm-2" for="issue_label_ids">Environment:</label>
                                     <div class="col-sm-10">
                                         {{issue.environment}}
                                     </div>
@@ -434,7 +434,7 @@
                             <div class="row">
                         <?php if (!empty($issue->module_name)) { ?>
                                 <div class="form-group col-lg-6 ">
-                                    <label class="control-label col-sm-2" for="issue_milestone_id">模块:</label>
+                                    <label class="control-label col-sm-2" for="issue_milestone_id">Module:</label>
                                     <div class="col-sm-10">
                                         <span>{{issue.module_name}}</span>
                                     </div>
@@ -442,7 +442,7 @@
                         <?php } ?>
                         <?php if (!empty($issue->labels_names)) { ?>
                                 <div class="form-group col-lg-6">
-                                    <label class="control-label col-sm-2" for="issue_label_ids">标签:</label>
+                                    <label class="control-label col-sm-2" for="issue_label_ids">Label:</label>
                                     <div class="col-sm-10">
                                         {{#issue.labels_names}}
                                         <a class="label-link" href="<?= ROOT_URL ?>issue/main/?label={{name}}">
@@ -462,7 +462,7 @@
                         <div id="detail-page-attachments" class="content-block" style="border-bottom: 0px; ">
                             <div class="row">
                                 <div class="form-group col-sm-10">
-                                    <label style="margin-left: 15px">附件:</label>
+                                    <label style="margin-left: 15px">Attachment:</label>
                                     <input type="hidden" name="params[attachments]" id="attachments" value=""/>
                                     <input type="hidden" name="params[fine_uploader_json]" id="fine_uploader_json"
                                            value=""/>
@@ -476,8 +476,8 @@
                         <div class="issue-details issuable-details">
 
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#dicussion" role="tab" data-toggle="tab">评 论</a></li>
-                                <li role="presentation"><a href="#activity" role="tab" data-toggle="tab">活动日志</a></li>
+                                <li role="presentation" class="active"><a href="#dicussion" role="tab" data-toggle="tab">Comment</a></li>
+                                <li role="presentation"><a href="#activity" role="tab" data-toggle="tab">Activity Log</a></li>
                             </ul>
 
                             <div class="tab-content">
@@ -523,7 +523,7 @@
                                                             <div class="note-form-actions clearfix">
                                                                 <input id="btn-comment"
                                                                        class="btn btn-nr btn-create comment-btn js-comment-button js-comment-submit-button js-key-enter"
-                                                                       type="button" value="评论">
+                                                                       type="button" value="Comment">
 
                                                                 <!--                                                    <a id="btn-comment-reopen"-->
                                                                 <!--                                                       class="btn btn-nr btn-reopen btn-comment js-note-target-reopen "-->
@@ -532,8 +532,7 @@
                                                                    data-alternative-text="Comment &amp; close issue"
                                                                    class="btn btn-nr btn-close btn-comment js-note-target-close hidden"
                                                                    title="Close issue"
-                                                                   href="/api/v4/issue_1.json?issue%5Bstate_event%5D=close">关闭
-                                                                    issue</a>
+                                                                   href="/api/v4/issue_1.json?issue%5Bstate_event%5D=close">Close</a>
                                                                 <!--                                                    <a class="btn btn-cancel js-note-discard" data-cancel-text="Cancel"-->
                                                                 <!--                                                       role="button">弃稿</a>-->
                                                             </div>
@@ -586,7 +585,7 @@
                                         {{/activity}}
                                         <div class="text-center" style="margin-top: .8em;">
                                             <span class="text-center">
-                                                    总数:<span id="issue_count">{{total}}</span> 每页显示:<span id="page_size">{{page_size}}</span>
+                                                    Total:<span id="issue_count">{{total}}</span> Each:<span id="page_size">{{page_size}}</span>
                                             </span>
                                         </div>
                                         <div class="gl-pagination" id="ampagination-activity">
@@ -604,7 +603,7 @@
                         <div class="issuable-sidebar">
                             <div class="block issuable-sidebar-header">
                                 <span class="issuable-header-text hide-collapsed pull-left hidden">
-                                    用户
+                                    User
                                 </span>
                                 <a aria-label="Toggle sidebar" class="gutter-toggle pull-right js-sidebar-toggle" href="#"
                                    role="button">
@@ -613,7 +612,7 @@
                                 <a href="<?=$project_root_url?>/issues" aria-label="Back issue list"
                                    class="btn btn-default issuable-header-btn  pull-left" title="Back issue list">
                                     <i aria-hidden="true" class="fa fa-arrow-left"></i><span
-                                            class="issuable-todo-inner js-issuable-todo-inner">返回事项列表</span>
+                                            class="issuable-todo-inner js-issuable-todo-inner">Back To List</span>
                                 </a>
                             </div>
                             <form class="issuable-context-form inline-update js-issuable-update" id="edit_issue_1"
@@ -639,9 +638,9 @@
                                         }
                                         ?>
                                     </div>
-                                    <div class="title hide-collapsed">经办人
+                                    <div class="title hide-collapsed">Assignee
                                          <i aria-hidden="true" class="fa fa-spinner fa-spin hidden block-loading"></i>
-                                         <a class="edit-link pull-right" href="#">编辑</a>
+                                         <a class="edit-link pull-right" href="#">Edit</a>
                                     </div>
 
                                     <div class="value hide-collapsed">
@@ -671,12 +670,12 @@
                                                     data-null-user="true"
                                                     data-toggle="dropdown"
                                                     aria-expanded="false">
-                                                <span class="dropdown-toggle-text ">选择经办人</span>
+                                                <span class="dropdown-toggle-text ">Select Assignee</span>
                                                 <i class="fa fa-chevron-down"></i>
                                             </button>
                                             <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-author">
                                                 <div class="dropdown-title">
-                                                    <span>分配给</span>
+                                                    <span>Assign To</span>
                                                     <button class="dropdown-title-button dropdown-menu-close"
                                                             aria-label="Close" type="button">
                                                         <i class="fa fa-times dropdown-menu-close-icon"></i>
@@ -707,7 +706,7 @@
                                     <div class="title hide-collapsed "><span class="bold">Milestone</span>
                                         <i aria-hidden="true" class="fa fa-spinner fa-spin hidden block-loading"></i>
                                         <a class="edit-link pull-right" href="#">
-                                            编辑
+                                            Edit
                                         </a></div>
                                     <div class="value hide-collapsed">
                                         <small class="no-value">None</small>
@@ -753,17 +752,17 @@
                                     </div>
                                 </div>
 
-                                <div class="title hide-collapsed margin-t"><span class="bold">时间</span>
+                                <div class="title hide-collapsed margin-t"><span class="bold">Time</span>
                                 </div>
                                 <div class="block due_date due_date_first">
                                     <div class="sidebar-collapsed-icon">
                                         <i aria-hidden="true" class="fa fa-calendar"></i>
                                         <span class="js-due-date-sidebar-value"><?= $issue['start_date'] == '0000-00-00' ? '' : $issue['start_date'] ?></span></div>
                                     <div class="title hide-collapsed">
-                                        <small>开始时间</small>
+                                        <small>Start Date</small>
                                         <i aria-hidden="true" class="fa fa-spinner fa-spin hidden block-loading"></i>
                                         <a class="edit-link2 pull-right" href="#">
-                                            <small id="a_start_date_edit">编辑</small>
+                                            <small id="a_start_date_edit">Edit</small>
                                         </a>
 
                                     </div>
@@ -785,10 +784,10 @@
                                         <small class="js-due-date-sidebar-value"><?= $issue['due_date'] == '0000-00-00' ? '' : $issue['due_date'] ?></small>
                                     </div>
                                     <div class="title hide-collapsed">
-                                        <small>截止时间</small>
+                                        <small>Due Date</small>
                                         <i aria-hidden="true" class="fa fa-spinner fa-spin hidden block-loading"></i>
                                         <a class="edit-link2 pull-right" href="#">
-                                            <small id="a_due_date_edit">编辑</small>
+                                            <small id="a_due_date_edit">Edit</small>
                                         </a></div>
                                     <div class="value hide-collapsed">
                                       <span class="value-content">
@@ -806,7 +805,7 @@
                                         <span></span>
                                     </div>
                                     <div class="title hide-collapsed">
-                                        <span class="bold">协助人</span>
+                                        <span class="bold">Assisted</span>
                                     </div>
                                     <div class="hide-collapsed participants-list" id="assistants_div">
 
@@ -815,11 +814,11 @@
 
                                 <div id="custom_field_values_block" class="block project-reference hide">
                                     <div class="sidebar-collapsed-icon">
-                                        <i aria-hidden="true" title="自定义字段" class="fa fa-info"></i>
+                                        <i aria-hidden="true" title="Custom Field" class="fa fa-info"></i>
                                         <span></span>
                                     </div>
                                     <div class="title hide-collapsed">
-                                        <span class="bold">自定义字段</span>
+                                        <span class="bold">Custom Field</span>
                                     </div>
                                     <div id="custom_field_values_div" class="cross-project-reference hide-collapsed">
 
@@ -869,14 +868,14 @@
                         <div id="note-actions_{{id}}" class="note-actions">
                             {{#if is_issue_commented}}
                                 {{#if is_cur_user}}
-                                    <a id="btn-timeline-edit_{{id}}" data-id="{{id}}" title="编辑此评论"
+                                    <a id="btn-timeline-edit_{{id}}" data-id="{{id}}" title="Edit This Comment"
                                        class="note-action-button js-note-edit2" href="#timeline_{{id}}">
                                         <i class="fa fa-pencil link-highlight"></i>
                                     </a>
                                     <a id="btn-timeline-remove_{{id}}" data-id="{{id}}"
                                        class="note-action-button js-note-remove danger"
-                                       data-title="删除此评论"
-                                       data-confirm2="您确认删除此评论?"
+                                       data-title="Delete This Comment"
+                                       data-confirm2="Are You Sure To Delete This Comment?"
                                        data-url="<?= ROOT_URL ?>issue/detail/delete_timeline/{{id}}"
                                        href="#timeline_{{id}}">
                                         <i class="fa fa-trash-o danger-highlight"></i>
@@ -885,14 +884,14 @@
                                     <?php
                                     if($is_admin || isset($projectPermArr[\main\app\classes\PermissionLogic::MANAGE_COMMENTS])) {
                                         ?>
-                                    <a id="btn-timeline-edit_{{id}}" data-id="{{id}}" title="编辑此评论"
+                                    <a id="btn-timeline-edit_{{id}}" data-id="{{id}}" title="Edit This Comment"
                                        class="note-action-button js-note-edit2" href="#timeline_{{id}}">
                                         <i class="fa fa-pencil link-highlight"></i>
                                     </a>
                                     <a id="btn-timeline-remove_{{id}}" data-id="{{id}}"
                                        class="note-action-button js-note-remove danger"
-                                       data-title="删除此评论"
-                                       data-confirm2="您确认删除此评论?"
+                                       data-title="Delete This Comment"
+                                       data-confirm2="Are You Sure To Delete This Comment?"
                                        data-url="<?= ROOT_URL ?>issue/detail/delete_timeline/{{id}}"
                                        href="#timeline_{{id}}">
                                         <i class="fa fa-trash-o danger-highlight"></i>
@@ -922,12 +921,12 @@
                             </div>
                             <div id="timeline-footer-action_{{id}}" class="note-form-actions hidden clearfix">
                                 <div class="settings-message note-edit-warning js-edit-warning">
-                                    先完成编辑再操作
+                                    Please Finish Editing First! 
                                 </div>
-                                <input data-id="{{id}}" type="button" name="comment_commit" value="保 存"
+                                <input data-id="{{id}}" type="button" name="comment_commit" value="Save"
                                        class="btn btn-nr btn-save js-comment-button btn-timeline-update">
                                 <button data-id="{{id}}" class="btn btn-nr btn-cancel note-edit-cancel" type="button">
-                                    取消
+                                    Cancel
                                 </button>
                             </div>
                         </form>
@@ -989,10 +988,20 @@
         </div>
     </script>
     <script type="text/html" id="parent_issue_tpl">
-    {{user_html assignee}}
-    <span>
-        <a href="/issue/detail/index/{{id}}" target="_blank">{{summary}}</a>
-    </span>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="float: left">
+                    {{user_html assignee}}
+    
+                    <span style="padding-left: 15px">
+                        <a href="/issue/detail/index/{{id}}" target="_blank"> Return To Audit Plan {{summary}}</a>
+                    </span>
+                </h4>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
     <br>
     </script>
 
@@ -1032,7 +1041,7 @@
                     </a>
                     {{#if id}}
                     <a href="/issue/detail/index/{{id}}" target="_blank">
-                        >> 前往事项
+                        >> Go To Audit Page
                     </a>
                     {{/if}}
                 </h4>
@@ -1042,7 +1051,7 @@
                         <div class="dropdown ">
                             <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
                                 <div class="dropdown-title">
-                                    <span>选择经办人</span>
+                                    <span>Select Assignee</span>
                                     <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                                         <i class="fa fa-times dropdown-menu-close-icon"></i>
                                     </button>
@@ -1094,7 +1103,7 @@
                                     </a>
                                 {{#if id}}
                                     <a href="/issue/detail/index/{{id}}" target="_blank">
-                                        >> 前往事项
+                                        >> Go To Audit Page
                                     </a>
                                 {{/if}}
                                 </h4>
@@ -1105,7 +1114,7 @@
                                         <div class="dropdown ">
                                             <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
                                                 <div class="dropdown-title">
-                                                    <span>选择经办人</span>
+                                                    <span>Select Assignee</span>
                                                     <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                                                         <i class="fa fa-times dropdown-menu-close-icon"></i>
                                                     </button>
@@ -1157,7 +1166,7 @@
                                                     </a>
                                                     {{#if id}}
                                                         <a href="/issue/detail/index/{{id}}" target="_blank">
-                                                            >> 前往事项
+                                                            >> Go To Audit Page
                                                         </a>
                                                     {{/if}}
                                                 </h4>
@@ -1168,7 +1177,7 @@
                                                         <div class="dropdown ">
                                                             <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
                                                                 <div class="dropdown-title">
-                                                                    <span>选择经办人</span>
+                                                                    <span>Select Assignee</span>
                                                                     <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                                                                         <i class="fa fa-times dropdown-menu-close-icon"></i>
                                                                     </button>
@@ -1221,7 +1230,7 @@
                                                                     </a>
                                                                     {{#if id}}
                                                                         <a href="/issue/detail/index/{{id}}" target="_blank">
-                                                                            >> 前往事项
+                                                                            >> Go To Audit Page
                                                                         </a>
                                                                     {{/if}}
                                                                 </h4>
@@ -1232,7 +1241,7 @@
                                                                         <div class="dropdown ">
                                                                             <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
                                                                                 <div class="dropdown-title">
-                                                                                    <span>选择经办人</span>
+                                                                                    <span>Select Assignee</span>
                                                                                     <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                                                                                         <i class="fa fa-times dropdown-menu-close-icon"></i>
                                                                                     </button>
@@ -1586,7 +1595,7 @@
 
     <script type="text/html" id="fav_filter_first_tpl">
         <li class="fav_filter_li">
-            <a id="state-opened" title="清除该过滤条件" href="javascript:$IssueMain.updateFavFilter('0');"><span>所有事项</span>
+            <a id="state-opened" title="Clear Conditions" href="javascript:$IssueMain.updateFavFilter('0');"><span>Audit Plans</span>
                 <span class="badge">0</span>
             </a>
         </li>
@@ -1612,7 +1621,7 @@
     </script>
 
     <script type="text/template" id="qq-template-gallery">
-        <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="将文件拖放到此处以添加附件"
+        <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drag Files Here To Upload"
              style="background-color: #ffffff"
         >
             <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
@@ -1623,13 +1632,13 @@
                 <span class="qq-upload-drop-area-text-selector"></span>
             </div>
             <button class="qq-upload-button-selector qq-upload-button">
-                <div>添加文件</div>
+                <div>Add File</div>
             </button>
             <button class="qq-download-button-selector qq-download-button" onclick="downloadAll();">
-                <div>全部下载</div>
+                <div>Download All</div>
             </button>
             <span class="qq-drop-processing-selector qq-drop-processing">
-            <span>拖拽文件完成...</span>
+            <span>Drag File Finished...</span>
             <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
         </span>
             <ul class="qq-upload-list-selector qq-upload-list" role="region" aria-live="polite"
@@ -1685,8 +1694,8 @@
             <dialog class="qq-confirm-dialog-selector">
                 <div class="qq-dialog-message-selector"></div>
                 <div class="qq-dialog-buttons">
-                    <button type="button" class="qq-cancel-button-selector">否</button>
-                    <button type="button" class="qq-ok-button-selector">是</button>
+                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                    <button type="button" class="qq-ok-button-selector">Sure</button>
                 </div>
             </dialog>
 
@@ -1694,14 +1703,14 @@
                 <div class="qq-dialog-message-selector"></div>
                 <input type="text">
                 <div class="qq-dialog-buttons">
-                    <button type="button" class="qq-cancel-button-selector">取消</button>
-                    <button type="button" class="qq-ok-button-selector">好的</button>
+                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                    <button type="button" class="qq-ok-button-selector">Sure</button>
                 </div>
             </dialog>
         </div>
     </script>
     <script type="text/template" id="btn-fine-uploader">
-        <div class="qq-uploader-selector " qq-drop-area-text="将文件拖放到此处以添加附件" style="display: ">
+        <div class="qq-uploader-selector " qq-drop-area-text="Drag Files Here To Upload" style="display: ">
             <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
                 <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                      class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
@@ -1710,7 +1719,7 @@
                 <span class="qq-upload-drop-area-text-selector"></span>
             </div>
             <div class="qq-upload-button-selector ">
-                <div><i class="fa fa-file-image-o"></i> 附件</div>
+                <div><i class="fa fa-file-image-o"></i> Attachment</div>
             </div>
             <span class="qq-drop-processing-selector qq-drop-processing" style="display: none">
             <span>Processing dropped files...</span>
@@ -1733,7 +1742,7 @@
 
     <script>
         gl.IssuableResource = new gl.SubbableResource('/api/v4/issue_1.json');
-        new gl.IssuableTimeTracking("{\"id\":1,\"iid\":1,\"assignee_id\":15,\"author_id\":15,\"description\":\"拼写错误\",\"lock_version\":null,\"milestone_id\":null,\"position\":0,\"state\":\"closed\",\"title\":\"InWord\",\"updated_by_id\":15,\"created_at\":\"2017-10-19T10:56:27.764Z\",\"updated_at\":\"2017-10-31T08:59:27.604Z\",\"deleted_at\":null,\"time_estimate\":0,\"total_time_spent\":0,\"human_time_estimate\":null,\"human_total_time_spent\":null,\"branch_name\":null,\"confidential\":false,\"due_date\":null,\"moved_to_id\":null,\"project_id\":31,\"milestone\":null,\"labels\":[]}");
+        new gl.IssuableTimeTracking("{\"id\":1,\"iid\":1,\"assignee_id\":15,\"author_id\":15,\"description\":\"Spell Error\",\"lock_version\":null,\"milestone_id\":null,\"position\":0,\"state\":\"closed\",\"title\":\"InWord\",\"updated_by_id\":15,\"created_at\":\"2017-10-19T10:56:27.764Z\",\"updated_at\":\"2017-10-31T08:59:27.604Z\",\"deleted_at\":null,\"time_estimate\":0,\"total_time_spent\":0,\"human_time_estimate\":null,\"human_total_time_spent\":null,\"branch_name\":null,\"confidential\":false,\"due_date\":null,\"moved_to_id\":null,\"project_id\":31,\"milestone\":null,\"labels\":[]}");
         new MilestoneSelect('{"full_path":"ismond/xphp"}');
         gl.Subscription.bindAll('.subscription');
         new IssuableContext('{\"id\":<?=$user['uid']?>,\"name\":\"<?=$user['display_name']?>\",\"username\":\"<?=$user['username']?>\"}');
@@ -1895,7 +1904,7 @@
                 if (issue_id) {
                     IssueMain.prototype.convertChild(issue_id);
                 } else {
-                    notify_error('事项id传递错误');
+                    notify_error('Wrong Audit Plan ID');
                 }
             });
 
@@ -1969,13 +1978,13 @@
                         success: function (resp) {
                             auth_check(resp);
                             if (resp.ret != '200') {
-                                notify_error('操作失败:' + resp.msg);
+                                notify_error('Operation Failed:' + resp.msg);
                                 return;
                             }
-                            notify_success('操作成功');
+                            notify_success('Operation Success');
                         },
                         error: function (res) {
-                            notify_error("请求数据错误" + res);
+                            notify_error("Connection Error:" + res);
                         }
                     });
                 }
@@ -1996,13 +2005,13 @@
                         success: function (resp) {
                             auth_check(resp);
                             if (resp.ret != '200') {
-                                notify_error('操作失败:' + resp.msg);
+                                notify_error('Operation Failed:' + resp.msg);
                                 return;
                             }
-                            notify_success('操作成功');
+                            notify_success('Operation Success');
                         },
                         error: function (res) {
-                            notify_error("请求数据错误" + res);
+                            notify_error("Connection Error:" + res);
                         }
                     });
                 }
@@ -2034,15 +2043,15 @@
                                 '<img width="26px" height="26px" class=" float-none" style="border-radius: 50%;"   data-toggle="tooltip" data-placement="top"  title="' + user.username + ' ' + user.display_name + '" src="' + user.avatar + '" />' +
                                 '</a></span>');
                             }
-                            notify_success('保存成功');
+                            notify_success('Change Saved');
                         } else {
-                            notify_error('保存失败,错误信息:'+resp.msg);
+                            notify_error('Save Failed:'+resp.msg);
                         }
 
                     },
                     error: function (res) {
                         console.log(res);
-                        notify_error("请求数据错误" + res);
+                        notify_error("Connection Error:" + res);
                     }
                 });
 
@@ -2052,7 +2061,7 @@
         function downloadAll() {
             var all = document.getElementsByClassName('qq-upload-download-selector');
             if (all == null || all.length <= 0) {
-                alert("没有可供下载的文件！");
+                alert("No Files Available For Download!");
                 return;
             }
             for (var i = 0; i < all.length; i++) {
@@ -2068,7 +2077,7 @@
                 url = value.getAttribute('data-src');
             }
             if (url == null) {
-                alert("文件正在被占用，请稍后重试。");
+                alert("Selected File is Occupied, Please Try Again Later..");
                 return;
             }
             var eleLink = document.createElement('a');
