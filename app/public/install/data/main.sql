@@ -93,9 +93,9 @@ CREATE TABLE `agile_board_column` (
 --
 
 INSERT INTO `agile_board_column` (`id`, `name`, `board_id`, `data`, `weight`) VALUES
-(1, '准 备', 1, '[\"open\",\"reopen\",\"todo\",\"delay\"]', 3),
-(2, '进行中', 1, '[\"in_progress\",\"in_review\"]', 2),
-(3, '已完成', 1, '[\"resolved\",\"closed\",\"done\"]', 1),
+(1, 'Preparing', 1, '[\"open\",\"reopen\",\"todo\",\"delay\"]', 3),
+(2, 'In Progress', 1, '[\"in_progress\",\"in_review\"]', 2),
+(3, 'Finished', 1, '[\"resolved\",\"closed\",\"done\"]', 1),
 (4, 'Simple', 2, '[\"1\",\"2\"]', 0),
 (5, 'Normal', 2, '[\"3\"]', 0);
 
@@ -129,12 +129,12 @@ CREATE TABLE `agile_sprint_issue_report` (
   `date` date NOT NULL,
   `week` tinyint(2) UNSIGNED DEFAULT NULL,
   `month` varchar(20) DEFAULT NULL,
-  `done_count` int(11) UNSIGNED DEFAULT '0' COMMENT '今天汇总完成的事项总数',
-  `no_done_count` int(11) UNSIGNED DEFAULT '0' COMMENT '今天汇总未完成的事项总数,安装状态进行统计',
-  `done_count_by_resolve` int(11) UNSIGNED DEFAULT '0' COMMENT '今天汇总完成的事项总数,按照解决结果进行统计',
-  `no_done_count_by_resolve` int(11) UNSIGNED DEFAULT '0' COMMENT '今天汇总未完成的事项总数,按照解决结果进行统计',
-  `today_done_points` int(11) UNSIGNED DEFAULT '0' COMMENT '敏捷开发中的事项工作量或点数',
-  `today_done_number` int(11) UNSIGNED DEFAULT '0' COMMENT '当天完成的事项数量'
+  `done_count` int(11) UNSIGNED DEFAULT '0' COMMENT 'Total Tasks Done Today',
+  `no_done_count` int(11) UNSIGNED DEFAULT '0' COMMENT 'Total Tasks Undone Today, Summarized By Status',
+  `done_count_by_resolve` int(11) UNSIGNED DEFAULT '0' COMMENT 'Total Tasks Done Today, Summarized By Evaluation Result',
+  `no_done_count_by_resolve` int(11) UNSIGNED DEFAULT '0' COMMENT 'Total Tasks Undone Today, Summarized By Evaluation Result',
+  `today_done_points` int(11) UNSIGNED DEFAULT '0' COMMENT 'Total Points for Tasks Done Today',
+  `today_done_number` int(11) UNSIGNED DEFAULT '0' COMMENT 'Total Number for Tasks Done Today'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -270,33 +270,27 @@ CREATE TABLE `field_main` (
 --
 
 INSERT INTO `field_main` VALUES 
-(1, 'summary', '标 题', NULL, 'TEXT', NULL, 1, NULL, 0), 
-(2, 'priority', '优先级', NULL, 'PRIORITY', NULL, 1, NULL, 0), 
-(3, 'fix_version', '解决版本', NULL, 'VERSION', NULL, 1, NULL, 0), 
-(4, 'assignee', '经办人', NULL, 'USER', NULL, 1, NULL, 0), 
-(5, 'reporter', '报告人', NULL, 'USER', NULL, 1, NULL, 0), 
-(6, 'description', '描 述', NULL, 'MARKDOWN', NULL, 1, NULL, 0), 
-(7, 'module', '模 块', NULL, 'MODULE', NULL, 1, NULL, 0), 
-(8, 'labels', '标 签', NULL, 'LABELS', NULL, 1, NULL, 0), 
-(9, 'environment', '运行环境', '如操作系统，软件平台，硬件环境', 'TEXT', NULL, 1, NULL, 0), 
-(10, 'resolve', '解决结果', '主要是面向测试工作着和产品经理', 'RESOLUTION', NULL, 1, NULL, 0), 
-(11, 'attachment', '附 件', NULL, 'UPLOAD_FILE', NULL, 1, NULL, 0), 
-(12, 'start_date', '开始日期', NULL, 'DATE', NULL, 1, '', 0), 
-(13, 'due_date', '结束日期', NULL, 'DATE', NULL, 1, NULL, 0), 
-(14, 'milestone', '里程碑', NULL, 'MILESTONE', NULL, 1, '', 0), 
-(15, 'sprint', '迭 代', NULL, 'SPRINT', NULL, 1, '', 0), 
-(17, 'parent_issue', '父事项', NULL, 'ISSUES', NULL, 1, '', 0), 
-(18, 'effect_version', '影响版本', NULL, 'VERSION', NULL, 1, '', 0), 
-(19, 'status', '状 态', NULL, 'STATUS', '1', 1, '', 950), 
-(20, 'assistants', '协助人', '协助人', 'USER_MULTI', NULL, 1, '', 900), 
-(21, 'weight', '权 重', '待办事项中的权重值', 'TEXT', '0', 1, '', 0), 
-(23, 'source', '来 源', '', 'TEXT', NULL, 0, '', 0), 
-(24, 'attachment_plane_pickup', '接机凭证', '接机的凭证，包含登机牌及出租车单据', 'UPLOAD_FILE', NULL, 1, 'null', 0), 
-(25, 'attachment_plane_dropoff', '送机凭证', '送机的凭证，包含登机牌照片和来回出租车单据', 'UPLOAD_FILE', NULL, 1, '', 0), 
-(26, 'abstract', '摘 要', '海报需要的报告内容简介', 'UPLOAD_FILE', NULL, 1, '', 0), 
-(27, 'poster', '海 报', '制作完成的海报', 'UPLOAD_FILE', NULL, 1, '', 0), 
-(28, 'invitation', '邀请函', '制作完成的邀请函', 'UPLOAD_FILE', NULL, 1, '', 0),
-(29, 'payday', '报销材料', '发票等报销证明', 'UPLOAD_FILE', NULL, 1, '', 0);
+(1, 'summary', 'Title', NULL, 'TEXT', NULL, 1, NULL, 0), 
+(2, 'priority', 'Priority', NULL, 'PRIORITY', NULL, 1, NULL, 0), 
+(3, 'fix_version', 'Fix Version', NULL, 'VERSION', NULL, 1, NULL, 0), 
+(4, 'assignee', 'Assignee', NULL, 'USER', NULL, 1, NULL, 0), 
+(5, 'reporter', 'Reporter', NULL, 'USER', NULL, 1, NULL, 0), 
+(6, 'description', 'Description', NULL, 'MARKDOWN', NULL, 1, NULL, 0), 
+(7, 'module', 'Module', NULL, 'MODULE', NULL, 1, NULL, 0), 
+(8, 'labels', 'Label', NULL, 'LABELS', NULL, 1, NULL, 0), 
+(9, 'environment', 'Environment', 'Applicable Environment', 'TEXT', NULL, 1, NULL, 0), 
+(10, 'resolve', 'Evaluation', 'Evaluation Result Used For Audit', 'RESOLUTION', NULL, 1, NULL, 0), 
+(11, 'attachment', 'Attachment', NULL, 'UPLOAD_FILE', NULL, 1, NULL, 0), 
+(12, 'start_date', 'Start Date', NULL, 'DATE', NULL, 1, '', 0), 
+(13, 'due_date', 'Due Date', NULL, 'DATE', NULL, 1, NULL, 0), 
+(14, 'milestone', 'Milestone', NULL, 'MILESTONE', NULL, 1, '', 0), 
+(15, 'sprint', 'Sprint', NULL, 'SPRINT', NULL, 1, '', 0), 
+(17, 'parent_issue', 'Parent Task', NULL, 'ISSUES', NULL, 1, '', 0), 
+(18, 'effect_version', 'Effect Version', NULL, 'VERSION', NULL, 1, '', 0), 
+(19, 'status', 'Status', NULL, 'STATUS', '1', 1, '', 950), 
+(20, 'assistants', 'Assistant', 'Assistant', 'USER_MULTI', NULL, 1, '', 900), 
+(21, 'weight', 'Weight', 'The Weight for the Task', 'TEXT', '0', 1, '', 0), 
+(23, 'source', 'Source', '', 'TEXT', NULL, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -364,11 +358,11 @@ CREATE TABLE `hornet_user` (
   `phone` varchar(20) NOT NULL,
   `password` varchar(32) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL DEFAULT '',
-  `status` tinyint(2) UNSIGNED NOT NULL DEFAULT '1' COMMENT '用户状态:1正常,2禁用',
+  `status` tinyint(2) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'User Status: 1 Normal,2 Disabled',
   `reg_time` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `last_login_time` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `company_id` int(11) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='User Table';
 
 -- --------------------------------------------------------
 
@@ -393,9 +387,9 @@ CREATE TABLE `issue_description_template` (
   `id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   `content` text NOT NULL,
-  `created` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
-  `updated` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '更新时间'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='新增事项时描述的模板';
+  `created` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Created Time',
+  `updated` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Updated Time'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Task Description Template';
 
 --
 -- 转存表中的数据 `issue_description_template`
@@ -564,9 +558,9 @@ CREATE TABLE `issue_label` (
 --
 
 INSERT INTO `issue_label` (`id`, `project_id`, `title`, `color`, `bg_color`) VALUES
-(1, 0, '错 误', '#FFFFFF', '#FF0000'),
-(2, 0, '成 功', '#FFFFFF', '#69D100'),
-(3, 0, '警 告', '#FFFFFF', '#F0AD4E');
+(1, 0, 'Error', '#FFFFFF', '#FF0000'),
+(2, 0, 'Success', '#FFFFFF', '#69D100'),
+(3, 0, 'Warning', '#FFFFFF', '#F0AD4E');
 
 -- --------------------------------------------------------
 
@@ -655,11 +649,11 @@ CREATE TABLE `issue_priority` (
 --
 
 INSERT INTO `issue_priority` (`id`, `sequence`, `name`, `_key`, `description`, `iconurl`, `status_color`, `font_awesome`, `is_system`) VALUES
-(1, 1, '紧 急', 'very_import', '阻塞开发或测试的工作进度，或影响系统无法运行的错误', '/images/icons/priorities/blocker.png', 'red', NULL, 1),
-(2, 2, '重 要', 'import', '系统崩溃，丢失数据或内存溢出等严重错误、或者必需完成的任务', '/images/icons/priorities/critical.png', '#cc0000', NULL, 1),
-(3, 3, '高', 'high', '主要的功能无效或流程异常', '/images/icons/priorities/major.png', '#ff0000', NULL, 1),
-(4, 4, '中', 'normal', '功能部分无效或对现有系统的改进', '/images/icons/priorities/minor.png', '#006600', NULL, 1),
-(5, 5, '低', 'low', '不影响功能和流程的问题', '/images/icons/priorities/trivial.png', '#003300', NULL, 1);
+(1, 1, 'Urgent', 'very_import', 'Very Important Task', '/images/icons/priorities/blocker.png', 'red', NULL, 1),
+(2, 2, 'Important', 'import', 'Important Task', '/images/icons/priorities/critical.png', '#cc0000', NULL, 1),
+(3, 3, 'High', 'high', 'Task With High Priority', '/images/icons/priorities/major.png', '#ff0000', NULL, 1),
+(4, 4, 'Normal', 'normal', 'Normal Task', '/images/icons/priorities/minor.png', '#006600', NULL, 1),
+(5, 5, 'Low', 'low', 'Task With Low Priority', '/images/icons/priorities/trivial.png', '#003300', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -722,14 +716,13 @@ CREATE TABLE `issue_resolve` (
 --
 
 INSERT INTO `issue_resolve` (`id`, `sequence`, `name`, `_key`, `description`, `font_awesome`, `color`, `is_system`) VALUES
-(1, 1, '已解决', 'fixed', '事项已经解决', NULL, '#1aaa55', 1),
-(2, 2, '不能解决', 'not_fix', '事项不可抗拒原因无法解决', NULL, '#db3b21', 1),
-(3, 3, '事项重复', 'require_duplicate', '事项需要的描述需要有重现步骤', NULL, '#db3b21', 1),
-(4, 4, '信息不完整', 'not_complete', '事项信息描述不完整', NULL, '#db3b21', 1),
-(5, 5, '不能重现', 'not_reproduce', '事项不能重现', NULL, '#db3b21', 1),
-(10000, 6, '结束', 'done', '事项已经解决并关闭掉', NULL, '#1aaa55', 1),
-(10100, 8, '问题不存在', 'issue_not_exists', '事项不存在', NULL, 'rgba(0,0,0,0.85)', 1),
-(10101, 9, '延迟处理', 'delay', '事项将推迟处理', NULL, 'rgba(0,0,0,0.85)', 1);
+(1, 1, 'Resolved', 'fixed', 'The requirements are deemed to be met', NULL, '#1aaa55', 1),
+(2, 2, 'Excluded', 'excluded', 'This process is excluded / not applied. The justification was deemed acceptable', NULL, '#1aaa55', 1),
+(3, 3, 'Passed', 'not_formal', 'The requirements are deemed to be met with the exception of the established nonconformity(ies)', NULL, '#ffd700', 1),
+(4, 4, 'Not Applicable', 'not_applicable', 'Evaluation not applicable', NULL, '#db3b21', 1),
+(5, 5, 'Not In Scope', 'not_exists', 'This task was not in the scope of the audit', NULL, '#db3b21', 1),
+(6, 6, 'Unable To Resolve', 'not_fix', 'This task was planned to be audited. Due to the recorded obstacle(s), it was not audited', NULL, '#db3b21', 1),
+(7, 7, 'Error', 'error', 'The requirements are not met, Major nonconformity has been established', NULL, '#db3b21', 1),
 
 -- --------------------------------------------------------
 
@@ -753,14 +746,14 @@ CREATE TABLE `issue_status` (
 --
 
 INSERT INTO `issue_status` (`id`, `sequence`, `name`, `_key`, `description`, `font_awesome`, `is_system`, `color`) VALUES
-(1, 1, '打 开', 'open', '表示事项被提交等待有人处理', '/images/icons/statuses/open.png', 1, 'info'),
-(3, 3, '进行中', 'in_progress', '表示事项在处理当中，尚未完成', '/images/icons/statuses/inprogress.png', 1, 'primary'),
-(4, 4, '重新打开', 'reopen', '事项重新被打开,重新进行解决', '/images/icons/statuses/reopened.png', 1, 'warning'),
-(5, 5, '已解决', 'resolved', '事项已经解决', '/images/icons/statuses/resolved.png', 1, 'success'),
-(6, 6, '已关闭', 'closed', '问题处理结果确认后，置于关闭状态。', '/images/icons/statuses/closed.png', 1, 'success'),
-(10001, 0, '完成', 'done', '表明一件事项已经解决且被实践验证过', '', 1, 'success'),
-(10002, 9, '回 顾', 'in_review', '该事项正在回顾或检查中', '/images/icons/statuses/information.png', 1, 'info'),
-(10100, 10, '延迟处理', 'delay', '延迟处理', '/images/icons/statuses/generic.png', 1, 'info');
+(1, 1, 'Open', 'open', 'Task Waiting to be Processed', '/images/icons/statuses/open.png', 1, 'info'),
+(3, 3, 'In Progress', 'in_progress', 'Task Solving In Progress', '/images/icons/statuses/inprogress.png', 1, 'primary'),
+(4, 4, 'Reopen', 'reopen', 'Task Reopened and Waiting to be Solved', '/images/icons/statuses/reopened.png', 1, 'warning'),
+(5, 5, 'Solved', 'resolved', 'Task Solved', '/images/icons/statuses/resolved.png', 1, 'success'),
+(6, 6, 'Closed', 'closed', 'Task Closed', '/images/icons/statuses/closed.png', 1, 'success'),
+(10001, 0, 'Finished', 'done', 'Task Finished', '', 1, 'success'),
+(10002, 9, 'Reviewing', 'in_review', 'Task Being Reviewed', '/images/icons/statuses/information.png', 1, 'info'),
+(10100, 10, 'Delayed', 'delay', 'Task Being Delayed', '/images/icons/statuses/generic.png', 1, 'info');
 
 -- --------------------------------------------------------
 
@@ -794,11 +787,7 @@ INSERT INTO `issue_type` (`id`, `sequence`, `name`, `_key`, `catalog`, `descript
 (5, 0, '子任务', 'child_task', 'Standard', '', 'fa-subscript', NULL, 1, 1), 
 (6, 2, '用户故事', 'user_story', 'Scrum', '从用户的角度来描述用户渴望得到的功能。一个好的用户故事包括三个要素：1. 角色；2. 活动　3. 商业价值', 'fa-users', NULL, 1, 2), 
 (7, 3, '技术任务', 'tech_task', 'Scrum', '技术性的任务, 如架构设计, 数据库选型', 'fa-cogs', NULL, 1, 2), 
-(8, 5, '史诗任务', 'epic', 'Scrum', '大型的或大量的工作，包含许多用户故事', 'fa-address-book-o', NULL, 1, 5), 
-(11, 6, '会议接机', 'airport_pickup', 'Custom', '到机场接来访教授去唯识酒店或其他预定酒店', 'fa-chevron-circle-up', NULL, 0, 3), 
-(12, 7, '会议送机', 'airport_dropoff', 'Custom', '从唯识酒店或其他预定酒店送来访教授到机场', 'fa-automobile', NULL, 0, 4), 
-(13, 8, '会议海报', 'symposium_poster', 'Custom', '为讲座制作海报', 'fa-map', NULL, 0, 6), 
-(14, 9, '会议邀请函', 'symposium_Invitation', 'Custom', '准备会议所需的邀请函', 'fa-envelope-o', NULL, 0, 5);
+(8, 5, '史诗任务', 'epic', 'Scrum', '大型的或大量的工作，包含许多用户故事', 'fa-address-book-o', NULL, 1, 5); 
 
 -- --------------------------------------------------------
 
@@ -1445,18 +1434,18 @@ CREATE TABLE `main_notify_scheme_data` (
 --
 
 INSERT INTO `main_notify_scheme_data` (`id`, `scheme_id`, `name`, `flag`, `user`) VALUES
-(1, 1, '事项创建', 'issue@create', '[\"assigee\",\"reporter\",\"follow\"]'),
-(2, 1, '事项更新', 'issue@update', '[\"assigee\",\"reporter\",\"follow\"]'),
-(3, 1, '事项分配', 'issue@assign', '[\"assigee\",\"reporter\",\"follow\"]'),
-(4, 1, '事项已解决', 'issue@resolve@complete', '[\"assigee\",\"reporter\",\"follow\"]'),
-(5, 1, '事项已关闭', 'issue@close', '[\"assigee\",\"reporter\",\"follow\"]'),
-(6, 1, '事项评论', 'issue@comment@create', '[\"assigee\",\"reporter\",\"follow\"]'),
-(7, 1, '删除评论', 'issue@comment@remove', '[\"assigee\",\"reporter\",\"follow\"]'),
-(8, 1, '开始解决事项', 'issue@resolve@start', '[\"assigee\",\"reporter\",\"follow\"]'),
-(9, 1, '停止解决事项', 'issue@resolve@stop', '[\"assigee\",\"reporter\",\"follow\"]'),
-(10, 1, '新增迭代', 'sprint@create', '[\"project\"]'),
-(11, 1, '设置迭代进行时', 'sprint@start', '[\"project\"]'),
-(12, 1, '删除迭代', 'sprint@remove', '[\"project\"]');
+(1, 1, 'Create Task', 'issue@create', '[\"assigee\",\"reporter\",\"follow\"]'),
+(2, 1, 'Update Task', 'issue@update', '[\"assigee\",\"reporter\",\"follow\"]'),
+(3, 1, 'Assign Task', 'issue@assign', '[\"assigee\",\"reporter\",\"follow\"]'),
+(4, 1, 'Resolve Task', 'issue@resolve@complete', '[\"assigee\",\"reporter\",\"follow\"]'),
+(5, 1, 'Close Task', 'issue@close', '[\"assigee\",\"reporter\",\"follow\"]'),
+(6, 1, 'Comment on Task', 'issue@comment@create', '[\"assigee\",\"reporter\",\"follow\"]'),
+(7, 1, 'Delete Comment on Task', 'issue@comment@remove', '[\"assigee\",\"reporter\",\"follow\"]'),
+(8, 1, 'Start to Solve Task', 'issue@resolve@start', '[\"assigee\",\"reporter\",\"follow\"]'),
+(9, 1, 'Stop to Solve Task', 'issue@resolve@stop', '[\"assigee\",\"reporter\",\"follow\"]'),
+(10, 1, 'Add Sprint', 'sprint@create', '[\"project\"]'),
+(11, 1, 'Set Sprint Start', 'sprint@start', '[\"project\"]'),
+(12, 1, 'Delete Sprint', 'sprint@remove', '[\"project\"]');
 
 -- --------------------------------------------------------
 
@@ -1599,30 +1588,30 @@ CREATE TABLE `main_widget` (
 --
 
 INSERT INTO `main_widget` (`id`, `name`, `_key`, `method`, `module`, `pic`, `type`, `status`, `is_default`, `required_param`, `description`, `parameter`, `order_weight`) VALUES
-(1, '我参与的项目', 'my_projects', 'fetchUserHaveJoinProjects', '通用', 'my_projects.png', 'list', 1, 1, 0, '', '[]', 0),
-(2, '分配给我的事项', 'assignee_my', 'fetchAssigneeIssues', '通用', 'assignee_my.png', 'list', 1, 1, 0, '', '[]', 0),
-(3, '活动日志', 'activity', 'fetchActivity', '通用', 'activity.png', 'list', 1, 1, 0, '', '[]', 0),
-(4, '便捷导航', 'nav', 'fetchNav', '通用', 'nav.png', 'list', 1, 1, 0, '', '[]', 0),
-(5, '组织', 'org', 'fetchOrgs', '通用', 'org.png', 'list', 1, 1, 0, '', '[]', 0),
-(6, '项目-汇总', 'project_stat', 'fetchProjectStat', '项目', 'project_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]}]', 0),
-(7, '项目-解决与未解决对比图', 'project_abs', 'fetchProjectAbs', '项目', 'abs.png', 'chart_bar', 1, 0, 1, '', '\r\n[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]},{\"name\":\"时间\",\"field\":\"by_time\",\"type\":\"select\",\"value\":[{\"title\":\"天\",\"value\":\"date\"},{\"title\":\"周\",\"value\":\"week\"},{\"title\":\"月\",\"value\":\"month\"}]},{\"name\":\"几日之内\",\"field\":\"within_date\",\"type\":\"text\",\"value\":\"\"}]', 0),
-(8, '项目-优先级统计', 'project_priority_stat', 'fetchProjectPriorityStat', '项目', 'priority_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]},{\"name\":\"状态\",\"field\":\"status\",\"type\":\"select\",\"value\":[{\"title\":\"全部\",\"value\":\"all\"},{\"title\":\"未解决\",\"value\":\"unfix\"}]}]\r\n', 0),
-(9, '项目-状态统计', 'project_status_stat', 'fetchProjectStatusStat', '项目', 'status_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]}]', 0),
-(10, '项目-开发者统计', 'project_developer_stat', 'fetchProjectDeveloperStat', '项目', 'developer_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]},{\"name\":\"状态\",\"field\":\"status\",\"type\":\"select\",\"value\":[{\"title\":\"全部\",\"value\":\"all\"},{\"title\":\"未解决\",\"value\":\"unfix\"}]}]', 0),
-(11, '项目-事项统计', 'project_issue_type_stat', 'fetchProjectIssueTypeStat', '项目', 'issue_type_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]}]', 0),
-(12, '项目-饼状图', 'project_pie', 'fetchProjectPie', '项目', 'chart_pie.png', 'chart_pie', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]},{\"name\":\"数据源\",\"field\":\"data_field\",\"type\":\"select\",\"value\":[{\"title\":\"经办人\",\"value\":\"assignee\"},{\"title\":\"优先级\",\"value\":\"priority\"},{\"title\":\"事项类型\",\"value\":\"issue_type\"},{\"title\":\"状态\",\"value\":\"status\"}]},{\"name\":\"开始时间\",\"field\":\"start_date\",\"type\":\"date\",\"value\":\"\"},{\"name\":\"结束时间\",\"field\":\"end_date\",\"type\":\"date\",\"value\":\"\"}]', 0),
-(13, '迭代-汇总', 'sprint_stat', 'fetchSprintStat', '迭代', 'sprint_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
-(14, '迭代-倒计时', 'sprint_countdown', 'fetchSprintCountdown', '项目', 'countdown.png', 'text', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
-(15, '迭代-燃尽图', 'sprint_burndown', 'fetchSprintBurndown', '迭代', 'burndown.png', 'text', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
-(16, '迭代-速率图', 'sprint_speed', 'fetchSprintSpeedRate', '迭代', 'sprint_speed.png', 'text', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
-(17, '迭代-饼状图', 'sprint_pie', 'fetchSprintPie', '迭代', 'chart_pie.png', 'chart_pie', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]},{\"name\":\"数据源\",\"field\":\"data_field\",\"type\":\"select\",\"value\":[{\"title\":\"经办人\",\"value\":\"assignee\"},{\"title\":\"优先级\",\"value\":\"priority\"},{\"title\":\"事项类型\",\"value\":\"issue_type\"},{\"title\":\"状态\",\"value\":\"status\"}]}]', 0),
-(18, '迭代-解决与未解决对比图', 'sprint_abs', 'fetchSprintAbs', '迭代', 'abs.png', 'chart_bar', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
-(19, '迭代-优先级统计', 'sprint_priority_stat', 'fetchSprintPriorityStat', '迭代', 'priority_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]},{\"name\":\"状态\",\"field\":\"status\",\"type\":\"select\",\"value\":[{\"title\":\"全部\",\"value\":\"all\"},{\"title\":\"未解决\",\"value\":\"unfix\"}]}]', 0),
-(20, '迭代-状态统计', 'sprint_status_stat', 'fetchSprintStatusStat', '迭代', 'status_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
-(21, '迭代-开发者统计', 'sprint_developer_stat', 'fetchSprintDeveloperStat', '迭代', 'developer_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]},{\"name\":\"迭代\",\"field\":\"status\",\"type\":\"select\",\"value\":[{\"title\":\"全部\",\"value\":\"all\"},{\"title\":\"未解决\",\"value\":\"unfix\"}]}]', 0),
-(22, '迭代-事项统计', 'sprint_issue_type_stat', 'fetchSprintIssueTypeStat', '迭代', 'issue_type_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
-(23, '分配给我未解决的事项', 'unresolve_assignee_my', 'fetchUnResolveAssigneeIssues', '通用', 'assignee_my.png', 'list', 1, 1, 0, '', '[]', 0),
-(24, '日历', 'calender', 'fetchCalender', '通用', 'calender.png', 'text', 1, 1, 0, '', '[]', 0);
+(1, 'My Projects', 'my_projects', 'fetchUserHaveJoinProjects', '通用', 'my_projects.png', 'list', 1, 1, 0, '', '[]', 0),
+(2, 'My Tasks', 'assignee_my', 'fetchAssigneeIssues', '通用', 'assignee_my.png', 'list', 1, 1, 0, '', '[]', 0),
+(3, 'Activity Log', 'activity', 'fetchActivity', '通用', 'activity.png', 'list', 1, 1, 0, '', '[]', 0),
+(4, 'Quick Navigator', 'nav', 'fetchNav', '通用', 'nav.png', 'list', 1, 1, 0, '', '[]', 0),
+(5, 'Organizations', 'org', 'fetchOrgs', '通用', 'org.png', 'list', 1, 1, 0, '', '[]', 0),
+(6, 'Project Stats', 'project_stat', 'fetchProjectStat', '项目', 'project_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]}]', 0),
+(7, 'Project Resolves', 'project_abs', 'fetchProjectAbs', '项目', 'abs.png', 'chart_bar', 1, 0, 1, '', '\r\n[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]},{\"name\":\"时间\",\"field\":\"by_time\",\"type\":\"select\",\"value\":[{\"title\":\"天\",\"value\":\"date\"},{\"title\":\"周\",\"value\":\"week\"},{\"title\":\"月\",\"value\":\"month\"}]},{\"name\":\"几日之内\",\"field\":\"within_date\",\"type\":\"text\",\"value\":\"\"}]', 0),
+(8, 'Project Priorities', 'project_priority_stat', 'fetchProjectPriorityStat', '项目', 'priority_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]},{\"name\":\"状态\",\"field\":\"status\",\"type\":\"select\",\"value\":[{\"title\":\"全部\",\"value\":\"all\"},{\"title\":\"未解决\",\"value\":\"unfix\"}]}]\r\n', 0),
+(9, 'Project Status Stats', 'project_status_stat', 'fetchProjectStatusStat', '项目', 'status_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]}]', 0),
+(10, 'Project Developer Stats', 'project_developer_stat', 'fetchProjectDeveloperStat', '项目', 'developer_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]},{\"name\":\"状态\",\"field\":\"status\",\"type\":\"select\",\"value\":[{\"title\":\"全部\",\"value\":\"all\"},{\"title\":\"未解决\",\"value\":\"unfix\"}]}]', 0),
+(11, 'Project Task Stats', 'project_issue_type_stat', 'fetchProjectIssueTypeStat', '项目', 'issue_type_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]}]', 0),
+(12, 'Project Pie Stats', 'project_pie', 'fetchProjectPie', '项目', 'chart_pie.png', 'chart_pie', 1, 0, 1, '', '[{\"name\":\"项目\",\"field\":\"project_id\",\"type\":\"my_projects_select\",\"value\":[]},{\"name\":\"数据源\",\"field\":\"data_field\",\"type\":\"select\",\"value\":[{\"title\":\"经办人\",\"value\":\"assignee\"},{\"title\":\"优先级\",\"value\":\"priority\"},{\"title\":\"事项类型\",\"value\":\"issue_type\"},{\"title\":\"状态\",\"value\":\"status\"}]},{\"name\":\"开始时间\",\"field\":\"start_date\",\"type\":\"date\",\"value\":\"\"},{\"name\":\"结束时间\",\"field\":\"end_date\",\"type\":\"date\",\"value\":\"\"}]', 0),
+(13, 'Sprint Stats', 'sprint_stat', 'fetchSprintStat', '迭代', 'sprint_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
+(14, 'Sprint Countdown', 'sprint_countdown', 'fetchSprintCountdown', '项目', 'countdown.png', 'text', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
+(15, 'Sprint Burndown', 'sprint_burndown', 'fetchSprintBurndown', '迭代', 'burndown.png', 'text', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
+(16, 'Sprint Speed', 'sprint_speed', 'fetchSprintSpeedRate', '迭代', 'sprint_speed.png', 'text', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
+(17, 'Sprint Pie Stats', 'sprint_pie', 'fetchSprintPie', '迭代', 'chart_pie.png', 'chart_pie', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]},{\"name\":\"数据源\",\"field\":\"data_field\",\"type\":\"select\",\"value\":[{\"title\":\"经办人\",\"value\":\"assignee\"},{\"title\":\"优先级\",\"value\":\"priority\"},{\"title\":\"事项类型\",\"value\":\"issue_type\"},{\"title\":\"状态\",\"value\":\"status\"}]}]', 0),
+(18, 'Sprint Recolve Stats', 'sprint_abs', 'fetchSprintAbs', '迭代', 'abs.png', 'chart_bar', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
+(19, 'Sprint Priority Stats', 'sprint_priority_stat', 'fetchSprintPriorityStat', '迭代', 'priority_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]},{\"name\":\"状态\",\"field\":\"status\",\"type\":\"select\",\"value\":[{\"title\":\"全部\",\"value\":\"all\"},{\"title\":\"未解决\",\"value\":\"unfix\"}]}]', 0),
+(20, 'Sprint Status Stats', 'sprint_status_stat', 'fetchSprintStatusStat', '迭代', 'status_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
+(21, 'Sprint Developer Stats', 'sprint_developer_stat', 'fetchSprintDeveloperStat', '迭代', 'developer_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]},{\"name\":\"迭代\",\"field\":\"status\",\"type\":\"select\",\"value\":[{\"title\":\"全部\",\"value\":\"all\"},{\"title\":\"未解决\",\"value\":\"unfix\"}]}]', 0),
+(22, 'Sprint Task Stats', 'sprint_issue_type_stat', 'fetchSprintIssueTypeStat', '迭代', 'issue_type_stat.png', 'list', 1, 0, 1, '', '[{\"name\":\"迭代\",\"field\":\"sprint_id\",\"type\":\"my_projects_sprint_select\",\"value\":[]}]', 0),
+(23, 'My Unresolved Tasks', 'unresolve_assignee_my', 'fetchUnResolveAssigneeIssues', '通用', 'assignee_my.png', 'list', 1, 1, 0, '', '[]', 0),
+(24, 'Calender', 'calender', 'fetchCalender', '通用', 'calender.png', 'text', 1, 1, 0, '', '[]', 0);
 
 -- --------------------------------------------------------
 
@@ -2288,7 +2277,7 @@ CREATE TABLE `user_main` (
 --
 
 INSERT INTO `user_main` (`uid`, `directory_id`, `phone`, `username`, `openid`, `status`, `first_name`, `last_name`, `display_name`, `email`, `password`, `sex`, `birthday`, `create_time`, `update_time`, `avatar`, `source`, `ios_token`, `android_token`, `version`, `token`, `last_login_time`, `is_system`, `login_counter`, `title`, `sign`) VALUES
-(1, 1, '18002510000', 'master', 'q7a752741f667201b54780c926faec4e', 1, '', 'master', 'Master', 'phpgrid2@gmail.com', '$2y$10$hgUOO.S0FPEUnltUk7oAv.f9KWs7zY14TTdbevFVtuRsv.ka.SCdm', 1, '2019-01-13', 0, 0, 'avatar/1.png?t=1562323397', '', NULL, NULL, NULL, NULL, 1562323381, 0, 0, '管理员', '~~~优化办公流程!');
+(1, 1, '18002510000', 'master', 'q7a752741f667201b54780c926faec4e', 1, '', 'master', 'Master', 'phpgrid2@gmail.com', '$2y$10$hgUOO.S0FPEUnltUk7oAv.f9KWs7zY14TTdbevFVtuRsv.ka.SCdm', 1, '2019-01-13', 0, 0, 'avatar/1.png?t=1562323397', '', NULL, NULL, NULL, NULL, 1562323381, 0, 0, 'Administrator', ' - Make Audit Great Again!');
 
 -- --------------------------------------------------------
 
