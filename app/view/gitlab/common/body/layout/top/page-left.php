@@ -5,25 +5,25 @@
                 <use xlink:href="#logo-svg" />
             </svg>
 
-            <h1>P R I M E</h1>
+            <h1>A U D I T</h1>
         </a>
     </div>
 
     <ul class="sidebar-menu">
         <li class="menu-item <? if($top_menu_active=='index') echo 'menu-open';?>">
             <a href="/dashboard">
-                <i class="fa fa-dashboard"></i> <span>首页</span>
+                <i class="fa fa-dashboard"></i> <span>Home Page</span>
             </a>
         </li>
         <li class="menu-item <? if($top_menu_active=='org') echo 'menu-open';?>">
             <a href="/org">
                 <i class="fa fa-files-o"></i>
-                <span>组织</span>
+                <span>Organization</span>
             </a>
         </li>
         <li class="menu-item <? if($top_menu_active=='project') echo 'menu-open';?>">
             <a href="/projects">
-                <i class="fa fa-th"></i> <span>项目</span>
+                <i class="fa fa-th"></i> <span>Audit Company</span>
             </a>
         </li>
         <!--<li class="menu-item <? if($top_menu_active=='issue') echo 'menu-open';?>">
@@ -37,19 +37,19 @@
         <li class="menu-item <? if($top_menu_active=='system') echo 'menu-open';?>">
             <a href="javascript:;">
                 <i class="fa fa-laptop"></i>
-                <span>管理</span>
+                <span>Management</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-down pull-right"></i>
                 </span>
             </a>
             <ul class="sub-menu">
-                <li><a href="/admin/system">管理</a></li>
+                <li><a href="/admin/system">Management</a></li>
             </ul>
         </li>
         <?php } ?>
         <li class="menu-item <? if($top_menu_active=='help') echo 'menu-open';?>">
             <a href="http://www.masterlab.vip/help.php" target="_blank">
-                <i class="fa fa-edit"></i> <span>帮助</span>
+                <i class="fa fa-edit"></i> <span>Help</span>
             </a>
         </li>
     </ul>

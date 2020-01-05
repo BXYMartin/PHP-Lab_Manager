@@ -113,7 +113,7 @@
                                                         <i class="fa fa-chevron-down"></i>
                                                     </button>
                                                     <div class="dropdown-menu dropdown-select filtered-search-history-dropdown">
-                                                        <div class="dropdown-title"><span>历史搜索</span>
+                                                        <div class="dropdown-title"><span>History</span>
                                                             <button class="dropdown-title-button dropdown-menu-close"
                                                                     aria-label="Close" type="button"><i
                                                                         class="fa fa-times dropdown-menu-close-icon"></i>
@@ -136,7 +136,7 @@
                                                                        data-project-id="31"
                                                                        data-username-params="[]"
                                                                        id="filtered-search-issues"
-                                                                       placeholder="搜索或过滤结果...">
+                                                                       placeholder="Search Or Filter Result...">
                                                             </li>
                                                         </ul>
                                                         <i class="fa fa-filter"></i>
@@ -150,7 +150,7 @@
                                                             <li class="filter-dropdown-item" data-action="submit">
                                                                 <button class="btn btn-link">
                                                                     <i class="fa fa-search"></i>
-                                                                    <span>提示:按"回车键"进行查询</span>
+                                                                    <span>Hint: Press ENTER To Search</span>
                                                                 </button>
                                                             </li>
                                                         </ul>
@@ -166,7 +166,7 @@
                                                     </div>
 
                                                     <div class="filtered-search-input-dropdown-menu dropdown-menu"
-                                                         data-hint="报告人" data-icon="pencil" data-tag="@author"
+                                                         data-hint="Reporter" data-icon="pencil" data-tag="@author"
                                                          id="js-dropdown-author">
                                                         <ul class="filter-dropdown" data-dropdown data-dynamic>
                                                             <li class="filter-dropdown-item">
@@ -182,7 +182,7 @@
                                                         </ul>
                                                     </div>
                                                     <div class="filtered-search-input-dropdown-menu dropdown-menu"
-                                                         data-hint="经办人" data-icon="user" data-tag="@assignee"
+                                                         data-hint="Assignee" data-icon="user" data-tag="@assignee"
                                                          id="js-dropdown-assignee">
                                                         <ul data-dropdown>
                                                             <li class="filter-dropdown-item" data-value="none">
@@ -206,7 +206,7 @@
                                                         </ul>
                                                     </div>
                                                     <div class="filtered-search-input-dropdown-menu dropdown-menu"
-                                                         data-hint="迭代" data-icon="rocket" data-tag="sprint"
+                                                         data-hint="Sprint" data-icon="rocket" data-tag="sprint"
                                                          data-type="input" id="js-dropdown-sprint">
                                                         <ul data-dropdown>
                                                             <li class="filter-dropdown-item" data-value="none">
@@ -225,7 +225,7 @@
                                                         </ul>
                                                     </div>
                                                     <div class="filtered-search-input-dropdown-menu dropdown-menu"
-                                                         data-hint="模块" data-icon="square" data-tag="module"
+                                                         data-hint="Module" data-icon="square" data-tag="module"
                                                          data-type="input" id="js-dropdown-module">
                                                         <ul data-dropdown>
                                                             <li class="filter-dropdown-item" data-value="none">
@@ -244,7 +244,7 @@
                                                         </ul>
                                                     </div>
                                                     <div class="filtered-search-input-dropdown-menu dropdown-menu"
-                                                         data-hint="状态" data-icon="info" data-tag="status"
+                                                         data-hint="Status" data-icon="info" data-tag="status"
                                                          data-type="input"
                                                          id="js-dropdown-status">
 
@@ -257,7 +257,7 @@
                                                         </ul>
                                                     </div>
                                                     <div class="filtered-search-input-dropdown-menu dropdown-menu"
-                                                         data-hint="解决结果" data-icon="info" data-tag="resolve"
+                                                         data-hint="Evaluation" data-icon="info" data-tag="resolve"
                                                          data-type="input" id="js-dropdown-resolve">
 
                                                         <ul class="filter-dropdown" data-dropdown data-dynamic>
@@ -270,7 +270,7 @@
                                                         </ul>
                                                     </div>
                                                     <div class="filtered-search-input-dropdown-menu dropdown-menu"
-                                                         data-hint="优先级" data-icon="info" data-tag="priority"
+                                                         data-hint="Priority" data-icon="info" data-tag="priority"
                                                          data-type="input" id="js-dropdown-priority">
 
                                                         <ul class="filter-dropdown" data-dropdown data-dynamic>
@@ -285,10 +285,10 @@
                                                 </div>
                                             </div>
                                             <button class="dropdown-toggle" id="btn-go_search" type="submit"
-                                                    title="请求数据"
+                                                    title="Request Data"
                                                     style="margin-left: -2px;"
                                             >
-                                                <i class="fa fa-search "></i> 搜 索
+                                                <i class="fa fa-search "></i> Search
                                             </button>
                                             <div class="filter-dropdown-container" style="margin-left: -2px">
                                                 <div class="dropdown inline   issue-sort-dropdown">
@@ -301,7 +301,7 @@
                                                                     data-display="static"
                                                                     data-toggle="dropdown"
                                                                     type="button">
-                                                               <span>排序:</span> <?= @$avl_sort_fields[$sort_field] ?>
+                                                               <span>Sort:</span> <?= @$avl_sort_fields[$sort_field] ?>
                                                                 <i aria-hidden="true" data-hidden="true"
                                                                    class="fa fa-chevron-down"></i>
                                                             </button>
@@ -321,7 +321,7 @@
                                                         </div>
                                                         <a id="btn_sort_by" type="button" data-sortby="<?= $sort_by ?>"
                                                            class="btn btn-default has-tooltip reverse-sort-btn qa-reverse-sort"
-                                                           title="<?= $sort_by == 'desc' ? '降序' : '升序' ?>"
+                                                           title="<?= $sort_by == 'desc' ? 'Descending' : 'Ascending' ?>"
                                                            style="height:38.5px"
                                                            href="#">
                                                             <? if ($sort_by == '' || $sort_by === 'desc') { ?>
@@ -348,13 +348,13 @@
                                                         <button id="change_view"
                                                                 class="dropdown-toggle "
                                                                 type="button"
-                                                                title="切换视图"
+                                                                title="Change View"
                                                                 data-toggle="dropdown"
                                                                 aria-haspopup="true"
                                                                 aria-expanded="false"
                                                                 style="height: 38.5px"
                                                         >
-                                                            <i id="change_view_icon" class="fa fa-outdent"></i> 视 图
+                                                            <i id="change_view_icon" class="fa fa-outdent"></i> View
                                                         </button><!-- aria-haspopup="true" aria-expanded="false"-->
                                                         <ul class="dropdown-menu action-list"
                                                             aria-labelledby="dropdownMenuButton"
@@ -363,32 +363,32 @@
                                                                 class="normal <? if ($issue_view == 'list') {
                                                                     echo 'active';
                                                                 } ?>" data-stopPropagation="true">
-                                                                <i class="fa fa-table"></i> 表格视图
+                                                                <i class="fa fa-table"></i> Table View
                                                             </li>
                                                             <? if ($issue_view != 'responsive') { ?>
                                                                 <li data-issue_view="detail"
                                                                     class="float-part  <? if ($issue_view == 'detail') {
                                                                         echo 'active';
                                                                     } ?>" data-stopPropagation="true">
-                                                                    <i class="fa fa-outdent"></i> 左右视图
+                                                                    <i class="fa fa-outdent"></i> Column View
                                                                 </li>
                                                             <? } ?>
                                                             <li data-issue_view="responsive"
                                                                 class="float <? if ($issue_view == 'responsive') {
                                                                     echo 'active';
                                                                 } ?>">
-                                                                <i class="fa fa-list"></i> 响应式视图
+                                                                <i class="fa fa-list"></i> Responsive View
                                                             </li>
                                                         </ul>
                                                     </div>
                                                     <div class="list-settings">
                                                         <button id="list_opt" class="dropdown-toggle" type="button"
-                                                                title="操作"
+                                                                title="Operation"
                                                                 data-toggle="dropdown"
                                                                 aria-haspopup="true"
                                                                 style="height: 38.5px"
                                                                 aria-expanded="false">
-                                                            <i class="fa fa-cog"></i> 更 多
+                                                            <i class="fa fa-cog"></i> More
                                                         </button><!-- aria-haspopup="true" aria-expanded="false"-->
                                                         <ul class="dropdown-menu settings-list"
                                                             aria-labelledby="dropdownMenuButton"
@@ -397,11 +397,11 @@
 
                                                             <li class="normal" data-stopPropagation="true"
                                                                 id="save_filter-btn">
-                                                                <a href="#"><i class="fa fa-save"></i> 保存搜索条件</a>
+                                                                <a href="#"><i class="fa fa-save"></i> Save Search Condition</a>
                                                             </li>
                                                             <li class="normal" data-stopPropagation="true">
                                                                 <a href="/user/filters"><i class="fa fa-filter"></i>
-                                                                    管理自定义过滤器</a>
+                                                                    Manage Custom Filter</a>
                                                             </li>
                                                             <li class="normal" data-stopPropagation="true">
                                                                 <a
@@ -409,7 +409,7 @@
                                                                         data-toggle="modal"
                                                                         id="a-setting_columns"
                                                                         href="#modal-setting_columns"><i
-                                                                            class="fa fa-check-square-o"></i> 设置显示列</a>
+                                                                            class="fa fa-check-square-o"></i> Set Visible Columns</a>
                                                             </li>
                                                             <?
 
@@ -419,7 +419,7 @@
                                                                 <a data-target="#modal-import_excel" data-toggle="modal"
                                                                    id="a-import-excel"
                                                                    href="#modal-import_excel">
-                                                                    <i class="fa fa-arrow-up"></i> 导入Excel数据
+                                                                    <i class="fa fa-arrow-up"></i> Import From Excel
                                                                 </a>
                                                             </li>
                                                             <? } ?>
@@ -431,7 +431,7 @@
                                                                 <a data-target="#modal-export_excel" data-toggle="modal"
                                                                    id="a-export-excel"
                                                                    href="#modal-export_excel">
-                                                                    <i class="fa fa-download"></i> 导出Excel数据
+                                                                    <i class="fa fa-download"></i> Export To Excel
                                                                 </a>
                                                             </li>
                                                             <? } ?>
@@ -446,7 +446,7 @@
                                                            data-target="#modal-create-issue" data-toggle="modal"
                                                            id="btn-create-issue" style="height:36px;margin-bottom: 3px"
                                                            href="#modal-create-issue"><i class="fa fa-plus fa-fw"></i>
-                                                            创 建
+                                                            Create
                                                         </a>
                                                         <?php
                                                     }
@@ -460,7 +460,7 @@
 
                                 <div class="small-tips hide"><!-- todo:当用户第一次进来，点击input的时候，然后setTimeout消失 -->
                                     <img src="<?= ROOT_URL ?>dev/img/tips_top.png" alt="">
-                                    这是一些提示
+                                    This is some hint
                                 </div>
                             </div>
 
@@ -490,15 +490,14 @@
 
                                         <tr>
 
-                                            <th class="js-pipeline-info pipeline-info"><? if (in_array('issue_num', $display_fields)) { ?>编 号<? } ?></th>
+                                            <th class="js-pipeline-info pipeline-info"><? if (in_array('issue_num', $display_fields)) { ?>ID<? } ?></th>
 
                                             <? if (in_array('issue_type', $display_fields)) { ?>
                                                 <th class="js-pipeline-stages pipeline-info">
                                                     <a class="sort_link" data-field="issue_type"
                                                        data-sortby="<?= $sort_by == 'desc' ? "asc" : "desc" ?>"
                                                        href="#">
-                                                        类
-                                                        型 <?= $sort_field == 'issue_type' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?></a>
+                                                        Type<?= $sort_field == 'issue_type' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?></a>
                                                 </th>
                                             <? } ?>
 
@@ -507,7 +506,7 @@
                                                     <a class="sort_link" data-field="priority"
                                                        data-sortby="<?= $sort_by == 'desc' ? "asc" : "desc" ?>"
                                                        href="#">
-                                                        优先级 <?= $sort_field == 'priority' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
+                                                        Priority <?= $sort_field == 'priority' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
                                                     </a>
                                                 </th>
                                             <? } ?>
@@ -515,7 +514,7 @@
                                             <?php
                                             if ($is_all_issues || in_array('project_id', $display_fields)) {
                                                 ?>
-                                                <th class="js-pipeline-info pipeline-info">项 目</th>
+                                                <th class="js-pipeline-info pipeline-info">Project</th>
                                             <?php } ?>
 
                                             <? if (in_array('module', $display_fields)) { ?>
@@ -523,8 +522,7 @@
                                                     <a class="sort_link" data-field="module"
                                                        data-sortby="<?= $sort_by == 'desc' ? "asc" : "desc" ?>"
                                                        href="#">
-                                                        模
-                                                        块 <?= $sort_field == 'module' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
+                                                        Module <?= $sort_field == 'module' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
                                                     </a>
                                                 </th>
                                             <? } ?>
@@ -534,14 +532,13 @@
                                                     <a class="sort_link" data-field="sprint"
                                                        data-sortby="<?= $sort_by == 'desc' ? "asc" : "desc" ?>"
                                                        href="#">
-                                                        迭
-                                                        代 <?= $sort_field == 'sprint' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
+                                                        Sprint <?= $sort_field == 'sprint' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
                                                     </a>
                                                 </th>
                                             <? } ?>
 
                                             <? if (in_array('summary', $display_fields)) { ?>
-                                                <th class="js-pipeline-commit pipeline-commit">主 题</th>
+                                                <th class="js-pipeline-commit pipeline-commit">Name</th>
                                             <? } ?>
 
                                             <? if (in_array('weight', $display_fields)) { ?>
@@ -549,8 +546,7 @@
                                                     <a class="sort_link" data-field="weight"
                                                        data-sortby="<?= $sort_by == 'desc' ? "asc" : "desc" ?>"
                                                        href="#">
-                                                        权
-                                                        重 <?= $sort_field == 'weight' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
+                                                        Weight <?= $sort_field == 'weight' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
                                                     </a>
                                                 </th>
                                             <? } ?>
@@ -560,20 +556,20 @@
                                                     <a class="sort_link" data-field="assignee"
                                                        data-sortby="<?= $sort_by == 'desc' ? "asc" : "desc" ?>"
                                                        href="#">
-                                                        经办人 <?= $sort_field == 'assignee' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
+                                                        Assignee <?= $sort_field == 'assignee' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
                                                     </a>
                                                 </th>
                                             <? } ?>
 
                                             <? if (in_array('reporter', $display_fields)) { ?>
                                                 <th class="jjs-pipeline-stages pipeline-info">
-                                                    报告人
+                                                    Reporter
                                                 </th>
                                             <? } ?>
 
                                             <? if (in_array('assistants', $display_fields)) { ?>
                                                 <th class="jjs-pipeline-stages pipeline-info">
-                                                    协助人
+                                                    Assistant
                                                 </th>
                                             <? } ?>
 
@@ -582,8 +578,7 @@
                                                     <a class="sort_link" data-field="status"
                                                        data-sortby="<?= $sort_by == 'desc' ? "asc" : "desc" ?>"
                                                        href="#">
-                                                        状
-                                                        态 <?= $sort_field == 'status' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
+                                                        Status <?= $sort_field == 'status' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
                                                     </a>
                                                 </th>
                                             <? } ?>
@@ -593,60 +588,59 @@
                                                     <a class="sort_link" data-field="resolve"
                                                        data-sortby="<?= $sort_by == 'desc' ? "asc" : "desc" ?>"
                                                        href="#">
-                                                        解决结果 <?= $sort_field == 'resolve' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
+                                                        Evaluation <?= $sort_field == 'resolve' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
                                                     </a>
                                                 </th>
                                             <? } ?>
 
                                             <? if (in_array('environment', $display_fields)) { ?>
                                                 <th class="jjs-pipeline-stages pipeline-info">
-                                                    运行环境
+                                                    Environment
                                                 </th>
                                             <? } ?>
 
                                             <? if (in_array('plan_date', $display_fields)) { ?>
                                                 <th class="js-pipeline-date pipeline-date">
-                                                    <a title="排序将按 '截止日期' 排列" class="sort_link" data-field="due_date"
+                                                    <a title="Sort By Due Date" class="sort_link" data-field="due_date"
                                                        data-sortby="<?= $sort_by == 'desc' ? "asc" : "desc" ?>"
                                                        href="#">
-                                                        限
-                                                        期 <?= $sort_field == 'due_date' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
+                                                        Due Date <?= $sort_field == 'due_date' ? '<i class="fa fa-sort-' . $sort_by . '"></i>' : '' ?>
                                                     </a>
                                                 </th>
                                             <? } ?>
 
                                             <? if (in_array('resolve_date', $display_fields)) { ?>
                                                 <th class="jjs-pipeline-stages pipeline-info">
-                                                    实际解决日期
+                                                    Resolve Date
                                                 </th>
                                             <? } ?>
 
                                             <? if (in_array('modifier', $display_fields)) { ?>
                                                 <th class="jjs-pipeline-stages pipeline-info">
-                                                    最后修改人
+                                                    Last Modifier
                                                 </th>
                                             <? } ?>
 
                                             <? if (in_array('master_id', $display_fields)) { ?>
                                                 <th class="jjs-pipeline-stages pipeline-info">
-                                                    是否父任务
+                                                    Audit Plan
                                                 </th>
                                             <? } ?>
 
                                             <? if (in_array('created', $display_fields)) { ?>
                                                 <th class="jjs-pipeline-stages pipeline-info">
-                                                    创建时间
+                                                    Create Date
                                                 </th>
                                             <? } ?>
 
                                             <? if (in_array('updated', $display_fields)) { ?>
                                                 <th class="jjs-pipeline-stages pipeline-info">
-                                                    最后修改时间
+                                                    Last Modified Date
                                                 </th>
                                             <? } ?>
 
-                                            <th class="js-pipeline-actions pipeline-actions">操 作
-
+                                            <th class="js-pipeline-actions pipeline-actions">
+                                                Operation
                                             </th>
                                         </tr>
                                         </thead>
@@ -669,23 +663,23 @@
                                           method="get">
                                         <div class="issuable-actions" id="issue-actions">
                                             <input type="checkbox" name="btn-check_all_issues" id="btn-check_all_issues"
-                                                   class="left"> 全 选
+                                                   class="left"> Select All
                                             <span style="margin-left: 1em">
-                                        选中项： </span>
+                                        Selected: </span>
                                             <div class="btn-group" role="group" aria-label="...">
                                                 <?php
                                                 if (isset($projectPermArr['DELETE_ISSUES'])) {
                                                     ?>
                                                     <button id="btn-batchDelete" type="button" class="btn btn-default">
                                                         <i class="fa fa-remove"></i>
-                                                        删 除
+                                                        Delete
                                                     </button>
                                                 <?php } ?>
                                                 <div class="btn-group" role="group">
                                                     <button type="button" class="btn btn-default dropdown-toggle"
                                                             data-toggle="dropdown" aria-haspopup="true"
                                                             aria-expanded="false">
-                                                        解决结果
+                                                        Evaluation
                                                         <i class="fa fa-caret-down"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
@@ -701,7 +695,7 @@
                                                     <button type="button" class="btn btn-default dropdown-toggle"
                                                             data-toggle="dropdown" aria-haspopup="true"
                                                             aria-expanded="false">
-                                                        模 块
+                                                        Module
                                                         <i class="fa fa-caret-down"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
@@ -717,7 +711,7 @@
                                                     <button type="button" class="btn btn-default dropdown-toggle"
                                                             data-toggle="dropdown" aria-haspopup="true"
                                                             aria-expanded="false">
-                                                        迭 代
+                                                        Sprint
                                                         <i class="fa fa-caret-down"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
@@ -731,7 +725,7 @@
                                             </div>
 
                                             <span style="margin-left: 1em">
-                                        总数:<span id="issue_count"></span> 每页显示:<span id="page_size"></span>
+                                        Total:<span id="issue_count"></span> Each:<span id="page_size"></span>
                                     </span>
                                         </div>
                                     </form>
@@ -795,27 +789,27 @@
                         <div class="modal-content modal-middle">
                             <div class="modal-header">
                                 <a class="close js-key-modal-close1" data-dismiss="modal" href="#">×</a>
-                                <h3 class="modal-header-title">导出Excel</h3>
+                                <h3 class="modal-header-title">Export To Excel</h3>
                             </div>
 
                             <div class="modal-body overflow-x-hidden">
                                 <div class="form-group">
-                                    <label class="control-label" for="id_name">导出范围:<span
+                                    <label class="control-label" for="id_name">Export Range:<span
                                                 class="required"> *</span></label>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
                                                     <input checked type="radio" name="radio-export_range"
-                                                           value="current_page"> 当前页事项
+                                                           value="current_page"> Plans On Current Page
                                                 </label>
                                                 <label>
                                                     <input type="radio" name="radio-export_range" value="all_page">
-                                                    所有筛选后事项
+                                                    All Filtered Plans
                                                 </label>
                                                 <label>
                                                     <input type="radio" name="radio-export_range" value="project_all">
-                                                    项目所有事项
+                                                    All Plans
                                                 </label>
                                             </div>
                                         </div>
@@ -830,7 +824,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="id_description">选择字段:<span
+                                    <label class="control-label" for="id_description">Selected Field:<span
                                                 class="required"> *</span></label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
@@ -839,8 +833,8 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Name</th>
-                                                    <th>原始字段</th>
-                                                    <th>格式化</th>
+                                                    <th>Original</th>
+                                                    <th>Format</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -853,9 +847,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>标题</td>
-                                                    <td>summary</td>
-                                                    <td>字符串</td>
+                                                    <td>Title</td>
+                                                    <td>Summary</td>
+                                                    <td>String</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -866,11 +860,11 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>项目</td>
+                                                    <td>Project</td>
                                                     <td>project_id</td>
                                                     <td>
                                                         <select class="form-control" name="field_format_project_id">
-                                                            <option value="title" selected>名称</option>
+                                                            <option value="title" selected>Name</option>
                                                             <option value="id">id</option>
                                                         </select>
                                                     </td>
@@ -884,9 +878,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>编号</td>
+                                                    <td>ID</td>
                                                     <td>issue_num</td>
-                                                    <td>字符串</td>
+                                                    <td>String</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -897,9 +891,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>类型</td>
+                                                    <td>Type</td>
                                                     <td>issue_type</td>
-                                                    <td>字符串</td>
+                                                    <td>String</td>
                                                 </tr>
 
                                                 <tr>
@@ -911,11 +905,11 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>模块</td>
+                                                    <td>Module</td>
                                                     <td>module</td>
                                                     <td>
                                                         <select class="form-control" name="field_format_module">
-                                                            <option value="title" selected>名称</option>
+                                                            <option value="title" selected>Name</option>
                                                             <option value="id">id</option>
                                                         </select>
                                                     </td>
@@ -930,11 +924,11 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>迭代</td>
+                                                    <td>Sprint</td>
                                                     <td>sprint</td>
                                                     <td>
                                                         <select class="form-control" name="field_format_sprint">
-                                                            <option value="title" selected>名称</option>
+                                                            <option value="title" selected>Name</option>
                                                             <option value="id">id</option>
                                                         </select>
                                                     </td>
@@ -948,9 +942,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>权重值</td>
+                                                    <td>Weight</td>
                                                     <td>weight</td>
-                                                    <td>数字</td>
+                                                    <td>number</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -961,9 +955,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>描述</td>
+                                                    <td>Description</td>
                                                     <td>description</td>
-                                                    <td>字符串</td>
+                                                    <td>String</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -974,9 +968,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>优先级</td>
+                                                    <td>Priority</td>
                                                     <td>priority</td>
-                                                    <td>字符串</td>
+                                                    <td>String</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -987,9 +981,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>状态</td>
+                                                    <td>Status</td>
                                                     <td>status</td>
-                                                    <td>字符串</td>
+                                                    <td>String</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -1000,9 +994,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>解决结果</td>
+                                                    <td>Resolve</td>
                                                     <td>resolve</td>
-                                                    <td>字符串</td>
+                                                    <td>String</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -1013,9 +1007,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>运行环境</td>
+                                                    <td>Environment</td>
                                                     <td>environment</td>
-                                                    <td>字符串</td>
+                                                    <td>String</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -1026,14 +1020,14 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>报告人</td>
+                                                    <td>Reporter</td>
                                                     <td>reporter</td>
                                                     <td>
                                                         <select class="form-control" name="field_format_reporter">
-                                                            <option value="display_name" selected>显示名称</option>
-                                                            <option value="username">用户名</option>
-                                                            <option value="avatar">用户头像</option>
-                                                            <option value="avatar_url">用户头像url</option>
+                                                            <option value="display_name" selected>Display Name</option>
+                                                            <option value="username">Username</option>
+                                                            <option value="avatar">Avatar</option>
+                                                            <option value="avatar_url">Avatar Url</option>
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -1046,14 +1040,14 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>经办人</td>
+                                                    <td>Assignee</td>
                                                     <td>assignee</td>
                                                     <td>
                                                         <select class="form-control" name="field_format_assignee">
-                                                            <option value="display_name" selected>显示名称</option>
-                                                            <option value="username">用户名</option>
-                                                            <option value="avatar">用户头像</option>
-                                                            <option value="avatar_url">用户头像url</option>
+                                                            <option value="display_name" selected>Display Name</option>
+                                                            <option value="username">Username</option>
+                                                            <option value="avatar">Avatar</option>
+                                                            <option value="avatar_url">Avatar Url</option>
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -1066,14 +1060,14 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>协助人(多个)</td>
+                                                    <td>Assistants</td>
                                                     <td>assistants</td>
                                                     <td>
                                                         <select class="form-control" name="field_format_assistants">
-                                                            <option value="display_name" selected>显示名称</option>
-                                                            <option value="username">用户名</option>
-                                                            <option value="avatar">用户头像</option>
-                                                            <option value="avatar_url">用户头像url</option>
+                                                            <option value="display_name" selected>Display Name</option>
+                                                            <option value="username">Username</option>
+                                                            <option value="avatar">Avatar</option>
+                                                            <option value="avatar_url">Avatar Url</option>
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -1086,14 +1080,14 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>最后修改人</td>
+                                                    <td>Last Modifier</td>
                                                     <td>modifier</td>
                                                     <td>
                                                         <select class="form-control" name="field_format_modifier">
-                                                            <option value="display_name" selected>显示名称</option>
-                                                            <option value="username">用户名</option>
-                                                            <option value="avatar">用户头像</option>
-                                                            <option value="avatar_url">用户头像url</option>
+                                                            <option value="display_name" selected>Display Name</option>
+                                                            <option value="username">Username</option>
+                                                            <option value="avatar">Avatar</option>
+                                                            <option value="avatar_url">Avatar Url</option>
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -1106,9 +1100,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>是否父任务</td>
+                                                    <td>Is Audit Plan</td>
                                                     <td>master_id</td>
-                                                    <td>是|否</td>
+                                                    <td>Yes|No</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -1119,9 +1113,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>创建时间</td>
+                                                    <td>Create Date</td>
                                                     <td>created</td>
-                                                    <td>完整时间格式</td>
+                                                    <td>Full Time</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -1132,9 +1126,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>最后修改时间</td>
+                                                    <td>Update Date</td>
                                                     <td>updated</td>
-                                                    <td>完整时间格式</td>
+                                                    <td>Full Time</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -1145,9 +1139,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>计划开始日期</td>
+                                                    <td>Start Date</td>
                                                     <td>start_date</td>
-                                                    <td>日期</td>
+                                                    <td>Date</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -1158,9 +1152,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>计划结束日期</td>
+                                                    <td>Due Date</td>
                                                     <td>due_date</td>
-                                                    <td>日期</td>
+                                                    <td>Date</td>
                                                 </tr>
                                                 <tr>
                                                     <td scope="row">
@@ -1171,9 +1165,9 @@
                                                             </label>
                                                         </div>
                                                     </td>
-                                                    <td>实际解决日期</td>
+                                                    <td>Resolve Date</td>
                                                     <td>resolve_date</td>
-                                                    <td>日期</td>
+                                                    <td>Date</td>
                                                 </tr>
 
                                                 </tbody>
@@ -1187,9 +1181,9 @@
 
                             <div class="modal-footer form-actions">
                                 <button name="export_excel_btn" type="button" class="btn btn-create js-key-modal-enter1"
-                                        id="btn-export_excel">导出
+                                        id="btn-export_excel">Export
                                 </button>
-                                <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                                <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -1205,7 +1199,7 @@
                         <div class="modal-content modal-middle">
                             <div class="modal-header">
                                 <a class="close js-key-modal-close1" data-dismiss="modal" href="#">×</a>
-                                <h3 class="modal-header-title">显示列设置</h3>
+                                <h3 class="modal-header-title">Show Column Settings</h3>
                             </div>
 
                             <div class="modal-body overflow-x-hidden">
@@ -1219,14 +1213,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="id_description">显示字段:</label>
+                                    <label class="control-label" for="id_description">Show Fields:</label>
                                     <div class="col-sm-8">
                                         <div class="form-group">
                                             <table class="table table-bordered table-condensed">
                                                 <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>列</th>
+                                                    <th>Column</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1262,9 +1256,9 @@
 
                             <div class="modal-footer form-actions">
                                 <button name="btn-setting_columns" type="button"
-                                        class="btn btn-create js-key-modal-enter1" id="btn-setting_columns">保 存
+                                        class="btn btn-create js-key-modal-enter1" id="btn-setting_columns">Save
                                 </button>
-                                <a class="btn btn-cancel" data-dismiss="modal" href="#">取 消</a>
+                                <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -1281,7 +1275,7 @@
                         <div class="modal-content modal-middle">
                             <div class="modal-header">
                                 <a class="close js-key-modal-close1" data-dismiss="modal" href="#">×</a>
-                                <h3 class="modal-header-title">导入Excel数据</h3>
+                                <h3 class="modal-header-title">Import Excel Data</h3>
                             </div>
 
                             <div class="modal-body overflow-x-hidden">
@@ -1308,7 +1302,7 @@
                                         2.下载模板
                                     </div>
                                     <div class="col-sm-9">
-                                        <a target="_blank" href="/tpl/import_tpl.xlsx">导入的模板文件.xlsx</a>
+                                        <a target="_blank" href="/tpl/import_tpl.xlsx">Import_Template.xlsx</a>
                                     </div>
                                     <div class="col-sm-1">
                                     </div>
@@ -1359,12 +1353,12 @@
             <script type="text/html" id="save_filter_tpl">
                 <div class="row">
                     <div class="col-md-8">
-                        <input type="text" id="save_filter_text" placeholder="请输入过滤器名称" name="save_filter_text"
+                        <input type="text" id="save_filter_text" placeholder="Enter Filter Name" name="save_filter_text"
                                class="form-control"/>
                     </div>
                     <div class="col-md-4"><a class="btn btn-sm" id="save_filter_btn"
                                              onclick="IssueMain.prototype.saveFilter($('#save_filter_text').val())"
-                                             href="#">确定</a>
+                                             href="#">Confirm</a>
                     </div>
                 </div>
             </script>
@@ -1428,20 +1422,20 @@
                             </a>
 
                             {{#if_eq warning_delay 1 }}
-                            <span style="color:#fc9403" title="即将延期">即将延期</span>
+                            <span style="color:#fc9403" title="About To Due">About To Due</span>
                             {{/if_eq}}
 
                             {{#if_eq postponed 1 }}
-                            <span style="color:#db3b21" title="逾期">逾期</span>
+                            <span style="color:#db3b21" title="Due">Due</span>
                             {{/if_eq}}
 
                             {{#if_eq have_children '0'}}
                             {{^}}
                             <a href="#" style="color:#f0ad4e" data-issue_id="{{id}}" data-issue_type="{{issue_type}}"
                                class="have_children prepend-left-5 has-tooltip"
-                               data-original-title="该事项拥有{{have_children}}项子任务"
+                               data-original-title="Have {{have_children}} Audit Rules"
                             >
-                                子任务 <span class="badge">{{have_children}}</span>
+                                Audit Rules <span class="badge">{{have_children}}</span>
                             </a>
                             {{/if_eq}}
 
@@ -1522,9 +1516,9 @@
                     <? if (in_array('master_id', $display_fields)) { ?>
                         <td class="width_5">
                             {{#if_eq have_children '0'}}
-                            否
+                            No
                             {{^}}
-                            是
+                            Yes
                             {{/if_eq}}
                         </td>
                     <?php } ?>
@@ -1560,34 +1554,34 @@
 
                                         <li class="aui-list-item active">
                                             <a href="javascript:;" class="issue_edit_href" data-issue_id="{{id}}">
-                                                编辑
+                                                Edit
                                             </a>
                                         </li>
                                         <li class="aui-list-item">
                                             <a href="javascript:;" class="issue_copy_href" data-issue_id="{{id}}"
-                                               data-issuekey="{{issue_num}}">复制</a>
+                                               data-issuekey="{{issue_num}}">Duplicate</a>
                                         </li>
                                         {{#if_eq sprint '0' }}
                                         <li class="aui-list-item">
                                             <a href="javascript:;" class="issue_sprint_href" data-issue_id="{{id}}"
-                                               data-issuekey="{{issue_num}}">添加到迭代</a>
+                                               data-issuekey="{{issue_num}}">Add To Sprint</a>
                                         </li>
                                         {{else}}
                                         <li class="aui-list-item ">
                                             <a href="javascript:;" class="issue_backlog_href" data-issue_id="{{id}}"
-                                               data-issuekey="{{issue_num}}">转换为待办事项</a>
+                                               data-issuekey="{{issue_num}}">Add To Waitlist</a>
                                         </li>
                                         {{/if_eq}}
                                         <li class="aui-list-item">
                                             <a href="javascript:;" class="issue_create_child"
                                                data-issue_id="{{id}}"
-                                               data-issuekey="{{issue_num}}">创建子任务</a>
+                                               data-issuekey="{{issue_num}}">Add Rules</a>
                                         </li>
                                         {{#if_eq master_id '0' }}
                                         <li class="aui-list-item">
                                             <a href="javascript:;" class="issue_convert_child_href"
                                                data-issue_id="{{id}}"
-                                               data-issuekey="{{issue_num}}">转换为子任务</a>
+                                               data-issuekey="{{issue_num}}">Convert To Rules</a>
                                         </li>
                                         {{/if_eq}}
                                         <?php
@@ -1595,7 +1589,7 @@
                                             ?>
                                             <li class="aui-list-item">
                                                 <a href="javascript:;" class="issue_delete_href" data-issue_id="{{id}}"
-                                                   data-issuekey="IP-{{id}}">删除</a>
+                                                   data-issuekey="IP-{{id}}">Delete</a>
                                             </li>
                                             <?php
                                         }
@@ -1615,7 +1609,7 @@
                 <tr id="tr_subtask_{{id}}" class='pop_subtack hide' data-master_id="{{master_id}}">
                     <td colspan="12">
                         <div class="td-block">
-                            <h5>子任务:</h5>
+                            <h5>Audit Rules:</h5>
                             <div class="event-body">
                                 <ul id="ul_subtask_{{id}}" class="well-list event_commits">
 

@@ -8,25 +8,25 @@
             </svg> -->
             <span class="logo"><img src="<?= ROOT_URL ?>gitlab/images/logo.png" alt=""></span>
 
-            <h1>P R I M E</h1>
+            <h1>A U D I T</h1>
         </a>
     </div>
 
     <ul class="sidebar-menu">
         <li class="menu-item <? if($top_menu_active=='index') echo 'menu-open';?>">
             <a href="/dashboard">
-                <i class="fa fa-dashboard"></i> <span>首页</span>
+                <i class="fa fa-dashboard"></i> <span>Home Page</span>
             </a>
         </li>
         <li class="menu-item <? if($top_menu_active=='org') echo 'menu-open';?>">
             <a href="/org">
                 <i class="fa fa-sitemap"></i>
-                <span>组织</span>
+                <span>Organization</span>
             </a>
         </li>
         <li class="menu-item <? if($top_menu_active=='project') echo 'menu-open';?>">
             <a href="/projects">
-                <i class="fa fa-product-hunt"></i> <span>项目</span>
+                <i class="fa fa-product-hunt"></i> <span>Audit Company</span>
             </a>
         </li>
         <?php
@@ -44,18 +44,18 @@
         ?>
         <li class="menu-item <? if($top_menu_active=='system') echo 'menu-open';?>">
             <a href="/admin/system">
-                <i class="fa fa-wrench"></i> <span>管理</span>
+                <i class="fa fa-wrench"></i> <span>Management</span>
             </a>
         </li>
         <?php } ?>
 
         <li class="menu-item <? if($top_menu_active=='help') echo 'menu-open';?>">
             <a href="/help">
-                <i class="fa fa-question-circle"></i> <span>帮助</span>
+                <i class="fa fa-question-circle"></i> <span>Help</span>
             </a>
         </li>
     </ul>
-	<div id="sidebar-control" class="toggle-sidebar-button" role="button" title="展开/折叠" type="button" >
+	<div id="sidebar-control" class="toggle-sidebar-button" role="button" title="Expand/Collapse" type="button" >
 		<i id="sidebar" class="fa fa-chevron-left"></i>
 	</div>
 </aside>
