@@ -290,7 +290,8 @@ INSERT INTO `field_main` VALUES
 (19, 'status', 'Status', NULL, 'STATUS', '1', 1, '', 950), 
 (20, 'assistants', 'Assistant', 'Assistant', 'USER_MULTI', NULL, 1, '', 900), 
 (21, 'weight', 'Weight', 'The Weight for the Task', 'TEXT', '0', 1, '', 0), 
-(23, 'source', 'Source', '', 'TEXT', NULL, 0, '', 0);
+(23, 'source', 'Source', '', 'TEXT', NULL, 1, '', 0),
+(24, 'standard', 'Standard', '', 'STANDARD', NULL, 1, '', 0);
 
 -- --------------------------------------------------------
 
@@ -331,7 +332,8 @@ INSERT INTO `field_type` (`id`, `name`, `description`, `type`) VALUES
 (25, 'Reslution', NULL, 'RESOLUTION'),
 (26, 'Issues', NULL, 'ISSUES'),
 (27, 'Markdown', NULL, 'MARKDOWN'),
-(28, 'USER_MULTI', NULL, 'USER_MULTI');
+(28, 'USER_MULTI', NULL, 'USER_MULTI'),
+(29, 'STANDARD', NULL, 'STANDARD');
 
 -- --------------------------------------------------------
 
