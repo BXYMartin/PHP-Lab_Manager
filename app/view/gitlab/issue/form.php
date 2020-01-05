@@ -561,6 +561,9 @@
                     <option class="option_issue_{{sid}} {{#if have}}contained{{/if}}" value="{{sid}}" {{#if section}}disabled{{/if}}>{{number}}. {{standard_name}}</option>
                     {{#section}}
                     <option class="option_issue_{{sid}} indent {{#if have}}contained{{/if}}" value="{{sid}}"><pre> {{number}}. {{standard_name}}</pre></option>
+                        {{#section}}
+                        <option class="option_issue_{{sid}} indent {{#if have}}contained{{/if}}" value="{{sid}}"><pre> {{number}}. {{standard_name}}</pre></option>
+                        {{/section}}
                     {{/section}}
                 {{/section}}
             </optgroup>
