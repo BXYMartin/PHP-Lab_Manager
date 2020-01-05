@@ -722,7 +722,7 @@ INSERT INTO `issue_resolve` (`id`, `sequence`, `name`, `_key`, `description`, `f
 (4, 4, 'Not Applicable', 'not_applicable', 'Evaluation not applicable', NULL, '#db3b21', 1),
 (5, 5, 'Not In Scope', 'not_exists', 'This task was not in the scope of the audit', NULL, '#db3b21', 1),
 (6, 6, 'Unable To Resolve', 'not_fix', 'This task was planned to be audited. Due to the recorded obstacle(s), it was not audited', NULL, '#db3b21', 1),
-(7, 7, 'Error', 'error', 'The requirements are not met, Major nonconformity has been established', NULL, '#db3b21', 1),
+(7, 7, 'Error', 'error', 'The requirements are not met, Major nonconformity has been established', NULL, '#db3b21', 1);
 
 -- --------------------------------------------------------
 
