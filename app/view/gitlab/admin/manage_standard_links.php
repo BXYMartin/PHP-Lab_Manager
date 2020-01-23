@@ -38,16 +38,17 @@
             <div class="content" id="content-body">
                 <?php include VIEW_PATH.'gitlab/admin/common_standard_left_nav.php';?>
                 <div class="container-fluid row  has-side-margin-left "  >
+                  <div class="col-lg-12">
                     <div class="top-area">
                         <ul class="nav-links">
                             <li class="active" data-value="">
-                                <a id="state-opened"  title="标准关联管理" href="#" ><span>标准关联管理</span>
+                                <a id="state-opened"  title="标准关联管理" href="#" ><span> Standard Link Management </span>
                                 </a>
                             </li>
                         </ul>
                         <div class="nav-controls margin-md-l">
                             <a class="btn btn-new btn_group_add js-key-create" data-target="#modal-group_add" data-toggle="modal" href="#modal-group_add">
-                                <i class="fa fa-plus"></i> 新增关联
+                                <i class="fa fa-plus"></i> Add Link
                             </a>
                         </div>
                     </div>
@@ -58,9 +59,9 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th class="js-pipeline-info pipeline-info">父集</th>
-                                        <th class="js-pipeline-stages pipeline-info">子集</th>
-                                        <th class="pipeline-info" style="text-align: right;">操作</th>
+                                        <th class="js-pipeline-info pipeline-info">Father Set</th>
+                                        <th class="js-pipeline-stages pipeline-info">Child Set</th>
+                                        <th class="pipeline-info" style="text-align: right;">Operation</th>
                                     </tr>
                                     </thead>
                                     <tbody id="list_render_id">
@@ -74,6 +75,7 @@
                             </div>
 
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,12 +92,12 @@
             <div class="modal-content modal-middle" style="min-height: 60% !important;">
                 <div class="modal-header">
                     <a class="close js-key-modal-close1" data-dismiss="modal" href="#">×</a>
-                    <h3 class="modal-header-title">新增关联</h3>
+                    <h3 class="modal-header-title">Add Link</h3>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="format" id="format" value="json">
                         <div class="form-group">
-                            <label class="control-label" for="id_name">父级条目:<span class="required"> *</span></label>
+                            <label class="control-label" for="id_name">Father Entry:<span class="required"> *</span></label>
                             <div class="col-sm-8">
                                 <div class="form-group">
                                     <div id="position_father_render_id"></div>
@@ -104,7 +106,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="id_name">子级条目:<span class="required"> *</span></label>
+                            <label class="control-label" for="id_name">Child Entry:<span class="required"> *</span></label>
                             <div class="col-sm-8">
                                 <div class="form-group">
                                     <div id="position_child_render_id"></div>
@@ -113,7 +115,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="id_description">描述:</label>
+                            <label class="control-label" for="id_description">Description:</label>
                             <div class="col-sm-8">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="params[description]" id="id_description"  value="" />
@@ -122,8 +124,8 @@
                         </div>
                 </div>
                 <div class="modal-footer form-actions">
-                    <button name="submit" type="button" class="btn btn-create js-key-modal-enter1" id="btn-group_add">保存</button>
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <button name="submit" type="button" class="btn btn-create js-key-modal-enter1" id="btn-group_add">Save</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                 </div>
             </div>
         </div>
@@ -177,14 +179,14 @@
                 data-toggle="dropdown"
                 data-multiselect="true"
                 type="button">
-            <span class="dropdown-toggle-text is-default" id="father_selector">请选择条目</span>
+            <span class="dropdown-toggle-text is-default" id="father_selector">Select Entry</span>
             <i class="fa fa-chevron-down"></i>
         </button>
 
         <div class="dropdown-menu dropdown-select dropdown-menu-paging dropdown-menu-labels dropdown-menu-selectable js-multiselect">
                 <div class="dropdown-page-one">
                     <div class="dropdown-title">
-                        <span>选择条目</span>
+                        <span>Select Entry</span>
                         <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                             <i class="fa fa-times dropdown-menu-close-icon"></i>
                         </button>
@@ -238,14 +240,14 @@
                 data-toggle="dropdown"
                 data-multiselect="true"
                 type="button">
-            <span class="dropdown-toggle-text is-default" id="child_selector">请选择条目</span>
+            <span class="dropdown-toggle-text is-default" id="child_selector">Select Entry</span>
             <i class="fa fa-chevron-down"></i>
         </button>
 
         <div class="dropdown-menu dropdown-select dropdown-menu-paging dropdown-menu-labels dropdown-menu-selectable js-multiselect">
                 <div class="dropdown-page-one">
                     <div class="dropdown-title">
-                        <span>选择条目</span>
+                        <span>Select Entry</span>
                         <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                             <i class="fa fa-times dropdown-menu-close-icon"></i>
                         </button>

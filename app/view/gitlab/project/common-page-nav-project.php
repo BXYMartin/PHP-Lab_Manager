@@ -23,9 +23,11 @@ if(isset($project_id)&&!empty($project_id)){
                 <li class="<? if($nav_links_active=='backlog') echo 'active';?>">
                     <a title="Backlog" class="shortcuts-project" href="<?=$project_root_url?>/backlog"><i class="fa fa-list-ol"></i><span> To-dos </span> </a>
                 </li>
+                <!--
                 <li class="<? if($nav_links_active=='sprints') echo 'active';?>">
                     <a title="Sprints" class="shortcuts-tree" href="<?=$project_root_url?>/sprints"><i class="fa fa-rocket"></i><span> Sprint </span> </a>
                 </li>
+                -->
                 <li class="<? if($nav_links_active=='kanban') echo 'active';?>">
                      <a title="Releases" class="shortcuts-tree" href="<?=$project_root_url?>/kanban"><i class="fa fa-columns"></i><span> Information Board </span> </a>
                 </li>

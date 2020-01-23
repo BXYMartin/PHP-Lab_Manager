@@ -38,16 +38,17 @@
             <div class="content" id="content-body">
                 <?php include VIEW_PATH.'gitlab/admin/common_standard_left_nav.php';?>
                 <div class="container-fluid row  has-side-margin-left "  >
+                    <div class="col-lg-12">
                     <div class="top-area">
                         <ul class="nav-links">
                             <li class="active" data-value="">
-                                <a id="state-opened"  title="标准规范管理" href="#" ><span>标准规范管理</span>
+                                <a id="state-opened"  title="标准规范管理" href="#" ><span> Standard Entry Management </span>
                                 </a>
                             </li>
                         </ul>
                         <div class="nav-controls margin-md-l">
                             <a class="btn btn-new btn_group_add js-key-create" data-target="#modal-group_add" data-toggle="modal" href="#modal-group_add">
-                                <i class="fa fa-plus"></i> 新增标准
+                                <i class="fa fa-plus"></i> Add Standard
                             </a>
                         </div>
                     </div>
@@ -58,9 +59,9 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th class="js-pipeline-info pipeline-info">名称</th>
-                                        <th class="js-pipeline-stages pipeline-info">描述</th>
-                                        <th class="pipeline-info" style="text-align: right;">操作</th>
+                                        <th class="js-pipeline-info pipeline-info">Name</th>
+                                        <th class="js-pipeline-stages pipeline-info">Description</th>
+                                        <th class="pipeline-info" style="text-align: right;">Operation</th>
                                     </tr>
                                     </thead>
                                     <tbody id="list_render_id">
@@ -70,6 +71,7 @@
                                 </table>
                             </div>
                         </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -86,12 +88,12 @@
             <div class="modal-content modal-middle">
                 <div class="modal-header">
                     <a class="close js-key-modal-close1" data-dismiss="modal" href="#">×</a>
-                    <h3 class="modal-header-title">新增标准</h3>
+                    <h3 class="modal-header-title">Add Standard</h3>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="format" id="format" value="json">
                     <div class="form-group">
-                            <label class="control-label" for="id_name">名称:<span class="required"> *</span></label>
+                            <label class="control-label" for="id_name">Name:<span class="required"> *</span></label>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="params[name]" id="id_name"  value="" />
@@ -99,7 +101,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="id_description">描述:</label>
+                            <label class="control-label" for="id_description">Description:</label>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="params[description]" id="id_description"  value="" />
@@ -108,8 +110,8 @@
                         </div>
                 </div>
                 <div class="modal-footer form-actions">
-                    <button name="submit" type="button" class="btn btn-create js-key-modal-enter1" id="btn-group_add">保存</button>
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <button name="submit" type="button" class="btn btn-create js-key-modal-enter1" id="btn-group_add">Save</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                 </div>
             </div>
         </div>
@@ -125,7 +127,7 @@
             <div class="modal-content modal-middle">
                 <div class="modal-header">
                     <a class="close js-key-modal-close2" data-dismiss="modal" href="#">×</a>
-                    <h3 class="modal-header-title">编辑标准</h3>
+                    <h3 class="modal-header-title">Edit Standard</h3>
                 </div>
 
                 <div class="modal-body">
@@ -133,7 +135,7 @@
                     <input type="hidden" name="format" id="format" value="json">
 
                     <div class="form-group">
-                        <label class="control-label" for="id_name">显示名称:<span class="required"> *</span></label>
+                        <label class="control-label" for="id_name">New Name:<span class="required"> *</span></label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[name]" id="edit_name"  value="" />
@@ -141,7 +143,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="id_description">描述:</label>
+                        <label class="control-label" for="id_description">New Description:</label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[description]" id="edit_description"  value="" />
@@ -151,8 +153,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button name="submit" type="button" class="btn btn-save js-key-modal-enter2" id="btn-group_update">保存</button>
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <button name="submit" type="button" class="btn btn-save js-key-modal-enter2" id="btn-group_update">Save</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                 </div>
             </div>
         </div>
@@ -175,7 +177,7 @@
             <td  >
                 <div class="controls member-controls " style="float: right">
 
-                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">编辑 </a>
+                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{sid}}" style="padding: 6px 2px;">Edit </a>
                     <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{sid}}" style="padding: 6px 2px;">
                         <i class="fa fa-trash"></i>
                         <span class="sr-only">Remove</span>

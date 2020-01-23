@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <input type="hidden" name="user_ids" id="user_ids" value=""
                                            class="ajax-users-select multiselect input-clamp "
-                                           data-placeholder="通过用户名,名称,Email查询用户,归属到用户组."
+                                           data-placeholder="Enter Username/Initials/Email to Add Users into this Group"
                                            data-group-id="-<?=$group_id?>"
                                            data-null-user="false"
                                            data-any-user="false"
@@ -63,12 +63,12 @@
                                 </div>
 
 
-                                <input type="button" id="btn-group-add-user" name="commit" value="添加" class="btn btn-create" />
+                                <input type="button" id="btn-group-add-user" name="commit" value="Add To Group" class="btn btn-create" />
                             <div class="append-bottom-default clearfix">
                                 <h5 class="member existing-title"></h5></div>
                         </div>
                         <div class="panel panel-default">
-                            <div class="panel-heading">用户组:
+                            <div class="panel-heading">User Group:
                                 <strong id="group_name"></strong>
                                 <span class="badge" id="users_count"></span>
 

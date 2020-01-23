@@ -34,7 +34,7 @@
                 <div class="top-area">
                     <ul class="nav-links user-state-filters" style="float:left">
                         <li class="active" data-value="">
-                            <a id="state-opened"  title="项目列表" ><span> 项目列表 </span>
+                            <a id="state-opened"  title="项目列表" ><span> Company List </span>
                             </a>
                         </li>
                     </ul>
@@ -45,7 +45,7 @@
                         <div class="project-item-select-holder">
                             <a class="btn btn-new new-project-item-select-button js-key-create" data-key-mode="new-page" href="<?=ROOT_URL?>project/main/new">
                                 <i class="fa fa-plus"></i>
-                                新建项目
+                                Create
                             </a>
                         </div>
                     </div>
@@ -56,12 +56,12 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th class="js-pipeline-info pipeline-info">名称</th>
-                                <th class="js-pipeline-info pipeline-info">KEY</th>
-                                <th class="js-pipeline-info pipeline-info">项目类型</th>
-                                <th class="js-pipeline-commit pipeline-commit">网址</th>
-                                <th class="js-pipeline-stages pipeline-info">项目负责人</th>
-                                <th class="pipeline-info" style="text-align: center;">操作</th>
+                                <th class="js-pipeline-info pipeline-info">Name</th>
+                                <th class="js-pipeline-info pipeline-info">Key</th>
+                                <th class="js-pipeline-info pipeline-info">Type</th>
+                                <th class="js-pipeline-commit pipeline-commit">Link</th>
+                                <th class="js-pipeline-stages pipeline-info">Assignee</th>
+                                <th class="pipeline-info" style="text-align: center;">Operation</th>
                             </tr>
                             </thead>
                             <tbody id="render_id">
@@ -113,7 +113,7 @@
             </td>
             <td>
                 <div class="controls member-controls " style="float: right">
-                    <a class="user_for_edit btn btn-transparent " href="<?=ROOT_URL?>/{{path}}/{{key}}/settings" data-uid="{{uid}}" style="padding: 6px 2px;" target="_blank">编辑 </a>
+                    <a class="user_for_edit btn btn-transparent " href="<?=ROOT_URL?>/{{path}}/{{key}}/settings" data-uid="{{uid}}" style="padding: 6px 2px;" target="_blank">Edit </a>
 
                     <a class="user_for_delete btn btn-transparent" style="padding: 6px 2px;" onClick="projectDelete({{id}}, {{type}}, '{{name}}')" >
                         <i class="fa fa-trash"></i>
@@ -134,7 +134,7 @@
     });
 
     function projectDelete(projectId, projectTypeId, projectName) {
-        var message="是否确认删除项目 "+projectName;
+        var message="You are deleting "+projectName+", continue?";
 
         if (window.confirm(message+"？")) {
             projectRemove(projectId, projectTypeId);
@@ -152,14 +152,14 @@
         <div class="modal-content modal-middle">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">提示</h4>
+                <h4 class="modal-title">Alert</h4>
             </div>
             <div class="modal-body">
-                <p>是否确认删除？</p>
+                <p>You are deleting, are you sure?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">确定</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">Confirm</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>

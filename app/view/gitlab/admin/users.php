@@ -53,20 +53,20 @@
                         <div class="top-area">
                             <ul class="nav-links">
                                 <li id="state-all"  class="state_li active" data-value="">
-                                    <a  title="全部用户" href="#" ><span> 全部用户 </span>
+                                    <a  title="All Users" href="#" ><span> All Users </span>
                                     </a>
                                 </li>
                                 <li id="state-normal"  class="state_li" data-value="<?=main\app\model\user\UserModel::STATUS_NORMAL?>">
-                                    <a title="正常用户" href="#"><span> 正常 </span>
+                                    <a title="Normal Users" href="#"><span> Normal Users </span>
                                     </a>
                                 </li>
                                 <li id="state-disable" class="state_li" data-value="<?=main\app\model\user\UserModel::STATUS_DISABLED?>">
-                                    <a  title="已经被禁用的用户" href="#"><span>禁用</span></a>
+                                    <a  title="Disabled Users" href="#"><span> Disabled Users </span></a>
                                 </li>
                             </ul>
                             <div class="nav-controls margin-md-l">
                                 <a class="btn btn-new new-project-item-select-button js-key-create" data-target="#modal-user_add" data-toggle="modal" href="#modal-user_add">
-                                        <i class="fa fa-plus"></i> 新增
+                                        <i class="fa fa-plus"></i> Add
                                     </a>
                             </div>
                             <div class="nav-controls">
@@ -76,13 +76,13 @@
                                     <input name="group_id" id="filter_group" type="hidden" value="<?=$group_id?>">
                                     <input name="order_by" id="filter_order_by" type="hidden" value="uid">
                                     <input name="sort" id="filter_sort" type="hidden" value="desc">
-                                    <input type="search" name="username" id="filter_username" placeholder="全名或用户名或邮箱地址"
+                                    <input type="search" name="username" id="filter_username" placeholder="Enter Full Name/Username/Email Address"
                                            class="form-control search-text-input input-short" spellcheck="false" value="" />
       
                                     <div class="dropdown inline">
                                         <button class="dropdown-menu-toggle" data-toggle="dropdown" type="button">
-                                            <span class="light" id="select_group_view" data-title-origin="所属用户组&nbsp;&nbsp;&nbsp;&nbsp;">
-                                                所属用户组&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <span class="light" id="select_group_view" data-title-origin="User Group&nbsp;&nbsp;&nbsp;&nbsp;">
+                                                User Group&nbsp;&nbsp;&nbsp;&nbsp;
                                             </span>
                                             <i class="fa fa-chevron-down"></i>
                                         </button>
@@ -92,21 +92,21 @@
 
                                     <div class="dropdown inline prepend-left-10">
                                         <button class="dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
-                                            <span class="light" id="order_view" data-title-origin="排序"> 排序</span>
+                                            <span class="light" id="order_view" data-title-origin="排序"> Sort</span>
                                             <i class="fa fa-chevron-down"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-align-left dropdown-menu-sort"><!--dropdown-menu-align-right-->
-                                            <li class="order_by_li" data-order-by="create_time"  data-sort="desc" data-title="创建时间↓降序"><a href="#">创建时间↓降序 </a></li>
-                                            <li class="order_by_li" data-order-by="create_time"  data-sort="asc" data-title="创建时间↑升序"><a href="#">创建时间↑升序 </a></li>
-                                            <li class="order_by_li" data-order-by="username"  data-sort="desc" data-title="用户名↓降序"><a href="#">用户名↓降序 </a></li>
-                                            <li class="order_by_li" data-order-by="username"  data-sort="asc" data-title="用户名↑升序"><a href="#">用户名↑升序 </a></li>
+                                            <li class="order_by_li" data-order-by="create_time"  data-sort="desc" data-title="创建时间↓降序"><a href="#">Create Time ↓ </a></li>
+                                            <li class="order_by_li" data-order-by="create_time"  data-sort="asc" data-title="创建时间↑升序"><a href="#">Create Time ↑ </a></li>
+                                            <li class="order_by_li" data-order-by="username"  data-sort="desc" data-title="用户名↓降序"><a href="#">Username ↓ </a></li>
+                                            <li class="order_by_li" data-order-by="username"  data-sort="asc" data-title="用户名↑升序"><a href="#">Username ↑ </a></li>
 
                                         </ul>
                                     </div>
                                 </form>
                                 <div class="btn-group">
                                     <a class="btn btn-gray" id="btn-user_filter" href="#">
-                                        <i class="fa fa-filter"></i>查 询
+                                        <i class="fa fa-filter"></i> Search
                                     </a>
                                     <a class="btn"  href="#"  onclick="userFormReset()" >
                                         <i class="fa fa-undo"></i>
@@ -122,13 +122,13 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th class="js-pipeline-commit pipeline-commit">账号</th>
+                                            <th class="js-pipeline-commit pipeline-commit">Username</th>
                                             <th class="js-pipeline-commit pipeline-commit">Email</th>
-                                            <th class="js-pipeline-stages pipeline-info">最近登录时间</th>
-                                            <th class="js-pipeline-stages pipeline-info">用户组</th>
-                                            <th class="js-pipeline-date pipeline-date">创建时间</th>
-                                            <th class="js-pipeline-date pipeline-date">状态</th>
-                                            <th >操作</th>
+                                            <th class="js-pipeline-stages pipeline-info">Recent Login</th>
+                                            <th class="js-pipeline-stages pipeline-info">User Group</th>
+                                            <th class="js-pipeline-date pipeline-date">Create Time</th>
+                                            <th class="js-pipeline-date pipeline-date">Status</th>
+                                            <th >Operation</th>
                                         </tr>
                                         </thead>
                                         <tbody id="render_id">
@@ -159,7 +159,7 @@
             <div class="modal-content modal-middle">
                 <div class="modal-header">
                     <a class="close js-key-modal-close1" data-dismiss="modal" href="#">×</a>
-                    <h3 class="page-title">新增用户</h3>
+                    <h3 class="page-title">Add User</h3>
                 </div>
 
                 <div class="modal-body">
@@ -174,7 +174,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="id_display_name">显示名称:<span class="required"> *</span></label>
+                        <label class="control-label" for="id_display_name">Auditor Initials:<span class="required"> *</span></label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[display_name]" id="id_display_name"  value="" />
@@ -184,7 +184,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="id_title">职 位:</label>
+                        <label class="control-label" for="id_title">Position:</label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[title]" id="id_title"  value="" />
@@ -193,7 +193,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="id_username">账号:<span class="required"> *</span></label>
+                        <label class="control-label" for="id_username">Username:<span class="required"> *</span></label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[username]" id="id_username"  value="" />
@@ -202,7 +202,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="id_password">密码:<span class="required"> *</span></label>
+                        <label class="control-label" for="id_password">Password:<span class="required"> *</span></label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="password" class="form-control" name="params[password]" id="id_password"  value="" />
@@ -217,7 +217,7 @@
                                 <div class="checkbox">
                                     <label for="project_printing_merge_request_link_enabled">
                                         <input type="checkbox" value="1" checked="checked" name="params[notify_email]" id="id_notify_email" >
-                                        <strong>发送邮件通知</strong>
+                                        <strong>Notify By Email</strong>
                                     </label>
                                 </div>
                             </div>
@@ -226,8 +226,8 @@
                 </div>
 
                 <div class="modal-footer form-actions">
-                    <button name="submit" type="button" class="btn btn-save js-key-modal-enter1" id="btn-user_add">保存</button>
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <button name="submit" type="button" class="btn btn-save js-key-modal-enter1" id="btn-user_add">Save</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                 </div>
             </div>
         </div>
@@ -245,13 +245,13 @@
             <div class="modal-content modal-middle">
                 <div class="modal-header">
                     <a class="close js-key-modal-close2" data-dismiss="modal" href="#">×</a>
-                    <h3 class="modal-header-title">编辑用户</h3>
+                    <h3 class="modal-header-title">Edit User</h3>
                 </div>
 
                 <div class="modal-body">
                     <input type="hidden" name="uid" id="edit_uid" value="">
                     <div class="form-group">
-                        <label class="control-label" for="edit_username">账号:<span class="required"> *</span></label>
+                        <label class="control-label" for="edit_username">New Username:<span class="required"> *</span></label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control"  id="edit_username"  value=""  disabled />
@@ -260,7 +260,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="edit_email">Email:</label>
+                        <label class="control-label" for="edit_email">New Email:</label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[email]" id="edit_email"  value="" disabled/>
@@ -269,7 +269,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="edit_password">密码:</label>
+                        <label class="control-label" for="edit_password">New Password:</label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[password]" id="edit_password"  value="" />
@@ -278,7 +278,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="edit_display_name">显示名称:<span class="required"> *</span></label>
+                        <label class="control-label" for="edit_display_name">New Auditor Initials:<span class="required"> *</span></label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[display_name]" id="edit_display_name"  value="" />
@@ -288,7 +288,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="edit_title">职 位:</label>
+                        <label class="control-label" for="edit_title">New Position:</label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[title]" id="edit_title"  value="" />
@@ -297,7 +297,7 @@
                     </div>
 
                     <div class="form-group" id="edit_disable_wrap">
-                        <label class="control-label" for="edit_disable">禁用:</label>
+                        <label class="control-label" for="edit_disable">Disabled:</label>
                         <div class="col-sm-5">
                             <div class="form-group">
                                 <div class="checkbox">
@@ -313,8 +313,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button name="submit" type="button" class="btn btn-save js-key-modal-enter2" id="btn-user_update">保存</button>
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <button name="submit" type="button" class="btn btn-save js-key-modal-enter2" id="btn-user_update">Save</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                 </div>
 
             </div>
@@ -333,21 +333,21 @@
             <div class="modal-content modal-middle">
                 <div class="modal-header">
                     <a class="close" data-dismiss="modal" href="#">×</a>
-                    <h3 class="modal-header-title">编辑用户组</h3>
+                    <h3 class="modal-header-title">Edit User Group</h3>
                 </div>
                 <div class="modal-body overflow-visible">
                     <div class="form-group">
-                        <label class="control-label" for="id_display_name">勾选所属用户组:</label>
+                        <label class="control-label" for="id_display_name">Select All Applicable User Group:</label>
                         <div class="col-sm-10">
-                                <select id="for_group" name="params[groups][]" class="selectpicker" dropdownAlignRight="true"  data-width="90%" data-live-search="true"  multiple title="选择用户组">
+                                <select id="for_group" name="params[groups][]" class="selectpicker" dropdownAlignRight="true"  data-width="90%" data-live-search="true"  multiple title="Select User Group">
                                 </select>
                         </div>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button name="submit" type="button" class="btn btn-save" id="btn-save-user-group">保存</button>
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <button name="submit" type="button" class="btn btn-save" id="btn-save-user-group">Save</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                 </div>
             </div>
         </div>
@@ -410,18 +410,18 @@
             </td>
             <td  >
                 <div class="controls member-controls " >
-                    <a class="user_for_group btn btn-transparent" href="#" data-uid="{{uid}}" style="padding: 6px 2px;">用户组 </a>
-                    <a class="user_for_edit btn btn-transparent" href="#" data-uid="{{uid}}" style="padding: 6px 2px;">编辑 </a>
+                    <a class="user_for_group btn btn-transparent" href="#" data-uid="{{uid}}" style="padding: 6px 2px;">Group </a>
+                    <a class="user_for_edit btn btn-transparent" href="#" data-uid="{{uid}}" style="padding: 6px 2px;">Edit </a>
                     {{#if_eq status '<?=$status_approval?>'}}
                         <a class="user_for_active btn btn-transparent " data-uid="{{uid}}"   href="#"  >
-                            激活
+                            Activate
                         </a>
                     {{/if_eq}}
                     {{#if_eq is_system '0'}}
                         {{#if_eq myself '0'}}
                             <a class="user_for_delete btn btn-transparent"   href="javascript:userDelete({{uid}});" style="padding: 6px 2px;">
                                 <i class="fa fa-trash"></i>
-                                <span class="sr-only">删除</span>
+                                <span class="sr-only">Delete</span>
                             </a>
                         {{/if_eq}}
                     {{/if_eq}}
@@ -436,7 +436,7 @@
 
 <script type="text/html"  id="select_group_tpl">
     <li class="select_group_li"  data-group="" data-title="用户组">
-        <a  href="javascript:;"  >全部</a>
+        <a  href="javascript:;"  >Select All</a>
     </li>
     {{#groups}}
     <li class="select_group_li"  data-group="{{id}}" data-title="{{name}}">

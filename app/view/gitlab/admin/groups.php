@@ -41,13 +41,13 @@
                     <div class="top-area">
                         <ul class="nav-links">
                             <li class="active" data-value="">
-                                <a id="state-opened"  title="全部用户" href="#" ><span>用户组</span>
+                                <a id="state-opened"  title="全部用户" href="#" ><span>User Group</span>
                                 </a>
                             </li>
                         </ul>
                         <div class="nav-controls margin-md-l">
                             <a class="btn btn-new btn_group_add js-key-create" data-target="#modal-group_add" data-toggle="modal" href="#modal-group_add">
-                                <i class="fa fa-plus"></i> 新增用户组
+                                <i class="fa fa-plus"></i> Add User Group
                             </a>
                         </div>
                         <div class="nav-controls">
@@ -55,7 +55,7 @@
                                 <input name="params[page]" id="filter_page" type="hidden" value="1">
                                 <input name="params[page_size]" id="filter_page_size" type="hidden" value="20">
 
-                                <input type="text" name="params[name]" id="filter_name" placeholder="组名称" class="form-control search-text-input input-short" spellcheck="false" value="" />
+                                <input type="text" name="params[name]" id="filter_name" placeholder="Group Name" class="form-control search-text-input input-short" spellcheck="false" value="" />
 
                                 <div class="dropdown inline prepend-left-10">
                                     <button class="dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false" >
@@ -87,9 +87,9 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th class="js-pipeline-info pipeline-info">名称</th>
-                                        <th class="js-pipeline-stages pipeline-info">描述</th>
-                                        <th class="pipeline-info" style="text-align: right;">操作</th>
+                                        <th class="js-pipeline-info pipeline-info">Name</th>
+                                        <th class="js-pipeline-stages pipeline-info">Description</th>
+                                        <th class="pipeline-info" style="text-align: right;">Operation</th>
                                     </tr>
                                     </thead>
                                     <tbody id="list_render_id">
@@ -118,12 +118,12 @@
             <div class="modal-content modal-middle">
                 <div class="modal-header">
                     <a class="close js-key-modal-close1" data-dismiss="modal" href="#">×</a>
-                    <h3 class="modal-header-title">新增用户组</h3>
+                    <h3 class="modal-header-title">Add User Group</h3>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="format" id="format" value="json">
                     <div class="form-group">
-                            <label class="control-label" for="id_name">名称:<span class="required"> *</span></label>
+                            <label class="control-label" for="id_name">Name:<span class="required"> *</span></label>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="params[name]" id="id_name"  value="" />
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="id_description">描述:</label>
+                            <label class="control-label" for="id_description">Description:</label>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="params[description]" id="id_description"  value="" />
@@ -140,8 +140,8 @@
                         </div>
                 </div>
                 <div class="modal-footer form-actions">
-                    <button name="submit" type="button" class="btn btn-create js-key-modal-enter1" id="btn-group_add">保存</button>
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <button name="submit" type="button" class="btn btn-create js-key-modal-enter1" id="btn-group_add">Save</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                 </div>
             </div>
         </div>
@@ -157,7 +157,7 @@
             <div class="modal-content modal-middle">
                 <div class="modal-header">
                     <a class="close js-key-modal-close2" data-dismiss="modal" href="#">×</a>
-                    <h3 class="modal-header-title">编辑用户组</h3>
+                    <h3 class="modal-header-title">Edit User Group</h3>
                 </div>
 
                 <div class="modal-body">
@@ -165,7 +165,7 @@
                     <input type="hidden" name="format" id="format" value="json">
 
                     <div class="form-group">
-                        <label class="control-label" for="id_name">显示名称:<span class="required"> *</span></label>
+                        <label class="control-label" for="id_name">New Name:<span class="required"> *</span></label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[name]" id="edit_name"  value="" />
@@ -173,7 +173,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="id_description">描述:</label>
+                        <label class="control-label" for="id_description">New Description:</label>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="params[description]" id="edit_description"  value="" />
@@ -183,8 +183,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button name="submit" type="button" class="btn btn-save js-key-modal-enter2" id="btn-group_update">保存</button>
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <button name="submit" type="button" class="btn btn-save js-key-modal-enter2" id="btn-group_update">Save</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                 </div>
             </div>
         </div>
@@ -207,9 +207,9 @@
             <td  >
                 <div class="controls member-controls " style="float: right">
 
-                    <a class="group_for_users btn btn-transparent " href="<?=ROOT_URL?>admin/user/index/?group_id={{id}}" data-value="{{id}}" style="padding: 6px 2px;">所属成员 </a>
-                    <a class="group_for_edit_users btn btn-transparent " href="<?=ROOT_URL?>admin/group/edit_users/{{id}}" data-value="{{id}}" style="padding: 6px 2px;">编辑成员 </a>
-                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">编辑 </a>
+                    <a class="group_for_users btn btn-transparent " href="<?=ROOT_URL?>admin/user/index/?group_id={{id}}" data-value="{{id}}" style="padding: 6px 2px;">User List | </a>
+                    <a class="group_for_edit_users btn btn-transparent " href="<?=ROOT_URL?>admin/group/edit_users/{{id}}" data-value="{{id}}" style="padding: 6px 2px;">Edit User List | </a>
+                    <a class="group_for_edit btn btn-transparent " href="#" data-value="{{id}}" style="padding: 6px 2px;">Edit | </a>
                     <a class="group_for_delete btn btn-transparent  "  href="javascript:;" data-value="{{id}}" style="padding: 6px 2px;">
                         <i class="fa fa-trash"></i>
                         <span class="sr-only">Remove</span>

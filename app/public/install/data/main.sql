@@ -613,7 +613,9 @@ CREATE TABLE `issue_main` (
   `master_id` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '父任务的id,非0表示子任务',
   `have_children` tinyint(1) UNSIGNED DEFAULT '0' COMMENT '是否拥有子任务',
   `followed_count` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '被关注人数',
-  `comment_count` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '评论数'
+  `comment_count` int(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT '评论数',
+  `standard_id` int(11) DEFAULT NULL,
+  FOREIGN KEY (`standard_id`) REFERENCES `standard_main` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -774,7 +776,7 @@ CREATE TABLE `issue_type` (
   `custom_icon_url` varchar(128) DEFAULT NULL,
   `is_system` tinyint(1) UNSIGNED DEFAULT '0',
   `form_desc_tpl_id` int(11) UNSIGNED DEFAULT '0' COMMENT '创建事项时,描述字段对应的模板id',
-  `is_collect_issue` tinyint(1) unsigned DEFAULT '1'
+  `is_collect_issue` int(1) UNSIGNED DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

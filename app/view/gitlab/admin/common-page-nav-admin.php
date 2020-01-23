@@ -11,26 +11,26 @@
 
                 <li class="<? if($nav_links_active=='project') echo 'active';?>">
                     <a title="项目" href="<?=ROOT_URL?>admin/project">
-                        <i class="fa fa-product-hunt"></i> <span>项目</span>
+                        <i class="fa fa-product-hunt"></i> <span>Company</span>
                     </a></li>
                 <li class="<? if($nav_links_active=='issue') echo 'active';?>">
-                    <a title="事项" href="<?=ROOT_URL?>admin/issue_type"><i class="fa fa-bug"></i> <span>事项</span>
+                    <a title="事项" href="<?=ROOT_URL?>admin/issue_type"><i class="fa fa-bug"></i> <span>Task</span>
                     </a>
                 </li>
                 <li class="<? if($nav_links_active=='remark') echo 'active';?>">
-                    <a title="绩效考核" href="<?=ROOT_URL?>admin/remark"><i class="fa fa-archive"></i> <span>绩效考核</span>
+                    <a title="绩效考核" href="<?=ROOT_URL?>admin/remark"><i class="fa fa-archive"></i> <span>Remark</span>
                     </a>
                 </li>
                 <li class="<? if($nav_links_active=='standard') echo 'active';?>">
-                    <a title="标准规范" href="<?=ROOT_URL?>admin/standard"><i class="fa fa-file"></i> <span>标准规范</span>
+                    <a title="标准规范" href="<?=ROOT_URL?>admin/standard"><i class="fa fa-file"></i> <span>Standard</span>
                     </a>
                 </li>
                 <li class="<? if($nav_links_active=='user') echo 'active';?>">
-                    <a title="用户管理" href="<?=ROOT_URL?>admin/user"><i class="fa fa-user"></i> <span>用户管理</span>
+                    <a title="用户管理" href="<?=ROOT_URL?>admin/user"><i class="fa fa-user"></i> <span>User</span>
                     </a>
                 </li>
                 <li class="<? if($nav_links_active=='system') echo 'active';?>">
-                    <a title="系统" href="<?=ROOT_URL?>admin/system"><i class="fa fa-cogs"></i> <span>系统</span>
+                    <a title="系统" href="<?=ROOT_URL?>admin/system"><i class="fa fa-cogs"></i> <span>System</span>
                     </a>
                 </li>
 

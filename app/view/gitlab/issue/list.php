@@ -707,6 +707,7 @@
                                                     </ul>
                                                 </div>
 
+                                                <!--
                                                 <div class="btn-group" role="group">
                                                     <button type="button" class="btn btn-default dropdown-toggle"
                                                             data-toggle="dropdown" aria-haspopup="true"
@@ -722,6 +723,7 @@
                                                         ?>
                                                     </ul>
                                                 </div>
+                                                -->
                                             </div>
 
                                             <span style="margin-left: 1em">
@@ -1562,10 +1564,12 @@
                                                data-issuekey="{{issue_num}}">Duplicate</a>
                                         </li>
                                         {{#if_eq sprint '0' }}
+                                        <!--
                                         <li class="aui-list-item">
                                             <a href="javascript:;" class="issue_sprint_href" data-issue_id="{{id}}"
                                                data-issuekey="{{issue_num}}">Add To Sprint</a>
                                         </li>
+                                        -->
                                         {{else}}
                                         <li class="aui-list-item ">
                                             <a href="javascript:;" class="issue_backlog_href" data-issue_id="{{id}}"

@@ -160,7 +160,7 @@ $(function () {
         var user = getValueByKey(_issueConfig.users, uid);
         //console.log(users);
         if (user == null) {
-            return '未分配';
+            return '-';
         }
         html += '<span class="list-item-name"><a href="/user/profile/' + user.uid + '">' +
             '<img width="26px" height="26px" class=" float-none" style="border-radius: 50%;"   data-toggle="tooltip" data-placement="top"  title="' + user.username + ' ' + user.display_name + '" src="' + user.avatar + '" />' +
