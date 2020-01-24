@@ -34,7 +34,7 @@
                     <div class="top-area">
                         <ul class="nav-links user-state-filters">
                             <li class="active" data-value="">
-                                <a title="组 织" href="#"><span>组 织</span>
+                                <a title="组 织" href="#"><span>Organization</span>
                                 </a>
                             </li>
                         </ul>
@@ -46,7 +46,7 @@
                                     <a class="btn btn-new btn_issue_type_add js-key-create" data-key-mode="new-page"
                                        href="/org/create">
                                         <i class="fa fa-plus"></i>
-                                        新 增
+                                        Add
                                     </a>
                                     <?php
                                 }
@@ -60,9 +60,9 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th class="js-pipeline-info pipeline-info" style="min-width:20%">组 织</th>
-                                        <th class="js-pipeline-date pipeline-date" style="min-width:40%">包含项目</th>
-                                        <th style="text-align: right;">操作</th>
+                                        <th class="js-pipeline-info pipeline-info" style="min-width:20%">Organization</th>
+                                        <th class="js-pipeline-date pipeline-date" style="min-width:40%">Companies Included</th>
+                                        <th style="text-align: right;">Operation</th>
                                     </tr>
                                     </thead>
                                     <tbody id="list_render_id">
@@ -125,7 +125,7 @@
                     {{/if}}
                 {{/each}}
                 {{#if is_more}}
-                <a role="button" aria-label="更多项目" href="/org/detail/{{id}}"
+                <a role="button" aria-label="More Companies" href="/org/detail/{{id}}"
                    class="users-btn s26">
                     ...
                 </a>
@@ -135,19 +135,19 @@
             <td  >
                 <div class="controls member-controls " style="float: right">
 
-                    <a class="btn btn-transparent " href="/org/detail/{{id}}" data-value="{{id}}" style="padding: 6px 2px;">详情 </a>
+                    <a class="btn btn-transparent " href="/org/detail/{{id}}" data-value="{{id}}" style="padding: 6px 2px;">Details </a>
                     {{#if_eq path 'default'}}
-                    <span title="不可删除" style="color: grey;font-size: 12px">系统预置</span>
+                    <span title="不可删除" style="color: grey;font-size: 12px">System Preset</span>
                     {{^}}
                     <?php
                     if($is_admin) {
                         ?>
                         <a class="list_for_edit btn btn-transparent " href="/org/edit/{{id}}" data-value="{{id}}"
-                           style="padding: 6px 2px;">编辑 </a>
+                           style="padding: 6px 2px;">Edit </a>
                         <a class="list_for_delete btn btn-transparent  " href="javascript:;" data-id="{{id}}"
                            style="padding: 6px 2px;">
                             <i class="fa fa-trash"></i>
-                            <span class="sr-only">删除</span>
+                            <span class="sr-only">Delete</span>
                         </a>
                         <?php
                     }

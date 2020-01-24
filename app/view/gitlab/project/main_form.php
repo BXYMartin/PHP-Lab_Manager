@@ -57,33 +57,33 @@
         <div class="container-fluid container-limited">
             <div class="content" id="content-body">
                 <h3 class="page-title">
-                    创建项目
+                    Create Customer (Company)
                 </h3>
                 <hr>
                 <form id="form_add_action" class="form-horizontal issue-form common-note-form js-quick-submit js-requires-input gfm-form" action="<?=ROOT_URL?>project/main/create" accept-charset="UTF-8" method="post">
                     <input name="utf8" type="hidden" value="✓">
                     <input type="hidden" name="authenticity_token" value="">
                     <div class="form-group">
-                        <label class="control-label" for="">项目名称</label>
+                        <label class="control-label" for="">Company Name</label>
                         <div class="col-sm-10">
-                            <input placeholder="请输入名称,最多<?=$project_name_max_length?>字符" class="form-control" tabindex="1" autofocus="autofocus"
+                            <input placeholder="Maximum Length:<?=$project_name_max_length?>" class="form-control" tabindex="1" autofocus="autofocus"
                                     type="text" name="params[name]" id="project_name" maxlength="<?=$project_name_max_length?>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="">
-                            <span>项目Key</span>
+                            <span>Company Key</span>
                         </label>
                         <div class="col-sm-10">
-                            <input placeholder="必须英文字符,最大长度<?=$project_key_max_length?>,创建后不可修改" class="form-control" tabindex="3"
+                            <input placeholder="Maximum Length: <?=$project_key_max_length?>, DO NOT CONTAIN CHARACTERS OTHER THAN A-Z/a-z" class="form-control" tabindex="3"
                                     type="text" name="params[key]" id="project_key" maxlength="<?=$project_key_max_length?>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="">
-                            <span>组织</span>
+                            <span>Organization</span>
                         </label>
                         <div class="col-sm-10">
                             <div class="select2-container">
@@ -99,7 +99,7 @@
 
                     <div class="form-group">
                         <label class="control-label" for="">
-                            项目类型
+                            Customer Type
                         </label>
                         <div class="col-sm-10 radio-with">
                             <?php foreach ($full_type as $type_id => $type_item) { ?>
@@ -117,7 +117,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="project_description">项目描述
+                        <label class="control-label" for="project_description">Company Description
                             <span class="light"></span>
                         </label>
                         <div class="col-sm-10">
@@ -126,7 +126,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="project_detail">项目详情</label>
+                        <label class="control-label" for="project_detail">Company Details</label>
                         <div class="col-sm-10">
                             <div id="editor_md">
                                 <textarea style="display:none;" name="params[detail]" id="project_detail"></textarea>
@@ -154,7 +154,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group issue-assignee">
-                                <label class="control-label col-lg-4" for="project_lead">项目负责人</label>
+                                <label class="control-label col-lg-4" for="project_lead">Company Assignee</label>
                                 <div class="col-lg-8 col-sm-10">
                                     <div class="issuable-form-select-holder">
                                         <input type="hidden" name="params[lead]" id="project_lead" />
@@ -168,12 +168,12 @@
                                                     data-field-name="params[lead]"
                                                     data-default-label="Assignee"
                                                     data-toggle="dropdown">
-                                                <span class="dropdown-toggle-text is-default">项目负责人</span>
+                                                <span class="dropdown-toggle-text is-default">Company Assignee</span>
                                                 <i class="fa fa-chevron-down"></i>
                                             </button>
                                             <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
                                                 <div class="dropdown-title">
-                                                    <span>选择负责人</span>
+                                                    <span>Select Assignee</span>
                                                     <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                                                         <i class="fa fa-times dropdown-menu-close-icon"></i>
                                                     </button>
@@ -190,7 +190,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a class="assign-to-me-link " href="#">赋予给我</a>
+                                    <a class="assign-to-me-link " href="#">Assign to ME</a>
                                 </div>
                             </div>
 
@@ -218,14 +218,14 @@
                         <div class="col-sm-10">
                             <input type="hidden"  name="params[avatar_relate_path]" id="avatar"  value=""  />
                             <div id="fine-uploader-gallery"></div>
-                            <div class="help-block">图片大小被限制为200KB.</div>
+                            <div class="help-block">Image Size is limited to 200KB.</div>
                         </div>
                     </div>
 
 
                     <div class="form-actions text-right">
-                        <input type="submit" name="commit" value="创建项目" class="btn btn-create disabled js-key-enter">
-                        <a class="btn btn-cancel" href="javascript:history.go(-1)" style="float: none">取消</a>
+                        <input type="submit" name="commit" value="Create" class="btn btn-create disabled js-key-enter">
+                        <a class="btn btn-cancel" href="javascript:history.go(-1)" style="float: none">Cancel</a>
                     </div>
                 </form>
 
@@ -243,7 +243,7 @@
 <!-- Fine Uploader Gallery template
     ====================================================================== -->
 <script type="text/template" id="qq-template-gallery">
-    <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="将文件拖放到此处以上传项目图标">
+    <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drag Image File Here To Upload Company Logo..">
         <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
             <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
         </div>
@@ -251,7 +251,7 @@
             <span class="qq-upload-drop-area-text-selector"></span>
         </div>
         <div class="qq-upload-button-selector qq-upload-button">
-            <div>选择图片</div>
+            <div>Select Image</div>
         </div>
         <span class="qq-drop-processing-selector qq-drop-processing">
                 <span>Processing dropped files...</span>
@@ -305,8 +305,8 @@
         <dialog class="qq-confirm-dialog-selector">
             <div class="qq-dialog-message-selector"></div>
             <div class="qq-dialog-buttons">
-                <button type="button" class="qq-cancel-button-selector">否</button>
-                <button type="button" class="qq-ok-button-selector">是</button>
+                <button type="button" class="qq-cancel-button-selector">No</button>
+                <button type="button" class="qq-ok-button-selector">Yes</button>
             </div>
         </dialog>
 
@@ -314,8 +314,8 @@
             <div class="qq-dialog-message-selector"></div>
             <input type="text">
             <div class="qq-dialog-buttons">
-                <button type="button" class="qq-cancel-button-selector">取消</button>
-                <button type="button" class="qq-ok-button-selector">好的</button>
+                <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                <button type="button" class="qq-ok-button-selector">Confirm</button>
             </div>
         </dialog>
     </div>
@@ -329,7 +329,7 @@
     $(function() {
         var editor = editormd({
             id   : "editor_md",
-            placeholder : "填写项目说明...",
+            placeholder : "Add Company Description...",
             width: "100%",
             height: 240,
             markdown: "",

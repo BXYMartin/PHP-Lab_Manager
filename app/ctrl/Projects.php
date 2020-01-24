@@ -40,7 +40,7 @@ class Projects extends BaseUserCtrl
     public function pageIndex()
     {
         $data = [];
-        $data['title'] = '项目';
+        $data['title'] = 'Customer';
         $data['sub_nav_active'] = 'project';
 
         $dataKey = array(
@@ -54,7 +54,7 @@ class Projects extends BaseUserCtrl
         foreach ($projectTypeAndCount as $key => $value) {
             switch ($key) {
                 case 'WHOLE':
-                    $outProjectTypeList[0] = array_combine($dataKey, [$value, '全部']);
+                    $outProjectTypeList[0] = array_combine($dataKey, [$value, 'All']);
                     break;
                 case 'SCRUM':
                     $outProjectTypeList[ProjectLogic::PROJECT_TYPE_SCRUM] =

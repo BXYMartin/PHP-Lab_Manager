@@ -56,8 +56,7 @@
                     </div>
 
                     <div class="user-profile-text">
-                        <div class="text-title"><span id="current_time"></span><?= $user['display_name'] ?>，祝你开心每一天！
-                        </div>
+                        <div class="text-title"><span id="current_time"></span><?= $user['display_name'] ?>, welcome!                        </div>
                         <div class="text-content">
                             <?= $user['title'] ?>
                             <?php
@@ -71,17 +70,17 @@
 
                 <ul class="user-profile-extra">
                     <li class="extra-item">
-                        <p class="extra-item-title">项目数</p>
+                        <p class="extra-item-title">Customers</p>
                         <p class="extra-item-num"><?=$project_count?></p>
                     </li>
 
                     <li class="extra-item">
-                        <p class="extra-item-title">未完成事项数</p>
+                        <p class="extra-item-title">Ongoing Audit</p>
                         <p class="extra-item-num"><?=$un_done_issue_count?></span></p>
                     </li>
 
                     <li class="extra-item">
-                        <p class="extra-item-title">用户数</p>
+                        <p class="extra-item-title">User Count</p>
                         <p class="extra-item-num"><?=$user_count?></p>
                     </li>
                 </ul>
@@ -93,11 +92,11 @@
                 <div class="btn-group" role="group">
                     <a class="btn btn_issue_type_add js-key-create" data-target="#modal-tools-add" data-toggle="modal" href="#modal-tools-add">
                         <i class="fa fa-plus"></i>
-                        添加小工具
+                        Add Widget
                     </a>
                     <a class="btn btn_issue_type_add js-key-create" data-target="#modal-layout" data-toggle="modal" href="#modal-layout">
                         <i class="fa fa-th-large"></i>
-                        版式布局
+                        Layout
                     </a>
                 </div>
             </div>

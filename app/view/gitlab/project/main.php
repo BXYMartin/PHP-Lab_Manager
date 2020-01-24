@@ -57,7 +57,7 @@
                                         ?>
                                         <a class="btn btn-create new-tag-btn js-key-create" data-key-mode="new-page"
                                            href="<?= ROOT_URL ?>project/main/new">
-                                            创建项目
+                                            Create Customer (Company)
                                         </a>
                                         <?php
                                     }
@@ -156,11 +156,11 @@
                              alt="{{this.username}}" src="{{this.avatar}}">
                     </a>
                     {{#if is_leader}}
-                    <p class="user-name">负责人</p>
+                    <p class="user-name">Assignee</p>
                     {{/if}}
                 </div>
                 {{/each}}
-                <a role="button" aria-label="跳转至项目用户" href="<?= ROOT_URL ?>{{path}}/{{key}}/settings_project_member"
+                <a role="button" aria-label="Jump To Project Members" href="<?= ROOT_URL ?>{{path}}/{{key}}/settings_project_member"
                    class="users-btn">
                     ...
                 </a>

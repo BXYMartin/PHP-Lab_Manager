@@ -8,11 +8,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <a class="close js-key-modal-close1" data-dismiss="modal" href="#">×</a>
-                    <h3 class="modal-header-title">版式布局</h3>
+                    <h3 class="modal-header-title">Layout</h3>
                 </div>
 
                 <div class="modal-body layout-dialog" id="layout-dialog">
-                    <p><strong>选择仪表板布局</strong></p>
+                    <p><strong>Select a Layout</strong></p>
                     <ul>
                         <li><a onclick="doLayout('a')" id="layout-a"><strong>A</strong></a></li>
                         <li><a onclick="doLayout('aa')" id="layout-aa"><strong>AA</strong></a></li>
@@ -32,7 +32,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <a class="close js-key-modal-close1" data-dismiss="modal" href="#">×</a>
-                <h3 class="modal-header-title">添加小工具</h3>
+                <h3 class="modal-header-title">Add Widget</h3>
             </div>
             <div class="modal-body" id="tools-dialog">
 
@@ -60,9 +60,9 @@
 
             <div class="tool-action">
                 {{#if isExist}}
-                <span>已添加</span>
+                <span>Already Exist</span>
                 {{^}}
-                <a href="javascript:;" onclick="addNewTool('{{id}}')">添加小工具</a>
+                <a href="javascript:;" onclick="addNewTool('{{id}}')">Add</a>
                 {{/if}}
             </div>
         </li>
@@ -81,7 +81,7 @@
         {{/parameter}}
         <div class="form-group">
             <div class="col-sm-8 col-md-offset-2">
-                <a href="javascript:;" class="btn btn-default" onclick="saveForm({{id}}, '{{_key}}')">保存</a>
+                <a href="javascript:;" class="btn btn-default" onclick="saveForm({{id}}, '{{_key}}')">Save</a>
             </div>
         </div>
     </form>
@@ -137,8 +137,8 @@
         <thead>
         <tr>
             <th>#id</th>
-            <th>优先级</th>
-            <th>主题</th>
+            <th>Priority</th>
+            <th>Theme</th>
         </tr>
         </thead>
         <tbody id="assignee_my_wrap">
@@ -164,10 +164,10 @@
         <td><a href="<?= ROOT_URL ?>issue/detail/index/{{id}}">
 		{{summary}}
                 {{#if_eq warning_delay 1 }}
-                <span style="color:#fc9403" title="即将延期">即将延期</span>
+                <span style="color:#fc9403" title="即将延期">About to Due</span>
                 {{/if_eq}}
                 {{#if_eq postponed 1 }}
-                <span style="color:#db3b21" title="逾期">逾期</span>
+                <span style="color:#db3b21" title="逾期">Due</span>
                 {{/if_eq}}
          {{status_html status }}
 		</a></td>
@@ -180,8 +180,8 @@
         <thead>
         <tr>
             <th>#id</th>
-            <th>优先级</th>
-            <th>主题</th>
+            <th>Priority</th>
+            <th>Theme</th>
         </tr>
         </thead>
         <tbody id="unresolve_assignee_my_wrap">
@@ -207,10 +207,10 @@
         <td><a href="<?= ROOT_URL ?>issue/detail/index/{{id}}">
                 {{summary}}
                 {{#if_eq warning_delay 1 }}
-                <span style="color:#fc9403" title="即将延期">即将延期</span>
+                <span style="color:#fc9403" title="即将延期">About to Due</span>
                 {{/if_eq}}
                 {{#if_eq postponed 1 }}
-                <span style="color:#db3b21" title="逾期">逾期</span>
+                <span style="color:#db3b21" title="逾期">Due</span>
                 {{/if_eq}}
                 {{status_html status }}
             </a></td>
@@ -269,7 +269,7 @@
     {{/activity}}
     <div class="text-center" style="margin-top: .8em;">
         <span class="text-center">
-                总数:<span id="issue_count">{{total}}</span> 每页显示:<span id="page_size">{{page_size}}</span>
+                Total:<span id="issue_count">{{total}}</span> Each:<span id="page_size">{{page_size}}</span>
         </span>
     </div>
     <div class="gl-pagination" id="ampagination-bootstrap">
@@ -284,11 +284,11 @@
 </script>
 <script id="nav_tpl" type="text/html">
     <div class="link-group">
-        <a href="<?=ROOT_URL?>org/create">创建组织</a>
-        <a href="<?=ROOT_URL?>project/main/_new">创建项目</a>
-        <a href="<?=ROOT_URL?>issue/main/#create">创建事项</a>
+        <a href="<?=ROOT_URL?>org/create">Create Organization</a>
+        <a href="<?=ROOT_URL?>project/main/_new">Create Customer</a>
+        <a href="<?=ROOT_URL?>issue/main/#create">Create Audit</a>
         <a href="<?=ROOT_URL?>passport/logout" >
-            <i class="fa fa-power-off"></i> <span> 注 销</span>
+            <i class="fa fa-power-off"></i> <span> Logout</span>
         </a>
     </div>
 </script>
@@ -326,23 +326,24 @@
 
 <script id="project_stat_tpl" type="text/html">
     <div class="col-sm-3 col-xs-12 column header-body-item">
-        <span class="item-text">总事项</span>
+        <span class="item-text">Total Audit Count</span>
         <span id="issues_count" class="item-num">-</span>
     </div>
     <div class="col-sm-3 col-xs-12 column header-body-item">
-        <span class="item-text">未解决</span>
+        <span class="item-text">Unsolved Audit Count</span>
         <span id="no_done_count" class="item-num">-</span>
 
     </div>
     <div class="col-sm-3 col-xs-12 column header-body-item">
-        <span class="item-text">关闭</span>
+        <span class="item-text">Closed Audit Count</span>
         <span id="closed_count" class="item-num">-</span>
     </div>
+    <!--
     <div class="col-sm-3 col-xs-12 column header-body-item">
         <span class="item-text">迭代次数</span>
         <span id="sprint_count" class="item-num">-</span>
-
     </div>
+    -->
 </script>
 
 <!--项目已解决与未解决对比-->
@@ -364,9 +365,9 @@
     <table class="table">
         <thead>
         <tr>
-            <th>优先级</th>
-            <th>事项</th>
-            <th>百分比</th>
+            <th>Priority</th>
+            <th>Total Count</th>
+            <th>Percentage</th>
         </tr>
         </thead>
         <tbody id="project_priority_stat_wrap">
@@ -409,9 +410,9 @@
     <table class="table">
         <thead>
         <tr>
-            <th>开发者</th>
-            <th>事项</th>
-            <th>百分比</th>
+            <th>Assignee</th>
+            <th>Total Count</th>
+            <th>Percentage</th>
         </tr>
         </thead>
         <tbody id="project_developer_stat_wrap">
@@ -456,9 +457,9 @@
     <table class="table">
         <thead>
         <tr>
-            <th>状态</th>
-            <th>事项</th>
-            <th>百分比</th>
+            <th>Status</th>
+            <th>Total Count</th>
+            <th>Percentage</th>
         </tr>
         </thead>
         <tbody id="project_status_stat_wrap">

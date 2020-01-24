@@ -46,7 +46,7 @@ class Dashboard extends BaseUserCtrl
             die;
         }
         $data = [];
-        $data['title'] = '首页';
+        $data['title'] = 'Homepage';
         $data['top_menu_active'] = 'index';
         $data['nav_links_active'] = 'index';
         $data['sub_nav_active'] = 'all';

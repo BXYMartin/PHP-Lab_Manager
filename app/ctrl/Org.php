@@ -30,7 +30,7 @@ class Org extends BaseUserCtrl
     public function pageIndex()
     {
         $data = [];
-        $data['title'] = '组织';
+        $data['title'] = 'Organization';
         $data['nav_links_active'] = 'org';
         $data['sub_nav_active'] = 'all';
         $this->render('gitlab/org/main.php', $data);

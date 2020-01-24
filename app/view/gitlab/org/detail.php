@@ -47,7 +47,7 @@
                             <div class="project-item-select-holder">
                                 <a class="btn js-key-back btn_back" href="/org"  data-key-mode="new-page">
                                     <i class="fa fa-reply "></i>
-                                    返 回
+                                    Back
                                 </a>
                             </div>
                         </div>
@@ -55,13 +55,13 @@
                     <div class="content-block padding-lg margin-b-lg content-block-header">
 
                         <ul class="header-desc clearfix">
-                            <li><span class="desc-label">关键字：</span> <span id="org_path"></span></li>
-                            <li><span class="desc-label">描述：</span> <span id="org_description"></span></li>
+                            <li><span class="desc-label">Keywords:</span> <span id="org_path"></span></li>
+                            <li><span class="desc-label">Description:</span> <span id="org_description"></span></li>
                         </ul>
                     </div>
 
                     <div class="content-block padding-lg margin-b-lg content-block-body">
-                        <h3 class="body-title">包含项目</h3>
+                        <h3 class="body-title">Companies Included</h3>
 
                         <div class="body-content">
                             <!-- Table -->
@@ -122,7 +122,7 @@
                 </strong>
             </td>
             <td>
-                <p>创建时间</p>
+                <p>Create Time</p>
                 <p>{{create_time_text}}</p>
             </td>
             <td>
@@ -138,7 +138,7 @@
             <td>
                 <ul class="list-item-action clearfix">
                     <li>
-                        <a href="<?=ROOT_URL?>{{path}}/{{key}}">详情</a>
+                        <a href="<?=ROOT_URL?>{{path}}/{{key}}">Details</a>
                     </li>
                 </ul>
             </td>
