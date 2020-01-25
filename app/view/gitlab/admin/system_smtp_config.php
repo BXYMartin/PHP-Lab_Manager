@@ -40,19 +40,19 @@
                                 <div class="top-area">
                                     <ul class="nav-links">
                                         <li class="active">
-                                            <a href="#">SMTP 配置</a>
+                                            <a href="#">SMTP Settings</a>
                                         </li>
                                         <li>
-                                            <span class="hint">SMTP 配置用于发送邮件</span>
+                                            <span class="hint">SMTP Settings (For Email Server)</span>
                                         </li>
                                     </ul>
                                     <div class="nav-controls">
                                         <div class="btn-group" role="group">
                                             <a class="hidden-xs hidden-sm btn btn-grouped  " id="btn-mail_test">
-                                                发送测试
+                                                Send Test Email
                                             </a>
                                             <a class="hidden-xs hidden-sm btn btn-grouped issuable-edit" data-target="#modal-edit_datetime" data-toggle="modal" href="#modal-edit_datetime">
-                                                <i class="fa fa-edit"></i> 修改
+                                                <i class="fa fa-edit"></i> Edit
                                             </a>
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@
                             <div class="modal-content  modal-middle">
                                 <div class="modal-header">
                                     <a class="close js-key-modal-close2" data-dismiss="modal" href="#">×</a>
-                                    <h3 class="modal-header-title">修改SMTP</h3>
+                                    <h3 class="modal-header-title">Edit SMTP</h3>
                                 </div>
                                 <div class="modal-body">
                                     <form class="js-quick-submit js-upload-blob-form form-horizontal"   action="/admin/system/basic_setting_update"   accept-charset="UTF-8" method="post">
@@ -84,8 +84,8 @@
                                         </div>
 
                                         <div class="modal-footer form-actions">
-                                            <button name="submit" type="button" class="btn btn-save js-key-modal-enter2" id="submit-all">保存</button>
-                                            <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                                            <button name="submit" type="button" class="btn btn-save js-key-modal-enter2" id="submit-all">Save</button>
+                                            <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                                         </div>
 
                                     </form>
@@ -109,21 +109,21 @@
                                     <div class="modal-body">
                                         <div id="form_id">
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-2 control-label">收件人:</label>
+                                                <label for="inputEmail3" class="col-sm-2 control-label">Receiver:</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" name="params[recipients]" id="id_max_project_name" value="">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-2 control-label">标题</label>
+                                                <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
                                                 <div class="col-sm-10">
                                                     <input type="text"  class="form-control" name="params[title]" id="id_title" value="Test Message From PRIME Lab">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-2 control-label">邮件格式:</label>
+                                                <label for="inputEmail3" class="col-sm-2 control-label">Email Format:</label>
                                                 <div class="col-sm-10">
 
                                                     <label style=" font-weight: 200;  ">
@@ -139,10 +139,10 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-2 control-label">内容</label>
+                                                <label for="inputEmail3" class="col-sm-2 control-label">Content</label>
                                                 <div class="col-sm-10">
                                             <textarea name="params[content]" id="test_content" rows="5" class="form-control" rows="3" >This is a test message from PRIME Lab.
-Server: PRIME Lab 邮件
+Server: Audit Server
 SMTP Port: 25
 Description:
 From:
@@ -152,7 +152,7 @@ Host User Name:  </textarea>
 
                                             <hr>
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-2 control-label">返回日志：</label>
+                                                <label for="inputEmail3" class="col-sm-2 control-label">Logs:</label>
                                                 <div class="col-sm-10">
                                                     <textarea class="form-control"  rows="6" name="resp_log" id="resp_log" style="font-size: 10px"></textarea>
 
@@ -161,8 +161,8 @@ Host User Name:  </textarea>
                                         </div>
 
                                         <div class="modal-footer form-actions">
-                                            <button name="btn-submit-test" type="button" class="btn btn-create btn-send_test js-key-modal-enter1" id="submit-test">发送测试</button>
-                                            <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                                            <button name="btn-submit-test" type="button" class="btn btn-create btn-send_test js-key-modal-enter1" id="submit-test">Send Test Email</button>
+                                            <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
@@ -241,11 +241,11 @@ Host User Name:  </textarea>
             data: params ,
             success: function (resp) {
                 auth_check(resp);
-                notify_success( "提交数据成功,后台服务发送中" );
+                notify_success( "Submit Success: Processing in the background.." );
                 $('#resp_log').text( resp.data.err+"\n"+resp.data.verbose );
             },
             error: function (resp) {
-                notify_error("请求数据错误" + resp);
+                notify_error("Request Error:" + resp);
             }
         });
 

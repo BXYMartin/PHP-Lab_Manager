@@ -37,7 +37,7 @@
                 <div class="row prepend-top-default">
                     <div class="col-lg-3 settings-sidebar">
                         <h4 class="prepend-top-0">
-                            界面
+                            User Interface
                         </h4>
 
                         <p>你可以在界面中管理事项所有需要显示的字段。 当事项创建、编辑、查看或者执行一个工作流时，可以显示不同的界面。</p>
@@ -72,7 +72,7 @@
                                 <form class="form-inline member-search-form" action="/ismond/xphp/settings/members" accept-charset="UTF-8" method="get">
                                     <input name="utf8" type="hidden" value="✓">
                                     <div class="form-group">
-                                        <a class="btn btn-edit" title="修改Default Issue Type Screen Scheme" href="#"><i class="fa fa-edit"></i> 修改</a>
+                                        <a class="btn btn-edit" title="修改Default Issue Type Screen Scheme" href="#"><i class="fa fa-edit"></i> Edit</a>
                                     </div>
                                 </form>
                             </div>

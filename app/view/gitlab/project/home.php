@@ -72,7 +72,7 @@
                     <div class="row prepend-top-default">
                         <div class="col-lg-3 profile-settings-sidebar">
                             <h4 class="prepend-top-0">
-                                项目成员
+                                Audit Member
                             </h4>
                         </div>
                         <div class="col-lg-9">
@@ -89,7 +89,7 @@
                     <div class="row prepend-top-default">
                         <div class="col-lg-3 profile-settings-sidebar">
                             <h4 class="prepend-top-0">
-                                基本信息
+                                Basic Info
                                 <a name="h4_basic_info" id="h4_basic_info" ></a>
                             </h4>
                         </div>

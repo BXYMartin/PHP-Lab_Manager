@@ -38,7 +38,7 @@
                 <div class="row prepend-top-default">
                     <div class="col-lg-3 settings-sidebar">
                         <h4 class="prepend-top-0">
-                            权限
+                            Permission
                         </h4>
 
                         <p>项目权限允许你控制谁可以访问这个项目, 以及他们可以执行哪些操作, 例如 "编辑事项", "创建事项"等。要限制用户访问某一个事项，需要在事项权限中设置。</p>
@@ -60,7 +60,7 @@
                                                 <i class="fa fa-question"></i> Permission helper
                                             </a>
                                             <a class="btn " title="New issue" id="new_issue_link" href="#">
-                                                <i class="fa fa-edit"></i> 修改权限
+                                                <i class="fa fa-edit"></i> Edit Permission
                                             </a>
 
                                         </div>
@@ -83,7 +83,7 @@
 
                                             </td>
                                             <td>
-                                                <h4 >项目权限</h4>
+                                                <h4 >Project Permission</h4>
                                             </td>
                                             <td  >
 

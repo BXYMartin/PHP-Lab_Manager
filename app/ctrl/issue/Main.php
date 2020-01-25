@@ -80,7 +80,7 @@ class Main extends BaseUserCtrl
     {
 
         $data = [];
-        $data['title'] = '事项';
+        $data['title'] = 'Company';
         $data['nav_links_active'] = 'issues';
         $data['sub_nav_active'] = 'all';
         $data['query_str'] = http_build_query($_GET);

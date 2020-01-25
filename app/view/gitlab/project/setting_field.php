@@ -37,7 +37,7 @@
                 <div class="row prepend-top-default">
                     <div class="col-lg-3 settings-sidebar">
                         <h4 class="prepend-top-0">
-                            字段
+                            Fields
                         </h4>
 
                         <p>不同的事项可以使用不同的字段。 字段配置定义了一个项目中字段的属性, 例如 必填项/可选项; 隐藏/显示。</p>
@@ -72,7 +72,7 @@
                                 <form class="form-inline member-search-form" action="/ismond/xphp/settings/members" accept-charset="UTF-8" method="get">
                                     <input name="utf8" type="hidden" value="✓">
                                     <div class="form-group">
-                                        <a class="btn btn-edit" title="修改Default Issue Type Screen Scheme" href="#"><i class="fa fa-edit"></i> 修改</a>
+                                        <a class="btn btn-edit" title="修改Default Issue Type Screen Scheme" href="#"><i class="fa fa-edit"></i> Edit</a>
                                     </div>
                                 </form>
                             </div>

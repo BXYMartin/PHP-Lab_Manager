@@ -49,7 +49,7 @@
                             <div class="nav-controls">
                                 <div class="btn-group" role="group">
                                     <a class="hidden-xs hidden-sm btn btn-grouped issuable-edit" data-target="#modal-edit_datetime" data-toggle="modal" href="#modal-edit_datetime">
-                                        <i class="fa fa-edit"></i> 修改
+                                        <i class="fa fa-edit"></i> Edit
                                     </a>
                                 </div>
                             </div>

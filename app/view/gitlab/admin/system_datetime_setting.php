@@ -38,13 +38,13 @@
                         <div class="top-area">
                             <ul class="nav-links">
                                 <li class="active">
-                                    <a href="#">日期/时间格式</a>
+                                    <a href="#">Date/Time Format</a>
                                 </li>
                             </ul>
                             <div class="nav-controls">
                                 <div class="btn-group" role="group">
                                     <a class="hidden-xs hidden-sm btn btn-grouped issuable-edit" data-target="#modal-edit_datetime" data-toggle="modal" href="#modal-edit_datetime">
-                                        <i class="fa fa-edit"></i> 修改
+                                        <i class="fa fa-edit"></i> Edit
                                     </a>
                                 </div>
                             </div>
@@ -71,15 +71,15 @@
                         <div class="modal-content modal-middle">
                             <div class="modal-header">
                                 <a class="close" data-dismiss="modal" href="#">×</a>
-                                <h3 class="modal-header-title">修改时间格式</h3>
+                                <h3 class="modal-header-title">Change Time Format</h3>
                             </div>
                             <div class="modal-body">
                                 <div id="form_id">
 
                                 </div>
                                 <div class="form-actions modal-footer">
-                                    <button name="submit" type="button" data-dismiss="modal" class="btn btn-save js-key-enter" data-dismiss="modal"  id="submit-all">保存</button>
-                                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                                    <button name="submit" type="button" data-dismiss="modal" class="btn btn-save js-key-enter" data-dismiss="modal"  id="submit-all">Save</button>
+                                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                                 </div>
                             </div>
                         </div>

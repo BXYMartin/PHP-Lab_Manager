@@ -60,7 +60,7 @@ class Detail extends BaseUserCtrl
     public function pageIndex()
     {
         $data = [];
-        $data['title'] = '事项详情';
+        $data['title'] = 'Audit Page';
         $data['nav_links_active'] = 'issues';
         $data['sub_nav_active'] = 'all';
         $data['query_str'] = http_build_query($_GET);

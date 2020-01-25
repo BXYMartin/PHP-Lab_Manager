@@ -39,16 +39,16 @@
                         <div class="top-area">
                             <ul class="nav-links">
                                 <li class="active">
-                                    <a href="#">附件</a>
+                                    <a href="#">Attachment</a>
                                 </li>
                                 <li>
-                                    <span class="hint">为了用户能够上传附件，确保其在该项目中有、添加附件、权限。</span>
+                                    <span class="hint">If a user need to upload attachments, make sure the user have correct access to the project.</span>
                                 </li>
                             </ul>
                             <div class="nav-controls">
                                 <div class="btn-group" role="group">
                                     <a class="hidden-xs hidden-sm btn btn-grouped issuable-edit" data-target="#modal-edit_attachment" data-toggle="modal" href="#modal-edit_attachment">
-                                        <i class="fa fa-edit"></i> 修改
+                                        <i class="fa fa-edit"></i> Edit
                                     </a>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                     <div class="modal-content modal-middle">
                         <div class="modal-header">
                             <a class="close" data-dismiss="modal" href="#">×</a>
-                            <h3 class="modal-header-title">修改附件设置</h3>
+                            <h3 class="modal-header-title">Change Attachment Settings</h3>
                         </div>
                         <div class="modal-body">
                             <form class="js-quick-submit js-upload-blob-form form-horizontal"   action="<?=ROOT_URL?>admin/system/basic_setting_update"   accept-charset="UTF-8" method="post">
@@ -81,8 +81,8 @@
                                 </div>
 
                                 <div class="form-actions modal-footer">
-                                <button name="submit" type="button" class="btn btn-save js-key-enter" data-dismiss="modal" id="submit-all">保存</button>
-                                <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                                <button name="submit" type="button" class="btn btn-save js-key-enter" data-dismiss="modal" id="submit-all">Save</button>
+                                <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                                 </div>
                             </form>
                         </div>

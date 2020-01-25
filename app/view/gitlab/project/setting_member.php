@@ -72,10 +72,10 @@
 
                     <div class="col-lg-3 settings-sidebar">
                         <h4 class="prepend-top-0">
-                            项目成员
+                            Audit Member
                         </h4>
                         <p>
-                            添加一个新成员到
+                            Add a new member to
                             <strong><?=$project['name']?></strong>
                         </p>
                     </div>
@@ -98,12 +98,12 @@
                                                     data-field-name="user_id"
                                                     data-default-label="Assignee"
                                                     data-toggle="dropdown">
-                                                <span class="dropdown-toggle-text is-default">选择项目成员</span>
+                                                <span class="dropdown-toggle-text is-default">Select Audit Members</span>
                                                 <i class="fa fa-chevron-down"></i>
                                             </button>
                                             <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
                                                 <div class="dropdown-title">
-                                                    <span>选择用户</span>
+                                                    <span>Select User</span>
                                                     <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                                                         <i class="fa fa-times dropdown-menu-close-icon"></i>
                                                     </button>
@@ -120,7 +120,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a class="assign-to-me-link " href="#">赋予给我</a>
+                                    <a class="assign-to-me-link " href="#">Assign To ME</a>
 
                                 </div>
 
@@ -134,17 +134,17 @@
                                     </select>
 
                                     <div class="help-block append-bottom-10">
-                                        <a class="vlink" href="<?=$project_root_url?>/settings_project_role">权限管理</a>
+                                        <a class="vlink" href="<?=$project_root_url?>/settings_project_role">Manage Permissions</a>
                                     </div>
                                 </div>
 
 
-                                <input type="submit" value="添加到项目" class="btn btn-create">
+                                <input type="submit" value="Add" class="btn btn-create">
                             </form>
 
                             <div class="append-bottom-default clearfix">
                                 <h5 class="member existing-title">
-                                    项目成员
+                                    Audit Member
                                 </h5>
                             </div>
                         </div>
@@ -179,11 +179,11 @@
                                         </select>
 
                                         <a class="btn btn-transparent btn-actionprepend-left-10" href='javascript:saveMemberRole(<?=$user['uid']?>, <?=$project_id?>);'>
-                                            <span class="visible-xs-block">保存</span>
+                                            <span class="visible-xs-block">Save</span>
                                             <i class="fa fa-floppy-o hidden-xs"></i>
                                         </a>
                                         <a title="移出项目" class="btn btn-transparent btn-action remove-row"   href='javascript:delMember(<?=$user['uid']?>, <?=$project_id?>, "<?=$user['display_name']?>", "<?=$project['name']?>");'>
-                                            <span class="sr-only">移出</span>
+                                            <span class="sr-only">Remove</span>
                                             <i class="fa fa-trash-o"></i>
                                         </a>
 
@@ -215,9 +215,9 @@
 <!-- -->
 
 <script type="text/javascript">
-    $("#role_select").selectpicker({title: "请选择角色", width: "30%", showTick: true, iconBase: "fa", tickIcon: "fa-check"});
+    $("#role_select").selectpicker({title: "Select Role", width: "30%", showTick: true, iconBase: "fa", tickIcon: "fa-check"});
 
-    $(".select-item-for-user").selectpicker({ title: "请选择角色", showTick: true, iconBase: "fa", tickIcon: "fa-check"});
+    $(".select-item-for-user").selectpicker({ title: "Select Role", showTick: true, iconBase: "fa", tickIcon: "fa-check"});
 
     $("select.select-item-for-user").each(function () {
         var $self = $(this);
@@ -241,14 +241,14 @@
         var roleSelected = $("#role_select").val();
 
         if(roleSelected == null) {
-            notify_error('请选择项目角色');
+            notify_error('Please select audit member!');
             return false;
         }
 
         for (var i=0; i < formData.length; i++) {
             if (!formData[i].value) {
                 if (formData[i].name == 'user_id' ) {
-                    notify_error('请选择用户!');
+                    notify_error('Please select user!');
                 }
                 return false;
             }
@@ -264,7 +264,7 @@
         if (resp.ret == 200) {
             window.location.reload();
         } else {
-            notify_error("请求数据错误:" + resp.msg);
+            notify_error("Request Error:" + resp.msg);
         }
     };
     $('#new_project_member').submit(function() {
@@ -291,7 +291,7 @@
                 }
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -299,14 +299,14 @@
     function delMember(user_id, project_id, displayname,projectname) {
 
         swal({
-                title: '您确认移除 ' + projectname + ' 的成员 '+ displayname +' 吗?',
-                text: "该用户将不能访问此项目",
+                title: 'Are you sure to remove ' + displayname + ' from ' + projectname +'?',
+                text: "Current user does not have correct permission.",
                 html: true,
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
-                confirmButtonText: "确 定",
-                cancelButtonText: "取 消！",
+                confirmButtonText: "Confirm",
+                cancelButtonText: "Cancel",
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -328,7 +328,7 @@
                             }
                         },
                         error: function (res) {
-                            notify_error("请求数据错误" + res);
+                            notify_error("Request Error:" + res);
                         }
                     });
                 }else{
