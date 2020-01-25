@@ -33,17 +33,14 @@
                 <div class="row prepend-top-default">
                     <div class="col-lg-3 settings-sidebar">
                         <h4 class="prepend-top-0">
-                            事项类型
+                            Task Type
                         </h4>
-                        <p>
-                        将事项分为不同的类型, 例如 缺陷或任务等。 每个事项类型都可以分别配置不同的选项。
-                        </p>
-                        <p>事项类型方案用于定义这个项目使用哪几种事项类型。 要改变项目的事项类型, 可以选择另一个事项类型方案, 或编辑当前的事项类型界面方案。</p>
+                        <p>Here, you can define which type of audit task you want within this customer project.</p>
                     </div>
                     <div class="col-lg-9">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <strong>事项类型列表</strong>
+                                <strong>Type List</strong>
                             </div>
                             <ul class="flex-list content-list">
                                 <?php if(empty($list)) { ?>

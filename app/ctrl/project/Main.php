@@ -133,7 +133,7 @@ class Main extends Base
         }
         $projectLogic = new ProjectLogic();
         $list = $projectLogic->typeList($data['project_id']);
-        $data['title'] = '事项类型 - ' . $data['project_name'];
+        $data['title'] = 'Task Type - ' . $data['project_name'];
         $data['list'] = $list;
 
         $this->render('gitlab/project/issue_type.php', $data);
@@ -148,7 +148,7 @@ class Main extends Base
         $projectName = $projectModel->getNameById($_GET[ProjectLogic::PROJECT_GET_PARAM_ID]);
 
         $data = [];
-        $data['title'] = '版本 - ' . $projectName['name'];
+        $data['title'] = 'Version - ' . $projectName['name'];
         $data['nav_links_active'] = 'home';
         $data['sub_nav_active'] = 'version';
         $data['scrolling_tabs'] = 'home';
@@ -174,7 +174,7 @@ class Main extends Base
         $projectName = $projectModel->getNameById($_GET[ProjectLogic::PROJECT_GET_PARAM_ID]);
 
         $data = [];
-        $data['title'] = '模块 - ' . $projectName['name'];
+        $data['title'] = 'Module - ' . $projectName['name'];
         $data['nav_links_active'] = 'home';
         $data['sub_nav_active'] = 'module';
         $data['users'] = $users;
@@ -281,7 +281,7 @@ class Main extends Base
         $data['org_list'] = $orgList;
 
         $orgName = $orgModel->getOne('name', array('id' => $info['org_id']));
-        $data['title'] = '设置';
+        $data['title'] = 'Settings';
         $data['nav_links_active'] = 'setting';
         $data['sub_nav_active'] = 'basic_info';
 
@@ -309,7 +309,7 @@ class Main extends Base
         $list = $projectLogic->typeList($_GET[ProjectLogic::PROJECT_GET_PARAM_ID]);
 
         $data = [];
-        $data['title'] = '事项类型';
+        $data['title'] = 'Task Type';
         $data['nav_links_active'] = 'setting';
         $data['sub_nav_active'] = 'issue_type';
 
@@ -337,7 +337,7 @@ class Main extends Base
             die;
         }
         $data = [];
-        $data['title'] = '版本';
+        $data['title'] = 'Version';
         $data['nav_links_active'] = 'setting';
         $data['sub_nav_active'] = 'version';
 
@@ -366,7 +366,7 @@ class Main extends Base
         $count = $projectModuleModel->getAllCount($_GET[ProjectLogic::PROJECT_GET_PARAM_ID]);
 
         $data = [];
-        $data['title'] = '模块';
+        $data['title'] = 'Module';
         $data['nav_links_active'] = 'setting';
         $data['sub_nav_active'] = 'module';
         $data['users'] = $users;
@@ -389,7 +389,7 @@ class Main extends Base
         }
 
         $data = [];
-        $data['title'] = '标签';
+        $data['title'] = 'Label';
         $data['nav_links_active'] = 'setting';
         $data['sub_nav_active'] = 'label';
         $data['query_str'] = http_build_query($_GET);
@@ -408,7 +408,7 @@ class Main extends Base
             die;
         }
         $data = [];
-        $data['title'] = '标签';
+        $data['title'] = 'Label';
         $data['nav_links_active'] = 'setting';
         $data['sub_nav_active'] = 'label';
         $data['query_str'] = http_build_query($_GET);
@@ -432,7 +432,7 @@ class Main extends Base
             $info = $projectLabelModel->getById($id);
 
             $data = [];
-            $data['title'] = '标签';
+            $data['title'] = 'Label';
             $data['nav_links_active'] = 'setting';
             $data['sub_nav_active'] = 'label';
 
@@ -458,7 +458,7 @@ class Main extends Base
         }
 
         $data = [];
-        $data['title'] = '权限';
+        $data['title'] = 'Permission';
         $data['nav_links_active'] = 'setting';
         $data['sub_nav_active'] = 'permission';
         $data = RewriteUrl::setProjectData($data);

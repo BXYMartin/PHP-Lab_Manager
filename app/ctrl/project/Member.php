@@ -37,7 +37,7 @@ class Member extends BaseUserCtrl
     public function pageIndex()
     {
         $data = [];
-        $data['title'] = '项目成员';
+        $data['title'] = 'Audit Member';
         parent::addGVar('top_menu_active', 'project');
         $data['nav_links_active'] = 'setting';
         $data['sub_nav_active'] = 'project_member';

@@ -48,15 +48,13 @@
             <div class="content" id="content-body">
                 <div class="row prepend-top-default">
                     <div class="col-lg-3">
-                        <h4 class="prepend-top-0">项目基础设置</h4>
-                        <p>将事项分为不同的类型, 例如 缺陷或任务等。 每个事项类型都可以分别配置不同的选项。
-
-事项类型方案用于定义这个项目使用哪几种事项类型。 要改变项目的事项类型, 可以选择另一个事项类型方案, 或编辑当前的事项类型界面方案。</p>
+                        <h4 class="prepend-top-0">Customer (Company) Basic Settings</h4>
+                        <p>Modify basic settings of this customer (company)...</p>
                     </div>
                     <div class="col-lg-9">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <strong>基础设置</strong>
+                                <strong>Basic Settings</strong>
                             </div>
                             <div class="panel-body">
                                 <div>
@@ -66,15 +64,15 @@
 
                                         <div class="form-group">
                                             <label class="control-label" for="project_namespace_id">
-                                                <span>项目名称</span>
+                                                <span>Company Name</span>
                                             </label>
                                             <div class="col-sm-10">
-                                                <input value="<?=$info['name']?>" placeholder="请输入名称,最多64字符" class="form-control" tabindex="1" autofocus="autofocus" required="required" type="text" name="params[name]" id="project_name" disabled>
+                                                <input value="<?=$info['name']?>" placeholder="MAXIMUM LENGTH: 64" class="form-control" tabindex="1" autofocus="autofocus" required="required" type="text" name="params[name]" id="project_name" disabled>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="project_namespace_id">
-                                                <span>组织</span>
+                                                <span>Organization</span>
                                             </label>
                                             <div class="col-sm-10">
                                                 <?   if(!$is_admin){ ?>
@@ -92,15 +90,15 @@
                                         </div>
                                         <div class="form-group project-path">
                                             <label class="control-label" for="project_namespace_id">
-                                                <span>项目Key</span>
+                                                <span>Company Key</span>
                                             </label>
                                             <div class="col-sm-10">
-                                                <input value="<?= $info['key']?>" placeholder="必须英文字符,最大长度20" class="form-control" tabindex="3"required="required" type="text" name="params[key]" id="project_key" disabled>
+                                                <input value="<?= $info['key']?>" placeholder="MAXIMUM LENGTH: 20" class="form-control" tabindex="3"required="required" type="text" name="params[key]" id="project_key" disabled>
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label class="control-label" for="project_visibility_level">
-                                                项目类型
+                                                Customer Type
                                             </label>
                                             <div class="col-sm-10 radio-with">
                                                 <?php foreach ($full_type as $type_id => $type_item) { ?>
@@ -117,14 +115,14 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label" for="project_description">项目描述</label>
+                                            <label class="control-label" for="project_description">Company Description</label>
                                             <div class="col-sm-10">
                                                 <textarea class="form-control" rows="3" maxlength="250" name="params[description]" id="project_description"><?=$info['description']?></textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label" for="project_detail">项目详情</label>
+                                            <label class="control-label" for="project_detail">Company Details</label>
                                             <div class="col-sm-10">
                                                 <div id="editor_md">
                                                     <textarea style="display:none;" name="params[detail]" id="project_detail"><?=$info['detail']?></textarea>
@@ -134,7 +132,7 @@
                                         </div>
 
                                         <div class="form-group issue-assignee">
-                                            <label class="control-label" for="issue_assignee_id">项目负责人</label>
+                                            <label class="control-label" for="issue_assignee_id">Assignee</label>
                                             <div class="col-sm-10">
                                                 <div class="issuable-form-select-holder">
                                                     <input type="hidden" name="params[lead]" id="issue_assignee_id" value="<?=$info['lead']?>"/>
@@ -153,7 +151,7 @@
                                                         </button>
                                                         <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
                                                             <div class="dropdown-title">
-                                                                <span>选择负责人</span>
+                                                                <span>Select Assignee</span>
                                                                 <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                                                                     <i class="fa fa-times dropdown-menu-close-icon"></i>
                                                                 </button>
@@ -170,7 +168,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a class="assign-to-me-link " href="#">赋予给我</a></div>
+                                                <a class="assign-to-me-link " href="#">Assign To ME</a></div>
                                         </div>
 
 
@@ -186,19 +184,19 @@
 
                                         <div class="form-group">
                                             <label class="control-label" for="project_avatar">
-                                                <span>头像</span>
+                                                <span>Company Avatar</span>
                                             </label>
                                             <div class="col-sm-10">
                                                 <img id="avatar_display" class="avatar s40" alt="" src="<?=ATTACHMENT_URL?><?=$info['avatar']?>">
                                                 <input type="hidden"  name="params[avatar_relate_path]" id="avatar"  value="<?=$info['avatar']?>" />
                                                 <div id="fine-uploader-gallery"></div>
-                                                <div class="help-block">图片大小被限制为500KB.</div>
+                                                <div class="help-block">Image size is limited to 500KB.</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label"></label>
                                             <div class="col-sm-10">
-                                                <input type="submit" name="commit" value="保存" class="btn btn-create project-submit js-key-enter" tabindex="4">
+                                                <input type="submit" name="commit" value="Save" class="btn btn-create project-submit js-key-enter" tabindex="4">
                                             </div>
                                         </div>
                                     </form>
@@ -258,7 +256,7 @@
 <!-- Fine Uploader Gallery template
     ====================================================================== -->
 <script type="text/template" id="qq-template-gallery">
-    <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="将文件拖放到此处以上传项目图标">
+    <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drag Image File Here to Upload Company Avatar...">
         <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
             <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
         </div>
@@ -266,7 +264,7 @@
             <span class="qq-upload-drop-area-text-selector"></span>
         </div>
         <div class="qq-upload-button-selector qq-upload-button">
-            <div>选择图片</div>
+            <div>Select Avatar</div>
         </div>
         <span class="qq-drop-processing-selector qq-drop-processing">
                 <span>Processing dropped files...</span>
@@ -287,7 +285,7 @@
                 <button type="button" class="qq-upload-cancel-selector qq-upload-cancel">X</button>
                 <button type="button" class="qq-upload-retry-selector qq-upload-retry">
                     <span class="qq-btn qq-retry-icon" aria-label="Retry"></span>
-                    重试
+                    Retry
                 </button>
 
                 <div class="qq-file-info">
@@ -320,8 +318,8 @@
         <dialog class="qq-confirm-dialog-selector">
             <div class="qq-dialog-message-selector"></div>
             <div class="qq-dialog-buttons">
-                <button type="button" class="qq-cancel-button-selector">否</button>
-                <button type="button" class="qq-ok-button-selector">是</button>
+                <button type="button" class="qq-cancel-button-selector">No</button>
+                <button type="button" class="qq-ok-button-selector">Yes</button>
             </div>
         </dialog>
 
@@ -343,7 +341,7 @@
 
     var editor = editormd({
         id   : "editor_md",
-        placeholder : "填写项目说明...",
+        placeholder : "Fill in Company Description...",
         width: "100%",
         height: 240,
         markdown: "",
@@ -391,9 +389,9 @@
         },
         success:       function (data, textStatus, jqXHR, $form) {
             if(data.ret == 200){
-                notify_success('操作成功');
+                notify_success('Success');
             }else{
-                notify_error('保存失败: ' + data.msg);
+                notify_error('Save Failed: ' + data.msg);
             }
             console.log(data);
         },
@@ -420,10 +418,10 @@
         },
         success:       function (data, textStatus, jqXHR, $form) {
             if(data.ret == 200){
-                notify_success('KEY修改成功');
+                notify_success('KEY Modification Successful');
                 window.location.href="/projects";
             }else{
-                notify_error('KEY修改失败: ' + data.msg);
+                notify_error('KEY Modification Failed: ' + data.msg);
             }
             //console.log(data);
         },

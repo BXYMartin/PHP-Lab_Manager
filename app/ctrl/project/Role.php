@@ -38,7 +38,7 @@ class Role extends BaseUserCtrl
     public function pageIndex()
     {
         $data = [];
-        $data['title'] = '项目角色';
+        $data['title'] = 'Audit Role';
         parent::addGVar('top_menu_active', 'project');
         $data['nav_links_active'] = 'setting';
         $data['sub_nav_active'] = 'project_role';
