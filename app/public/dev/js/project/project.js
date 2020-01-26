@@ -52,12 +52,12 @@ var Project = (function() {
                 }else{
                     var emptyHtml = defineStatusHtml({
                         wrap: '#list_render_id',
-                        message : '数据为空',
+                        message : 'Empty',
                         type: 'image',
-                        handleHtml: '<a class="btn btn-default btn-sm" href="#">返回首页</a> <a class="btn btn-success btn-sm" href="/project/main/_new">创建项目</a>'
+                        handleHtml: '<a class="btn btn-default btn-sm" href="#">Return</a> <a class="btn btn-success btn-sm" href="/project/main/_new">Create Customer (Company)</a>'
                     })
                 }
-                
+
             },
             error: function (res) {
                 notify_error("请求数据错误" + res);

@@ -6,7 +6,7 @@
 	function DefineStatusHtml(opts){
 		this.html = ''
 		this.opts = opts
-		this.message = '数据为空'
+		this.message = 'Empty Data'
 		this.handleHtml = this.handle
 		this.symbol = '<span class="symbol">/</span>'
 		this.init()

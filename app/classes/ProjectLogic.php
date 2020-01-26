@@ -44,10 +44,10 @@ class ProjectLogic
     static public $typeAll = [
         // self::PROJECT_TYPE_SCRUM => '敏捷开发',//'Scrum software development',
         // self::PROJECT_TYPE_KANBAN => '看板开发',//'Kanban software development',
-        self::PROJECT_TYPE_SOFTWARE_DEV => '软件开发',//'Basic software development',
-        self::PROJECT_TYPE_PROJECT_MANAGE => '项目管理',
-        self::PROJECT_TYPE_FLOW_MANAGE => '来访管理',
-        self::PROJECT_TYPE_TASK_MANAGE => '任务管理',
+        // self::PROJECT_TYPE_SOFTWARE_DEV => '软件开发',//'Basic software development',
+        // self::PROJECT_TYPE_PROJECT_MANAGE => '项目管理',
+        // self::PROJECT_TYPE_FLOW_MANAGE => '来访管理',
+        self::PROJECT_TYPE_TASK_MANAGE => 'Audit Management',
     ];
 
     static public $software = [
@@ -131,7 +131,7 @@ class ProjectLogic
             self::PROJECT_TYPE_SOFTWARE_DEV => '跟踪开发任务和bug。',
             self::PROJECT_TYPE_PROJECT_MANAGE => '对你在一个项目中的工作进行计划、追踪与报告。',
             self::PROJECT_TYPE_FLOW_MANAGE => '对经过一个线形流程的所有工作进行追踪。',
-            self::PROJECT_TYPE_TASK_MANAGE => '快速整理和分派简单任务给你或你的团队。',
+            self::PROJECT_TYPE_TASK_MANAGE => 'Perform Audit On Customer (Company).',
         );
 
         $fullType = self::$typeAll;

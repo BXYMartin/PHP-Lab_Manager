@@ -425,7 +425,7 @@ var IssueDetail = (function () {
                 }else{
                     var emptyHtml = defineStatusHtml({
                         wrap: '#tool_'+_key,
-                        message : '数据为空'
+                        message : 'Empty'
                     })
                 }
 

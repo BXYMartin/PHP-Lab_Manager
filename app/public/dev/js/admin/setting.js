@@ -28,7 +28,7 @@ function fetchSetting( url, module, tpl_id, parent_id ) {
             }else{
                 var emptyHtml = defineStatusHtml({
                     wrap: '#' + parent_id,
-                    message : '数据为空',
+                    message : 'Empty',
                     type: 'image'
                 })
             }

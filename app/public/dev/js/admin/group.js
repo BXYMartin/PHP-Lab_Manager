@@ -98,7 +98,7 @@ var Group = (function() {
                     $('#list_render_id').append($('<tr><td colspan="7" id="list_render_id_wrap"></td></tr>'))
                     $('#list_render_id_wrap').append(emptyHtml.html)
                 }
-                
+
 
             },
             error: function (res) {
@@ -134,7 +134,7 @@ var Group = (function() {
                     });
                 }else{
                     var emptyHtml = defineStatusHtml({
-                        message : '数据为空',
+                        message : 'Empty',
                         type: 'image',
                         name: 'computer'
                     })

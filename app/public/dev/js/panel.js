@@ -42,12 +42,12 @@ var Panel = (function () {
                 }else{
                     defineStatusHtml({
                         wrap: '#panel_orgs',
-                        message : '数据为空'
+                        message : 'Empty'
                     })
                 }
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -80,7 +80,7 @@ var Panel = (function () {
                     }
                 }else{
                     var emptyHtml = defineStatusHtml({
-                        message : '数据为空',
+                        message : 'Empty',
                         name: 'computer',
                         handleHtml: ''
                     })
@@ -89,7 +89,7 @@ var Panel = (function () {
                 }
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -142,13 +142,13 @@ var Panel = (function () {
                 }else{
                     var emptyHtml = defineStatusHtml({
                         wrap: '#panel_activity',
-                        message : '数据为空'
+                        message : 'Empty'
                     })
                 }
 
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -181,14 +181,14 @@ var Panel = (function () {
                 }else{
                     defineStatusHtml({
                         wrap: '#panel_join_projects',
-                        message : '数据为空',
-                        handleHtml: '<a class="btn btn-new" href="/project/main/_new">创建项目</a>'
+                        message : 'Empty',
+                        handleHtml: '<a class="btn btn-new" href="/project/main/_new">Create Customer (Company)</a>'
                     })
                 }
 
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -238,19 +238,19 @@ var Panel = (function () {
                 template = Handlebars.compile(source);
                 result = template(resp.data);
                 $('#assignee_stat').html(result);
-				
+
 				source = $('#weight_stat_tpl').html();
                 template = Handlebars.compile(source);
                 result = template(resp.data);
                 $('#weight_stat').html(result);
-				
+
             },
             error: function (res) {
                 loading.hide('#priority_stat');
                 loading.hide('#type_stat');
                 loading.hide('#status_stat');
                 loading.hide('#assignee_stat');
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -300,7 +300,7 @@ var Panel = (function () {
                 template = Handlebars.compile(source);
                 result = template(resp.data);
                 $('#assignee_stat').html(result);
-				
+
 				source = $('#weight_stat_tpl').html();
                 template = Handlebars.compile(source);
                 result = template(resp.data);
@@ -311,7 +311,7 @@ var Panel = (function () {
                 loading.hide('#type_stat');
                 loading.hide('#status_stat');
                 loading.hide('#assignee_stat');
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }

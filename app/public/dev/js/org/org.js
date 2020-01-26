@@ -2,7 +2,7 @@
 var Org = (function() {
 
     var _options = {};
- 
+
 
     var _active_tab = 'create_default_tab';
 
@@ -106,7 +106,7 @@ var Org = (function() {
                     $('#projects_list').html(result);
                 }else{
                     var emptyHtml = defineStatusHtml({
-                        message : '数据为空',
+                        message : 'Empty',
                         type: 'image',
                         name: 'computer'
                     })
@@ -255,14 +255,14 @@ var Org = (function() {
                     });
                 }else{
                     var emptyHtml = defineStatusHtml({
-                        message : '数据为空',
+                        message : 'Empty',
                         type: 'string',
-                        handleHtml: '<a href="'+root_url+'project/main/_new">创建组织</a>'
+                        handleHtml: '<a href="'+root_url+'project/main/_new">Create Organization</a>'
                     })
                     $('#list_render_id').append($('<tr><td colspan="5" id="list_render_id_wrap"></td></tr>'))
                     $('#list_render_id_wrap').append(emptyHtml.html)
                 }
-                
+
             },
             error: function (res) {
                 notify_error("请求数据错误" + res);

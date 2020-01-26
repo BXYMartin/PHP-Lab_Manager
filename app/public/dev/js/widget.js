@@ -40,12 +40,12 @@ var Widgets = (function () {
                 }else{
                     defineStatusHtml({
                         wrap: '#tool_'+_key,
-                        message : '数据为空'
+                        message : 'Empty'
                     })
                 }
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -92,7 +92,7 @@ var Widgets = (function () {
 
                 }else{
                     var emptyHtml = defineStatusHtml({
-                        message : '数据为空',
+                        message : 'Empty',
                         name: 'computer',
                         handleHtml: ''
                     })
@@ -100,7 +100,7 @@ var Widgets = (function () {
                 }
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -139,7 +139,7 @@ var Widgets = (function () {
 
                 }else{
                     var emptyHtml = defineStatusHtml({
-                        message : '数据为空',
+                        message : 'Empty',
                         name: 'computer',
                         handleHtml: ''
                     })
@@ -147,7 +147,7 @@ var Widgets = (function () {
                 }
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -203,13 +203,13 @@ var Widgets = (function () {
                 }else{
                     var emptyHtml = defineStatusHtml({
                         wrap: '#tool_'+_key,
-                        message : '数据为空'
+                        message : 'Empty'
                     })
                 }
 
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -239,13 +239,13 @@ var Widgets = (function () {
                 }else{
                     defineStatusHtml({
                         wrap: '#tool_'+_key,
-                        message : '数据为空',
-                        handleHtml: '<a class="btn btn-new" href="/project/main/_new">创建项目</a>'
+                        message : 'Empty',
+                        handleHtml: '<a class="btn btn-new" href="/project/main/_new">Create Customer (Company)</a>'
                     })
                 }
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -278,7 +278,7 @@ var Widgets = (function () {
                 $(`#tool_${_key}`).show();
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -310,7 +310,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key);
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -342,7 +342,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key);
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -374,7 +374,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key);
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -406,7 +406,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key);
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -438,7 +438,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key+'_wrap');
-                alert("请求数据错误" + res);
+                alert("Request Error:" + res);
             }
         });
     }
@@ -490,7 +490,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key+'_wrap');
-                alert("请求数据错误" + res);
+                alert("Request Error:" + res);
             }
         });
     }
@@ -516,7 +516,7 @@ var Widgets = (function () {
                 $('#sprint_count').html(resp.data.sprint_count);
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -546,12 +546,12 @@ var Widgets = (function () {
                 $('#'+_key+'_wrap').countdown(sprint_end_date, function (event) {
                     $(this).html(event.strftime('%w 周 %d 天 %H:%M:%S'));
                     if ($(this).html() == "00 周 00 天 00:00:00") {
-                        $(this).html("暂无迭代数据");
+                        $(this).html("Empty Sprint Data");
                     }
                 });
             },
             error: function (res) {
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -584,7 +584,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key);
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -616,7 +616,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key);
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -648,7 +648,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key);
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -680,7 +680,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key);
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -712,7 +712,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key+'_wrap');
-                alert("请求数据错误" + res);
+                alert("Request Error:" + res);
             }
         });
     }
@@ -766,7 +766,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key+'_wrap');
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -820,7 +820,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key+'_wrap');
-                notify_error("请求数据错误" + res);
+                notify_error("Request Error:" + res);
             }
         });
     }
@@ -872,7 +872,7 @@ var Widgets = (function () {
             },
             error: function (res) {
                 loading.hide('#'+_key+'_wrap');
-                alert("请求数据错误" + res);
+                alert("Request Error:" + res);
             }
         });
     }
