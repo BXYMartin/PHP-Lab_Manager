@@ -64,19 +64,20 @@
                     <input name="utf8" type="hidden" value="✓">
                     <input type="hidden" name="authenticity_token" value="">
                     <div class="form-group">
-                        <label class="control-label" for="">Company Name</label>
+                        <label class="control-label" for="">Company Name<span class="required"> *</span></label>
                         <div class="col-sm-10">
-                            <input placeholder="Maximum Length:<?=$project_name_max_length?>" class="form-control" tabindex="1" autofocus="autofocus"
+                            <input placeholder="No longer than <?=$project_name_max_length?> characters" class="form-control" tabindex="1" autofocus="autofocus"
                                     type="text" name="params[name]" id="project_name" maxlength="<?=$project_name_max_length?>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="">
-                            <span>Company Key</span>
+                            Company Key
+                            <span class="required"> *</span>
                         </label>
                         <div class="col-sm-10">
-                            <input placeholder="Maximum Length: <?=$project_key_max_length?>, DO NOT CONTAIN CHARACTERS OTHER THAN A-Z/a-z" class="form-control" tabindex="3"
+                            <input placeholder="Letters and numbers only, no longer than <?=$project_key_max_length?> characters" class="form-control" tabindex="3"
                                     type="text" name="params[key]" id="project_key" maxlength="<?=$project_key_max_length?>">
                         </div>
                     </div>
@@ -131,7 +132,6 @@
                             <div id="editor_md">
                                 <textarea style="display:none;" name="params[detail]" id="project_detail"></textarea>
                             </div>
-                            <div class="help-block"><a href="#">help</a></div>
                         </div>
                     </div>
 
@@ -154,7 +154,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group issue-assignee">
-                                <label class="control-label col-lg-4" for="project_lead">Company Assignee</label>
+                                <label class="control-label col-lg-4" for="project_lead">Assignee<span class="required"> *</span></label>
                                 <div class="col-lg-8 col-sm-10">
                                     <div class="issuable-form-select-holder">
                                         <input type="hidden" name="params[lead]" id="project_lead" />

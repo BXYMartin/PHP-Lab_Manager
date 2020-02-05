@@ -30,7 +30,7 @@ class User extends BaseAdminCtrl
     public function pageIndex()
     {
         $data = [];
-        $data['title'] = '用户管理';
+        $data['title'] = 'User Management';
         $data['nav_links_active'] = 'user';
         $data['left_nav_active'] = 'user';
         ConfigLogic::getAllConfigs($data);
@@ -121,7 +121,7 @@ class User extends BaseAdminCtrl
         $userInfo['status'] = UserModel::STATUS_DISABLED;
         $userModel->uid = $userId;
         $userModel->updateUser($userInfo);
-        $this->ajaxSuccess('操作成功');
+        $this->ajaxSuccess('Operation Success');
     }
 
     /**
@@ -136,7 +136,7 @@ class User extends BaseAdminCtrl
         $userInfo['status'] = UserModel::STATUS_NORMAL;
         $userModel->uid = $userId;
         $userModel->updateUser($userInfo);
-        $this->ajaxSuccess('操作成功');
+        $this->ajaxSuccess('Operation Success');
     }
 
     /**
@@ -154,7 +154,7 @@ class User extends BaseAdminCtrl
             unset($user['password']);
         }
         if (!isset($user['uid'])) {
-            $this->ajaxFailed('参数错误');
+            $this->ajaxFailed('Parameter Error');
         }
         UserLogic::formatAvatarUser($user);
 
@@ -205,7 +205,7 @@ class User extends BaseAdminCtrl
         $userLogic = new UserLogic();
         list($ret, $msg) = $userLogic->updateUserGroup($userId, $groups);
         if ($ret) {
-            $this->ajaxSuccess("操作成功", $msg);
+            $this->ajaxSuccess("Operation Success", $msg);
         }
         $this->ajaxFailed($msg);
     }
@@ -219,22 +219,22 @@ class User extends BaseAdminCtrl
     {
         $errorMsg = [];
         if (empty($params)) {
-            $this->ajaxFailed('参数错误', '提交的数据为空');
+            $this->ajaxFailed('Parameter Error', 'Empty parameters!');
         }
         if (!isset($params['password']) || empty($params['password'])) {
-            $errorMsg['password'] = '请输入密码';
+            $errorMsg['password'] = 'Please enter password!';
         }
         if (!isset($params['email']) || empty($params['email'])) {
-            $errorMsg['email'] = '请输入email地址';
+            $errorMsg['email'] = 'Please enter email address!';
         }
         if (!isset($params['username']) || empty($params['username'])) {
-            $errorMsg['username'] = '请输入用户名';
+            $errorMsg['username'] = 'Please enter username!';
         }
         if (!isset($params['display_name']) || empty($params['display_name'])) {
-            $errorMsg['display_name'] = '请输入显示名称';
+            $errorMsg['display_name'] = 'Please enter auditor initials!';
         }
         if (!empty($errorMsg)) {
-            $this->ajaxFailed('参数错误', $errorMsg, BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
+            $this->ajaxFailed('Parameter Error', $errorMsg, BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
         }
 
         $display_name = $params['display_name'];
@@ -258,11 +258,11 @@ class User extends BaseAdminCtrl
         $userModel = UserModel::getInstance();
         $user = $userModel->getByEmail($email);
         if (isset($user['email'])) {
-            $this->ajaxFailed('邮箱地址已经被使用了');
+            $this->ajaxFailed('Email is already in use!');
         }
         $user2 = $userModel->getByUsername($username);
         if (isset($user2['email'])) {
-            $this->ajaxFailed('用户名已经被使用了');
+            $this->ajaxFailed('Username is already in use!');
         }
         unset($user, $user2);
 
@@ -270,12 +270,12 @@ class User extends BaseAdminCtrl
         if ($ret == UserModel::REG_RETURN_CODE_OK) {
             if (isset($params['notify_email']) && $params['notify_email'] == '1') {
                 $sysLogic = new SystemLogic();
-                $content = "管理用户为您创建了PRIME Lab账号。<br>用户名：{$username}<br>密码：{$password}<br><br>请访问 " . ROOT_URL . " 进行登录<br>";
-                $sysLogic->mail([$email], "PRIME Lab创建账号通知", $content);
+                $content = "Created User:<br>Username: {$username}<br>Password: {$password}<br><br>Please visit " . ROOT_URL . " to login.<br>";
+                $sysLogic->mail([$email], "Audit Manager New User Notification Email", $content);
             }
-            $this->ajaxSuccess('提示', '操作成功');
+            $this->ajaxSuccess('Success', 'Successfully Created User');
         } else {
-            $this->ajaxFailed('服务器错误', "插入数据错误:" . $user);
+            $this->ajaxFailed('Error', "Insertion Failed: " . $user);
         }
     }
 
@@ -288,13 +288,13 @@ class User extends BaseAdminCtrl
         $userId = $this->getParamUserId();
         $errorMsg = [];
         if (empty($params)) {
-            $this->ajaxFailed('参数错误');
+            $this->ajaxFailed('Parameter Error');
         }
         if (isset($params['display_name']) && empty($params['display_name'])) {
-            $errorMsg['display_name'] = '请输入显示名称';
+            $errorMsg['display_name'] = 'Please input auditor initials!';
         }
         if (!empty($errorMsg)) {
-            $this->ajaxFailed('参数错误', $errorMsg, BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
+            $this->ajaxFailed('Parameter Error', $errorMsg, BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
         }
 
         $info = [];
@@ -317,7 +317,7 @@ class User extends BaseAdminCtrl
         $userModel->uid = $userId;
         $userModel->updateUser($info);
 
-        $this->ajaxSuccess('提示', '操作成功');
+        $this->ajaxSuccess('Success', 'Successfully Updated User');
     }
 
     /**
@@ -331,26 +331,26 @@ class User extends BaseAdminCtrl
             $this->ajaxFailed('no_uid');
         }
         if ($userId == UserAuth::getId()) {
-            $this->ajaxFailed('逻辑错误', '不能自己');
+            $this->ajaxFailed('Logic Error', 'Can\'t operate on yourself!');
         }
 
         // @todo 要处理删除后该用户关联的事项
         $userModel = new UserModel();
         $user = $userModel->getByUid($userId);
         if (empty($user)) {
-            $this->ajaxFailed('参数错误', '用户不存在');
+            $this->ajaxFailed('Parameter Error', 'User not exist!');
         }
         if ($user['is_system'] == '1') {
-            $this->ajaxFailed('逻辑错误', '不能删除系统自带的用户');
+            $this->ajaxFailed('Logic Error', 'Can\'t delete prebuilt user!');
         }
 
         $ret = $userModel->deleteById($userId);
         if (!$ret) {
-            $this->ajaxFailed('系统错误', '删除用户失败,原因是数据库执行错误');
+            $this->ajaxFailed('System Error', 'Database operation failed!');
         } else {
             $userModel = new UserGroupModel();
             $userModel->deleteByUid($userId);
-            $this->ajaxSuccess('提示', '操作成功');
+            $this->ajaxSuccess('Success', 'Successfully Deleted User');
         }
     }
 
@@ -374,7 +374,7 @@ class User extends BaseAdminCtrl
                 $this->ajaxFailed('server_error_update_failed:' . $msg);
             }
         }
-        $this->ajaxSuccess('提示', '操作成功');
+        $this->ajaxSuccess('Success', 'Successfully Disabled User');
     }
 
     /**
@@ -395,6 +395,6 @@ class User extends BaseAdminCtrl
             $userInfo['status'] = UserModel::STATUS_NORMAL;
             $userModel->updateUser($userInfo);
         }
-        $this->ajaxSuccess('提示', '操作成功');
+        $this->ajaxSuccess('Success', 'Successfully Recovered User');
     }
 }

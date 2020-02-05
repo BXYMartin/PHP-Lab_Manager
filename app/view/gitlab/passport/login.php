@@ -38,7 +38,7 @@
                 data: $('#new_new_user').serialize(),
                 success: function (resp) {
                     if (resp.ret == 200) {
-                        notify_success('注册成功')
+                        notify_success('Successfully Registered')
                         setTimeout(function(){ window.location.href = root_url+'passport/login'; }, 2000);
                     } else {
                         if(resp.ret=='104'){
@@ -110,10 +110,10 @@
                     <div>
                         <ul class="nav-links new-session-tabs nav-tabs" role="tablist">
                             <li id="li-login" class="active" role="presentation">
-                                <a data-toggle="tab" href="#login-pane" role="tab">欢迎您回来</a>
+                                <a data-toggle="tab" href="#login-pane" role="tab">Welcome Back</a>
                             </li>
                             <li id="li-register" role="presentation">
-                                <a data-toggle="tab" href="#register-pane" role="tab">注 册</a>
+                                <a data-toggle="tab" href="#register-pane" role="tab">Register</a>
                             </li>
                         </ul>
 
@@ -125,7 +125,7 @@
                                         <input name="utf8" type="hidden" value="&#x2713;"/>
                                         <input type="hidden" name="authenticity_token" value=""/>
                                         <div class="form-group">
-                                            <label for="login">用户名或邮箱地址</label>
+                                            <label for="login">Username or Email</label>
                                             <input class="form-control top" autofocus="autofocus" autocapitalize="off"
                                                    autocorrect="off"
                                                    required="required" title="This field is required." type="text"
@@ -134,14 +134,14 @@
                                             />
                                         </div>
                                         <div class="form-group">
-                                            <label for="user_password">密 码</label>
+                                            <label for="user_password">Password</label>
                                             <input class="form-control bottom" required="required"
                                                    title="This field is required."
                                                    type="password" name="password" id="user_password" value=""/>
                                         </div>
                                         <?php if ($captcha_login_switch) { ?>
                                             <div class="form-group">
-                                                <label for="user_password">验证码</label>
+                                                <label for="user_password">Captcha</label>
                                                 <input class="form-control bottom" required="required"
                                                        title="This vcode is required."
                                                        type="text" name="vcode" id="user_vcode" value=""/>
@@ -149,7 +149,7 @@
                                             <div>
                                                 <img id="img_login_vcode"
                                                      src="<?= ROOT_URL ?>passport/output_captcha?mode=login&n=<?php echo rand(100, 999); ?>">
-                                                <a id="refresh_login_vcode" href="javascript:void(0);">换一张</a>
+                                                <a id="refresh_login_vcode" href="javascript:void(0);">Refresh</a>
                                             </div>
                                         <?php } ?>
                                         <div class="remember-me checkbox">
@@ -157,16 +157,16 @@
                                                 <input name="user[remember_me]" type="hidden" value="0"/>
                                                 <input class="remember-me-checkbox" type="checkbox" value="1"
                                                        name="remember_me" id="user_remember_me"/>
-                                                <span>记住账号</span>
+                                                <span>Remember Me</span>
                                             </label>
                                             <div class="pull-right forgot-password">
-                                                <a href="<?= ROOT_URL ?>passport/find_password">找回密码</a>
+                                                <a href="<?= ROOT_URL ?>passport/find_password">Forget My Password?</a>
                                             </div>
                                         </div>
 
                                         <div class="submit-container move-submit-down">
                                             <input type="button" id="login_submit_btn" name="login_submit_btn"
-                                                   value="登 录" class="btn btn-save"/>
+                                                   value="Login" class="btn btn-save"/>
                                         </div>
                                     </form>
                                 </div>
@@ -183,48 +183,48 @@
 
                                         </div>
                                         <div class="form-group">
-                                            <label for="new_display_name">显示名称</label>
+                                            <label for="new_display_name">Auditor Initials</label>
                                             <input class="form-control top" required="required"
                                                    title="不能为空" type="text" name="display_name"
                                                    id="new_display_name"/>
                                             <p id="tip_error_display_name" class="gl-field-error hide"></p>
                                         </div>
                                         <div class="username form-group">
-                                            <label for="new_user_username">用户名</label>
+                                            <label for="new_user_username">Username</label>
                                             <input class="form-control middle" pattern="[a-zA-Z0-9_\.][a-zA-Z0-9_\-\.]*[a-zA-Z0-9_\-]|[a-zA-Z0-9_]"
-                                                   required="required" title="支持字母和数字."
+                                                   required="required" title="Support Letters and Numbers"
                                                    type="text" name="username" id="username" value="" />
                                             <p id="tip_error_username" class="gl-field-error hide"></p>
-                                            <p class="validation-success hide">用户名可用.</p>
-                                            <p class="validation-pending hide">正在检查用户名是否可用...</p>
+                                            <p class="validation-success hide">Username Available</p>
+                                            <p class="validation-pending hide">Validating Username...</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="new_user_email">邮箱地址</label>
+                                            <label for="new_user_email">Your Email</label>
                                             <input class="form-control middle" required="required"
-                                                   title="请输入您的email地址"
+                                                   title="Please Enter Email Address"
                                                    type="email" value="" name="email" id="new_user_email"/>
                                             <p id="tip_error_email" class="gl-field-error hide"></p>
-                                            <p id="tip_success_email" class="gl-field-error hide">email可用.</p>
-                                            <p id="tip_pending_email" class="gl-field-error hide">正在检查email是否可用...</p>
+                                            <p id="tip_success_email" class="gl-field-error hide">Email Available</p>
+                                            <p id="tip_pending_email" class="gl-field-error hide">Validating Email...</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="new_user_email_confirmation">邮箱地址确认</label>
+                                            <label for="new_user_email_confirmation">Confirm Your Email</label>
                                             <input class="form-control middle" required="required"
-                                                   title="请再次输入密码."
+                                                   title="Please Enter Your Email Again"
                                                    type="email" name="email_confirmation"
                                                    id="new_user_email_confirmation"/>
                                             <p id="tip_error_email_confirmation" class="gl-field-error hide"></p>
                                         </div>
                                         <div class="form-group append-bottom-20" id="password-strength">
-                                            <label for="new_user_password">密码</label>
+                                            <label for="new_user_password">Password</label>
                                             <input class="form-control bottom" required="required" pattern=".{8,}"
-                                                   title="Minimum length is 8 characters."
+                                                   title="Minimum Length is 8 Characters."
                                                    type="password" name="password" id="new_user_password"/>
                                             <p id="tip_error_password" class="gl-field-error hide"></p>
                                         </div>
                                         <?php if ($captcha_reg_switch) { ?>
                                             <div class="form-group">
-                                                <label for="reg_vcode">验证码</label>
+                                                <label for="reg_vcode">Captcha</label>
                                                 <input class="form-control middle" required="required"
                                                        type="text" value="" name="vcode" id="reg_vcode"/>
                                                 <p id="tip_error_vcode" class="gl-field-error hide"></p>
@@ -232,19 +232,19 @@
                                             <div>
                                                 <img id="img_reg_vcode"
                                                      src="<?= ROOT_URL ?>passport/output_captcha?mode=reg&n=<?php echo rand(100, 999); ?>">
-                                                <a id="refresh_reg_vcode" href="javascript:void(0);">换一张</a>
+                                                <a id="refresh_reg_vcode" href="javascript:void(0);">Refresh</a>
                                             </div>
                                         <?php } ?>
                                         <div>
                                             <input type="button" id="register_submit_btn" name="register_submit_btn"
-                                                   value="确 定" class="btn-register btn"/>
+                                                   value="Register" class="btn-register btn"/>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="clearfix submit-container hide">
                                     <p>
-                                        <span class="light">没有收到确认邮件？</span>
-                                        <a href="#">重新发送</a>.
+                                        <span class="light">Registration Email Not Received?</span>
+                                        <a href="#">Resend</a>
                                     </p>
                                 </div>
                             </div>

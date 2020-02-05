@@ -84,7 +84,7 @@ class Main extends Base
         if (!empty($data['project_id'])) {
             $data['issue_main_url'] = ROOT_URL . substr($data['project_root_url'], 1) . '/issues';
             if (!$this->isAdmin && !PermissionLogic::checkUserHaveProjectItem(UserAuth::getId(), $data['project_id'])) {
-                $this->warn('提 示', '您没有权限访问该项目,请联系管理员申请加入该项目');
+                $this->warn('Warning', 'You don\'t have access to this project, please contact administrator for permission!');
                 die;
             }
         }
@@ -127,7 +127,7 @@ class Main extends Base
         // 权限判断
         if (!empty($data['project_id'])) {
             if (!$this->isAdmin && !PermissionLogic::checkUserHaveProjectItem(UserAuth::getId(), $data['project_id'])) {
-                $this->warn('提 示', '您没有权限访问该项目,请联系管理员申请加入该项目');
+                $this->warn('Warning', 'You don\'t have access to this project, please contact administrator for permission!');
                 die;
             }
         }
@@ -261,7 +261,7 @@ class Main extends Base
     public function pageSettingsProfile()
     {
         if (!isset($this->projectPermArr[PermissionLogic::ADMINISTER_PROJECTS])) {
-            $this->warn('提 示', '您没有权限访问该页面,需要项目管理权限');
+            $this->warn('Warning', 'This page is only available for project administrators!');
             die;
         }
         $projectModel = new ProjectModel();
@@ -301,7 +301,7 @@ class Main extends Base
     public function pageSettingsIssueType()
     {
         if (!isset($this->projectPermArr[PermissionLogic::ADMINISTER_PROJECTS])) {
-            $this->warn('提 示', '您没有权限访问该页面,需要项目管理权限');
+            $this->warn('Warning', 'This page is only available for project administrators!');
             die;
         }
 
@@ -318,7 +318,7 @@ class Main extends Base
         $data = RewriteUrl::setProjectData($data);
 
         // 空数据
-        $data['empty_data_msg'] = '无事项类型';
+        $data['empty_data_msg'] = 'Empty customer type';
         $data['empty_data_status'] = 'list';  // bag|list|board|error|gps|id|off-line|search
         $data['empty_data_show_button'] = false;
 
@@ -333,7 +333,7 @@ class Main extends Base
         // $projectVersionModel = new ProjectVersionModel();
         // $list = $projectVersionModel->getByProject($_GET[ProjectLogic::PROJECT_GET_PARAM_ID]);
         if (!isset($this->projectPermArr[PermissionLogic::ADMINISTER_PROJECTS])) {
-            $this->warn('提 示', '您没有权限访问该页面,需要项目管理权限');
+            $this->warn('Warning', 'This page is only available for project administrators!');
             die;
         }
         $data = [];
@@ -354,7 +354,7 @@ class Main extends Base
     public function pageSettingsModule()
     {
         if (!isset($this->projectPermArr[PermissionLogic::ADMINISTER_PROJECTS])) {
-            $this->warn('提 示', '您没有权限访问该页面,需要项目管理权限');
+            $this->warn('Warning', 'This page is only available for project administrators!');
             die;
         }
 
@@ -384,7 +384,7 @@ class Main extends Base
     public function pageSettingsLabel()
     {
         if (!isset($this->projectPermArr[PermissionLogic::ADMINISTER_PROJECTS])) {
-            $this->warn('提 示', '您没有权限访问该页面,需要项目管理权限');
+            $this->warn('Warning', 'This page is only available for project administrators!');
             die;
         }
 
@@ -404,7 +404,7 @@ class Main extends Base
     public function pageSettingsLabelNew()
     {
         if (!isset($this->projectPermArr[PermissionLogic::ADMINISTER_PROJECTS])) {
-            $this->warn('提 示', '您没有权限访问该页面,需要项目管理权限');
+            $this->warn('Warning', 'This page is only available for project administrators!');
             die;
         }
         $data = [];
@@ -422,7 +422,7 @@ class Main extends Base
     public function pageSettingsLabelEdit()
     {
         if (!isset($this->projectPermArr[PermissionLogic::ADMINISTER_PROJECTS])) {
-            $this->warn('提 示', '您没有权限访问该页面,需要项目管理权限');
+            $this->warn('Warning', 'This page is only available for project administrators!');
             die;
         }
 
@@ -453,7 +453,7 @@ class Main extends Base
     public function pageSettingsPermission()
     {
         if (!isset($this->projectPermArr[PermissionLogic::ADMINISTER_PROJECTS])) {
-            $this->warn('提 示', '您没有权限访问该页面,需要项目管理权限');
+            $this->warn('Warning', 'This page is only available for project administrators!');
             die;
         }
 
@@ -471,7 +471,7 @@ class Main extends Base
     public function pageSettingsProjectMember()
     {
         if (!isset($this->projectPermArr[PermissionLogic::ADMINISTER_PROJECTS])) {
-            $this->warn('提 示', '您没有权限访问该页面,需要项目管理权限');
+            $this->warn('Warning', 'This page is only available for project administrators!');
             die;
         }
 
@@ -485,7 +485,7 @@ class Main extends Base
     public function pageSettingsProjectRole()
     {
         if (!isset($this->projectPermArr[PermissionLogic::ADMINISTER_PROJECTS])) {
-            $this->warn('提 示', '您没有权限访问该页面,需要项目管理权限');
+            $this->warn('Warning', 'This page is only available for project administrators!');
             die;
         }
 
@@ -538,7 +538,7 @@ class Main extends Base
         // 权限判断
         if (!empty($id)) {
             if (!$this->isAdmin && !PermissionLogic::checkUserHaveProjectItem(UserAuth::getId(), $id)) {
-                $this->ajaxFailed('提 示', '您没有权限访问该项目,请联系管理员申请加入该项目');
+                $this->ajaxFailed('Permission Error', 'You don\'t have access to this project, please contact administrator for permission');
             }
         }
         $projectModel = new ProjectModel();
@@ -573,11 +573,11 @@ class Main extends Base
     public function create($params = array())
     {
         if (!$this->isAdmin) {
-            $this->ajaxFailed('您没有权限进行此操作,系统管理才能创建项目');
+            $this->ajaxFailed('Permission Error', 'You don\'t have permission to create customer');
         }
 
         if (empty($params)) {
-            $this->ajaxFailed('错误', '无表单数据提交');
+            $this->ajaxFailed('Error', 'No data available');
         }
 
         $err = [];
@@ -588,58 +588,58 @@ class Main extends Base
         $maxLengthProjectKey = $settingLogic->maxLengthProjectKey();
 
         if (!isset($params['name'])) {
-            $err['项目名称'] = 'name域不存在';
+            $err['Customer Name'] = 'Customer Name Unset';
         }
         if (isset($params['name']) && empty(trimStr($params['name']))) {
-            $err['项目名称'] = '名称不能为空';
+            $err['Customer Name'] = 'Empty Customer Name';
         }
         if (isset($params['name']) && strlen($params['name']) > $maxLengthProjectName) {
-            $err['项目名称'] = '名称长度太长,长度应该小于' . $maxLengthProjectName;
+            $err['Customer Name'] = 'Customer Name Too Long, No Longer Than ' . $maxLengthProjectName;
         }
         if (isset($params['name']) && $projectModel->checkNameExist($params['name'])) {
-            $err['项目名称'] = '项目名称已经被使用了,请更换一个吧';
+            $err['Customer Name'] = 'Customer Name Exist';
         }
 
         if (!isset($params['org_id'])) {
             //$err['org_id'] = '请选择一个组织';
             $params['org_id'] = 1; // 临时使用id为1的默认组织
         } elseif (isset($params['org_id']) && empty(trimStr($params['org_id']))) {
-            $err['组织'] = '组织不能为空';
+            $err['组织'] = 'Empty Organization';
         }
 
         if (!isset($params['key'])) {
-            $err['项目Key'][] = 'KEY域不存在';
+            $err['Customer Key'][] = 'Customer Key Unset';
         }
         if (isset($params['key']) && empty(trimStr($params['key']))) {
-            $err['项目Key'][] = '关键字不能为空';
+            $err['Customer Key'][] = 'Empty Customer Key';
         }
         if (isset($params['key']) && strlen($params['key']) > $maxLengthProjectKey) {
-            $err['项目Key'][] = '关键字长度太长,长度应该小于' . $maxLengthProjectKey;
+            $err['Customer Key'][] = 'Customer Key Too Long, No Longer Than ' . $maxLengthProjectKey;
         }
         if (isset($params['key']) && $projectModel->checkKeyExist($params['key'])) {
-            $err['项目Key'][] = '项目关键字已经被使用了,请更换一个吧';
+            $err['Customer Key'][] = 'Customer Key Exists';
         }
-        if (isset($params['key']) && !preg_match("/^[a-zA-Z]+$/", $params['key'])) {
-            $err['项目Key'][] = '项目关键字必须全部为英文字母,不能包含空格和特殊字符';
+        if (isset($params['key']) && !preg_match("/^[a-zA-Z0-9]+$/", $params['key'])) {
+            $err['Customer Key'][] = 'Only Numbers and Letters are allowed for Customer Key';
         }
 
         $userModel = new UserModel();
         if (!isset($params['lead'])) {
-            $err['项目负责人'] = '请选择项目负责人';
+            $err['Assignee'] = 'Please Select Assignee';
         } elseif (isset($params['lead']) && intval($params['lead']) <= 0) {
-            $err['项目负责人'] = '请选择项目负责人';
+            $err['Assignee'] = 'Please Select Assignee';
         } elseif (empty($userModel->getByUid($params['lead']))) {
-            $err['项目负责人'] = '项目负责人错误';
+            $err['Assignee'] = 'Wrong Assignee';
         }
 
         if (!isset($params['type'])) {
-            $err['项目类型'] = '请选择项目类型';
+            $err['Customer Type'] = 'Please Select Customer Type';
         } elseif (isset($params['type']) && empty(trimStr($params['type']))) {
-            $err['项目类型'] = '项目类型不能为空';
+            $err['Customer Type'] = 'Empty Customer Type';
         }
 
         if (!empty($err)) {
-            $txt = "出现错误:";
+            $txt = "Error Occurred:";
             foreach ($err as $key => $value) {
 
                 $txt = $txt . "<br>- " . $key;
@@ -707,7 +707,7 @@ class Main extends Base
             $logData['module'] = LogOperatingLogic::MODULE_NAME_PROJECT;
             $logData['page'] = $_SERVER['REQUEST_URI'];
             $logData['action'] = LogOperatingLogic::ACT_ADD;
-            $logData['remark'] = '新建项目';
+            $logData['remark'] = 'Created Customer';
             $logData['pre_data'] = [];
             $logData['cur_data'] = $info;
             LogOperatingLogic::add($uid, 0, $logData);
@@ -718,20 +718,20 @@ class Main extends Base
                 $currentUid = $this->getCurrentUid();
                 $activityModel = new ActivityModel();
                 $activityInfo = [];
-                $activityInfo['action'] = '创建了项目';
+                $activityInfo['action'] = 'Created Customer';
                 $activityInfo['type'] = ActivityModel::TYPE_PROJECT;
                 $activityInfo['obj_id'] = $ret['data']['project_id'];
                 $activityInfo['title'] = $info['name'];
                 $activityModel->insertItem($currentUid, $ret['data']['project_id'], $activityInfo);
 
-                $this->ajaxSuccess('项目创建成功', $final);
+                $this->ajaxSuccess('Successfully Created Customer', $final);
             } else {
                 $projectModel->db->rollBack();
-                $this->ajaxFailed('fail', '项目角色添加失败：' . $roleInfo);
+                $this->ajaxFailed('Error', 'Project Role Insertion Failed: ' . $roleInfo);
             }
         } else {
             $projectModel->db->rollBack();
-            $this->ajaxFailed('服务器错误', '添加失败,错误详情 :' . $ret['msg']);
+            $this->ajaxFailed('Error', 'Insertion Failed: ' . $ret['msg']);
         }
     }
 
@@ -745,7 +745,7 @@ class Main extends Base
     {
         // 判断权限:全局权限和项目角色
         if (!isset($this->projectPermArr[PermissionLogic::BROWSE_ISSUES])) {
-            $this->ajaxFailed('您没有权限进行此操作,需要项目管理权限');
+            $this->ajaxFailed('Permission Error', 'Requires project administrator to operate');
         }
 
         $uid = $this->getCurrentUid();
@@ -759,20 +759,20 @@ class Main extends Base
         if (isset($_REQUEST['name'])) {
             $name = trimStr($_REQUEST['name']);
             if ($projectModel->checkIdNameExist($projectId, $name)) {
-                $err['name'] = '名称已经被使用';
+                $err['name'] = 'Customer name already exists';
             }
             $info['name'] = trimStr($_REQUEST['name']);
         }
         if (isset($_REQUEST['key'])) {
             $key = trimStr($_REQUEST['key']);
             if ($projectModel->checkIdKeyExist($projectId, $key)) {
-                $err['key'] = '关键字已经被使用';
+                $err['key'] = 'Customer key already exists';
             }
             $info['key'] = trimStr($_REQUEST['key']);
         }
 
         if (!empty($err)) {
-            $this->ajaxFailed('提示', $err, BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
+            $this->ajaxFailed('Error', $err, BaseCtrl::AJAX_FAILED_TYPE_FORM_ERROR);
         }
 
         if (isset($_REQUEST['type'])) {
@@ -794,7 +794,7 @@ class Main extends Base
             $info['avatar'] = $_REQUEST['avatar'];
         }
         if (empty($info)) {
-            $this->ajaxFailed('参数错误', '无表单数据提交');
+            $this->ajaxFailed('Parameter Error', 'No data available');
         }
         $project = $projectModel->getRowById($projectId);
         $ret = $projectModel->updateById($projectId, $info);
@@ -805,15 +805,15 @@ class Main extends Base
             $currentUid = $this->getCurrentUid();
             $activityModel = new ActivityModel();
             $activityInfo = [];
-            $activityInfo['action'] = '更新了项目';
+            $activityInfo['action'] = 'Updated Details of';
             $activityInfo['type'] = ActivityModel::TYPE_PROJECT;
             $activityInfo['obj_id'] = $projectId;
             $activityInfo['title'] = $project['name'];
             $activityModel->insertItem($currentUid, $projectId, $activityInfo);
 
-            $this->ajaxSuccess('success');
+            $this->ajaxSuccess('Successfully Updated Details');
         } else {
-            $this->ajaxFailed('服务器错误', '新增数据失败,详情:' . $ret[1]);
+            $this->ajaxFailed('Error', 'Insertion Failed: ' . $ret[1]);
         }
     }
 }

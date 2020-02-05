@@ -26,12 +26,12 @@
         </div>
         <div class="text">
             <div class="type"><?=$code?></div>
-            <div class="info">您所访问的页面被外星人劫持了</div>
+            <div class="info">Page Not Found!</div>
             <div class="detail"><?=$message?></div>
             <div class="you-can">
-                您可以：
-                <a class="btn btn-success" href="#" onclick="history.back()">返回上一页</a>
-                <a class="btn btn-default" href="#">返回首页</a>
+                You can:
+                <a class="btn btn-success" href="#" onclick="history.back()">Go Back</a>
+                <a class="btn btn-default" href="#">Go To Home Page</a>
             </div>
         </div>
     </div>
@@ -86,10 +86,3 @@
 
 </body>
 </HTML>
-                                                                            
-                                                                            
-                                                                             
-                                                                            
-                                                                            
-                                                                            
-                                                                            

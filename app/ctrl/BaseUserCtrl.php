@@ -69,15 +69,15 @@ class BaseUserCtrl extends BaseCtrl
         if (!UserAuth::getId() && !$noAuth) {
             //print_r($_SERVER);
             if ($this->isAjax()) {
-                $this->ajaxFailed('提示', '您尚未登录,或登录状态已经失效!', 401);
+                $this->ajaxFailed('Unauthorized Access', 'Your login session has been expired!', 401);
             } else {
                 if (!isset($_GET['_target']) || empty($_GET['_target'])) {
                     header('location:' . ROOT_URL . 'passport/login');
                     die;
                 }
-                $this->error('提示',
-                    '您尚未登录,或登录状态已经失效!',
-                    ['type' => 'link', 'link' => ROOT_URL . 'passport/login', 'title' => '跳转至登录页面']
+                $this->error('Unauthorized Access',
+                    'Your login session has been expired!',
+                    ['type' => 'link', 'link' => ROOT_URL . 'passport/login', 'title' => 'Login']
                 );
                 die;
             }

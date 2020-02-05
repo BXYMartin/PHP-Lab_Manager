@@ -34,8 +34,8 @@ $siteName = (new \main\app\classes\SettingsLogic())->showSysTitle();
                 echo $message;
             } ?> -->
             <div class="you-can">
-                您可以：
-                <a class="btn btn-success" onclick="history.back()">返回上一页</a>
+                You can:
+                <a class="btn btn-success" onclick="history.back()">Go Back</a>
                 <a class="btn btn-default" href="<?= $link ?>"><?= $_links['title'] ?></a>
             </div>
         </div>

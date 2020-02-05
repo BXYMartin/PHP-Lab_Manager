@@ -9,7 +9,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a class="close" data-dismiss="modal" href="#">×</a>
-                        <h3 class="modal-header-title">加入到Sprint</h3>
+                        <h3 class="modal-header-title">Add To Sprint</h3>
                     </div>
                     <div class="modal-body">
                         <input type="hidden" name="issue_id" id="join_sprint_issue_id" value="">
@@ -42,8 +42,8 @@
                     </div>
 
                     <div class="modal-footer issue-modal-footer footer-block row-content-block">
-                        <button name="submit" type="button" class="btn btn-create" id="btn-join_sprint">保存</button>
-                        <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                        <button name="submit" type="button" class="btn btn-create" id="btn-join_sprint">Save</button>
+                        <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                     </div>
                 </div>
             </form>
@@ -60,7 +60,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <a class="close" data-dismiss="modal" href="#">×</a>
-                    <h3 class="modal-header-title">删除事项</h3>
+                    <h3 class="modal-header-title">Delete Audit Plan</h3>
                 </div>
 
                 <div class="modal-body issue-modal-body">
@@ -83,14 +83,14 @@
                             {{/children}}
                         </script>
                         <label id="children_list_title" class="label-light" for="children_list_div">
-                            该实现还包含如下子任务,您确定要删除吗?
+                            Selected Audit Also Contains Detailed Auditing Rules, Are You Sure?
                         </label>
                         <div id="children_list_div" class="">
 
                         </div>
 
                         <label id="children_empty_state_title" class="label-light" for="empty_children_state">
-                            您确认要删除该事项吗?
+                            Are You Sure To Delete This Audit?
                         </label>
                         <div id="empty_children_state" class="">
                             <img src="/gitlab/images/no_group_avatar.png">
@@ -99,8 +99,8 @@
                 </div>
 
                 <div class="modal-footer issue-modal-footer footer-block row-content-block">
-                    <button name="submit" type="button" class="btn btn-remove" id="btn-modal_delete">删除</button>
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <button name="submit" type="button" class="btn btn-remove" id="btn-modal_delete">Delete</button>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                 </div>
             </div>
         </div>
@@ -112,7 +112,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <a class="close" data-dismiss="modal" href="#">×</a>
-                <h3 class="modal-header-title">选择父任务</h3>
+                <h3 class="modal-header-title">Select Audit Plan</h3>
             </div>
 
             <div class="modal-body issue-modal-body">
@@ -130,16 +130,16 @@
                                         data-project-id="<?= $project_id ?>"
                                         data-selected=""
                                         data-field-name="parent_select_issue_id"
-                                        data-default-label="请选择事项"
+                                        data-default-label="Please Select Audit Plan"
                                         data-field-type="issue"
                                         data-issue-id=""
                                         data-toggle="dropdown">
-                                    <span class="dropdown-toggle-text is-default">请选择事项</span>
+                                    <span class="dropdown-toggle-text is-default">Please Select Audit Plan</span>
                                     <i class="fa fa-chevron-down"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-author js-filter-submit">
                                     <div class="dropdown-title">
-                                        <span>查找事项</span>
+                                        <span>Find Audit Plan</span>
                                         <button class="dropdown-title-button dropdown-menu-close" aria-label="Close"
                                                 type="button">
                                             <i class="fa fa-times dropdown-menu-close-icon"></i>
@@ -147,7 +147,7 @@
                                     </div>
                                     <div class="dropdown-input">
                                         <input type="search" id="" class="dropdown-input-field"
-                                               placeholder="可输入事项键值或主题的关键词" autocomplete="off"/>
+                                               placeholder="Enter Keywords/Keys" autocomplete="off"/>
                                         <i class="fa fa-search dropdown-input-search"></i>
                                         <i role="button"
                                            class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i>
@@ -162,16 +162,16 @@
                     </div>
 
                     <div class="form-group">
-                        <span>注:</span><br>
-                        <span>输入事项键值或主题的关键词来得到可能匹配的事项列表</span><br>
-                        <span>只能在当前事项的项目内操作</span><br>
+                        <span>Note:</span><br>
+                        <span>Enter the keywords/keys to search for the audit plan</span><br>
+                        <span>You can only search within this company (customer)</span><br>
                     </div>
                 </div>
             </div>
 
             <div class="modal-footer issue-modal-footer footer-block row-content-block">
-                <button name="submit" type="button" class="btn btn-create" id="btn-convertChild">确定</button>
-                <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                <button name="submit" type="button" class="btn btn-create" id="btn-convertChild">Confirm</button>
+                <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
             </div>
         </div>
     </div>
@@ -196,7 +196,7 @@
                     <!--                    </div>-->
                     <!--                </div>-->
 
-                    <h3 class="modal-header-title">创建事项</h3>
+                    <h3 class="modal-header-title">Create Task</h3>
 
                     <a class="close" data-dismiss="modal" href="#">×</a>
                 </div>
@@ -206,13 +206,13 @@
 					<input type="hidden" name="params[master_issue_id]" id="master_issue_id" value=""/>
                     <input type="hidden" name="authenticity_token" value="">
                     <?php
-                    $projectSeelctTitle = '请选择项目';
+                    $projectSeelctTitle = 'Select Customer';
                     if (!empty($project_id)) {
                         $projectSeelctTitle = $project_name;
                     }
                     ?>
                     <div class="form-group">
-                        <label class="control-label" for="issue_project_id">项目:</label>
+                        <label class="control-label" for="issue_project_id">Customer:</label>
                         <div class="col-sm-10">
                             <div class="filter-item inline">
                                 <div class="dropdown ">
@@ -232,14 +232,14 @@
                                                 class="fa fa-chevron-down"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-author js-filter-submit">
-                                        <div class="dropdown-title"><span>按名称过滤</span>
+                                        <div class="dropdown-title"><span>Filter By Name</span>
                                             <button class="dropdown-title-button dropdown-menu-close" aria-label="Close"
                                                     type="button">
                                                 <i class="fa fa-times dropdown-menu-close-icon"></i>
                                             </button>
                                         </div>
                                         <div class="dropdown-input">
-                                            <input type="search" id="" class="dropdown-input-field" placeholder="搜索项目"
+                                            <input type="search" id="" class="dropdown-input-field" placeholder="Search..."
                                                    autocomplete="off"/>
                                             <i class="fa fa-search dropdown-input-search"></i>
                                             <i role="button"
@@ -255,11 +255,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="issue_type">事项类型:</label>
+                        <label class="control-label" for="issue_type">Task Type:</label>
                         <div class="col-sm-10">
                             <select id="create_issue_types_select" name="params[issue_type]" class="selectpicker"
                                     dropdownAlignRight="true" data-live-search="true" title="">
-                                <option value="">请选择类型</option>
+                                <option value="">Please Select Type</option>
                             </select>
                         </div>
                     </div>
@@ -268,7 +268,7 @@
 
                     <ul class="nav nav-tabs hide" id="create_tabs">
                         <li role="presentation" class="active">
-                            <a id="a_create_default_tab" href="#create_default_tab" role="tab" data-toggle="tab">默认</a>
+                            <a id="a_create_default_tab" href="#create_default_tab" role="tab" data-toggle="tab">Default</a>
                         </li>
                     </ul>
                     <div id="create_master_tabs" class="tab-content">
@@ -278,9 +278,9 @@
                     </div>
                 </div>
                 <div class="modal-footer issue-modal-footer footer-block row-content-block">
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                     <span class="append-right-10">
-                    <input id="btn-add" type="button" name="commit" value="保存" class="btn btn-save">
+                    <input id="btn-add" type="button" name="commit" value="Save" class="btn btn-save">
                 </span>
                 </div>
             </div>
@@ -323,9 +323,9 @@
                 </div>
 
                 <div class="modal-footer issue-modal-footer footer-block row-content-block">
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                     <span class="append-right-10">
-                        <input type="button" name="commit" id="btn-update-record" value="保存"
+                        <input type="button" name="commit" id="btn-update-record" value="Save"
                                                          class="btn btn-save"></span>
                 </div>
             </div>
@@ -374,9 +374,9 @@
                 </div>
 
                 <div class="modal-footer issue-modal-footer footer-block row-content-block">
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                     <span class="append-right-10">
-                        <input type="button" name="commit" id="btn-update-doc" value="保存"
+                        <input type="button" name="commit" id="btn-update-doc" value="Save"
                                                          class="btn btn-save"></span>
                 </div>
             </div>
@@ -420,9 +420,9 @@
                 </div>
 
                 <div class="modal-footer issue-modal-footer footer-block row-content-block">
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                     <span class="append-right-10">
-                        <input type="button" name="commit" id="btn-update-person" value="保存"
+                        <input type="button" name="commit" id="btn-update-person" value="Save"
                                                          class="btn btn-save"></span>
                 </div>
             </div>
@@ -461,9 +461,9 @@
                 </div>
 
                 <div class="modal-footer issue-modal-footer footer-block row-content-block">
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                     <span class="append-right-10">
-                        <input type="button" name="commit" id="btn-update-detail" value="保存"
+                        <input type="button" name="commit" id="btn-update-detail" value="Save"
                                                          class="btn btn-save"></span>
                 </div>
             </div>
@@ -492,7 +492,7 @@
                     <!--                        </div>-->
                     <!--                    </div>-->
 
-                    <h3 id="modal-edit-issue_title" class="modal-header-title">编辑事项 </h3>
+                    <h3 id="modal-edit-issue_title" class="modal-header-title">Edit Task </h3>
 
                     <a class="close" data-dismiss="modal" href="#">×</a>
                 </div>
@@ -506,10 +506,10 @@
 
                     <input type="hidden" name="authenticity_token" value="">
                     <div class="form-group">
-                        <label class="control-label" for="issue_project_id">项目:</label>
+                        <label class="control-label" for="issue_project_id">Customer:</label>
                         <div class="col-sm-10">
                             <div class="filter-item project-selected" id="project-selected">
-                                选择项目
+                                Select Customer
                             </div>
                         </div>
                     </div>
@@ -517,7 +517,7 @@
                         <span>{{name}}</span>
                     </script>
                     <div class="form-group">
-                        <label class="control-label" for="issue_type">事项类型:</label>
+                        <label class="control-label" for="issue_type">Task Type:</label>
                         <div class="col-sm-10">
                             <select id="edit_issue_types_select" name="params[issue_type]" class="selectpicker">
 
@@ -527,7 +527,7 @@
 
                     <ul class="nav nav-tabs hide" id="edit_tabs">
                         <li role="presentation" class="active">
-                            <a id="a_edit_default_tab" href="#edit_default_tab" role="tab" data-toggle="tab">默认</a>
+                            <a id="a_edit_default_tab" href="#edit_default_tab" role="tab" data-toggle="tab">Default</a>
                         </li>
                     </ul>
                     <div id="edit_master_tabs" class="tab-content">
@@ -538,9 +538,9 @@
                 </div>
 
                 <div class="modal-footer issue-modal-footer footer-block row-content-block">
-                    <a class="btn btn-cancel" data-dismiss="modal" href="#">取消</a>
+                    <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
                     <span class="append-right-10">
-                        <input type="button" name="commit" id="btn-update" value="保存"
+                        <input type="button" name="commit" id="btn-update" value="Save"
                                                          class="btn btn-save"></span>
                 </div>
             </div>
@@ -693,7 +693,7 @@
             </button>
             <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable dropdown-menu-assignee js-filter-submit">
                 <div class="dropdown-title">
-                    <span>选择经办人</span>
+                    <span>Select Assignee</span>
                     <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                         <i class="fa fa-times dropdown-menu-close-icon"></i>
                     </button>
@@ -711,7 +711,7 @@
             </div>
         </div>
     </div>
-    <a class="assign-to-me-link " href="#">赋予给我</a>
+    <a class="assign-to-me-link " href="#">Assign To Me</a>
 </script>
 
 
@@ -736,7 +736,7 @@
             </button>
             <div class="dropdown-menu dropdown-select dropdown-menu-user dropdown-menu-selectable  dropdown-menu-assignee js-filter-submit">
                 <div class="dropdown-title">
-                    <span>选择协助人</span>
+                    <span>Select Assignee</span>
                     <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                         <i class="fa fa-times dropdown-menu-close-icon"></i>
                     </button>
@@ -779,7 +779,7 @@
             <div class="dropdown-menu dropdown-select dropdown-menu-paging dropdown-menu-labels dropdown-menu-selectable js-multiselect">
                 <div class="dropdown-page-one">
                     <div class="dropdown-title">
-                        <span>选择模块</span>
+                        <span>Select Module</span>
                         <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                             <i class="fa fa-times dropdown-menu-close-icon"></i>
                         </button>
@@ -794,10 +794,10 @@
                     <div class="dropdown-footer">
                         <ul class="dropdown-footer-list">
                             <li>
-                                <a class="dropdown-toggle-page" href="#">创建新模块</a>
+                                <a class="dropdown-toggle-page" href="#">Create New Module</a>
                             </li>
                             <li>
-                                <a href="<?= ROOT_URL ?>default/{{project_key}}/settings_module">管理模块</a>
+                                <a href="<?= ROOT_URL ?>default/{{project_key}}/settings_module">Manage Modules</a>
                             </li>
                         </ul>
                     </div>
@@ -810,7 +810,7 @@
                         <button class="dropdown-title-button dropdown-menu-back" aria-label="Go back" type="button">
                             <i class="fa fa-arrow-left"></i>
                         </button>
-                        <span>创建新模块</span>
+                        <span>Create New Module</span>
                         <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                             <i class="fa fa-times dropdown-menu-close-icon"></i>
                         </button>
@@ -818,15 +818,15 @@
                     <div class="dropdown-content js-module-content">
                         <div class="dropdown-labels-error js-label-error"></div>
                         <div class="dropdown-label-color-input">
-                            <input class="default-dropdown-input" id="new_module_name" name="module_name" placeholder="名称"  type="text">
+                            <input class="default-dropdown-input" id="new_module_name" name="module_name" placeholder="Name"  type="text">
                         </div>
                         <div class="dropdown-label-color-input">
-                        <input class="default-dropdown-input" id="new_module_description" name="description" placeholder="说明"
+                        <input class="default-dropdown-input" id="new_module_description" name="description" placeholder="Description"
                                type="text">
                         </div>
                         <div class="clearfix">
-                            <button class="btn btn-primary pull-left js-new-module-btn" type="button">创建</button>
-                            <button class="btn btn-default pull-right js-cancel-label-btn" type="button">取消</button>
+                            <button class="btn btn-primary pull-left js-new-module-btn" type="button">Create</button>
+                            <button class="btn btn-default pull-right js-cancel-label-btn" type="button">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -860,7 +860,7 @@
             <div class="dropdown-menu dropdown-select dropdown-menu-paging dropdown-menu-labels dropdown-menu-selectable">
                 <div class="dropdown-page-one">
                     <div class="dropdown-title">
-                        <span>选择标签</span>
+                        <span>Select Tag</span>
                         <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                             <i class="fa fa-times dropdown-menu-close-icon"></i>
                         </button>
@@ -875,9 +875,9 @@
                     <div class="dropdown-footer">
                         <ul class="dropdown-footer-list">
                             <li>
-                                <a class="dropdown-toggle-page" href="#">创建新标签</a></li>
+                                <a class="dropdown-toggle-page" href="#">Create New Tag</a></li>
                             <li>
-                                <a data-is-link="true" href="<?= ROOT_URL ?>default/{{project_key}}/settings_label"">管理标签</a></li>
+                                <a data-is-link="true" href="<?= ROOT_URL ?>default/{{project_key}}/settings_label">Manage Tags</a></li>
                         </ul>
                     </div>
                     <div class="dropdown-loading">
@@ -889,7 +889,7 @@
                         <button class="dropdown-title-button dropdown-menu-back" aria-label="Go back" type="button">
                             <i class="fa fa-arrow-left"></i>
                         </button>
-                        <span>创建新标签</span>
+                        <span>Create New Tag</span>
                         <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                             <i class="fa fa-times dropdown-menu-close-icon"></i>
                         </button>
@@ -925,8 +925,8 @@
                             <input class="default-dropdown-input" id="new_label_color"
                                    placeholder="Assign custom color like #FF0000" type="text"></div>
                         <div class="clearfix">
-                            <button class="btn btn-primary pull-left js-new-label-btn" id="create-label" type="button">创建</button>
-                            <button class="btn btn-default pull-right js-cancel-label-btn" type="button">取消</button>
+                            <button class="btn btn-primary pull-left js-new-label-btn" id="create-label" type="button">Create</button>
+                            <button class="btn btn-default pull-right js-cancel-label-btn" type="button">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -962,7 +962,7 @@
             <div class="dropdown-menu dropdown-select dropdown-menu-paging dropdown-menu-labels dropdown-menu-selectable">
                 <div class="dropdown-page-one">
                     <div class="dropdown-title">
-                        <span>选择版本</span>
+                        <span>Select Version</span>
                         <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                             <i class="fa fa-times dropdown-menu-close-icon"></i>
                         </button>
@@ -977,9 +977,9 @@
 <!--                    <div class="dropdown-footer">-->
 <!--                        <ul class="dropdown-footer-list">-->
 <!--                            <li>-->
-<!--                                <a class="dropdown-toggle-page" href="#">创建新版本</a></li>-->
+<!--                                <a class="dropdown-toggle-page" href="#">Create New Version</a></li>-->
 <!--                            <li>-->
-<!--                                <a data-is-link="true" href="/project/version">管理版本</a></li>-->
+<!--                                <a data-is-link="true" href="/project/version">Manage Versions</a></li>-->
 <!--                        </ul>-->
 <!--                    </div>-->
                     <div class="dropdown-loading">
@@ -991,7 +991,7 @@
                         <button class="dropdown-title-button dropdown-menu-back" aria-label="Go back" type="button">
                             <i class="fa fa-arrow-left"></i>
                         </button>
-                        <span>创建新版本</span>
+                        <span>Create New Version</span>
                         <button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button">
                             <i class="fa fa-times dropdown-menu-close-icon"></i>
                         </button>
@@ -1008,8 +1008,8 @@
                             <input class="default-dropdown-input" id="new_version_color"
                                    placeholder="Assign description" type="text"></div>
                         <div class="clearfix">
-                            <button class="btn btn-primary pull-left js-new-label-btn" type="button">创建</button>
-                            <button class="btn btn-default pull-right js-cancel-label-btn" type="button">取消</button>
+                            <button class="btn btn-primary pull-left js-new-label-btn" type="button">Create</button>
+                            <button class="btn btn-default pull-right js-cancel-label-btn" type="button">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -1025,7 +1025,7 @@
 <!-- Fine Uploader Gallery template
    ====================================================================== -->
 <script type="text/template" id="qq-template-gallery">
-    <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="将文件拖放到此处以添加附件">
+    <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drag Files Here To Upload">
         <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
             <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                  class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
@@ -1034,10 +1034,10 @@
             <span class="qq-upload-drop-area-text-selector"></span>
         </div>
         <div class="qq-upload-button-selector qq-upload-button">
-            <div>浏览</div>
+            <div>Browse</div>
         </div>
         <span class="qq-drop-processing-selector qq-drop-processing">
-                <span>拖拽文件完成...</span>
+                <span>Drag Complete...</span>
                 <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
             </span>
         <ul class="qq-upload-list-selector qq-upload-list" role="region" aria-live="polite"
@@ -1084,15 +1084,15 @@
         <dialog class="qq-alert-dialog-selector">
             <div class="qq-dialog-message-selector"></div>
             <div class="qq-dialog-buttons">
-                <button type="button" class="qq-cancel-button-selector">关闭</button>
+                <button type="button" class="qq-cancel-button-selector">Close</button>
             </div>
         </dialog>
 
         <dialog class="qq-confirm-dialog-selector">
             <div class="qq-dialog-message-selector"></div>
             <div class="qq-dialog-buttons">
-                <button type="button" class="qq-cancel-button-selector">否</button>
-                <button type="button" class="qq-ok-button-selector">是</button>
+                <button type="button" class="qq-cancel-button-selector">No</button>
+                <button type="button" class="qq-ok-button-selector">Yes</button>
             </div>
         </dialog>
 
@@ -1100,8 +1100,8 @@
             <div class="qq-dialog-message-selector"></div>
             <input type="text">
             <div class="qq-dialog-buttons">
-                <button type="button" class="qq-cancel-button-selector">取消</button>
-                <button type="button" class="qq-ok-button-selector">确定</button>
+                <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                <button type="button" class="qq-ok-button-selector">Confirm</button>
             </div>
         </dialog>
     </div>

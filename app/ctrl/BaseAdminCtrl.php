@@ -42,15 +42,15 @@ class BaseAdminCtrl extends BaseCtrl
         $uid = UserAuth::getId();
         if (!$uid) {
             if ($this->isAjax()) {
-                $this->ajaxFailed('提示', '您尚未登录,或登录状态已经失效!', 401);
+                $this->ajaxFailed('Unauthorized Access', 'Your login session has been expired!', 401);
             } else {
                 if (!isset($_GET['_target']) || empty($_GET['_target'])) {
                     header('location:' . ROOT_URL . 'passport/login');
                     die;
                 }
-                $this->error('提示',
-                    '您尚未登录,或登录状态已经失效!',
-                    ['type' => 'link', 'link' => ROOT_URL . 'passport/login', 'title' => '跳转至登录页面']
+                $this->error('Unauthorized Access',
+                    'Your login session has been expired!',
+                    ['type' => 'link', 'link' => ROOT_URL . 'passport/login', 'title' => 'Login']
                 );
                 die;
             }
@@ -60,9 +60,9 @@ class BaseAdminCtrl extends BaseCtrl
 
         if (!$check || !$uid) {
             if (parent::isAjax()) {
-                $this->ajaxFailed('您还未获取此模块的权限', [], 401);
+                $this->ajaxFailed('You don\'t have access to this module!', [], 401);
             } else {
-                $this->error('权限错误', '您还未获取此模块的权限！');
+                $this->error('Unauthorized Access', 'You don\'t have access to this module!');
                 exit;
             }
         }
