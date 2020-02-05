@@ -55,8 +55,8 @@
                     <input type="hidden" name="image" id="image" value="" />
                     <div class="row">
                         <div class="col-lg-3 profile-settings-sidebar">
-                            <h4 class="prepend-top-0">显示头像</h4>
-                            <p>您可以在这里修改您的头像
+                            <h4 class="prepend-top-0">User Avatar</h4>
+                            <p>You can change your avatar here.
                             </p>
                         </div>
                         <div class="col-lg-9">
@@ -64,39 +64,39 @@
                                 <a target="_blank" rel="noopener noreferrer" href="#">
                                     <img id="avatar_display" alt="" class="avatar s160" src="" /></a>
                             </div>
-                            <h5 class="prepend-top-0">修改头像</h5>
+                            <h5 class="prepend-top-0">Change Avatar</h5>
                             <div class="prepend-top-5 append-bottom-10">
-                                <a class="btn js-choose-user-avatar-button">浏览文件...</a>
-                                <span class="avatar-file-name prepend-left-default js-avatar-filename">没有选择文件</span>
+                                <a class="btn js-choose-user-avatar-button">Browse Files...</a>
+                                <span class="avatar-file-name prepend-left-default js-avatar-filename">None Selected</span>
                                 <input class="js-user-avatar-input hidden" accept="image/*" type="file" name="user[avatar]" id="user_avatar" /></div>
-                            <div class="help-block">最大文件大小 500KB.</div>
+                            <div class="help-block">Maximum file size is 500KB.</div>
 
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-lg-3 profile-settings-sidebar">
-                            <h4 class="prepend-top-0">基本设置</h4>
-                            <p>此信息将出现在您的配置文件上</p>
+                            <h4 class="prepend-top-0">Basic Settings</h4>
+                            <p>These info will show up on your personal page.</p>
                         </div>
                         <div class="col-lg-9">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <label class="label-light" for="display_name">显示名称:</label>
+                                        <label class="label-light" for="display_name">Auditor Initials:</label>
                                     </div>
                                     <div class="col-lg-6">
                                         <input class="form-control" required="required" type="text" value="" name="params[display_name]" id="display_name" />
                                     </div>
                                     <div class="col-lg-4">
-                                        <span class="help-block">输入你的名字，让你认识的人认出你。</span>
+                                        <span class="help-block">Enter your name.</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <label class="label-light" for="user_birthday">出生日期:</label>
+                                        <label class="label-light" for="user_birthday">Date of Birth:</label>
                                     </div>
                                     <div class="col-lg-6">
                                         <input class="form-control" required="required" type="text" value="" name="params[birthday]" id="user_birthday" />
@@ -109,7 +109,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <label class="label-light" for="user_sex">性 别:</label>
+                                        <label class="label-light" for="user_sex">Gender:</label>
                                     </div>
                                     <div class="col-lg-6">
                                             <div class="">
@@ -117,7 +117,7 @@
                                                     <label for="sex_0"><input type="radio" value="0"  name="params[sex]" id="sex_0">
                                                         <div class="option-title">
                                                             <i class="fa fa-lock fa-fw"></i>
-                                                            私密
+                                                            Other
                                                         </div>
                                                         <div class="option-descr">
                                                         </div>
@@ -125,8 +125,8 @@
                                                 <div class="radio">
                                                     <label for="sex_1"><input type="radio" value="1" name="params[sex]" id="sex_1">
                                                         <div class="option-title">
-                                                            <i class="fa fa-venus  fa-fw"></i>
-                                                            男
+                                                            <i class="fa fa-mercury fa-fw"></i>
+                                                            Male
                                                         </div>
                                                         <div class="option-descr">
 
@@ -135,8 +135,8 @@
                                                 <div class="radio">
                                                     <label for="sex_2"><input type="radio" value="2" name="params[sex]" id="sex_2">
                                                         <div class="option-title">
-                                                            <i class="fa fa-mercury fa-fw"></i>
-                                                            女
+                                                            <i class="fa fa-venus fa-fw"></i>
+                                                            Female
                                                         </div>
                                                         <div class="option-descr">
 
@@ -154,13 +154,13 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <label class="label-light" for="description">个人介绍:</label>
+                                        <label class="label-light" for="description">Self Intro:</label>
                                     </div>
                                     <div class="col-lg-6">
                                         <textarea rows="4" class="form-control" maxlength="250" name="params[description]" id="description"></textarea>
                                     </div>
                                     <div class="col-lg-4">
-                                        <span class="help-block">告诉我们关于你自己少于250个字符</span>
+                                        <span class="help-block">Tell us about you!</span>
                                     </div>
                                 </div>
                             </div>
@@ -173,10 +173,10 @@
                         <div class="col-lg-3">
                         </div>
                         <div class="col-lg-3">
-                            <input type="button" name="commit" id="commit" value="保 存" class="btn btn-success js-key-enter" />
+                            <input type="button" name="commit" id="commit" value="Save" class="btn btn-success js-key-enter" />
                         </div>
                         <div class="col-lg-3">
-                            <a class="btn btn-cancel" href="<?=ROOT_URL?>user/profile">取消</a>
+                            <a class="btn btn-cancel" href="<?=ROOT_URL?>user/profile">Cancel</a>
                         </div>
                         <div class="col-lg-3">
                         </div>
@@ -207,7 +207,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button class="btn btn-primary js-upload-user-avatar" type="button">设置新的资料图片</button>
+                                <button class="btn btn-primary js-upload-user-avatar" type="button">Upload User Avatar</button>
                             </div>
                         </div>
                     </div>
@@ -254,4 +254,3 @@
 
 </body>
 </html>
-

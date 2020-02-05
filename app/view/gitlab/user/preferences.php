@@ -92,19 +92,19 @@
                         </div>-->
                         <div class="col-lg-4 profile-settings-sidebar">
                             <h4 class="prepend-top-0">
-                                导航风格
+                                Navigation Bar
                             </h4>
                             <p>
-                                此设置允许您自定义导航风格
+                                You can select different setup for the navigation bar here.
                             </p>
                         </div>
                         <div class="col-lg-8 syntax-theme">
                             <label><div class="preview"><img class="js-lazy-loaded" src="<?=ROOT_URL?>gitlab/images/white-scheme-preview.png"></div>
                                 <input type="radio" value="top" checked="checked" name="params[scheme_style]" id="scheme_top">
-                                极简风格
+                                Minimized
                             </label><label><div class="preview"><img class="js-lazy-loaded" src="<?=ROOT_URL?>gitlab/images/solarized-light-scheme-preview.png"></div>
                                 <input type="radio" value="left" name="params[scheme_style]" id="scheme_left">
-                                左侧菜单
+                                Left
                             </label>
                         </div>
                         <div class="col-sm-12">
@@ -112,25 +112,25 @@
                         </div>
                         <div class="col-lg-3 profile-settings-sidebar">
                             <h4 class="prepend-top-0">
-                                布局界面
+                                Layout
                             </h4>
                             <p>
-                                此设置允许您自定义系统布局和默认视图的行为。
+                                This setting allows you to customize system layout and default layout.
                             </p>
                         </div>
                         <div class="col-lg-9">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <label class="label-light" for="layout">页面布局:</label>
+                                        <label class="label-light" for="layout">Page Layout:</label>
                                     </div>
                                     <div class="col-lg-4">
                                         <select class="form-control" name="params[layout]" id="layout">
-                                            <option selected="selected" value="fixed">固定</option>
-                                            <option value="fluid">自适应</option></select>
+                                            <option selected="selected" value="fixed">Fixed</option>
+                                            <option value="fluid">Fluid</option></select>
                                     </div>
                                     <div class="col-lg-6">
-                                        <span class="help-block">在固定（最大1200 px）和自适应（100%）应用程序布局之间进行选择。</span>
+                                        <span class="help-block">Select from fixed(1200px maximum) or fluid(100%).</span>
                                     </div>
                                 </div>
                             </div>
@@ -138,19 +138,19 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <label class="label-light" for="project_view">项目首页显示:</label>
+                                        <label class="label-light" for="project_view">Project View:</label>
                                     </div>
                                     <div class="col-lg-4">
                                         <select class="form-control" name="params[project_view]" id="project_view">
-                                            <option selected="selected" value="issues">事项列表</option>
-                                            <option value="summary">项目概要</option>
-                                            <option value="backlog">待办事项</option>
-                                            <option value="sprints">迭代列表</option>
-                                            <option value="board">迭代看板</option>
+                                            <option selected="selected" value="issues">Audit Plans</option>
+                                            <option value="summary">Customer Summary</option>
+                                            <option value="backlog">To-dos</option>
+                                            <option value="sprints">Sprints</option>
+                                            <option value="board">Board</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-6">
-                                        <span class="help-block">在项目概览页面中选择您希望看到的内容。</span>
+                                        <span class="help-block">Select what you want to see on project overview page.</span>
                                     </div>
                                 </div>
                             </div>
@@ -158,23 +158,23 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <label class="label-light" for="issue_view">事项显示:</label>
+                                        <label class="label-light" for="issue_view">Audit View:</label>
                                     </div>
                                     <div class="col-lg-4">
                                         <select class="form-control" name="params[issue_view]" id="issue_view">
-                                            <option selected="selected" value="list">表格视图</option>
-                                            <option value="detail">左右视图</option>
-                                            <option value="responsive">响应式视图</option>
+                                            <option selected="selected" value="list">Table View</option>
+                                            <option value="detail">Detailed View</option>
+                                            <option value="responsive">Responsive View</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-6">
-                                        <span class="help-block">在项目概览页面中选择您希望看到的内容。</span>
+                                        <span class="help-block">Select the style you want on the audit view page.</span>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <input id="commit" type="button" name="commit" value="保存" class="btn btn-save js-key-enter">
+                                <input id="commit" type="button" name="commit" value="Save" class="btn btn-save js-key-enter">
                             </div>
 
                         </div>
@@ -214,4 +214,3 @@
 
 </body>
 </html>
-

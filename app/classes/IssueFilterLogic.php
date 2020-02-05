@@ -82,7 +82,6 @@ class IssueFilterLogic
         if (isset($_GET['project']) && !empty($_GET['project'])) {
             $projectId = (int)$_GET['project'];
             $sql .= " AND project_id=:project";
-            $sql .= " AND issue_type in (SELECT id from issue_type WHERE is_collect_issue = 1)";
             $params['project'] = $projectId;
         } else {
             // 如果没有指定某一项目，则获取用户参与的项目

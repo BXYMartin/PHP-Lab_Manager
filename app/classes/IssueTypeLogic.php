@@ -104,7 +104,7 @@ class IssueTypeLogic
         $issueTypes = $issueTypeModel->getAll(true);
 
         $model = new IssueTypeSchemeItemsModel();
-        $typeItems = $model->getItemsBySchemeId($issueTypeSchemeId, TRUE);
+        $typeItems = $model->getItemsBySchemeId($issueTypeSchemeId);
         $types = [];
         foreach ($typeItems as $item) {
             $typeId = $item['type_id'];

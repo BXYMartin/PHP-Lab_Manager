@@ -60,14 +60,9 @@ class IssueTypeSchemeItemsModel extends CacheModel
         return self::$instance[$index];
     }
 
-    public function getItemsBySchemeId($schemeId, $collect_issue= false)
+    public function getItemsBySchemeId($schemeId)
     {   
-        if($collect_issue){
-            return $this->getRows('*', ['scheme_id' => $schemeId], 'type_id in (SELECT id from issue_type WHERE is_collect_issue = 1)');
-        }
-        else{
-            return $this->getRows('*', ['scheme_id' => $schemeId]);
-        }
+        return $this->getRows('*', ['scheme_id' => $schemeId]);
     }
 
     public function deleteBySchemeId($schemeId)

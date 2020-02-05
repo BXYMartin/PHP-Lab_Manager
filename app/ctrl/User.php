@@ -45,7 +45,7 @@ class User extends BaseUserCtrl
     public function pageProfile()
     {
         $data = [];
-        $data['title'] = '个人资料';
+        $data['title'] = 'Personal Profile';
         $data['nav'] = 'profile';
         $userId = '';
         if (isset($_GET['_target'][2])) {
@@ -74,7 +74,7 @@ class User extends BaseUserCtrl
     public function pageLogOperation()
     {
         $data = [];
-        $data['title'] = '操作日志';
+        $data['title'] = 'Operation Log';
         $data['nav'] = 'log_operation';
         $userId = '';
         if (isset($_GET['_target'][2])) {
@@ -101,7 +101,7 @@ class User extends BaseUserCtrl
     public function pageHaveJoinProjects()
     {
         $data = [];
-        $data['title'] = '参与的项目';
+        $data['title'] = 'Involved Project';
         $data['nav'] = 'profile';
         $userId = '';
         if (isset($_GET['_target'][2])) {
@@ -126,7 +126,7 @@ class User extends BaseUserCtrl
     public function pagePreferences()
     {
         $data = [];
-        $data['title'] = '界面设置';
+        $data['title'] = 'Preferences';
         $data['nav'] = 'profile';
         $this->render('gitlab/user/preferences.php', $data);
     }
@@ -134,7 +134,7 @@ class User extends BaseUserCtrl
     public function pageFilters()
     {
         $data = [];
-        $data['title'] = '用户实现过滤器';
+        $data['title'] = 'Custom Filters';
         $data['nav'] = 'profile';
         $data['projects'] = ConfigLogic::getAllProjects();
         $this->render('gitlab/user/user_filters.php', $data);
@@ -184,23 +184,23 @@ class User extends BaseUserCtrl
             $id = (int)$_REQUEST['id'];
         }
         if (!$id) {
-            $this->ajaxFailed('参数错误', 'id不能为空');
+            $this->ajaxFailed('Parameter Error', 'Empty ID');
         }
         $errorMsg = [];
         if (empty($params)) {
-            $this->ajaxFailed('错误', '没有提交表单数据');
+            $this->ajaxFailed('Error', 'No data available');
         }
 
         if (!isset($params['name']) || empty($params['name'])) {
-            $errorMsg['name'] = '名称不能为空';
+            $errorMsg['name'] = 'Empty name';
         }
         $model = new IssueFilterModel();
         $currentRow = $model->getItemById($id);
         if (!isset($currentRow['id'])) {
-            $this->ajaxFailed('错误', 'id错误,找不到对应的数据');
+            $this->ajaxFailed('Error', 'Data not found of current ID');
         }
         if ($currentRow['author'] != $uid) {
-            $this->ajaxFailed('提示', '非当前用户数据，不能更新');
+            $this->ajaxFailed('Error', 'Can\'t update data of another user');
         }
         $id = (int)$id;
         $info = [];
@@ -208,9 +208,9 @@ class User extends BaseUserCtrl
 
         $ret = $model->updateById($id, $info);
         if ($ret) {
-            $this->ajaxSuccess('ok');
+            $this->ajaxSuccess('Successfully Updated');
         } else {
-            $this->ajaxFailed('服务器错误', '更新数据失败');
+            $this->ajaxFailed('Error', 'Data update failed');
         }
     }
 
@@ -232,18 +232,18 @@ class User extends BaseUserCtrl
         }
 
         if (!$id) {
-            $this->ajaxFailed('参数错误', 'id不能为空');
+            $this->ajaxFailed('Error', 'Empty ID');
         }
 
         $id = (int)$id;
         $model = new IssueFilterModel();
         $row = $model->getItemById($id);
         if ($row['author'] != UserAuth::getId()) {
-            $this->ajaxFailed('参数错误', '该过滤器不属于当前用户或登录状态已失效');
+            $this->ajaxFailed('Error', 'Login session expired or access denied');
         }
         $ret = $model->deleteItemById($id);
         if (!$ret) {
-            $this->ajaxFailed('服务器错误', '删除数据失败');
+            $this->ajaxFailed('Error', 'Failed to delete data');
         } else {
             $this->ajaxSuccess('success');
         }
@@ -307,7 +307,7 @@ class User extends BaseUserCtrl
         if (!empty($token)) {
             $userUoken = UserTokenModel::getInstance()->getUserTokenByToken($token);
             if (!isset($userUoken['uid'])) {
-                $this->ajaxFailed('错误', '提交的token无效');
+                $this->ajaxFailed('Error', 'Invalid token');
             }
             $this->uid = $uid = $userUoken['uid'];
         }
@@ -430,7 +430,7 @@ class User extends BaseUserCtrl
                 $currentUid = $this->getCurrentUid();
                 $activityModel = new ActivityModel();
                 $activityInfo = [];
-                $activityInfo['action'] = '更新了资料';
+                $activityInfo['action'] = 'Personal Profile Update';
                 $activityInfo['type'] = ActivityModel::TYPE_USER;
                 $activityInfo['obj_id'] = $userId;
                 $activityInfo['title'] = $userInfo['display_name'];
@@ -444,7 +444,7 @@ class User extends BaseUserCtrl
                 $logData['module'] = LogOperatingLogic::MODULE_NAME_USER;
                 $logData['page'] = $_SERVER['REQUEST_URI'];
                 $logData['action'] = LogOperatingLogic::ACT_EDIT;
-                $logData['remark'] = '用户修改个人资料';
+                $logData['remark'] = 'User Edit Personal Profile';
                 $logData['pre_data'] = $userModel->getRowById($currentUid);
                 $logData['cur_data'] = $userInfo;
                 LogOperatingLogic::add($currentUid, 0, $logData);
@@ -489,29 +489,29 @@ class User extends BaseUserCtrl
         $final['msg'] = '';
 
         if (!UserAuth::getId()) {
-            $this->ajaxFailed('提示', '你尚未登录', BaseCtrl::AJAX_FAILED_TYPE_WARN);
+            $this->ajaxFailed('Error', 'You are not logged in', BaseCtrl::AJAX_FAILED_TYPE_WARN);
         }
         if (!isset($params['origin_pass']) || !isset($params['new_password'])) {
-            $this->ajaxFailed('错误', '参数不能为空');
+            $this->ajaxFailed('Error', 'Empty parameters');
         }
 
         $originPassword = $params['origin_pass'];
         $newPassword = $params['new_password'];
         if (empty($originPassword) || empty($newPassword)) {
-            $this->ajaxFailed('错误', '密码不能为空');
+            $this->ajaxFailed('Error', 'Empty password');
         }
 
         $uid = $_SESSION[UserAuth::SESSION_UID_KEY];
         $userModel = new UserModel($uid);
         $user = $userModel->getUser();
         if (!password_verify($originPassword, $user['password'])) {
-            $this->ajaxFailed('错误', '原密码输入错误');
+            $this->ajaxFailed('Error', 'Wrong Original password');
         }
         $updateInfo = [];
         $updateInfo['password'] = UserAuth::createPassword($newPassword);
         $userModel->updateUser($updateInfo);
 
-        $this->ajaxSuccess('修改密码完成，您可以重新登录了');
+        $this->ajaxSuccess('Successfully Changed Password', 'You can log in with new credentials now');
     }
 
     /**
@@ -520,7 +520,7 @@ class User extends BaseUserCtrl
     public function widgets()
     {
         $data = [];
-        $data['title'] = '自定义面板';
+        $data['title'] = 'Custom Panels';
         $data['nav'] = 'notifications';
 
         $userId = UserAuth::getId();
@@ -612,7 +612,7 @@ class User extends BaseUserCtrl
 
         // 校验参数
         if (!isset($_POST['display_fields']) || !isset($_POST['project_id'])) {
-            $this->ajaxFailed('参数错误');
+            $this->ajaxFailed('Parameter Error');
         }
 
         // 获取数据
@@ -628,7 +628,7 @@ class User extends BaseUserCtrl
         if (!$ret) {
             $this->ajaxFailed($errMsg);
         }
-        $this->ajaxSuccess('保存成功');
+        $this->ajaxSuccess('Successfully Saved');
     }
 
     /**
@@ -639,7 +639,7 @@ class User extends BaseUserCtrl
     {
         // 校验参数
         if (!isset($_POST['issue_view']) || !isset($_POST['issue_view'])) {
-            $this->ajaxFailed('参数错误');
+            $this->ajaxFailed('Parameter Error');
         }
 
         // 获取数据
@@ -662,6 +662,6 @@ class User extends BaseUserCtrl
                 $userModel->updateSetting($userId, 'issue_view', $issueView);
             }
         }
-        $this->ajaxSuccess('保存成功');
+        $this->ajaxSuccess('Successfully Saved');
     }
 }
