@@ -1579,14 +1579,16 @@
                                         <li class="aui-list-item">
                                             <a href="javascript:;" class="issue_create_child"
                                                data-issue_id="{{id}}"
-                                               data-issuekey="{{issue_num}}">Add Rules</a>
+                                               data-issuekey="{{issue_num}}">Add Sites</a>
                                         </li>
                                         {{#if_eq master_id '0' }}
+                                        <!--
                                         <li class="aui-list-item">
                                             <a href="javascript:;" class="issue_convert_child_href"
                                                data-issue_id="{{id}}"
                                                data-issuekey="{{issue_num}}">Convert To Rules</a>
                                         </li>
+                                        -->
                                         {{/if_eq}}
                                         <?php
                                         if (isset($projectPermArr[\main\app\classes\PermissionLogic::DELETE_ISSUES])) {
@@ -1857,12 +1859,58 @@
 
             <script type="text/html" id="main_children_list_tpl">
                 {{#children}}
-                <li class="commits-stat">
+                <li class="commits-stat" style="background: beige;width: 100%;border-radius: 10px;display: flex;">
                     {{user_html assignee}}
                     <a href="<?= ROOT_URL ?>issue/detail/index/{{id}}" target="_blank"
-                       style="margin-left:5px;top: 3px;">#{{id}}
+                       style="margin: 5px;margin-left:10px;display: flex;">
                         {{summary}}
                     </a>
+                    <div style="margin: 5px;margin-left: 20px">
+                        <span>Status: </span>
+                        {{status_html status}}
+                    </div>
+                    <div style="margin: 5px;margin-left: 20px">
+                        <span>Resolve: </span>
+                        {{resolve_html resolve}}
+                    </div>
+                    <div>
+                        <div class="js-notification-dropdown notification-dropdown project-action-button dropdown inline">
+                            <div class="js-notification-toggle-btns">
+                                <div class="">
+                                    <a class="dropdown-new  notifications-btn "
+                                       style="color: #8b8f94;" href="#" data-target="dropdown-15-31-Project"
+                                       data-toggle="dropdown"
+                                       id="notifications-button"
+                                       type="button" aria-expanded="false">
+                                        ...
+                                        <i class="fa fa-caret-down"></i>
+                                    </a>
+
+                                    <ul class="dropdown dropdown-menu dropdown-menu-no-wrap dropdown-menu-selectable"
+                                        style="left:-120px;width:160px;min-width:140px; ">
+
+                                        <li class="aui-list-item active">
+                                            <a href="javascript:;" onclick="IssueMain.prototype.fetchEditUiConfig($(this).data('issue_id'), 'update');" class="issue_edit_href" data-issue_id="{{id}}">
+                                                Edit
+                                            </a>
+                                        </li>
+                                        <?php
+                                        if (isset($projectPermArr[\main\app\classes\PermissionLogic::DELETE_ISSUES])) {
+                                            ?>
+                                            <li class="aui-list-item">
+                                                <a href="javascript:;" onclick="IssueMain.prototype.delete($(this).data('issue_id'));" class="issue_delete_href" data-issue_id="{{id}}"
+                                                   data-issuekey="IP-{{id}}">Delete</a>
+                                            </li>
+                                            <?php
+                                        }
+                                        ?>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </li>
                 {{/children}}
     <div class="panel-group" id="accordion">

@@ -174,7 +174,6 @@ var IssueDetail = (function () {
                 result = template(resp.data);
                 $('#assistants_div').html(result);
 
-                //父任务
                 if (resp.data.issue.master_id != '0') {
                     source = $('#parent_issue_tpl').html();
                     template = Handlebars.compile(source);
@@ -184,17 +183,23 @@ var IssueDetail = (function () {
                     source = $('#standard_issue_tpl').html();
                     template = Handlebars.compile(source);
                     result = template(_edit_standard);
-                    $('#standard_issues_div').html(result);
-                    $('#standard_block').removeClass('hide');
                 }
 
-                // 子任务
-                source = $('#child_issues_tpl').html();
-                template = Handlebars.compile(source);
-                console.log(_edit_issue);
-                result = template(_edit_issue);
-                $('#child_issues_div').html(result);
-
+                if (resp.data.issue.master_id != '0' && resp.data.issue.standard_id != null) {
+                    //父任务
+                    $('#standard_issues_div').html(result);
+                    $('#standard_block').removeClass('hide');
+                    $('#content-page-description').removeClass('hide');
+                }
+                else {
+                    // 子任务
+                    source = $('#child_issues_tpl').html();
+                    template = Handlebars.compile(source);
+                    console.log(_edit_issue);
+                    result = template(_edit_issue);
+                    $('#child_issues_div').html(result);
+                    $('#audit_block').removeClass('hide');
+                }
                 // 自定义字段
                 if (resp.data.issue.custom_field_values.length > 0) {
                     source = $('#custom_field_values_tpl').html();

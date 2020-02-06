@@ -318,7 +318,7 @@
                         </div>
 
 
-                        <div id="detail-page-description" class="content-block detail-page-description"
+                        <div id="content-page-description" class="content-block detail-page-description hide"
                              style="margin-left: 15px">
                             <div class="issue-title-data hidden" data-endpoint="#"
                                  data-initial-title="Audit Content"></div>
@@ -331,18 +331,11 @@
                         </div>
 
 
-                        <div id="detail-page-description" class="content-block detail-page-description"
+                        <div id="audit-page-description" class="content-block detail-page-description"
                              style="margin-left: 15px">
                             <div class="issue-title-data hidden" data-endpoint="#"
                                  data-initial-title="Audit Plan"></div>
-                                <div id="parent_block" class="block project-reference hide">
-                                    <label>Back To Audit Plan:</label>
-                                    <div id="parent_issue_div" class="cross-project-reference hide-collapsed">
-
-                                    </div>
-                                </div>
-                                <?php if($issue['master_id'] == 0) { ?>
-                                <div class="block project-reference">
+                                <div id="audit_block" class="block project-reference hide">
                                     <label>Audit Plan:</label>
                                     <div class="description js-task-list-container is-task-list-enabled">
                                         <div id="child_issues_div" class="cross-project-reference hide-collapsed">
@@ -350,7 +343,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php } ?>
+
+                                <div id="parent_block" class="block project-reference hide">
+                                    <label>Back To Audit Plan:</label>
+                                    <div id="parent_issue_div" class="cross-project-reference hide-collapsed">
+
+                                    </div>
+                                </div>
                         </div>
 
 
