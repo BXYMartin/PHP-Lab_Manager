@@ -252,9 +252,12 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li><a id="btn-watch" data-followed="" href="#">Follow</a></li>
+                                            <?php if($issue['master_id'] == 0) { ?>
                                             <li><a id="btn-create_subtask"  class="js-key-create"
-                                                   data-target="#modal-create-issue" data-toggle="modal"   href="#modal-create-issue">Create Subtask</a>
+                                                   data-target="#modal-create-issue" data-toggle="modal"   
+                                                   href="#modal-create-issue">Add Site</a>
                                                </li>
+                                             <?php } ?>
                                             <!--<li><a id="btn-convert_subtask" href="#">转化为子任务</a></li>-->
                                         </ul>
                                     </div>
@@ -1005,11 +1008,56 @@
     </script>
 
     <script type="text/html" id="child_issues_tpl">
+    <table style="width: 100%;">
+    {{#if child_issues}}
+        <tr>
+            <th style="text-align:center;vertical-align:middle;">Site</th>
+            <th style="text-align:center;vertical-align:middle;">Status</th>
+            <th style="text-align:center;vertical-align:middle;">Resolve</th>
+            <th style="text-align:center;vertical-align:middle;">Assignee</th>
+            <th style="text-align:center;vertical-align:middle;">Operation</th>
+        </tr>
+    {{/if}}
     {{#child_issues}}
-    <li>
-        <a href="/issue/detail/index/{{id}}" target="_blank">#{{id}} {{show_title}}</a>
-    </li>
+    <tr style="line-height: 50px;background-color: #00ABC722;border: 10px solid white;">
+        <td style="text-align:center;vertical-align:middle;">
+        <a href="<?= ROOT_URL ?>issue/detail/index/{{id}}" target="_blank"
+           style="margin: 5px;">
+            {{summary}}
+        </a>
+        </td>
+        <td style="text-align:center;vertical-align:middle;">
+        <div style="margin: 5px;">
+            {{status_html status}}
+        </div>
+        </td>
+        <td style="text-align:center;vertical-align:middle;">
+        <div style="margin: 5px;">
+            {{resolve_html resolve}}
+        </div>
+        </td>
+        <td style="text-align:center;vertical-align:middle;">
+        {{user_html assignee}}
+        </td>
+        <td style="text-align:center;vertical-align:middle;">
+        <div>
+            <a href="javascript:;" onclick="IssueMain.prototype.fetchEditUiConfig($(this).data('issue_id'),'update');" data-issue_id="{{id}}">
+                <i class="fa fa-edit"></i>
+            </a>
+            <?php
+            if (isset($projectPermArr[\main\app\classes\PermissionLogic::DELETE_ISSUES])) {
+            ?>
+                <a href="javascript:;" onclick="IssueMain.prototype.delete($(this).data('issue_id'));"
+                    data-issue_id="{{id}}" data-issuekey="IP-{{id}}">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+            <?php
+            }
+            ?>
+        </td>
+    </tr>
     {{/child_issues}}
+    </table>
 
     {{#if statistics}}
     <div class="panel panel-default">

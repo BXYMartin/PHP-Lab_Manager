@@ -1435,9 +1435,9 @@
                             {{^}}
                             <a href="#" style="color:#f0ad4e" data-issue_id="{{id}}" data-issue_type="{{issue_type}}"
                                class="have_children prepend-left-5 has-tooltip"
-                               data-original-title="Have {{have_children}} Audit Rules"
+                               data-original-title="Have {{have_children}} Item(s)"
                             >
-                                Audit Rules <span class="badge">{{have_children}}</span>
+                                Audit Sites <span class="badge">{{have_children}}</span>
                             </a>
                             {{/if_eq}}
 
@@ -1498,7 +1498,8 @@
                     <? if (in_array('plan_date', $display_fields)) { ?>
                         <td class="width_8">
                             <small class="no-value date-select-edit" id="date-select-show-{{id}}" data-issue_id="{{id}}"
-                                   style="display:block;width: 100%;height: 20px;">{{show_date_range}}
+                            style="overflow: hidden;display:block;width: 100%;height: 20px;">
+                               {{show_date_range}}
                             </small>
                         </td>
                     <?php } ?>
@@ -1616,11 +1617,31 @@
                     <td colspan="12">
                         <div class="td-block">
                             <h5>Audit Rules:</h5>
+
+        <div class="case-content-bg case-content-info">
+            <div class="case-box">
+                <div class="case-wrapper clearfix">
+                    <div class="case-item">
+                        <div class="case-item-title">Heading information 1</div>
+                        <div class="case-item-text">This is the example text for Head Quarters, HQ is the head of the company, very important!</div>
+                        <div class="case-item-doc">
+                            <p>Status</p>
+                            <p>
+                                <a href="#">百度BMR</a>
+                                <a href="#">百度深度学习</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--
                             <div class="event-body">
                                 <ul id="ul_subtask_{{id}}" class="well-list event_commits">
 
                                 </ul>
                             </div>
+            -->
                         </div>
                     </td>
                 </tr>
@@ -1858,6 +1879,57 @@
             </script>
 
             <script type="text/html" id="main_children_list_tpl">
+    <table style="width: 100%;">
+    {{#if children}}
+        <tr>
+            <th style="text-align:center;vertical-align:middle;">Site</th>
+            <th style="text-align:center;vertical-align:middle;">Status</th>
+            <th style="text-align:center;vertical-align:middle;">Resolve</th>
+            <th style="text-align:center;vertical-align:middle;">Assignee</th>
+            <th style="text-align:center;vertical-align:middle;">Operation</th>
+        </tr>
+    {{/if}}
+    {{#children}}
+    <tr style="line-height: 50px;background-color: #00ABC722;border: 10px solid white;">
+        <td style="text-align:center;vertical-align:middle;">
+        <a href="<?= ROOT_URL ?>issue/detail/index/{{id}}" target="_blank"
+           style="margin: 5px;">
+            {{summary}}
+        </a>
+        </td>
+        <td style="text-align:center;vertical-align:middle;">
+        <div style="margin: 5px;">
+            {{status_html status}}
+        </div>
+        </td>
+        <td style="text-align:center;vertical-align:middle;">
+        <div style="margin: 5px;">
+            {{resolve_html resolve}}
+        </div>
+        </td>
+        <td style="text-align:center;vertical-align:middle;">
+        {{user_html assignee}}
+        </td>
+        <td style="text-align:center;vertical-align:middle;">
+        <div>
+            <a href="javascript:;" onclick="IssueMain.prototype.fetchEditUiConfig($(this).data('issue_id'),'update');" data-issue_id="{{id}}">
+                <i class="fa fa-edit"></i>
+            </a>
+            <?php
+            if (isset($projectPermArr[\main\app\classes\PermissionLogic::DELETE_ISSUES])) {
+            ?>
+                <a href="javascript:;" onclick="IssueMain.prototype.delete($(this).data('issue_id'));"
+                    data-issue_id="{{id}}" data-issuekey="IP-{{id}}">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+            <?php
+            }
+            ?>
+        </td>
+    </tr>
+    {{/children}}
+    </table>
+
                 {{#children}}
                 <li class="commits-stat" style="background: beige;width: 100%;border-radius: 10px;display: flex;">
                     {{user_html assignee}}
@@ -1913,6 +1985,7 @@
                     </div>
                 </li>
                 {{/children}}
+
     <div class="panel-group" id="accordion">
     {{#section}}
         <div class="panel panel-default">

@@ -219,9 +219,9 @@ var IssueDetail = (function () {
                 var follow_action = '';
                 if (_edit_issue.followed == '0') {
                     follow_action = 'follow';
-                    $('#btn-watch').html('关注');
+                    $('#btn-watch').html('Follow');
                 } else {
-                    $('#btn-watch').html('取消关注');
+                    $('#btn-watch').html('Unfollow');
                     follow_action = 'un_follow';
                 }
                 $('#btn-watch').bind('click', function () {

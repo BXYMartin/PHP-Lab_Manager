@@ -652,3 +652,92 @@ header.navbar-gitlab {
         position: absolute;
     }
 }
+
+
+.case-item-doc {
+    border-radius: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.case-box {
+    width: 1180px;
+    margin: 0 auto;
+    position: relative;
+}
+.case-item {
+    border-radius: 20px;
+    cursor: pointer;
+    width: 280px;
+    height: 180px;
+    float: left;
+    display: block;
+    margin: 20px 0 0 0;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    background-image: -webkit-linear-gradient(bottom, rgba(72, 144, 79, 0.8) 0%, #33cc33 100%);
+    background-image: -moz-linear-gradient(bottom, rgba(72, 144, 79, 0.8) 0%, #33cc33 100%);
+    background-image: -moz-linear-gradient(to top, rgba(72, 144, 79, 0.8) 0%, #33cc33 100%);
+    background-image: -o-linear-gradient(to top, rgba(72, 144, 79, 0.8) 0%, #33cc33 100%);
+    background-image: linear-gradient(to top, rgba(72, 144, 79, 0.8) 0%, #33cc33 100%);
+    background-repeat: repeat
+}
+.case-wrapper .case-item:hover {
+    margin-top: 0;
+    height: 300px;
+    background-color: #030;	
+}
+.case-item-title {
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    margin: 20px 0;
+    line-height: 40px;
+}
+.case-item-text {
+    font-size: 14px;
+    color: #eee;
+    line-height: 24px;
+    height: calc(100% - 25px);
+    margin: 0 30px;
+    overflow: hidden;
+}
+.case-item-doc {
+    padding: 20px 30px;
+    width: 280px;
+    bottom: 0;
+    position: absolute;
+    background: #27272e;
+}
+.case-item-doc p {
+    line-height: 30px;
+    margin: 0;
+    font-size: 14px;
+    color: #999999;
+}
+.case-item-doc p a {
+    font-size: 14px;
+    color: #fff;
+    float: left;
+    width: calc(50% - 1px);
+}
+.case-item-doc a+a::before {
+    content: '|';
+    float: left;
+    color: rgba(102,102,102,0.6)
+}
+.case-wrapper .case-item+.case-item {
+    margin-left: 20px;
+}
+.case-wrapper .case-item .case-item-doc a+a {
+    text-align: right;
+}
+.case-wrapper .case-item a:hover {
+    text-decoration: underline;
+}
+
