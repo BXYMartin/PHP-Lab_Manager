@@ -315,10 +315,10 @@ $(function () {
         }
         var resolve = getValueByKey(_issueConfig.issue_resolve, resolve_id);
         if (resolve == null) {
-            html = '<span>一</span>';
+            html += '<span class="label prepend-left-5" style="background-color: #444">Unresolved</span>';
             return new Handlebars.SafeString(html);
         }
-        html += '<span style="color:'+resolve.color+'">' + resolve.name + '</span>';
+        html += '<span class="label prepend-left-5" style="background-color: ' + resolve.color + '">' + resolve.name + '</span>';
         return new Handlebars.SafeString(html);
     });
 

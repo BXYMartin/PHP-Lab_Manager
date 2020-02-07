@@ -662,7 +662,6 @@ header.navbar-gitlab {
 }
 
 .case-box {
-    width: 1180px;
     margin: 0 auto;
     position: relative;
 }
@@ -675,11 +674,11 @@ header.navbar-gitlab {
     display: block;
     margin: 20px 0 0 0;
     position: relative;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
     background-image: -webkit-linear-gradient(bottom, rgba(72, 144, 79, 0.8) 0%, #33cc33 100%);
     background-image: -moz-linear-gradient(bottom, rgba(72, 144, 79, 0.8) 0%, #33cc33 100%);
     background-image: -moz-linear-gradient(to top, rgba(72, 144, 79, 0.8) 0%, #33cc33 100%);

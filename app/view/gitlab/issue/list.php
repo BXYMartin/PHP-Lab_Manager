@@ -1618,30 +1618,11 @@
                         <div class="td-block">
                             <h5>Audit Rules:</h5>
 
-        <div class="case-content-bg case-content-info">
-            <div class="case-box">
-                <div class="case-wrapper clearfix">
-                    <div class="case-item">
-                        <div class="case-item-title">Heading information 1</div>
-                        <div class="case-item-text">This is the example text for Head Quarters, HQ is the head of the company, very important!</div>
-                        <div class="case-item-doc">
-                            <p>Status</p>
-                            <p>
-                                <a href="#">百度BMR</a>
-                                <a href="#">百度深度学习</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <!--
                             <div class="event-body">
                                 <ul id="ul_subtask_{{id}}" class="well-list event_commits">
 
                                 </ul>
                             </div>
-            -->
                         </div>
                     </td>
                 </tr>
@@ -1879,114 +1860,31 @@
             </script>
 
             <script type="text/html" id="main_children_list_tpl">
-    <table style="width: 100%;">
+
     {{#if children}}
-        <tr>
-            <th style="text-align:center;vertical-align:middle;">Site</th>
-            <th style="text-align:center;vertical-align:middle;">Status</th>
-            <th style="text-align:center;vertical-align:middle;">Resolve</th>
-            <th style="text-align:center;vertical-align:middle;">Assignee</th>
-            <th style="text-align:center;vertical-align:middle;">Operation</th>
-        </tr>
-    {{/if}}
-    {{#children}}
-    <tr style="line-height: 50px;background-color: #00ABC722;border: 10px solid white;">
-        <td style="text-align:center;vertical-align:middle;">
-        <a href="<?= ROOT_URL ?>issue/detail/index/{{id}}" target="_blank"
-           style="margin: 5px;">
-            {{summary}}
-        </a>
-        </td>
-        <td style="text-align:center;vertical-align:middle;">
-        <div style="margin: 5px;">
-            {{status_html status}}
-        </div>
-        </td>
-        <td style="text-align:center;vertical-align:middle;">
-        <div style="margin: 5px;">
-            {{resolve_html resolve}}
-        </div>
-        </td>
-        <td style="text-align:center;vertical-align:middle;">
-        {{user_html assignee}}
-        </td>
-        <td style="text-align:center;vertical-align:middle;">
-        <div>
-            <a href="javascript:;" onclick="IssueMain.prototype.fetchEditUiConfig($(this).data('issue_id'),'update');" data-issue_id="{{id}}">
-                <i class="fa fa-edit"></i>
-            </a>
-            <?php
-            if (isset($projectPermArr[\main\app\classes\PermissionLogic::DELETE_ISSUES])) {
-            ?>
-                <a href="javascript:;" onclick="IssueMain.prototype.delete($(this).data('issue_id'));"
-                    data-issue_id="{{id}}" data-issuekey="IP-{{id}}">
-                    <i class="fa fa-trash-o"></i>
-                </a>
-            <?php
-            }
-            ?>
-        </td>
-    </tr>
-    {{/children}}
-    </table>
-
+        <div class="case-content-bg case-content-info">
+            <div class="case-box">
+                <div class="case-wrapper clearfix">
                 {{#children}}
-                <li class="commits-stat" style="background: beige;width: 100%;border-radius: 10px;display: flex;">
-                    {{user_html assignee}}
-                    <a href="<?= ROOT_URL ?>issue/detail/index/{{id}}" target="_blank"
-                       style="margin: 5px;margin-left:10px;display: flex;">
-                        {{summary}}
-                    </a>
-                    <div style="margin: 5px;margin-left: 20px">
-                        <span>Status: </span>
-                        {{status_html status}}
-                    </div>
-                    <div style="margin: 5px;margin-left: 20px">
-                        <span>Resolve: </span>
-                        {{resolve_html resolve}}
-                    </div>
-                    <div>
-                        <div class="js-notification-dropdown notification-dropdown project-action-button dropdown inline">
-                            <div class="js-notification-toggle-btns">
-                                <div class="">
-                                    <a class="dropdown-new  notifications-btn "
-                                       style="color: #8b8f94;" href="#" data-target="dropdown-15-31-Project"
-                                       data-toggle="dropdown"
-                                       id="notifications-button"
-                                       type="button" aria-expanded="false">
-                                        ...
-                                        <i class="fa fa-caret-down"></i>
-                                    </a>
-
-                                    <ul class="dropdown dropdown-menu dropdown-menu-no-wrap dropdown-menu-selectable"
-                                        style="left:-120px;width:160px;min-width:140px; ">
-
-                                        <li class="aui-list-item active">
-                                            <a href="javascript:;" onclick="IssueMain.prototype.fetchEditUiConfig($(this).data('issue_id'), 'update');" class="issue_edit_href" data-issue_id="{{id}}">
-                                                Edit
-                                            </a>
-                                        </li>
-                                        <?php
-                                        if (isset($projectPermArr[\main\app\classes\PermissionLogic::DELETE_ISSUES])) {
-                                            ?>
-                                            <li class="aui-list-item">
-                                                <a href="javascript:;" onclick="IssueMain.prototype.delete($(this).data('issue_id'));" class="issue_delete_href" data-issue_id="{{id}}"
-                                                   data-issuekey="IP-{{id}}">Delete</a>
-                                            </li>
-                                            <?php
-                                        }
-                                        ?>
-                                    </ul>
-
-                                </div>
-                            </div>
+                    <div class="case-item" onclick="javascript:window.open('<?= ROOT_URL ?>issue/detail/index/{{id}}','_blank')">
+                        <div class="case-item-title">{{summary}}</div>
+                        <div class="case-item-text">{{description}}</div>
+                        <div class="case-item-doc">
+                            <p style="float: left">Site Audit Progress</p>
+                            <p style="float: right;line-height: normal; border: 2px solid #999; border-radius: 26px;">{{user_html assignee}}</p>
+                            <p>
+                                <a href="#">{{status_html status}}</a>
+                                <a href="#">{{resolve_html resolve}}</a>
+                            </p>
                         </div>
-
                     </div>
-                </li>
                 {{/children}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
 
-    <div class="panel-group" id="accordion">
+   <div class="panel-group" id="accordion">
     {{#section}}
         <div class="panel panel-default">
             <div class="panel-heading" {{#if have}}style="background-color: {{resolve_color resolve}}"{{/if}}>
