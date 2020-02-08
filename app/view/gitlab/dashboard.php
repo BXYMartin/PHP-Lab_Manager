@@ -56,12 +56,12 @@
                     </div>
 
                     <div class="user-profile-text">
-                        <div class="text-title"><span id="current_time"></span><?= $user['display_name'] ?>, welcome!                        </div>
+                        <div class="text-title"><span id="current_time"></span>Welcome, <?= $user['display_name'] ?>!</div>
                         <div class="text-content">
                             <?= $user['title'] ?>
                             <?php
                             if (!empty($user['sign'])) {
-                                echo '|&nbsp;&nbsp;&nbsp;&nbsp;' . $user['sign'];
+                                echo '| ' . $user['sign'];
                             }
                             ?>
                         </div>
