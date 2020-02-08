@@ -685,7 +685,7 @@ CREATE TABLE `issue_main` (
   FULLTEXT KEY `fulltext_summary` (`summary`) /*!50100 WITH PARSER `ngram` */ ,
   FULLTEXT KEY `fulltext_summary_description` (`summary`,`description`) /*!50100 WITH PARSER `ngram` */ ,
   CONSTRAINT `issue_main_ibfk_1` FOREIGN KEY (`standard_id`) REFERENCES `standard_main` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -694,6 +694,7 @@ CREATE TABLE `issue_main` (
 
 LOCK TABLES `issue_main` WRITE;
 /*!40000 ALTER TABLE `issue_main` DISABLE KEYS */;
+INSERT INTO `issue_main` VALUES (1,'1873817','1',1,5,1,0,1,0,'Audit 1','Description Here','',1,0,1,1581138493,1581138493,'0000-00-00','0000-00-00',NULL,0,NULL,0,0,0,0,'',0,2,0,0,NULL),(2,'1873817','2',1,8,1,1,1,1,'Head Quarters','# Site Name\r\nThis is the audit site description template!','',4,0,1,1581138754,1581138754,'0000-00-00','0000-00-00',NULL,0,NULL,0,0,0,0,'',1,0,0,0,NULL),(3,'1873817','3',1,8,1,0,1,1,'Head Quarters','# Site Name\r\nThis is the audit site description template!','',4,0,0,1581138847,1581138847,'0000-00-00','0000-00-00',NULL,0,NULL,0,0,0,0,'',1,1,0,0,NULL),(4,'1873817','4',1,8,1,0,1,0,'ISO 9001 -> 1.Section One -> 1.1.Customer','Has Proper Customer?','',0,0,0,1581138847,1581138847,NULL,NULL,NULL,0,NULL,0,0,0,0,'',3,0,0,0,3);
 /*!40000 ALTER TABLE `issue_main` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1083,7 +1084,7 @@ CREATE TABLE `issue_ui` (
   `tab_id` int(11) unsigned DEFAULT '0',
   `required` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否必填项',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1482 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1518 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1092,7 +1093,7 @@ CREATE TABLE `issue_ui` (
 
 LOCK TABLES `issue_ui` WRITE;
 /*!40000 ALTER TABLE `issue_ui` DISABLE KEYS */;
-INSERT INTO `issue_ui` VALUES (422,4,'create',1,14,0,1),(423,4,'create',6,13,0,0),(424,4,'create',2,12,0,0),(425,4,'create',3,11,0,0),(426,4,'create',7,10,0,0),(427,4,'create',9,9,0,0),(428,4,'create',8,8,0,0),(429,4,'create',4,7,0,0),(430,4,'create',19,6,0,0),(431,4,'create',10,5,0,0),(432,4,'create',11,4,0,0),(433,4,'create',12,3,0,0),(434,4,'create',13,2,0,0),(435,4,'create',15,1,0,0),(436,4,'create',20,0,0,0),(452,5,'create',1,14,0,1),(453,5,'create',6,13,0,0),(454,5,'create',2,12,0,0),(455,5,'create',7,11,0,0),(456,5,'create',9,10,0,0),(457,5,'create',8,9,0,0),(458,5,'create',3,8,0,0),(459,5,'create',4,7,0,0),(460,5,'create',19,6,0,0),(461,5,'create',10,5,0,0),(462,5,'create',11,4,0,0),(463,5,'create',12,3,0,0),(464,5,'create',13,2,0,0),(465,5,'create',15,1,0,0),(466,5,'create',20,0,0,0),(467,5,'edit',1,14,0,1),(468,5,'edit',6,13,0,0),(469,5,'edit',2,12,0,0),(470,5,'edit',7,11,0,0),(471,5,'edit',9,10,0,0),(472,5,'edit',8,9,0,0),(473,5,'edit',3,8,0,0),(474,5,'edit',4,7,0,0),(475,5,'edit',19,6,0,0),(476,5,'edit',10,5,0,0),(477,5,'edit',11,4,0,0),(478,5,'edit',12,3,0,0),(479,5,'edit',13,2,0,0),(480,5,'edit',15,1,0,0),(481,5,'edit',20,0,0,0),(587,6,'create',1,7,0,1),(588,6,'create',6,6,0,0),(589,6,'create',2,5,0,0),(590,6,'create',8,4,0,0),(591,6,'create',11,3,0,0),(592,6,'create',4,2,0,0),(593,6,'create',21,1,0,0),(594,6,'create',15,0,0,0),(595,6,'create',19,6,33,0),(596,6,'create',10,5,33,0),(597,6,'create',7,4,33,0),(598,6,'create',20,3,33,0),(599,6,'create',9,2,33,0),(600,6,'create',13,1,33,0),(601,6,'create',12,0,33,0),(602,6,'edit',1,7,0,1),(603,6,'edit',6,6,0,0),(604,6,'edit',2,5,0,0),(605,6,'edit',8,4,0,0),(606,6,'edit',4,3,0,0),(607,6,'edit',11,2,0,0),(608,6,'edit',15,1,0,0),(609,6,'edit',21,0,0,0),(610,6,'edit',19,6,34,0),(611,6,'edit',10,5,34,0),(612,6,'edit',7,4,34,0),(613,6,'edit',20,3,34,0),(614,6,'edit',9,2,34,0),(615,6,'edit',12,1,34,0),(616,6,'edit',13,0,34,0),(646,7,'create',1,7,0,1),(647,7,'create',6,6,0,0),(648,7,'create',2,5,0,0),(649,7,'create',8,4,0,0),(650,7,'create',4,3,0,0),(651,7,'create',11,2,0,0),(652,7,'create',15,1,0,0),(653,7,'create',21,0,0,0),(654,7,'create',19,6,37,0),(655,7,'create',10,5,37,0),(656,7,'create',7,4,37,0),(657,7,'create',20,3,37,0),(658,7,'create',9,2,37,0),(659,7,'create',13,1,37,0),(660,7,'create',12,0,37,0),(834,3,'create',1,13,0,1),(835,3,'create',6,12,0,0),(836,3,'create',2,11,0,0),(837,3,'create',7,10,0,0),(838,3,'create',9,9,0,0),(839,3,'create',8,8,0,0),(840,3,'create',3,7,0,0),(841,3,'create',4,6,0,0),(842,3,'create',19,5,0,0),(843,3,'create',10,4,0,0),(844,3,'create',11,3,0,0),(845,3,'create',12,2,0,0),(846,3,'create',13,1,0,0),(847,3,'create',20,0,0,0),(848,3,'edit',1,13,0,1),(849,3,'edit',6,12,0,0),(850,3,'edit',2,11,0,0),(851,3,'edit',7,10,0,0),(852,3,'edit',9,9,0,0),(853,3,'edit',8,8,0,0),(854,3,'edit',3,7,0,0),(855,3,'edit',4,6,0,0),(856,3,'edit',19,5,0,0),(857,3,'edit',10,4,0,0),(858,3,'edit',11,3,0,0),(859,3,'edit',12,2,0,0),(860,3,'edit',13,1,0,0),(861,3,'edit',20,0,0,0),(862,3,'edit',20,2,49,0),(863,3,'edit',9,1,49,0),(864,3,'edit',3,0,49,0),(958,2,'create',1,10,0,1),(959,2,'create',6,9,0,0),(960,2,'create',19,8,0,0),(961,2,'create',2,7,0,0),(962,2,'create',7,6,0,0),(963,2,'create',4,5,0,0),(964,2,'create',11,4,0,0),(965,2,'create',12,3,0,0),(966,2,'create',13,2,0,0),(967,2,'create',15,1,0,0),(968,2,'create',21,0,0,0),(969,2,'create',10,3,56,0),(970,2,'create',20,2,56,0),(971,2,'create',9,1,56,0),(972,2,'create',3,0,56,0),(1060,9,'create',1,4,0,1),(1061,9,'create',19,3,0,0),(1062,9,'create',3,2,0,0),(1063,9,'create',6,1,0,0),(1064,9,'create',4,0,0,0),(1080,7,'edit',1,7,0,0),(1081,7,'edit',6,6,0,0),(1082,7,'edit',2,5,0,0),(1083,7,'edit',8,4,0,0),(1084,7,'edit',4,3,0,0),(1085,7,'edit',11,2,0,0),(1086,7,'edit',15,1,0,0),(1087,7,'edit',21,0,0,0),(1088,7,'edit',19,6,63,0),(1089,7,'edit',10,5,63,0),(1090,7,'edit',7,4,63,0),(1091,7,'edit',9,3,63,0),(1092,7,'edit',20,2,63,0),(1093,7,'edit',12,1,63,0),(1094,7,'edit',13,0,63,0),(1095,4,'edit',1,11,0,0),(1096,4,'edit',6,10,0,0),(1097,4,'edit',2,9,0,0),(1098,4,'edit',7,8,0,0),(1099,4,'edit',4,7,0,0),(1100,4,'edit',19,6,0,0),(1101,4,'edit',11,5,0,0),(1102,4,'edit',12,4,0,0),(1103,4,'edit',13,3,0,0),(1104,4,'edit',15,2,0,0),(1105,4,'edit',20,1,0,0),(1106,4,'edit',21,0,0,0),(1107,4,'edit',8,3,64,0),(1108,4,'edit',9,2,64,0),(1109,4,'edit',3,1,64,0),(1110,4,'edit',10,0,64,0),(1215,2,'edit',1,11,0,1),(1216,2,'edit',19,10,0,0),(1217,2,'edit',10,9,0,0),(1218,2,'edit',6,8,0,0),(1219,2,'edit',2,7,0,0),(1220,2,'edit',7,6,0,0),(1221,2,'edit',4,5,0,0),(1222,2,'edit',11,4,0,0),(1223,2,'edit',12,3,0,0),(1224,2,'edit',13,2,0,0),(1225,2,'edit',15,1,0,1),(1226,2,'edit',21,0,0,0),(1227,2,'edit',20,2,71,0),(1228,2,'edit',9,1,71,0),(1229,2,'edit',3,0,71,0),(1355,1,'create',1,9,0,1),(1356,1,'create',6,8,0,0),(1357,1,'create',2,7,0,1),(1358,1,'create',7,6,0,0),(1359,1,'create',4,5,0,1),(1360,1,'create',11,4,0,0),(1361,1,'create',12,3,0,0),(1362,1,'create',13,2,0,0),(1363,1,'create',15,1,0,0),(1364,1,'create',23,0,0,0),(1365,1,'create',19,7,79,0),(1366,1,'create',20,6,79,0),(1367,1,'create',18,5,79,0),(1368,1,'create',3,4,79,0),(1369,1,'create',10,3,79,0),(1370,1,'create',21,2,79,0),(1371,1,'create',8,1,79,0),(1372,1,'create',9,0,79,0),(1373,1,'edit',1,9,0,1),(1374,1,'edit',6,8,0,0),(1375,1,'edit',2,7,0,1),(1376,1,'edit',7,6,0,0),(1377,1,'edit',4,5,0,1),(1378,1,'edit',19,4,0,0),(1379,1,'edit',11,3,0,0),(1380,1,'edit',12,2,0,0),(1381,1,'edit',13,1,0,0),(1382,1,'edit',15,0,0,0),(1383,1,'edit',3,6,80,0),(1384,1,'edit',18,5,80,0),(1385,1,'edit',20,4,80,0),(1386,1,'edit',10,3,80,0),(1387,1,'edit',21,2,80,0),(1388,1,'edit',8,1,80,0),(1389,1,'edit',9,0,80,0),(1390,9,'edit',11,1,0,1),(1391,9,'edit',24,0,0,1),(1415,12,'edit',25,0,0,1),(1431,14,'edit',28,0,0,1),(1432,13,'edit',27,0,0,1),(1433,11,'edit',24,0,0,1),(1434,11,'create',1,6,0,1),(1435,11,'create',2,5,0,1),(1436,11,'create',12,4,0,1),(1437,11,'create',4,3,0,1),(1438,11,'create',20,2,0,0),(1439,11,'create',6,1,0,1),(1440,11,'create',24,0,0,0),(1441,12,'create',1,6,0,1),(1442,12,'create',2,5,0,1),(1443,12,'create',12,4,0,1),(1444,12,'create',4,3,0,1),(1445,12,'create',20,2,0,0),(1446,12,'create',6,1,0,1),(1447,12,'create',25,0,0,0),(1448,13,'create',1,6,0,1),(1449,13,'create',4,5,0,1),(1450,13,'create',20,4,0,0),(1451,13,'create',6,3,0,1),(1452,13,'create',26,2,0,1),(1453,13,'create',12,1,0,1),(1454,13,'create',13,0,0,1),(1455,14,'create',1,6,0,1),(1456,14,'create',4,5,0,1),(1457,14,'create',20,4,0,0),(1458,14,'create',6,3,0,1),(1459,14,'create',2,2,0,1),(1460,14,'create',12,1,0,1),(1461,14,'create',13,0,0,1),(1464,8,'create',1,8,0,1),(1465,8,'create',6,7,0,1),(1466,8,'create',24,6,0,1),(1467,8,'create',2,5,0,1),(1468,8,'create',4,4,0,1),(1469,8,'create',10,3,0,0),(1470,8,'create',12,2,0,0),(1471,8,'create',13,1,0,0),(1472,8,'create',11,0,0,0),(1473,8,'edit',1,8,0,1),(1474,8,'edit',6,7,0,1),(1475,8,'edit',24,6,0,1),(1476,8,'edit',2,5,0,1),(1477,8,'edit',4,4,0,1),(1478,8,'edit',10,3,0,0),(1479,8,'edit',11,2,0,0),(1480,8,'edit',12,1,0,0),(1481,8,'edit',13,0,0,0);
+INSERT INTO `issue_ui` VALUES (422,4,'create',1,14,0,1),(423,4,'create',6,13,0,0),(424,4,'create',2,12,0,0),(425,4,'create',3,11,0,0),(426,4,'create',7,10,0,0),(427,4,'create',9,9,0,0),(428,4,'create',8,8,0,0),(429,4,'create',4,7,0,0),(430,4,'create',19,6,0,0),(431,4,'create',10,5,0,0),(432,4,'create',11,4,0,0),(433,4,'create',12,3,0,0),(434,4,'create',13,2,0,0),(435,4,'create',15,1,0,0),(436,4,'create',20,0,0,0),(452,5,'create',1,14,0,1),(453,5,'create',6,13,0,0),(454,5,'create',2,12,0,0),(455,5,'create',7,11,0,0),(456,5,'create',9,10,0,0),(457,5,'create',8,9,0,0),(458,5,'create',3,8,0,0),(459,5,'create',4,7,0,0),(460,5,'create',19,6,0,0),(461,5,'create',10,5,0,0),(462,5,'create',11,4,0,0),(463,5,'create',12,3,0,0),(464,5,'create',13,2,0,0),(465,5,'create',15,1,0,0),(466,5,'create',20,0,0,0),(467,5,'edit',1,14,0,1),(468,5,'edit',6,13,0,0),(469,5,'edit',2,12,0,0),(470,5,'edit',7,11,0,0),(471,5,'edit',9,10,0,0),(472,5,'edit',8,9,0,0),(473,5,'edit',3,8,0,0),(474,5,'edit',4,7,0,0),(475,5,'edit',19,6,0,0),(476,5,'edit',10,5,0,0),(477,5,'edit',11,4,0,0),(478,5,'edit',12,3,0,0),(479,5,'edit',13,2,0,0),(480,5,'edit',15,1,0,0),(481,5,'edit',20,0,0,0),(587,6,'create',1,7,0,1),(588,6,'create',6,6,0,0),(589,6,'create',2,5,0,0),(590,6,'create',8,4,0,0),(591,6,'create',11,3,0,0),(592,6,'create',4,2,0,0),(593,6,'create',21,1,0,0),(594,6,'create',15,0,0,0),(595,6,'create',19,6,33,0),(596,6,'create',10,5,33,0),(597,6,'create',7,4,33,0),(598,6,'create',20,3,33,0),(599,6,'create',9,2,33,0),(600,6,'create',13,1,33,0),(601,6,'create',12,0,33,0),(602,6,'edit',1,7,0,1),(603,6,'edit',6,6,0,0),(604,6,'edit',2,5,0,0),(605,6,'edit',8,4,0,0),(606,6,'edit',4,3,0,0),(607,6,'edit',11,2,0,0),(608,6,'edit',15,1,0,0),(609,6,'edit',21,0,0,0),(610,6,'edit',19,6,34,0),(611,6,'edit',10,5,34,0),(612,6,'edit',7,4,34,0),(613,6,'edit',20,3,34,0),(614,6,'edit',9,2,34,0),(615,6,'edit',12,1,34,0),(616,6,'edit',13,0,34,0),(646,7,'create',1,7,0,1),(647,7,'create',6,6,0,0),(648,7,'create',2,5,0,0),(649,7,'create',8,4,0,0),(650,7,'create',4,3,0,0),(651,7,'create',11,2,0,0),(652,7,'create',15,1,0,0),(653,7,'create',21,0,0,0),(654,7,'create',19,6,37,0),(655,7,'create',10,5,37,0),(656,7,'create',7,4,37,0),(657,7,'create',20,3,37,0),(658,7,'create',9,2,37,0),(659,7,'create',13,1,37,0),(660,7,'create',12,0,37,0),(834,3,'create',1,13,0,1),(835,3,'create',6,12,0,0),(836,3,'create',2,11,0,0),(837,3,'create',7,10,0,0),(838,3,'create',9,9,0,0),(839,3,'create',8,8,0,0),(840,3,'create',3,7,0,0),(841,3,'create',4,6,0,0),(842,3,'create',19,5,0,0),(843,3,'create',10,4,0,0),(844,3,'create',11,3,0,0),(845,3,'create',12,2,0,0),(846,3,'create',13,1,0,0),(847,3,'create',20,0,0,0),(848,3,'edit',1,13,0,1),(849,3,'edit',6,12,0,0),(850,3,'edit',2,11,0,0),(851,3,'edit',7,10,0,0),(852,3,'edit',9,9,0,0),(853,3,'edit',8,8,0,0),(854,3,'edit',3,7,0,0),(855,3,'edit',4,6,0,0),(856,3,'edit',19,5,0,0),(857,3,'edit',10,4,0,0),(858,3,'edit',11,3,0,0),(859,3,'edit',12,2,0,0),(860,3,'edit',13,1,0,0),(861,3,'edit',20,0,0,0),(862,3,'edit',20,2,49,0),(863,3,'edit',9,1,49,0),(864,3,'edit',3,0,49,0),(958,2,'create',1,10,0,1),(959,2,'create',6,9,0,0),(960,2,'create',19,8,0,0),(961,2,'create',2,7,0,0),(962,2,'create',7,6,0,0),(963,2,'create',4,5,0,0),(964,2,'create',11,4,0,0),(965,2,'create',12,3,0,0),(966,2,'create',13,2,0,0),(967,2,'create',15,1,0,0),(968,2,'create',21,0,0,0),(969,2,'create',10,3,56,0),(970,2,'create',20,2,56,0),(971,2,'create',9,1,56,0),(972,2,'create',3,0,56,0),(1060,9,'create',1,4,0,1),(1061,9,'create',19,3,0,0),(1062,9,'create',3,2,0,0),(1063,9,'create',6,1,0,0),(1064,9,'create',4,0,0,0),(1080,7,'edit',1,7,0,0),(1081,7,'edit',6,6,0,0),(1082,7,'edit',2,5,0,0),(1083,7,'edit',8,4,0,0),(1084,7,'edit',4,3,0,0),(1085,7,'edit',11,2,0,0),(1086,7,'edit',15,1,0,0),(1087,7,'edit',21,0,0,0),(1088,7,'edit',19,6,63,0),(1089,7,'edit',10,5,63,0),(1090,7,'edit',7,4,63,0),(1091,7,'edit',9,3,63,0),(1092,7,'edit',20,2,63,0),(1093,7,'edit',12,1,63,0),(1094,7,'edit',13,0,63,0),(1095,4,'edit',1,11,0,0),(1096,4,'edit',6,10,0,0),(1097,4,'edit',2,9,0,0),(1098,4,'edit',7,8,0,0),(1099,4,'edit',4,7,0,0),(1100,4,'edit',19,6,0,0),(1101,4,'edit',11,5,0,0),(1102,4,'edit',12,4,0,0),(1103,4,'edit',13,3,0,0),(1104,4,'edit',15,2,0,0),(1105,4,'edit',20,1,0,0),(1106,4,'edit',21,0,0,0),(1107,4,'edit',8,3,64,0),(1108,4,'edit',9,2,64,0),(1109,4,'edit',3,1,64,0),(1110,4,'edit',10,0,64,0),(1215,2,'edit',1,11,0,1),(1216,2,'edit',19,10,0,0),(1217,2,'edit',10,9,0,0),(1218,2,'edit',6,8,0,0),(1219,2,'edit',2,7,0,0),(1220,2,'edit',7,6,0,0),(1221,2,'edit',4,5,0,0),(1222,2,'edit',11,4,0,0),(1223,2,'edit',12,3,0,0),(1224,2,'edit',13,2,0,0),(1225,2,'edit',15,1,0,1),(1226,2,'edit',21,0,0,0),(1227,2,'edit',20,2,71,0),(1228,2,'edit',9,1,71,0),(1229,2,'edit',3,0,71,0),(1355,1,'create',1,9,0,1),(1356,1,'create',6,8,0,0),(1357,1,'create',2,7,0,1),(1358,1,'create',7,6,0,0),(1359,1,'create',4,5,0,1),(1360,1,'create',11,4,0,0),(1361,1,'create',12,3,0,0),(1362,1,'create',13,2,0,0),(1363,1,'create',15,1,0,0),(1364,1,'create',23,0,0,0),(1365,1,'create',19,7,79,0),(1366,1,'create',20,6,79,0),(1367,1,'create',18,5,79,0),(1368,1,'create',3,4,79,0),(1369,1,'create',10,3,79,0),(1370,1,'create',21,2,79,0),(1371,1,'create',8,1,79,0),(1372,1,'create',9,0,79,0),(1373,1,'edit',1,9,0,1),(1374,1,'edit',6,8,0,0),(1375,1,'edit',2,7,0,1),(1376,1,'edit',7,6,0,0),(1377,1,'edit',4,5,0,1),(1378,1,'edit',19,4,0,0),(1379,1,'edit',11,3,0,0),(1380,1,'edit',12,2,0,0),(1381,1,'edit',13,1,0,0),(1382,1,'edit',15,0,0,0),(1383,1,'edit',3,6,80,0),(1384,1,'edit',18,5,80,0),(1385,1,'edit',20,4,80,0),(1386,1,'edit',10,3,80,0),(1387,1,'edit',21,2,80,0),(1388,1,'edit',8,1,80,0),(1389,1,'edit',9,0,80,0),(1390,9,'edit',11,1,0,1),(1391,9,'edit',24,0,0,1),(1415,12,'edit',25,0,0,1),(1431,14,'edit',28,0,0,1),(1432,13,'edit',27,0,0,1),(1433,11,'edit',24,0,0,1),(1434,11,'create',1,6,0,1),(1435,11,'create',2,5,0,1),(1436,11,'create',12,4,0,1),(1437,11,'create',4,3,0,1),(1438,11,'create',20,2,0,0),(1439,11,'create',6,1,0,1),(1440,11,'create',24,0,0,0),(1441,12,'create',1,6,0,1),(1442,12,'create',2,5,0,1),(1443,12,'create',12,4,0,1),(1444,12,'create',4,3,0,1),(1445,12,'create',20,2,0,0),(1446,12,'create',6,1,0,1),(1447,12,'create',25,0,0,0),(1448,13,'create',1,6,0,1),(1449,13,'create',4,5,0,1),(1450,13,'create',20,4,0,0),(1451,13,'create',6,3,0,1),(1452,13,'create',26,2,0,1),(1453,13,'create',12,1,0,1),(1454,13,'create',13,0,0,1),(1455,14,'create',1,6,0,1),(1456,14,'create',4,5,0,1),(1457,14,'create',20,4,0,0),(1458,14,'create',6,3,0,1),(1459,14,'create',2,2,0,1),(1460,14,'create',12,1,0,1),(1461,14,'create',13,0,0,1),(1500,8,'create',1,8,0,1),(1501,8,'create',6,7,0,1),(1502,8,'create',24,6,0,0),(1503,8,'create',2,5,0,0),(1504,8,'create',4,4,0,0),(1505,8,'create',10,3,0,0),(1506,8,'create',12,2,0,0),(1507,8,'create',13,1,0,0),(1508,8,'create',11,0,0,0),(1509,8,'edit',1,8,0,1),(1510,8,'edit',6,7,0,1),(1511,8,'edit',24,6,0,0),(1512,8,'edit',2,5,0,0),(1513,8,'edit',4,4,0,0),(1514,8,'edit',10,3,0,0),(1515,8,'edit',11,2,0,0),(1516,8,'edit',12,1,0,0),(1517,8,'edit',13,0,0,0);
 /*!40000 ALTER TABLE `issue_ui` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1192,7 +1193,7 @@ CREATE TABLE `log_operating` (
   KEY `uid` (`uid`) USING HASH,
   KEY `obj_id` (`obj_id`) USING BTREE,
   KEY `like_query` (`uid`,`action`,`remark`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='组合模糊查询索引';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='组合模糊查询索引';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1201,6 +1202,7 @@ CREATE TABLE `log_operating` (
 
 LOCK TABLES `log_operating` WRITE;
 /*!40000 ALTER TABLE `log_operating` DISABLE KEYS */;
+INSERT INTO `log_operating` VALUES (1,0,'项目',0,1,'master','Master','/project/main/create',NULL,NULL,'新增','Created Customer','[]','{\"name\":\"Canon Medical\",\"org_id\":\"1\",\"key\":\"1873817\",\"lead\":\"1\",\"description\":\"\",\"type\":60,\"category\":0,\"url\":\"\",\"create_time\":1581138470,\"create_uid\":\"1\",\"avatar\":\"\",\"detail\":\"\",\"org_path\":\"default\"}','172.17.0.1',1581138471),(2,1,'事项',1,1,'master','Master','/issue/main/add',NULL,NULL,'新增','新增事项','[]','{\"summary\":\"Audit 1\",\"creator\":\"1\",\"reporter\":\"1\",\"created\":1581138493,\"updated\":1581138493,\"project_id\":1,\"issue_type\":5,\"status\":1,\"priority\":1,\"description\":\"Description Here\",\"module\":\"\",\"environment\":\"\",\"start_date\":\"\",\"due_date\":\"\",\"sprint\":0}','172.17.0.1',1581138493),(3,1,'事项',2,1,'master','Master','/issue/main/add',NULL,NULL,'新增','新增事项','[]','{\"summary\":\"Head Quarters\",\"creator\":\"1\",\"reporter\":\"1\",\"created\":1581138754,\"updated\":1581138754,\"project_id\":1,\"issue_type\":8,\"priority\":4,\"assignee\":1,\"description\":\"# Site Name\\r\\nThis is the audit site description template!\",\"start_date\":\"\",\"due_date\":\"\"}','172.17.0.1',1581138754),(4,1,'事项',3,1,'master','Master','/issue/main/add',NULL,NULL,'新增','新增事项','[]','{\"summary\":\"Head Quarters\",\"creator\":\"1\",\"reporter\":\"1\",\"created\":1581138847,\"updated\":1581138847,\"project_id\":1,\"issue_type\":8,\"priority\":4,\"assignee\":1,\"description\":\"# Site Name\\r\\nThis is the audit site description template!\",\"start_date\":\"\",\"due_date\":\"\"}','172.17.0.1',1581138847),(5,1,'事项',4,1,'master','Master','/issue/main/add',NULL,NULL,'新增','新增事项','[]','{\"summary\":\"ISO 9001 -> 1.Section One -> 1.1.Customer\",\"creator\":\"1\",\"reporter\":\"1\",\"created\":1581138847,\"updated\":1581138847,\"standard_id\":\"3\",\"project_id\":1,\"issue_type\":8,\"description\":\"Has Proper Customer?\"}','172.17.0.1',1581138847),(6,1,'事项',2,1,'master','Master','/issue/main/update/',NULL,NULL,'编辑','修改事项','{\"id\":\"2\",\"pkey\":\"1873817\",\"issue_num\":\"2\",\"project_id\":\"1\",\"issue_type\":\"8\",\"creator\":\"1\",\"modifier\":\"0\",\"reporter\":\"1\",\"assignee\":\"1\",\"summary\":\"Head Quarters\",\"description\":\"# Site Name\\r\\nThis is the audit site description template!\",\"environment\":\"\",\"priority\":\"4\",\"resolve\":\"0\",\"status\":\"0\",\"created\":\"1581138754\",\"updated\":\"1581138754\",\"start_date\":\"0000-00-00\",\"due_date\":\"0000-00-00\",\"resolve_date\":null,\"module\":\"0\",\"milestone\":null,\"sprint\":\"0\",\"weight\":\"0\",\"backlog_weight\":\"0\",\"sprint_weight\":\"0\",\"assistants\":\"\",\"master_id\":\"1\",\"have_children\":\"0\",\"followed_count\":\"0\",\"comment_count\":\"0\",\"standard_id\":null}','{\"id\":\"2\",\"pkey\":\"1873817\",\"issue_num\":\"2\",\"project_id\":\"1\",\"issue_type\":\"8\",\"creator\":\"1\",\"modifier\":\"1\",\"reporter\":\"1\",\"assignee\":\"1\",\"summary\":\"Head Quarters\",\"description\":\"# Site Name\\r\\nThis is the audit site description template!\",\"environment\":\"\",\"priority\":\"4\",\"resolve\":\"0\",\"status\":1,\"created\":\"1581138754\",\"updated\":\"1581138754\",\"start_date\":\"0000-00-00\",\"due_date\":\"0000-00-00\",\"resolve_date\":null,\"module\":\"0\",\"milestone\":null,\"sprint\":\"0\",\"weight\":\"0\",\"backlog_weight\":\"0\",\"sprint_weight\":\"0\",\"assistants\":\"\",\"master_id\":\"1\",\"have_children\":\"0\",\"followed_count\":\"0\",\"comment_count\":\"0\",\"standard_id\":null}','172.17.0.1',1581138983);
 /*!40000 ALTER TABLE `log_operating` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1290,7 +1292,7 @@ CREATE TABLE `main_activity` (
   KEY `user_id` (`user_id`),
   KEY `project_id` (`project_id`),
   KEY `date` (`date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1299,6 +1301,7 @@ CREATE TABLE `main_activity` (
 
 LOCK TABLES `main_activity` WRITE;
 /*!40000 ALTER TABLE `main_activity` DISABLE KEYS */;
+INSERT INTO `main_activity` VALUES (1,1,1,'Created Customer','project',1,'Canon Medical','2020-02-08',1581138471),(2,1,1,'创建了事项','issue',1,'Audit 1','2020-02-08',1581138493),(3,1,1,'创建了 #1 的子任务','issue',2,'Head Quarters','2020-02-08',1581138754),(4,1,1,'创建了事项','issue',2,'Head Quarters','2020-02-08',1581138754),(5,1,1,'创建了 #1 的子任务','issue',3,'Head Quarters','2020-02-08',1581138847),(6,1,1,'创建了事项','issue',3,'Head Quarters','2020-02-08',1581138847),(7,1,1,'创建了 #3 的子任务','issue',4,'ISO 9001 -> 1.Section One -> 1.1.Customer','2020-02-08',1581138847),(8,1,1,'创建了事项','issue',4,'ISO 9001 -> 1.Section One -> 1.1.Customer','2020-02-08',1581138847),(9,1,1,'修改事项状态为 Open','issue',2,'Head Quarters','2020-02-08',1581138983);
 /*!40000 ALTER TABLE `main_activity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1353,7 +1356,7 @@ CREATE TABLE `main_cache_key` (
 
 LOCK TABLES `main_cache_key` WRITE;
 /*!40000 ALTER TABLE `main_cache_key` DISABLE KEYS */;
-INSERT INTO `main_cache_key` VALUES ('dict/description_template/getAll/0,*','dict/description_template','2020-02-15 12:45:35',1581741935),('dict/type/getAll/1,*','dict/type','2020-02-15 12:44:14',1581741854),('setting/getSettingByKey/date_timezone','setting','2020-02-15 12:45:49',1581741949),('setting/getSettingByKey/full_datetime_format','setting','2020-02-15 12:44:17',1581741857),('setting/getSettingByKey/title','setting','2020-02-15 12:44:09',1581741849);
+INSERT INTO `main_cache_key` VALUES ('dict/default_role/getAll/0,*','dict/default_role','2020-02-15 13:07:51',1581743271),('dict/default_role_relation/getAll/0,*','dict/default_role_relation','2020-02-15 13:07:51',1581743271),('dict/description_template/getAll/0,*','dict/description_template','2020-02-15 12:45:35',1581741935),('dict/label/getAll/1,*','dict/label','2020-02-15 13:14:24',1581743664),('dict/main/getAll/0,*','dict/main','2020-02-15 13:07:56',1581743276),('dict/main/getAll/1,*','dict/main','2020-02-15 13:08:13',1581743293),('dict/permission/getAll/1,*','dict/permission','2020-02-15 13:07:51',1581743271),('dict/priority/getAll/1,*','dict/priority','2020-02-15 13:08:13',1581743293),('dict/resolve/getAll/1,*','dict/resolve','2020-02-15 13:14:23',1581743663),('dict/status/getAll/1,*','dict/status','2020-02-15 13:08:13',1581743293),('dict/type/getAll/0,*','dict/type','2020-02-15 13:07:56',1581743276),('dict/type/getAll/1,*','dict/type','2020-02-15 12:44:14',1581741854),('dict/type_scheme/getAll/1,*','dict/type_scheme','2020-02-15 13:07:22',1581743242),('setting/getSettingByKey/date_timezone','setting','2020-02-15 12:45:49',1581741949),('setting/getSettingByKey/enable_mail','setting','2020-02-15 13:08:13',1581743293),('setting/getSettingByKey/full_datetime_format','setting','2020-02-15 12:44:17',1581741857),('setting/getSettingByKey/max_project_key','setting','2020-02-15 13:07:31',1581743251),('setting/getSettingByKey/max_project_name','setting','2020-02-15 13:07:31',1581743251),('setting/getSettingByKey/title','setting','2020-02-15 12:44:09',1581741849),('setting/getSettingRow/enable_async_mail','setting','2020-02-15 13:08:13',1581743293),('setting/getSettingRow/enable_mail','setting','2020-02-15 13:08:13',1581743293),('setting/getSettingRow/issue_view','setting','2020-02-15 13:07:51',1581743271),('setting/getSettingRow/project_view','setting','2020-02-15 13:07:51',1581743271);
 /*!40000 ALTER TABLE `main_cache_key` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1433,7 +1436,7 @@ CREATE TABLE `main_mail_queue` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `seq` (`seq`) USING BTREE,
   KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1442,6 +1445,7 @@ CREATE TABLE `main_mail_queue` (
 
 LOCK TABLES `main_mail_queue` WRITE;
 /*!40000 ALTER TABLE `main_mail_queue` DISABLE KEYS */;
+INSERT INTO `main_mail_queue` VALUES (1,'1581138493415','[default/1873817] Create Task #18738171 Audit 1','BXYMartin@hotmail.com','error',1581138493,'fsockopen failed:111 Connection refused'),(2,'1581138754460','[default/1873817] Create Task #18738172 Head Quarters','BXYMartin@hotmail.com','error',1581138754,'fsockopen failed:111 Connection refused'),(3,'1581138847232','[default/1873817] Create Task #18738173 Head Quarters','BXYMartin@hotmail.com','error',1581138847,'fsockopen failed:111 Connection refused'),(4,'1581138847283','[default/1873817] Create Task #18738174 ISO 9001 -> 1.Section One -> 1.1.Customer','BXYMartin@hotmail.com','error',1581138847,'fsockopen failed:111 Connection refused'),(5,'1581138983222','[default/1873817] Update Task #18738172 Head Quarters','BXYMartin@hotmail.com','error',1581138983,'fsockopen failed:111 Connection refused');
 /*!40000 ALTER TABLE `main_mail_queue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1898,7 +1902,7 @@ CREATE TABLE `project_issue_type_scheme_data` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `project_id` (`project_id`) USING BTREE,
   KEY `issue_type_scheme_id` (`issue_type_scheme_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1907,6 +1911,7 @@ CREATE TABLE `project_issue_type_scheme_data` (
 
 LOCK TABLES `project_issue_type_scheme_data` WRITE;
 /*!40000 ALTER TABLE `project_issue_type_scheme_data` DISABLE KEYS */;
+INSERT INTO `project_issue_type_scheme_data` VALUES (1,5,1);
 /*!40000 ALTER TABLE `project_issue_type_scheme_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2024,7 +2029,7 @@ CREATE TABLE `project_main` (
   KEY `uid` (`create_uid`),
   FULLTEXT KEY `fulltext_name_description` (`name`,`description`) /*!50100 WITH PARSER `ngram` */ ,
   FULLTEXT KEY `fulltext_name` (`name`) /*!50100 WITH PARSER `ngram` */ 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2033,6 +2038,7 @@ CREATE TABLE `project_main` (
 
 LOCK TABLES `project_main` WRITE;
 /*!40000 ALTER TABLE `project_main` DISABLE KEYS */;
+INSERT INTO `project_main` VALUES (1,1,'default','Canon Medical','',1,'','1873817',NULL,1,NULL,'',0,60,0,0,0,1,1581138470,0,0,0);
 /*!40000 ALTER TABLE `project_main` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2049,7 +2055,7 @@ CREATE TABLE `project_main_extra` (
   `detail` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `project_id` (`project_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2058,6 +2064,7 @@ CREATE TABLE `project_main_extra` (
 
 LOCK TABLES `project_main_extra` WRITE;
 /*!40000 ALTER TABLE `project_main_extra` DISABLE KEYS */;
+INSERT INTO `project_main_extra` VALUES (1,1,'');
 /*!40000 ALTER TABLE `project_main_extra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2104,7 +2111,7 @@ CREATE TABLE `project_role` (
   `description` varchar(255) DEFAULT NULL,
   `is_system` tinyint(1) unsigned DEFAULT '0' COMMENT '是否是默认角色',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2113,6 +2120,7 @@ CREATE TABLE `project_role` (
 
 LOCK TABLES `project_role` WRITE;
 /*!40000 ALTER TABLE `project_role` DISABLE KEYS */;
+INSERT INTO `project_role` VALUES (1,1,'Users','普通用户',1),(2,1,'Developers','开发者',1),(3,1,'Administrators','项目管理员',1),(4,1,'Researchers','研究人员',1),(5,1,'Professors','教职人员',1);
 /*!40000 ALTER TABLE `project_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2132,7 +2140,7 @@ CREATE TABLE `project_role_relation` (
   KEY `role_id` (`role_id`) USING HASH,
   KEY `role_id-and-perm_id` (`role_id`,`perm_id`) USING HASH,
   KEY `unique_data` (`project_id`,`role_id`,`perm_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2141,6 +2149,7 @@ CREATE TABLE `project_role_relation` (
 
 LOCK TABLES `project_role_relation` WRITE;
 /*!40000 ALTER TABLE `project_role_relation` DISABLE KEYS */;
+INSERT INTO `project_role_relation` VALUES (1,1,1,10005),(2,1,1,10006),(3,1,1,10007),(4,1,1,10008),(5,1,1,10013),(6,1,2,10005),(7,1,2,10006),(8,1,2,10007),(9,1,2,10008),(10,1,2,10013),(11,1,2,10014),(12,1,2,10015),(13,1,2,10028),(14,1,3,10004),(15,1,3,10005),(16,1,3,10006),(17,1,3,10007),(18,1,3,10008),(19,1,3,10013),(20,1,3,10014),(21,1,3,10015),(22,1,3,10028),(23,1,3,10902),(24,1,3,10903),(25,1,3,10904),(26,1,5,10004),(27,1,5,10005),(28,1,5,10006),(29,1,5,10007),(30,1,5,10008),(31,1,5,10013),(32,1,5,10014),(33,1,5,10015),(34,1,5,10028),(35,1,5,10902),(36,1,5,10903),(37,1,5,10904);
 /*!40000 ALTER TABLE `project_role_relation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2160,7 +2169,7 @@ CREATE TABLE `project_user_role` (
   UNIQUE KEY `unique` (`user_id`,`project_id`,`role_id`) USING BTREE,
   KEY `uid` (`user_id`) USING BTREE,
   KEY `uid_project` (`user_id`,`project_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2169,6 +2178,7 @@ CREATE TABLE `project_user_role` (
 
 LOCK TABLES `project_user_role` WRITE;
 /*!40000 ALTER TABLE `project_user_role` DISABLE KEYS */;
+INSERT INTO `project_user_role` VALUES (1,1,1,3);
 /*!40000 ALTER TABLE `project_user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2397,7 +2407,7 @@ CREATE TABLE `standard_main` (
   `parent_id` int(11) DEFAULT NULL,
   `tree_id` int(11) NOT NULL,
   PRIMARY KEY (`sid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2406,6 +2416,7 @@ CREATE TABLE `standard_main` (
 
 LOCK TABLES `standard_main` WRITE;
 /*!40000 ALTER TABLE `standard_main` DISABLE KEYS */;
+INSERT INTO `standard_main` VALUES (1,'ISO 9001','',NULL,1,6,0,1),(2,'Section One','overall docs and more','1',2,5,1,1),(3,'Customer','Has Proper Customer?','1.1',3,4,2,1);
 /*!40000 ALTER TABLE `standard_main` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2709,7 +2720,7 @@ CREATE TABLE `user_main` (
 
 LOCK TABLES `user_main` WRITE;
 /*!40000 ALTER TABLE `user_main` DISABLE KEYS */;
-INSERT INTO `user_main` VALUES (1,1,'15652579676','master','q7a752741f667201b54780c926faec4e',1,'','master','Master','BXYMartin@hotmail.com','$2y$10$88g8el9pk7yC4K4N8o2NFedeG5ytoUwwzQ5G6TFQbKTkpBOOrOBkm',1,'2019-01-13',0,0,'avatar/1.png?t=1562323397','',NULL,NULL,NULL,NULL,1562323381,1,0,'Administrator','Make Audit Great Again!');
+INSERT INTO `user_main` VALUES (1,1,'15652579676','master','q7a752741f667201b54780c926faec4e',1,'','master','Master','BXYMartin@hotmail.com','$2y$10$qY2gn21AQOwqLLNnKBKn5.RgSajr7bZSRWBeFnbz0Y/iUzD0Q0uqe',1,'2019-01-13',0,0,'avatar/1.png?t=1562323397','',NULL,NULL,NULL,NULL,1562323381,1,0,'Administrator','Make Audit Great Again!');
 /*!40000 ALTER TABLE `user_main` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3107,4 +3118,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-08  5:04:29
+-- Dump completed on 2020-02-08  5:20:43

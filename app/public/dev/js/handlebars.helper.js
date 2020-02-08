@@ -270,11 +270,13 @@ $(function () {
         var html = '';
         console.log(_issueConfig.issue_status);
         if ( is_empty(status_id) ) {
-            return '';
+            html += '<span class="label prepend-left-5" style="background-color: #444">Waiting</span>';
+            return new Handlebars.SafeString(html);
         }
         var status_row = getValueByKey(_issueConfig.issue_status, status_id);
         if (status_row == null) {
-            return '';
+            html += '<span class="label prepend-left-5" style="background-color: #444">Waiting</span>';
+            return new Handlebars.SafeString(html);
         }
         html += '<span class="label label-' + status_row.color + ' prepend-left-5">' + status_row.name + '</span>';
         return new Handlebars.SafeString(html);
