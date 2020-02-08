@@ -18,7 +18,7 @@
         $(function () {
             jQuery.validator.addMethod("lettersonly", function (value, element) {
                 return this.optional(element) || /^[^:%,'\*\"\s\<\>\&]+$/i.test(value);
-            }, "不得含有特殊字符");
+            }, "Letters Only!");
             $("#install_form").validate({
                 errorElement: "font",
                 rules: {
@@ -37,11 +37,11 @@
             });
 
             jQuery.extend(jQuery.validator.messages, {
-                required: "未输入",
-                digits: "格式错误",
-                lettersonly: "不得含有特殊字符",
-                equalTo: "两次密码不一致",
-                minlength: "密码至少6位"
+                required: "Required",
+                digits: "Wrong Format",
+                lettersonly: "Special Characters Not Allowed",
+                equalTo: "Inconsistent Password",
+                minlength: "Password Too Short"
             });
 
             $('#next').click(function () {
@@ -55,12 +55,12 @@
                         if(resp.ret!=200){
                             alert( resp.msg);
                         }else{
-                            alert( "Mysql连接成功" );
+                            alert( "MySQL connected successfully!" );
                             $('#install_form').submit();
                         }
                     },
                     error: function (res) {
-                        alert("网络错误:" + JSON.stringify(res));
+                        alert("Network Error: " + JSON.stringify(res));
                     }
                 });
             });
@@ -73,9 +73,9 @@
 <div class="main">
     <div class="step-box" id="step3">
         <div class="text-nav">
-            <h1>Step.3</h1>
-            <h2>创建数据库</h2>
-            <h5>填写数据库及站点相关信息</h5>
+            <h1>3</h1>
+            <h2>Database Setup</h2>
+            <h5>Complete MySQL Setup</h5>
         </div>
         <div class="procedure-nav">
             <div class="schedule-ico"><span class="a"></span><span class="b"></span><span class="c"></span><span
@@ -86,8 +86,8 @@
                         class="d"></span></div>
             <div class="schedule-line-now"><em></em></div>
             <div class="schedule-line-bg"></div>
-            <div class="schedule-text"><span class="a">检查安装环境</span><span class="b">Redis和异步服务器配置</span><span
-                        class="c">创建数据库</span><span class="d">安装</span></div>
+            <div class="schedule-text"><span class="a">Env Setup</span><span class="b">Server Setup</span><span
+                        class="c">Database Setup</span><span class="d">Install</span></div>
         </div>
     </div>
     <form action="" id="install_form" method="post">
@@ -101,41 +101,41 @@
         <input type="hidden" value="<?php echo $_POST['php_bin'] ? $_POST['php_bin'] : $php_bin?>" name="php_bin">
         <div class="form-box control-group">
             <fieldset>
-                <legend>数据库信息</legend>
+                <legend>Database Info</legend>
                 <div>
-                    <label>数据库服务器</label>
+                    <label>Database Server</label>
                     <span> <input type="text" name="db_host"  value="<?php echo $_POST['db_host'] ? $_POST['db_host'] : 'localhost'; ?>">
-                    </span> <em>数据库服务器地址，一般为localhost</em>
+                    </span> <em>Normally localhost</em>
                 </div>
                 <div>
-                    <label>数据库名</label>
+                    <label>Database Name</label>
                     <span>
-                        <input type="text" name="db_name"   value="<?php echo $_POST['db_name'] ? $_POST['db_name'] : 'masterlab'; ?>">
+                        <input type="text" name="db_name"   value="<?php echo $_POST['db_name'] ? $_POST['db_name'] : 'auditing'; ?>">
                     </span> <em></em>
                 </div>
                 <div>
-                    <label>数据库用户名</label>
+                    <label>Database Username</label>
                     <span>
                         <input type="text" name="db_user"   value="<?php echo $_POST['db_user'] ? $_POST['db_user'] : 'root'; ?>">
                     </span> <em></em>
                 </div>
                 <div>
-                    <label>数据库密码</label>
+                    <label>Database Password</label>
                     <span>
                         <input type="password" name="db_pwd"   value="<?php echo $_POST['db_pwd'] ? $_POST['db_pwd'] : ''; ?>">
                     </span> <em></em>
                 </div>
                 <div style="display: none">
-                    <label>数据库表前缀</label>
+                    <label>Database Prefix</label>
                     <span>
                         <input type="text" name="db_prefix"   value="<?php echo $_POST['db_prefix'] ? $_POST['db_prefix'] : ''; ?>">
-                    </span> <em>同一数据库运行多个程序时，请修改前缀</em>
+                    </span> <em>Please Modify Prefix (if runs on multiple instances)</em>
                 </div>
                 <div>
-                    <label>数据库端口</label>
+                    <label>Database Port</label>
                     <span>
                         <input type="text" name="db_port" maxlength="20" value="<?php echo $_POST['db_port'] ? $_POST['db_port'] : '3306'; ?>">
-                    </span> <em>数据库默认端口一般为3306</em>
+                    </span> <em>Default Port is 3306</em>
                 </div>
                 <?php if ($demo_data) { ?>
                     <div style="display: none">
@@ -144,7 +144,7 @@
                                name="demo_data" <?php echo($_POST['demo_data'] == 1 ? 'checked' : 'checked'); ?>
                                id="demo_data"
                                value="1">
-                        <h4>安装演示数据</h4>
+                        <h4>Install Demo Database</h4>
                     </div>
                 <?php } ?>
                 <?php if ($install_error != '') { ?>
@@ -154,21 +154,21 @@
                 <?php } ?>
             </fieldset>
             <fieldset>
-                <legend>网站信息</legend>
+                <legend>Site Info</legend>
                 <div>
-                    <label>公司名称</label>
+                    <label>Site Name</label>
                     <span>
                         <input name="site_name" value="<?php echo $_POST['site_name'] ? $_POST['site_name'] : '' ?>" maxlength="100" type="text">
-                    </span> <em>输入公司名称</em>
+                    </span> <em>Enter Site Name</em>
                 </div>
                 <div>
-                    <label>联系人</label>
+                    <label>Contact</label>
                     <span>
                         <input name="linkman" id="linkman" value="<?php echo $_POST['linkman'] ? $_POST['linkman'] : '' ?>" maxlength="20"  type="text">
                     </span> <em></em>
                 </div>
                 <div>
-                    <label>联系电话</label>
+                    <label>Phone Number</label>
                     <span>
                         <input name="phone" id="phone"  value="<?php echo $_POST['phone'] ? $_POST['phone'] : '' ?>" maxlength="20"  type="text">
                     </span> <em></em>
@@ -177,30 +177,30 @@
                     <label>Email</label>
                     <span>
                         <input name="email" id="email"  value="<?php echo $_POST['email'] ? $_POST['email'] : '' ?>" maxlength="255"  type="text">
-                    </span> <em>找回密码和登录账号</em>
+                    </span> <em>This is your login info</em>
                 </div>
                 <div>
-                    <label>管理员账号</label>
+                    <label>Master Account</label>
                     <span>
                         <input name="admin"  id="admin"  readonly="readonly" value="<?php echo $_POST['admin'] ? $_POST['admin'] : 'master' ?>" maxlength="20"  type="text">
                     </span> <em></em>
                 </div>
                 <div>
-                    <label>管理员密码</label>
+                    <label>Master Password</label>
                     <span>
                         <input name="password" id="password" maxlength="20"  value="<?php echo $_POST['password'] ? $_POST['password'] : '123456' ?>" type="password">
-                    </span> <em>默认123456，管理员密码不少于6个字符</em>
+                    </span> <em>Default is 123456, longer than 6 characters</em>
                 </div>
                 <div>
-                    <label>重复密码</label>
+                    <label>Repeat Password</label>
                     <span>
                         <input name="rpassword" value="<?php echo $_POST['rpassword'] ? $_POST['rpassword'] : '123456' ?>"   maxlength="20" type="password">
-                    </span> <em>默认123456，确保两次输入的密码一致</em>
+                    </span> <em>Default is 123456, make sure they are identical</em>
                 </div>
             </fieldset>
         </div>
-        <div class="btn-box"><a href="index.php?step=2" class="btn btn-primary">上一步</a>
-            <a id="next" href="javascript:void(0);"  class="btn btn-primary">下一步</a>
+        <div class="btn-box"><a href="index.php?step=2" class="btn btn-primary">Previous</a>
+            <a id="next" href="javascript:void(0);"  class="btn btn-primary">Next</a>
         </div>
     </form>
 </div>

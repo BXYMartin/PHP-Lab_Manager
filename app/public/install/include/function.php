@@ -31,28 +31,28 @@ function importSql(&$install_error, &$install_recover)
     $admin = $_POST['admin'];
     $password = $_POST['password'];
     if (!$db_host || !$db_port || !$db_user || !$db_name || !$admin || !$password) {
-        $install_error = '输入不完整，请检查';
+        $install_error = 'Missing required input!';
     }
     if (strpos($db_prefix, '.') !== false) {
-        $install_error .= '数据表前缀为空，或者格式错误，请检查';
+        $install_error .= 'Empty database prefix!';
     }
 
     if (strlen($admin) > 15 || preg_match("/^$|^c:\\con\\con$|　|[,\"\s\t\<\>&]|^游客|^Guest/is", $admin)) {
-        $install_error .= '非法用户名，用户名长度不应当超过 15 个英文字符，且不能包含特殊字符，一般是中文，字母或者数字';
+        $install_error .= 'Illegal username, usually 15 numbers and/or letters in length.';
     }
     if ($install_error != '') {
         return;
     }
     $mysqli = @ new mysqli($db_host, $db_user, $db_pwd, '', $db_port);
     if ($mysqli->connect_error) {
-        $install_error = '数据库连接失败';
+        $install_error = "Failed to connect to database!";
         return;
     }
 
     if (floatval($mysqli->get_server_info()) > 5.0) {
         $mysqli->query("CREATE DATABASE IF NOT EXISTS `$db_name` DEFAULT CHARACTER SET " . DBCHARSET);
     } else {
-        $install_error = '数据库必须为MySQL5.0版本以上';
+        $install_error = 'Database version must be MySQL 5.0 and above';
         return;
     }
     if ($mysqli->error) {
@@ -62,7 +62,7 @@ function importSql(&$install_error, &$install_recover)
     if ($_POST['install_recover'] != 'yes' && ($query = $mysqli->query("SHOW TABLES FROM $db_name"))) {
         while ($row = mysqli_fetch_array($query)) {
             if (preg_match("/^$db_prefix/", $row[0])) {
-                $install_error = '数据表已存在，继续安装将会覆盖已有数据';
+                $install_error = 'Database already exist, try again to overwrite!';
                 $install_recover = 'yes';
                 return;
             }
@@ -83,7 +83,7 @@ function importSql(&$install_error, &$install_recover)
     writeCacheConfig(true);
     writeSocketConfig();
     $ret = file_put_contents(ROOT_PATH . '/../../env.ini', "APP_STATUS = deploy\n");
-    showJsMessage("env.ini文件写入结果:" . $ret);
+    showJsMessage("env.ini Write Result:" . $ret);
 
     $_charset = strtolower(DBCHARSET);
     $mysqli->select_db($db_name);
@@ -132,13 +132,13 @@ function importSql(&$install_error, &$install_recover)
         runSql($sql, $db_prefix, $mysqli);
         $mysqli->query("COMMIT;");
     }
-    showJsMessage('初始化数据 ... 成功 ');
+    showJsMessage('Successfully Initialized Data ... ');
 
 
     //新增一个标识文件，用来屏蔽重新安装
     $fp = @fopen('lock', 'wb+');
     @fclose($fp);
-    exit("<script type=\"text/javascript\">document.getElementById('install_process').innerHTML = '安装完成，下一步...';document.getElementById('install_process').href='index.php?step=5';</script>");
+    exit("<script type=\"text/javascript\">document.getElementById('install_process').innerHTML = 'Installation Complete';document.getElementById('install_process').href='index.php?step=5';</script>");
     exit();
 }
 
@@ -167,7 +167,7 @@ function runSql($sql, $db_prefix, $mysqli)
             if (substr($query, 0, 12) == 'CREATE TABLE') {
                 $line = explode('`', $query);
                 $data_name = $line[1];
-                showJsMessage('数据表  ' . $data_name . ' ... 创建成功');
+                showJsMessage('Successfully Created Table  ' . $data_name . ' ...');
                 $mysqli->query(droptable($data_name));
                 $mysqli->query($query);
                 unset($line, $data_name);
@@ -215,7 +215,7 @@ function writeDbConfig()
     $_config['database']['log_db'] = $mysqlConfig;
 
     $ret = file_put_contents($dbFile, "<?php \n" . '$_config=' . var_export($_config, true) . ";\n" . 'return $_config;');
-    showJsMessage("数据库文件配置写入结果:" . $ret);
+    showJsMessage("Database Settings Write Result:" . $ret);
 }
 
 /**
@@ -227,7 +227,7 @@ function writeAppConfig($url)
     $appContent = file_get_contents($appFile);
     $appContent = preg_replace('/define\s*\(\s*\'ROOT_URL\'\s*,\s*\'([^\']*)\'\);/m', "define('ROOT_URL', '" . $url . "');", $appContent);
     $ret = file_put_contents($appFile, $appContent);
-    showJsMessage("主配置文件写入结果:" . $ret);
+    showJsMessage("Main Settings Write Result:" . $ret);
 }
 
 /**
@@ -249,7 +249,7 @@ function writeCacheConfig($enable = false)
     $_config['enable'] = (bool)$enable;
 
     $ret = file_put_contents($redisFile, "<?php \n" . '$_config = ' . var_export($_config, true) . ";\n" . 'return $_config;');
-    showJsMessage("缓存配置文件写入结果:" . $ret);
+    showJsMessage("Cache Settings Write Result:" . $ret);
 }
 
 function writeSocketConfig()
@@ -267,7 +267,7 @@ function writeSocketConfig()
     $searchArr['{{redis_password}}'] = trimString($_POST['redis_password']);
     $content = str_replace(array_keys($searchArr), array_values($searchArr), $tplContent);
     $ret = file_put_contents(ROOT_PATH . '/../../bin/config.toml', $content);
-    showJsMessage("MasterlabSocket config.toml 文件写入结果:" . (bool)$ret);
+    showJsMessage("Socket config.toml Write Result:" . (bool)$ret);
 
     $tplFile = ROOT_PATH . '/../../bin/cron-tpl.json';
     $tplContent = file_get_contents($tplFile);
@@ -277,7 +277,7 @@ function writeSocketConfig()
     $searchArr['{{root_path}}'] = str_replace('\\','/',$preAppPath );
     $content = str_replace(array_keys($searchArr), array_values($searchArr), $tplContent);
     $ret = file_put_contents(ROOT_PATH . '/../../bin/cron.json', $content);
-    showJsMessage("MasterlabSocket cron.json 文件写入结果:" . (bool)$ret);
+    showJsMessage("Socket cron.json Write Result:" . (bool)$ret);
 }
 
 /**
@@ -285,13 +285,13 @@ function writeSocketConfig()
  */
 function env_check(&$env_items)
 {
-    $env_items[] = array('name' => '操作系统', 'min' => '无限制', 'good' => 'linux', 'cur' => PHP_OS, 'status' => 1);
-    $env_items[] = array('name' => 'PHP版本', 'min' => '5.6', 'good' => '7.1', 'cur' => PHP_VERSION, 'status' => (PHP_VERSION < 5.6 ? 0 : 1));
+    $env_items[] = array('name' => 'Operating System', 'min' => 'Unlimited', 'good' => 'linux', 'cur' => PHP_OS, 'status' => 1);
+    $env_items[] = array('name' => 'PHP Version', 'min' => '5.6', 'good' => '7.1', 'cur' => PHP_VERSION, 'status' => (PHP_VERSION < 5.6 ? 0 : 1));
     $tmp = function_exists('gd_info') ? gd_info() : array();
     preg_match("/[\d.]+/", $tmp['GD Version'], $match);
     unset($tmp);
-    $env_items[] = array('name' => 'GD库', 'min' => '2.0', 'good' => '2.0', 'cur' => $match[0], 'status' => ($match[0] < 2 ? 0 : 1));
-    $env_items[] = array('name' => '附件上传', 'min' => '未限制', 'good' => '8M', 'cur' => ini_get('upload_max_filesize'), 'status' => 1);
+    $env_items[] = array('name' => 'GD Version', 'min' => '2.0', 'good' => '2.0', 'cur' => $match[0], 'status' => ($match[0] < 2 ? 0 : 1));
+    $env_items[] = array('name' => 'Attachment Upload', 'min' => 'Unlimited', 'good' => '8M', 'cur' => ini_get('upload_max_filesize'), 'status' => 1);
     $short_open_tag = strtolower(ini_get('short_open_tag'));
     if ($short_open_tag == '1' || $short_open_tag == 'on') {
         $short_open_tag = 'on';
@@ -299,9 +299,9 @@ function env_check(&$env_items)
         $short_open_tag = 'off';
     }
     $short_open_tag_status = $short_open_tag == 'on' ? 1 : 0;
-    $env_items[] = array('name' => '短标记 short_open_tag', 'min' => 'on', 'good' => 'on', 'cur' => $short_open_tag, 'status' => $short_open_tag_status);
+    $env_items[] = array('name' => 'short_open_tag', 'min' => 'on', 'good' => 'on', 'cur' => $short_open_tag, 'status' => $short_open_tag_status);
     $disk_place = function_exists('disk_free_space') ? floor(disk_free_space(ROOT_PATH) / (1024 * 1024)) : 0;
-    $env_items[] = array('name' => '磁盘空间', 'min' => '200M', 'good' => '>500M', 'cur' => empty($disk_place) ? '未知' : $disk_place . 'M', 'status' => $disk_place < 200 ? 0 : 1);
+    $env_items[] = array('name' => 'Disk Space', 'min' => '200M', 'good' => '>500M', 'cur' => empty($disk_place) ? 'Unknown' : $disk_place . 'M', 'status' => $disk_place < 200 ? 0 : 1);
 }
 
 /**
@@ -425,7 +425,7 @@ function check_mysql()
         new PDO($dsn, $user, $password);
     } catch (PDOException $e) {
         $ret['ret'] = 0;
-        $ret['msg'] = 'Mysql连接失败,请检查连接配置';
+        $ret['msg'] = 'MySQL connect failed, please double check!';
         return $ret;
     }
     return $ret;
@@ -446,7 +446,7 @@ function check_redis()
     $pwd = trimString($_POST['redis_password']);
     if (!extension_loaded("redis")) {
         $ret['ret'] = 405;
-        $ret['msg'] = 'Redis扩展未安装';
+        $ret['msg'] = 'Redis Extension not installed!';
         return $ret;
     }
     try {
@@ -457,12 +457,12 @@ function check_redis()
         }
         if (!$connectRet) {
             $ret['ret'] = 500;
-            $ret['msg'] = 'Redis服务连接失败,请启动服务或检查配置.' . mb_convert_encoding($connectRet, 'utf-8', 'gbk');
+            $ret['msg'] = 'Failed to connect to Redis Server: ' . mb_convert_encoding($connectRet, 'utf-8', 'gbk');
             return $ret;
         }
     } catch (\Exception $e) {
         $ret['ret'] = 501;
-        $ret['msg'] = 'Redis服务连接异常,原因:' . mb_convert_encoding($e->getMessage(), 'utf-8', 'gbk');
+        $ret['msg'] = 'Error in Redis Connection: ' . mb_convert_encoding($e->getMessage(), 'utf-8', 'gbk');
         return $ret;
     }
     return $ret;
@@ -482,7 +482,7 @@ function check_socket()
     $fp = fsockopen($host, $port, $errno, $errstr, 10);
     if (!$fp) {
         $ret['ret'] = 500;
-        $ret['msg'] = 'Matserlab_Socket连接失败,请启动或检查配置.:' . mb_convert_encoding($errno . " " . $errstr, 'utf-8', 'gbk');
+        $ret['msg'] = 'Error in Socket Connection:' . mb_convert_encoding($errno . " " . $errstr, 'utf-8', 'gbk');
         return $ret;
     }
 

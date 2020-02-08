@@ -20,27 +20,27 @@ input($_POST);
 //判断是否安装过程序
 if (is_file('lock') && $_GET['step'] != 5) {
     @header("Content-type: text/html; charset=UTF-8");
-    echo "系统已经安装过了，如果要重新安装，那么请删除install目录下的lock文件";
+    echo "System already initialized, if you prefer a reinstall, please remove the lock file under install directory.";
     exit;
 }
 
-$html_title = 'Masterlab安装向导';
+$html_title = 'Audit Manager Installation Guide';
 $html_header = <<<EOF
 <div class="header">
   <div class="layout">
     <div class="title">
       <h5></h5>
-      <h2>Masterlab安装向导</h2>
+      <h2>Audit Manager Installation Guide</h2>
     </div>
-    <div class="version">版本: v1.2</div>
+    <div class="version">Version: 1.2</div>
   </div>
 </div>
 EOF;
 
 $html_footer = <<<EOF
 <div class="footer">
-  <h5>Powered by <span class="blue">Masterlab</span><span class="orange"></span></h5>
-  <h6>版权所有 2017-2018 &copy; <a href="http://www.masterlab.vip" target="_blank">Masterlab Team</a></h6>
+  <h5>Powered by <span class="blue">Audit Manager</span><span class="orange"></span></h5>
+  <h6>Copyright 2020 &copy; <a href="#" target="_blank">Audit Manager Team</a></h6>
 </div>
 EOF;
 $step = 0;

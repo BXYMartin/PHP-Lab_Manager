@@ -11,7 +11,7 @@ $(document).ready(function(){
         if (typeof($('.no').html()) == 'undefined'){
             $(this).attr('href','index.php?step=2');
         }else{
-            alert($('.no').eq(0).parent().parent().find('td:first').html()+' 未通过检测!');
+            alert($('.no').eq(0).parent().parent().find('td:first').html()+' Check Failed!');
             $(this).attr('href','###');
         }
     });
@@ -23,9 +23,9 @@ $(document).ready(function(){
 <div class="main">
   <div class="step-box" id="step1">
     <div class="text-nav">
-      <h1>Step.1</h1>
-      <h2>开始安装</h2>
-      <h5>检测服务器环境及文件目录权限</h5>
+      <h1>1</h1>
+      <h2>Installation</h2>
+      <h5>Check Server Environment & Permissions</h5>
     </div>
     <div class="procedure-nav">
       <div class="schedule-ico"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>
@@ -33,19 +33,19 @@ $(document).ready(function(){
       <div class="schedule-point-bg"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>
       <div class="schedule-line-now"><em></em></div>
       <div class="schedule-line-bg"></div>
-      <div class="schedule-text"><span class="a">检查安装环境</span><span class="b">Redis和异步服务器配置</span><span class="c">创建数据库</span><span class="d">安装</span></div>
+      <div class="schedule-text"><span class="a">Env Setup</span><span class="b">Server Setup</span><span class="c">Database Setup</span><span class="d">Install</span></div>
     </div>
   </div>
   <div class="content-box">
     <table width="100%" border="0" cellspacing="2" cellpadding="0">
       <caption>
-      环境检查
+      Environment Check List
       </caption>
       <tr>
-        <th scope="col">项目</th>
-        <th width="25%" scope="col">程序所需</th>
-        <th width="25%" scope="col">最佳配置推荐</th>
-        <th width="25%" scope="col">当前服务器</th>
+        <th scope="col">Check List</th>
+        <th width="25%" scope="col">Minimum Requirement</th>
+        <th width="25%" scope="col">Recommended</th>
+        <th width="25%" scope="col">Current Setup</th>
       </tr>
       <?php foreach($env_items as $v){?>
       <tr>
@@ -58,60 +58,60 @@ $(document).ready(function(){
     </table>
     <table width="100%" border="0" cellspacing="2" cellpadding="0">
       <caption>
-      目录、文件权限检查
+      File Permission Check List
       </caption>
       <tr>
-        <th scope="col">目录文件</th>
-        <th width="25%" scope="col">所需状态</th>
-        <th width="25%" scope="col">当前状态</th>
+        <th scope="col">Directory</th>
+        <th width="25%" scope="col">Required</th>
+        <th width="25%" scope="col">Current</th>
       </tr>
       <?php foreach($dirfile_items as $k => $v){?>
       <tr>
         <td><?php echo $v['path'];?> </td>
-        <td><span>可写</span></td>
-        <td><span class="<?php echo $v['status'] == 1 ? 'yes' : 'no';?>"><i></i><?php echo $v['status'] == 1 ? '可写' : '不可写';?></span></td>
+        <td><span>Read/Write</span></td>
+        <td><span class="<?php echo $v['status'] == 1 ? 'yes' : 'no';?>"><i></i><?php echo $v['status'] == 1 ? 'Read/Write' : 'Read Only';?></span></td>
       </tr>
       <?php }?>
     </table>
       <table width="100%" border="0" cellspacing="2" cellpadding="0">
           <caption>
-              扩展检查
+          Extension Check List
           </caption>
           <tr>
-              <th scope="col">所需扩展</th>
-              <th width="25%" scope="col">所需状态</th>
-              <th width="25%" scope="col">当前状态</th>
+              <th scope="col">Extension</th>
+              <th width="25%" scope="col">Required</th>
+              <th width="25%" scope="col">Current</th>
           </tr>
           <?php foreach($extension_items as $k =>$v){?>
               <tr>
                   <td><?php echo $v['name'];?></td>
-                  <td><span>安装</span></td>
-                  <td><span class="<?php echo $v['status'] == 1 ? 'yes' : 'no';?>"><i></i><?php echo $v['status'] == 1 ? '已安装' : '未安装';?></span></td>
+                  <td><span>Install</span></td>
+                  <td><span class="<?php echo $v['status'] == 1 ? 'yes' : 'no';?>"><i></i><?php echo $v['status'] == 1 ? 'Installed' : 'Not Installed';?></span></td>
               </tr>
           <?php }?>
       </table>
     <table width="100%" border="0" cellspacing="2" cellpadding="0">
       <caption>
-      函数检查
+      Function Check List
       </caption>
       <tr>
-        <th scope="col">目录文件</th>
-        <th width="25%" scope="col">所需状态</th>
-        <th width="25%" scope="col">当前状态</th>
+        <th scope="col">Directory</th>
+        <th width="25%" scope="col">Required</th>
+        <th width="25%" scope="col">Current</th>
       </tr>
       <?php foreach($func_items as $k =>$v){?>
       <tr>
         <td><?php echo $v['name'];?>()</td>
-        <td><span>支持</span></td>
-        <td><span class="<?php echo $v['status'] == 1 ? 'yes' : 'no';?>"><i></i><?php echo $v['status'] == 1 ? '支持' : '不支持';?></span></td>
+        <td><span>Supported</span></td>
+        <td><span class="<?php echo $v['status'] == 1 ? 'yes' : 'no';?>"><i></i><?php echo $v['status'] == 1 ? 'Supported' : 'Not Supported';?></span></td>
       </tr>
       <?php }?>
 
     </table>
   </div>
-    <div class="btn-box" style="text-align:left">提示:赋予的是当前运行的php用户写入权限， Linux赋予权限命令举例： chown -R www:www /var/lib/php/session </div>
+    <div class="btn-box" style="text-align:left">Note: Grant Read/Write Access to Current PHP User, Linux Example: chown -R www:www /var/lib/php/session </div>
 
-  <div class="btn-box"><a href="index.php" class="btn btn-primary">上一步</a><a href='##' id="next" class="btn btn-primary">下一步</a></div>
+  <div class="btn-box"><a href="index.php" class="btn btn-primary">Previous</a><a href='##' id="next" class="btn btn-primary">Next</a></div>
 </div>
 <?php echo $html_footer;?>
 </body>

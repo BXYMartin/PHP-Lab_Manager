@@ -474,52 +474,6 @@ CREATE TABLE `issue_filter` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `issue_standard_*`
---
-
-CREATE TABLE `issue_standard_desc` (
-	`sid` int(11) NOT NULL AUTO_INCREMENT,
-	`issue_id` int(11) unsigned NOT NULL,
-	`auditor_desc` varchar(128) DEFAULT NULL,
-	`publish_desc` varchar(128) DEFAULT NULL,
-	PRIMARY KEY (`sid`),
-	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
-
-CREATE TABLE `issue_standard_person` (
-	`sid` int(11) NOT NULL AUTO_INCREMENT,
-	`issue_id` int(11) unsigned NOT NULL,
-	`name` varchar(128) NOT NULL,
-	`position` varchar(128) DEFAULT NULL,
-	`description` varchar(128) DEFAULT NULL,
-	PRIMARY KEY (`sid`),
-	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
-
-CREATE TABLE `issue_standard_doc` (
-	`sid` int(11) NOT NULL AUTO_INCREMENT,
-	`issue_id` int(11) unsigned NOT NULL,
-	`status` varchar(128) NOT NULL,
-	`name` varchar(128) NOT NULL,
-	`rev` varchar(128) DEFAULT NULL,
-	`description` varchar(128) DEFAULT NULL,
-	PRIMARY KEY (`sid`),
-	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
-
-CREATE TABLE `issue_standard_record` (
-	`sid` int(11) NOT NULL AUTO_INCREMENT,
-	`issue_id` int(11) unsigned NOT NULL,
-	`status` varchar(128) NOT NULL,
-	`type` varchar(128) DEFAULT NULL,
-	`description` varchar(128) DEFAULT NULL,
-	PRIMARY KEY (`sid`),
-	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `issue_fix_version`
 --
 
@@ -617,6 +571,52 @@ CREATE TABLE `issue_main` (
   `standard_id` int(11) DEFAULT NULL,
   FOREIGN KEY (`standard_id`) REFERENCES `standard_main` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `issue_standard_*`
+--
+
+CREATE TABLE `issue_standard_desc` (
+	`sid` int(11) NOT NULL AUTO_INCREMENT,
+	`issue_id` int(11) unsigned NOT NULL,
+	`auditor_desc` varchar(128) DEFAULT NULL,
+	`publish_desc` varchar(128) DEFAULT NULL,
+	PRIMARY KEY (`sid`),
+	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+CREATE TABLE `issue_standard_person` (
+	`sid` int(11) NOT NULL AUTO_INCREMENT,
+	`issue_id` int(11) unsigned NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`position` varchar(128) DEFAULT NULL,
+	`description` varchar(128) DEFAULT NULL,
+	PRIMARY KEY (`sid`),
+	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+CREATE TABLE `issue_standard_doc` (
+	`sid` int(11) NOT NULL AUTO_INCREMENT,
+	`issue_id` int(11) unsigned NOT NULL,
+	`status` varchar(128) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`rev` varchar(128) DEFAULT NULL,
+	`description` varchar(128) DEFAULT NULL,
+	PRIMARY KEY (`sid`),
+	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
+
+CREATE TABLE `issue_standard_record` (
+	`sid` int(11) NOT NULL AUTO_INCREMENT,
+	`issue_id` int(11) unsigned NOT NULL,
+	`status` varchar(128) NOT NULL,
+	`type` varchar(128) DEFAULT NULL,
+	`description` varchar(128) DEFAULT NULL,
+	PRIMARY KEY (`sid`),
+	FOREIGN KEY (`issue_id`) REFERENCES `issue_main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=0;
 
 -- --------------------------------------------------------
 
@@ -755,9 +755,9 @@ INSERT INTO `issue_status` (`id`, `sequence`, `name`, `_key`, `description`, `fo
 (4, 4, 'Reopen', 'reopen', 'Task Reopened and Waiting to be Solved', '/images/icons/statuses/reopened.png', 1, 'warning'),
 (5, 5, 'Solved', 'resolved', 'Task Solved', '/images/icons/statuses/resolved.png', 1, 'success'),
 (6, 6, 'Closed', 'closed', 'Task Closed', '/images/icons/statuses/closed.png', 1, 'success'),
-(10001, 0, 'Finished', 'done', 'Task Finished', '', 1, 'success'),
-(10002, 9, 'Reviewing', 'in_review', 'Task Being Reviewed', '/images/icons/statuses/information.png', 1, 'info'),
-(10100, 10, 'Delayed', 'delay', 'Task Being Delayed', '/images/icons/statuses/generic.png', 1, 'info');
+(7, 0, 'Finished', 'done', 'Task Finished', '', 1, 'success'),
+(8, 9, 'Reviewing', 'in_review', 'Task Being Reviewed', '/images/icons/statuses/information.png', 1, 'info'),
+(9, 10, 'Delayed', 'delay', 'Task Being Delayed', '/images/icons/statuses/generic.png', 1, 'info');
 
 -- --------------------------------------------------------
 
